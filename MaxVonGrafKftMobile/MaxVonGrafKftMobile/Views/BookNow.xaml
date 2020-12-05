@@ -1,0 +1,1352 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MaxVonGrafKftMobile.Views.BookNow"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:local="clr-namespace:MaxVonGrafKftMobile.MarkupExtensions"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:renders="clr-namespace:MaxVonGrafKftMobile.Renders"
+    BackgroundColor="{StaticResource MaxVonWhite}"
+    NavigationPage.HasBackButton="True"
+    mc:Ignorable="d">
+
+
+    <ContentPage.Content>
+
+        <!--<StackLayout>
+            <Grid Margin="10,1,10,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+
+                <Frame HeightRequest="40"
+                       WidthRequest="40"
+                       CornerRadius="40"
+                       BorderColor="{StaticResource MaxVonYellow}"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       Padding="0"
+                       BackgroundColor="{StaticResource MaxVonYellow}"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand">
+                    <Label Grid.Row="0"
+                           Grid.Column="1"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           TextColor="{StaticResource MaxVonWhite}">1</Label>
+                </Frame>
+                <Frame HeightRequest="40"
+                       WidthRequest="40"
+                       CornerRadius="40"
+                       BorderColor="{StaticResource MaxVonYellow}"
+                       Grid.Row="0"
+                       Grid.Column="3"
+                       Padding="0"
+                       BackgroundColor="Transparent"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand">
+                    <Label Grid.Row="0"
+                           Grid.Column="3"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           TextColor="{StaticResource MaxVonBlack}">2</Label>
+                </Frame>
+
+                <Frame HeightRequest="40"
+                       WidthRequest="40"
+                       CornerRadius="40"
+                       BorderColor="{StaticResource MaxVonYellow}"
+                       Grid.Row="0"
+                       Grid.Column="5"
+                       Padding="0"
+                       BackgroundColor="Transparent"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand">
+                    <Label Grid.Row="0"
+                           Grid.Column="5"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           TextColor="{StaticResource MaxVonBlack}">3</Label>
+                </Frame>
+
+                <Frame HeightRequest="40"
+                       WidthRequest="40"
+                       CornerRadius="40"
+                       BorderColor="{StaticResource MaxVonYellow}"
+                       Grid.Row="0"
+                       Grid.Column="7"
+                       Padding="0"
+                       BackgroundColor="Transparent"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand">
+                    <Label Grid.Row="0"
+                           Grid.Column="5"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           TextColor="{StaticResource MaxVonBlack}">4</Label>
+                </Frame>
+
+
+            </Grid>
+
+            <StackLayout VerticalOptions="CenterAndExpand">
+
+                <Label Text="Book Now - Rental Details"
+                        VerticalOptions="Start"
+                        HorizontalOptions="CenterAndExpand"
+                       FontSize="Subtitle"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource MaxVonBlack}"
+                   Margin="0,0,0,30"/>
+                <ScrollView Margin="20,0,20,0">
+                    <StackLayout>
+
+
+
+                        <Grid RowSpacing="10"
+                              Margin="2,0,2,30"
+                              VerticalOptions="CenterAndExpand">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="9*"/>
+                            </Grid.ColumnDefinitions>
+                            <Frame BackgroundColor="Transparent"
+                           BorderColor="{StaticResource MaxVonYellow}"
+                           Grid.Row="1"
+                           Grid.Column="1"
+                           Padding="0,0,0,0"
+                           CornerRadius="40"
+                                   HeightRequest="40"></Frame>
+
+                            <Label Text="Pick-up location"
+                               TextColor="{StaticResource MaxVonBlack}"
+                               FontSize="Subtitle"
+                               VerticalOptions="End"
+                               Grid.Row="0"
+                               Grid.ColumnSpan="2"
+                               HorizontalOptions="Center"></Label>
+                            <Label Text="Pick-up Date"
+                               TextColor="{StaticResource MaxVonBlack}"
+                               FontSize="Subtitle"
+                               VerticalOptions="End"
+                               Grid.Row="2"
+                               Grid.ColumnSpan="2"
+                               HorizontalOptions="Center"
+                                   x:Name="dateLabel"
+                                   IsVisible="false"></Label>
+
+                            <Label Text="How many days would you like to rent"
+                               TextColor="{StaticResource MaxVonBlack}"
+                               FontSize="Subtitle"
+                               VerticalOptions="End"
+                               Grid.Row="4"
+                               Grid.ColumnSpan="2"
+                               HorizontalOptions="Center"
+                                   x:Name="dayTitleLabel"
+                                   IsVisible="false"></Label>
+
+
+
+                            <Grid Grid.Row="3"
+                                  Grid.ColumnSpan="2"
+                                  HorizontalOptions="Fill"
+                                  Padding="0"
+                                  ColumnSpacing="10"
+                                  x:Name="pickUpdateGrid"
+                                  IsVisible="false">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="5*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="4*"/>
+                                </Grid.ColumnDefinitions>
+                                <Frame BackgroundColor="Transparent"
+                           BorderColor="{StaticResource MaxVonYellow}"
+                           Grid.Row="0"
+                           Grid.Column="1"
+                           Padding="0,0,0,0"
+                           CornerRadius="40"
+                                   HeightRequest="40"></Frame>
+                                <Frame BackgroundColor="Transparent"
+                           BorderColor="{StaticResource MaxVonYellow}"
+                           Grid.Row="0"
+                           Grid.Column="3"
+                           Padding="0,0,0,0"
+                           CornerRadius="40"
+                                   HeightRequest="40"></Frame>
+
+                                <ImageButton BackgroundColor='Transparent'
+                                     Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.calender.png}"
+                                     HeightRequest="20"
+                                     Grid.Column="0"
+                                     Grid.Row="0"></ImageButton>
+                                <ImageButton BackgroundColor='Transparent'
+                                     Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.time.png}"
+                                     HeightRequest="30"
+                                     Grid.Column="2"
+                                     Grid.Row="0"></ImageButton>
+
+                                <renders:BorderlessDatePicker Grid.Row="0"
+                                              Grid.Column="1"
+                                              TextColor="{StaticResource MaxVonGray}"
+                                              FontSize="Small"
+                                              Margin="10,0,0,0"
+                                              x:Name="pickUpDate"
+                                                      HeightRequest="45"
+                                                          ></renders:BorderlessDatePicker>
+
+                                <renders:BorderlessTimePicker Grid.Row="0"
+                                              Grid.Column="3"
+                                              TextColor="{StaticResource MaxVonGray}"
+                                              FontSize="Small"
+                                              Margin="10,0,0,0"
+                                              Placeholder="Pick-up time"
+                                              x:Name="pickUpTime" ></renders:BorderlessTimePicker>
+                            </Grid>
+
+                            <Grid Grid.Row="5"
+                                  Grid.ColumnSpan="2"
+                                  HeightRequest="40"
+                                  Padding="0"
+                                  HorizontalOptions="Fill"
+                                  x:Name="dayCountGrid"
+                                  IsVisible="false">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="40"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="50"/>
+                                </Grid.ColumnDefinitions>
+        -->
+        <!--<Frame BackgroundColor="Transparent"
+                           BorderColor="{StaticResource MaxVonYellow}"
+                           Grid.Row="0"
+                           Grid.Column="0"
+                           Padding="0,0,0,0"
+                           CornerRadius="40"
+                                   HeightRequest="40"
+                                       WidthRequest="40">
+                                    <Label Text="+"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center"></Label>
+                                </Frame>-->
+        <!--
+                                <Button Text="+"
+                                        HorizontalOptions="EndAndExpand"
+                                        VerticalOptions="Center"
+                                        HeightRequest="40"
+                                        WidthRequest="40"
+                                        CornerRadius="40"
+                                        BackgroundColor="{StaticResource MaxVonYellow}"
+                                        TextColor="{StaticResource MaxVonWhite}"
+                                        Grid.Row="0"
+                                        Grid.Column="2"
+                                        x:Name="plusBtn"
+                                         Clicked="plusBtn_Clicked"></Button>
+
+                                <Button Text="-"
+                                        HorizontalOptions="StartAndExpand"
+                                        VerticalOptions="Center"
+                                        HeightRequest="40"
+                                        WidthRequest="40"
+                                        CornerRadius="40"
+                                        BackgroundColor="{StaticResource MaxVonYellow}"
+                                        TextColor="{StaticResource MaxVonWhite}"
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        FontAttributes="Bold"
+                                        Padding="0"
+                                        x:Name='minusBtn'
+                                        Clicked="minusBtn_Clicked"></Button>
+                                <Frame BackgroundColor="Transparent"
+                           BorderColor="{StaticResource MaxVonYellow}"
+                           Grid.Row="0"
+                           Grid.Column="1"
+                           CornerRadius="40"
+                                   HeightRequest="40"
+                                       HorizontalOptions="Fill"
+                                       VerticalOptions="Center"
+                                       Padding="5,0,5,0">
+
+                                    <Label
+                                    HorizontalOptions="CenterAndExpand"
+                                    VerticalOptions="Center"
+                                    Margin="10,0,10,0"
+                                        BackgroundColor="Transparent"
+                                        FontSize="Body"
+                                        Text="1"
+                                        x:Name="dayLabel"></Label>
+                                </Frame>
+
+
+
+                            </Grid>
+
+
+
+        -->
+        <!--<renders:BorderlessDatePicker Grid.Row="6"
+                                              Grid.Column="1"
+                                              TextColor="{StaticResource MaxVonGray}"
+                                              FontSize="Small"
+                                              Margin="10,0,0,0"
+                                              x:Name="dropOffDate"
+                                                          IsVisible="false"></renders:BorderlessDatePicker>-->
+
+        <!--<renders:BorderlessTimePicker Grid.Row="7"
+                                              Grid.Column="1"
+                                              TextColor="{StaticResource MaxVonGray}"
+                                              FontSize="Small"
+                                              Margin="10,0,0,0"
+                                              Placeholder="Drop-off time"
+                                              x:Name="dropOffTime"
+                                                          IsVisible="false"></renders:BorderlessTimePicker>-->
+        <!--
+
+                            <renders:BorderlessPicker Grid.Row="1"
+                                          Grid.Column="1"
+                                          Title="Pick-up location"
+                                          TitleColor="{StaticResource MaxVonGray}"
+                                          FontSize="Small"
+                                          Margin="10,0,0,0"
+                                          TextColor="{StaticResource MaxVonGray}"
+                                          x:Name="pickUpLocation"
+                                                  Unfocused="pickUpLocation_Unfocused"></renders:BorderlessPicker>
+
+        -->
+        <!--<renders:BorderlessPicker Grid.Row="5"
+                                          Grid.Column="1"
+                                          Title="Drop-off location"
+                                          TitleColor="{StaticResource MaxVonGray}"
+                                          FontSize="Small"
+                                          Margin="10,0,0,0"
+                                          TextColor="{StaticResource MaxVonGray}"
+                                          x:Name="dropOffLocation"
+                                                      IsVisible="False"></renders:BorderlessPicker>-->
+
+
+
+        <!--<ImageButton BackgroundColor='Transparent'
+                                     Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.calender.png}"
+                                     HeightRequest="30"
+                                     Grid.Column="0"
+                                     Grid.Row="6"
+                                         IsVisible="false"></ImageButton>-->
+
+        <!--<ImageButton BackgroundColor='Transparent'
+                                     Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.time.png}"
+                                     HeightRequest="30"
+                                     Grid.Column="0"
+                                     Grid.Row="3"
+                                         IsVisible="false"></ImageButton>-->
+
+        <!--<ImageButton BackgroundColor='Transparent'
+                                     Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.time.png}"
+                                     HeightRequest="30"
+                                     Grid.Column="0"
+                                     Grid.Row="7"
+                                         IsVisible="false"></ImageButton>-->
+        <!--
+
+                            <ImageButton BackgroundColor='Transparent'
+                                     Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.location.png}"
+                                     HeightRequest="30"
+                                     Grid.Column="0"
+                                     Grid.Row="1"></ImageButton>
+
+        -->
+        <!--<ImageButton BackgroundColor='Transparent'
+                                     Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.location.png}"
+                                     HeightRequest="30"
+                                     Grid.Column="0"
+                                     Grid.Row="5"
+                                         IsVisible="false"></ImageButton>-->
+        <!--
+                        </Grid>
+                        <Button BackgroundColor="{StaticResource MaxVonYellow}"
+                            Text="Next"
+                            TextColor="{StaticResource MaxVonWhite}"
+                            BorderWidth="0"
+                            CornerRadius="45"
+                            x:Name="bookNowNxtBtn"
+                            HeightRequest="45"
+                            Margin="0,30,0,0"
+                            Clicked="BookNowNxtBtn_Clicked"
+                                Padding="0"
+                                IsVisible="false"></Button>
+
+                        <Button BackgroundColor="{StaticResource MaxVonYellow}"
+                            Text="Back"
+                            TextColor="{StaticResource MaxVonWhite}"
+                            BorderWidth="0"
+                            CornerRadius="45"
+                            x:Name="backBtn"
+                            HeightRequest="45"
+                            Margin="0,0,0,10"
+                            Clicked="backBtn_Clicked"
+                                Padding="0"></Button>
+
+
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+        </StackLayout>-->
+        <Grid RowSpacing="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid ColumnSpacing="10">
+                <Grid.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS">
+                            <OnIdiom
+                                x:TypeArguments="Thickness"
+                                Phone="20,20,20,10"
+                                Tablet="60,30,60,20" />
+                        </On>
+                        <On Platform="Android,Windows">
+                            <OnIdiom
+                                x:TypeArguments="Thickness"
+                                Phone="20,20,20,10"
+                                Tablet="60,30,60,20" />
+                        </On>
+                    </OnPlatform>
+                </Grid.Margin>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+
+
+                <StackLayout Margin="0" Padding="0">
+                    <Image Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconUnSelectBookNow2.png}">
+                        <Image.WidthRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="50"
+                                        Tablet="60" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="50"
+                                        Tablet="60" />
+                                </On>
+                            </OnPlatform>
+                        </Image.WidthRequest>
+                    </Image>
+                </StackLayout>
+
+                <BoxView
+                    Grid.Column="1"
+                    HeightRequest="1"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                    Color="Black" />
+
+                <StackLayout
+                    Grid.Column="2"
+                    Margin="0"
+                    Padding="0">
+                    <Image Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconSelectBookNow1.png}">
+                        <Image.WidthRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="50"
+                                        Tablet="60" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="50"
+                                        Tablet="60" />
+                                </On>
+                            </OnPlatform>
+                        </Image.WidthRequest>
+                    </Image>
+                </StackLayout>
+                <BoxView
+                    Grid.Column="3"
+                    HeightRequest="1"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                    Color="Black" />
+
+                <StackLayout
+                    Grid.Column="4"
+                    Margin="0"
+                    Padding="0">
+                    <Image Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconUnSelectBookNow3.png}">
+                        <Image.WidthRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="50"
+                                        Tablet="60" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="50"
+                                        Tablet="60" />
+                                </On>
+                            </OnPlatform>
+                        </Image.WidthRequest>
+                    </Image>
+                </StackLayout>
+
+                <BoxView
+                    Grid.Column="5"
+                    HeightRequest="1"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                    Color="Black" />
+
+                <StackLayout
+                    Grid.Column="6"
+                    Margin="0"
+                    Padding="0">
+                    <Image Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconUnSelectBookNow4.png}">
+                        <Image.WidthRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="50"
+                                        Tablet="60" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="50"
+                                        Tablet="60" />
+                                </On>
+                            </OnPlatform>
+                        </Image.WidthRequest>
+                    </Image>
+                </StackLayout>
+
+
+                <!--<Frame
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Padding="0"
+                    BackgroundColor="{StaticResource MaxVonYellow}"
+                    BorderColor="{StaticResource MaxVonYellow}"
+                    CornerRadius="40"
+                    HeightRequest="40"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="40">
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        HorizontalOptions="Center"
+                        TextColor="{StaticResource MaxVonWhite}"
+                        VerticalOptions="Center">
+                        1
+                    </Label>
+                </Frame>
+                <Frame
+                    Grid.Row="0"
+                    Grid.Column="3"
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    BorderColor="{StaticResource MaxVonYellow}"
+                    CornerRadius="40"
+                    HeightRequest="40"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="40">
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="3"
+                        HorizontalOptions="Center"
+                        TextColor="{StaticResource MaxVonBlack}"
+                        VerticalOptions="Center">
+                        2
+                    </Label>
+                </Frame>
+
+                <Frame
+                    Grid.Row="0"
+                    Grid.Column="5"
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    BorderColor="{StaticResource MaxVonYellow}"
+                    CornerRadius="40"
+                    HeightRequest="40"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="40">
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="5"
+                        HorizontalOptions="Center"
+                        TextColor="{StaticResource MaxVonBlack}"
+                        VerticalOptions="Center">
+                        3
+                    </Label>
+                </Frame>
+
+                <Frame
+                    Grid.Row="0"
+                    Grid.Column="7"
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    BorderColor="{StaticResource MaxVonYellow}"
+                    CornerRadius="40"
+                    HeightRequest="40"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="40">
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="5"
+                        HorizontalOptions="Center"
+                        TextColor="{StaticResource MaxVonBlack}"
+                        VerticalOptions="Center">
+                        4
+                    </Label>
+                </Frame>-->
+
+
+            </Grid>
+
+            <StackLayout Grid.Row="1" VerticalOptions="FillAndExpand">
+                <Label
+                    Margin="0,10,0,0"
+                    FontAttributes="Bold"
+                    FontFamily="Roboto-Bold"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="Book Now - Rental Details"
+                    TextColor="{StaticResource MaxVonRed}"
+                    VerticalOptions="Start">
+                    <Label.FontSize>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="20"
+                                    Tablet="24" />
+                            </On>
+                            <On Platform="Android,Windows">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="22"
+                                    Tablet="26" />
+                            </On>
+                        </OnPlatform>
+                    </Label.FontSize>
+                </Label>
+
+                <Grid Margin="15,0" VerticalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <ScrollView Margin="0,0,0,0">
+                        <Grid
+                            Margin="0,20,0,0"
+                            RowSpacing="20"
+                            VerticalOptions="StartAndExpand">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="2"
+                                FontFamily="Roboto-Bold"
+                                HorizontalOptions="Center"
+                                Text="Pick-up"
+                                TextColor="{StaticResource Black}"
+                                VerticalOptions="End">
+                                <Label.FontSize>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="iOS">
+                                            <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="20"
+                                                Tablet="24" />
+                                        </On>
+                                        <On Platform="Android,Windows">
+                                            <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="22"
+                                                Tablet="26" />
+                                        </On>
+                                    </OnPlatform>
+                                </Label.FontSize>
+                            </Label>
+
+                            <Frame
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Padding="0,0,0,0"
+                                BackgroundColor="Transparent"
+                                BorderColor="{StaticResource MaxVonBlack}"
+                                CornerRadius="10"
+                                HasShadow="False"
+                                VerticalOptions="CenterAndExpand">
+                                <Frame.HeightRequest>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="iOS">
+                                            <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="50"
+                                                Tablet="60" />
+                                        </On>
+                                        <On Platform="Android,Windows">
+                                            <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="50"
+                                                Tablet="60" />
+                                        </On>
+                                    </OnPlatform>
+                                </Frame.HeightRequest>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+
+                                        <ColumnDefinition Width="9*" />
+                                        <ColumnDefinition Width="30" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <!--<ImageButton
+                                        Margin="10,0,0,0"
+                                        BackgroundColor="Transparent"
+                                        HeightRequest="15"
+                                        HorizontalOptions="FillAndExpand"
+                                        Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconLDate.png}"
+                                        VerticalOptions="FillAndExpand"
+                                        WidthRequest="15" />-->
+
+                                    <renders:BorderlessDatePicker
+                                        x:Name="pickUpDate"
+                                        Grid.Column="0"
+                                        Margin="10,0,0,0"
+                                        FontFamily="Roboto-Medium"
+                                        FontSize="Medium"
+                                        HeightRequest="45"
+                                        TextColor="{StaticResource Black}"
+                                        Unfocused="PickUpDate_Unfocused" />
+
+                                    <Image
+                                        Grid.Column="1"
+                                        Margin="0,0,10,0"
+                                        BackgroundColor="Transparent"
+                                        HeightRequest="30"
+                                        Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconCalendar.png}">
+                                        <Image.HeightRequest>
+                                            <OnPlatform x:TypeArguments="x:Double">
+                                                <On Platform="iOS">
+                                                    <OnIdiom
+                                                        x:TypeArguments="x:Double"
+                                                        Phone="25"
+                                                        Tablet="30" />
+                                                </On>
+                                                <On Platform="Android,Windows">
+                                                    <OnIdiom
+                                                        x:TypeArguments="x:Double"
+                                                        Phone="25"
+                                                        Tablet="30" />
+                                                </On>
+                                            </OnPlatform>
+                                        </Image.HeightRequest>
+                                        <Image.WidthRequest>
+                                            <OnPlatform x:TypeArguments="x:Double">
+                                                <On Platform="iOS">
+                                                    <OnIdiom
+                                                        x:TypeArguments="x:Double"
+                                                        Phone="25"
+                                                        Tablet="30" />
+                                                </On>
+                                                <On Platform="Android,Windows">
+                                                    <OnIdiom
+                                                        x:TypeArguments="x:Double"
+                                                        Phone="25"
+                                                        Tablet="30" />
+                                                </On>
+                                            </OnPlatform>
+                                        </Image.WidthRequest>
+                                    </Image>
+
+                                </Grid>
+                            </Frame>
+
+
+                            <Frame
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Padding="0,0,0,0"
+                                BackgroundColor="Transparent"
+                                BorderColor="{StaticResource MaxVonBlack}"
+                                CornerRadius="10"
+                                HasShadow="False"
+                                VerticalOptions="CenterAndExpand">
+                                <Frame.HeightRequest>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="iOS">
+                                            <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="50"
+                                                Tablet="60" />
+                                        </On>
+                                        <On Platform="Android,Windows">
+                                            <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="50"
+                                                Tablet="60" />
+                                        </On>
+                                    </OnPlatform>
+                                </Frame.HeightRequest>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+
+                                        <ColumnDefinition Width="9*" />
+                                        <ColumnDefinition Width="30" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <!--<ImageButton
+                                        Margin="10,0,0,0"
+                                        BackgroundColor="Transparent"
+                                        Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconTimer.png}" />-->
+
+                                    <renders:BorderlessTimePicker
+                                        x:Name="pickUpTime"
+                                        Grid.Column="0"
+                                        Margin="10,0,0,0"
+                                        FontFamily="Roboto-Medium"
+                                        FontSize="Medium"
+                                        Placeholder="Pick-up time"
+                                        TextColor="{StaticResource MaxVonBlack}" />
+
+                                    <Image
+                                        Grid.Column="1"
+                                        Margin="0,0,10,0"
+                                        BackgroundColor="Transparent"
+                                        Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconClock.png}">
+                                        <Image.HeightRequest>
+                                            <OnPlatform x:TypeArguments="x:Double">
+                                                <On Platform="iOS">
+                                                    <OnIdiom
+                                                        x:TypeArguments="x:Double"
+                                                        Phone="25"
+                                                        Tablet="30" />
+                                                </On>
+                                                <On Platform="Android,Windows">
+                                                    <OnIdiom
+                                                        x:TypeArguments="x:Double"
+                                                        Phone="25"
+                                                        Tablet="30" />
+                                                </On>
+                                            </OnPlatform>
+                                        </Image.HeightRequest>
+                                        <Image.WidthRequest>
+                                            <OnPlatform x:TypeArguments="x:Double">
+                                                <On Platform="iOS">
+                                                    <OnIdiom
+                                                        x:TypeArguments="x:Double"
+                                                        Phone="25"
+                                                        Tablet="30" />
+                                                </On>
+                                                <On Platform="Android,Windows">
+                                                    <OnIdiom
+                                                        x:TypeArguments="x:Double"
+                                                        Phone="25"
+                                                        Tablet="30" />
+                                                </On>
+                                            </OnPlatform>
+                                        </Image.WidthRequest>
+                                    </Image>
+
+                                </Grid>
+                            </Frame>
+
+                            <Frame
+                                Grid.Row="2"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="2"
+                                Padding="0,0,0,0"
+                                BackgroundColor="Transparent"
+                                BorderColor="{StaticResource MaxVonBlack}"
+                                CornerRadius="10"
+                                HasShadow="False"
+                                VerticalOptions="CenterAndExpand">
+                                <Frame.HeightRequest>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="iOS">
+                                            <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="50"
+                                                Tablet="60" />
+                                        </On>
+                                        <On Platform="Android,Windows">
+                                            <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="50"
+                                                Tablet="60" />
+                                        </On>
+                                    </OnPlatform>
+                                </Frame.HeightRequest>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="9*" />
+                                        <ColumnDefinition Width="30" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image
+                                        Margin="10,0,0,0"
+                                        BackgroundColor="Transparent"
+                                        Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconLState.png}"
+                                        VerticalOptions="CenterAndExpand">
+                                        <Image.HeightRequest>
+                                            <OnPlatform x:TypeArguments="x:Double">
+                                                <On Platform="iOS">
+                                                    <OnIdiom
+                                                        x:TypeArguments="x:Double"
+                                                        Phone="25"
+                                                        Tablet="30" />
+                                                </On>
+                                                <On Platform="Android,Windows">
+                                                    <OnIdiom
+                                                        x:TypeArguments="x:Double"
+                                                        Phone="25"
+                                                        Tablet="30" />
+                                                </On>
+                                            </OnPlatform>
+                                        </Image.HeightRequest>
+                                        <Image.WidthRequest>
+                                            <OnPlatform x:TypeArguments="x:Double">
+                                                <On Platform="iOS">
+                                                    <OnIdiom
+                                                        x:TypeArguments="x:Double"
+                                                        Phone="25"
+                                                        Tablet="30" />
+                                                </On>
+                                                <On Platform="Android,Windows">
+                                                    <OnIdiom
+                                                        x:TypeArguments="x:Double"
+                                                        Phone="25"
+                                                        Tablet="30" />
+                                                </On>
+                                            </OnPlatform>
+                                        </Image.WidthRequest>
+                                    </Image>
+
+                                    <renders:BorderlessPicker
+                                        x:Name="pickUpLocation"
+                                        Title="Pick-up location"
+                                        Grid.Column="1"
+                                        Margin="10,0,0,0"
+                                        FontFamily="Roboto-Medium"
+                                        FontSize="Medium"
+                                        TextColor="{StaticResource MaxVonBlack}"
+                                        TitleColor="{StaticResource MaxVonBlack}"
+                                        Unfocused="pickUpLocation_Unfocused" />
+                                    <ImageButton
+                                        Grid.Column="2"
+                                        Margin="0,0,10,0"
+                                        BackgroundColor="Transparent"
+                                        Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconDown.png}"
+                                        x:Name="pickUpLocationArrow"
+                                        Clicked="pickUpLocationArrow_Clicked"/>
+
+                                </Grid>
+                            </Frame>
+
+                            <Frame
+                                x:Name="pickUpdateGrid"
+                                Grid.Row="3"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="2"
+                                Padding="0,0,0,0"
+                                BackgroundColor="Transparent"
+                                BorderColor="{StaticResource MaxVonBlack}"
+                                CornerRadius="10"
+                                HasShadow="False"
+                                VerticalOptions="CenterAndExpand">
+                                <Frame.HeightRequest>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="iOS">
+                                            <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="50"
+                                                Tablet="60" />
+                                        </On>
+                                        <On Platform="Android,Windows">
+                                            <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="50"
+                                                Tablet="60" />
+                                        </On>
+                                    </OnPlatform>
+                                </Frame.HeightRequest>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+
+                                        <ColumnDefinition Width="9*" />
+                                        <ColumnDefinition Width="30" />
+                                    </Grid.ColumnDefinitions>
+
+
+                                    <renders:BorderlessPicker
+                                        x:Name="NumberOfDays"
+                                        Title="Number of Days"
+                                        Grid.Column="0"
+                                        Margin="10,0,0,0"
+                                        FontFamily="Roboto-Medium"
+                                        FontSize="Medium"
+                                        TextColor="{StaticResource MaxVonBlack}"
+                                        TitleColor="{StaticResource MaxVonBlack}"
+                                        Unfocused="pickUpLocation_Unfocused">
+                                        <renders:BorderlessPicker.ItemsSource>
+                                            <x:Array Type="{x:Type x:Int32}">
+                                                <x:Int32>2</x:Int32>
+                                                <x:Int32>3</x:Int32>
+                                                <x:Int32>4</x:Int32>
+                                                <x:Int32>5</x:Int32>
+                                                <x:Int32>6</x:Int32>
+                                                <x:Int32>7</x:Int32>
+                                                <x:Int32>8</x:Int32>
+                                                <x:Int32>9</x:Int32>
+                                                <x:Int32>10</x:Int32>
+                                                <x:Int32>11</x:Int32>
+                                                <x:Int32>12</x:Int32>
+                                                <x:Int32>13</x:Int32>
+                                                <x:Int32>14</x:Int32>
+                                                <x:Int32>15</x:Int32>
+                                                <x:Int32>16</x:Int32>
+                                                <x:Int32>17</x:Int32>
+                                                <x:Int32>18</x:Int32>
+                                                <x:Int32>19</x:Int32>
+                                                <x:Int32>20</x:Int32>
+                                            </x:Array>
+                                        </renders:BorderlessPicker.ItemsSource>
+                                    </renders:BorderlessPicker>
+                                    <ImageButton
+                                        Grid.Column="1"
+                                        Margin="0,0,10,0"
+                                        BackgroundColor="Transparent"
+                                        Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconDown.png}"
+                                        x:Name="NumberOfDaysArrow"
+                                        Clicked="NumberOfDaysArrow_Clicked"/>
+
+                                </Grid>
+                            </Frame>
+
+                            <!--<Frame
+
+                                Padding="0,0,0,0"
+                                BackgroundColor="Transparent"
+                                BorderColor="{StaticResource MaxVonBlack}"
+                                CornerRadius="10"
+                                HasShadow="False"
+                                VerticalOptions="CenterAndExpand">
+                                <Frame.HeightRequest>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="iOS">
+                                            <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="50"
+                                                Tablet="60" />
+                                        </On>
+                                        <On Platform="Android,Windows">
+                                            <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="50"
+                                                Tablet="60" />
+                                        </On>
+                                    </OnPlatform>
+                                </Frame.HeightRequest>
+                                <Grid>-->
+
+
+                            <StackLayout
+                                Grid.Row="4"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="2">
+                                <Label
+                                    Margin="10,0,0,0"
+                                    FontFamily="Roboto-Medium"
+                                    FontSize="Large"
+                                    Text="Note: "
+                                    TextColor="{StaticResource MaxVonBlack}"
+                                    Unfocused="pickUpLocation_Unfocused" />
+                                <Label
+                                    Margin="10,0,0,0"
+                                    FontFamily="Roboto-Medium"
+                                    FontSize="Large"
+                                    Text="Minimum booking - 2 days"
+                                    TextColor="{StaticResource MaxVonBlack}"
+                                    Unfocused="pickUpLocation_Unfocused" />
+                                <Label
+                                    Margin="10,10,0,0"
+                                    FontFamily="Roboto-Medium"
+                                    FontSize="Large"
+                                    Text="Daily extentions available for booking."
+                                    TextColor="{StaticResource MaxVonBlack}"
+                                    Unfocused="pickUpLocation_Unfocused" />
+                            </StackLayout>
+
+                            <!--</Grid>
+                            </Frame>-->
+
+
+                            <!--<Label
+                                Grid.Row="4"
+                                FontFamily="Roboto-Bold"
+                                FontSize="Large"
+                                HorizontalOptions="Center"
+                                Text="Drop-off"
+                                TextColor="{StaticResource Black}"
+                                VerticalOptions="End" />
+
+
+                            <Frame
+                                Grid.Row="5"
+                                Padding="0,0,0,0"
+                                BackgroundColor="Transparent"
+                                BorderColor="{StaticResource MaxVonBlack}"
+                                CornerRadius="10"
+                                HeightRequest="50">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="9*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <ImageButton
+                                        Margin="10,0,0,0"
+                                        BackgroundColor="Transparent"
+                                        Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconEmail.png}" />
+
+                                    <renders:BorderlessDatePicker
+                                        x:Name="dropOffDate"
+                                        Grid.Column="1"
+                                        Margin="10,0,0,0"
+                                        FontFamily="Roboto-Medium"
+                                        FontSize="Medium"
+                                        TextColor="{StaticResource MaxVonBlack}" />
+
+                                    <ImageButton
+                                        Grid.Column="2"
+                                        Margin="0,0,10,0"
+                                        BackgroundColor="Transparent"
+                                        Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconCalendar.png}" />
+
+                                </Grid>
+                            </Frame>
+                            <Frame
+                                Grid.Row="6"
+                                Padding="0,0,0,0"
+                                BackgroundColor="Transparent"
+                                BorderColor="{StaticResource MaxVonBlack}"
+                                CornerRadius="10"
+                                HeightRequest="50">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="9*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <ImageButton
+                                        Margin="10,0,0,0"
+                                        BackgroundColor="Transparent"
+                                        Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconTimer.png}" />
+
+                                    <renders:BorderlessTimePicker
+                                        x:Name="dropOffTime"
+                                        Grid.Column="1"
+                                        Margin="10,0,0,0"
+                                        FontFamily="Roboto-Medium"
+                                        FontSize="Medium"
+                                        Placeholder="Drop-off time"
+                                        TextColor="{StaticResource MaxVonBlack}" />
+
+
+                                    <ImageButton
+                                        Grid.Column="2"
+                                        Margin="0,0,10,0"
+                                        BackgroundColor="Transparent"
+                                        Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconClock.png}" />
+
+                                </Grid>
+                            </Frame>
+                            <Frame
+                                Grid.Row="7"
+                                Padding="0,0,0,0"
+                                BackgroundColor="Transparent"
+                                BorderColor="{StaticResource MaxVonBlack}"
+                                CornerRadius="10"
+                                HeightRequest="50">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="9*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <ImageButton
+                                        Margin="10,0,0,0"
+                                        BackgroundColor="Transparent"
+                                        Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconLState.png}" />
+
+                                    <renders:BorderlessPicker
+                                        x:Name="dropOffLocation"
+                                        Title="Drop-off location"
+                                        Grid.Column="1"
+                                        Margin="10,0,0,0"
+                                        FontFamily="Roboto-Medium"
+                                        FontSize="Medium"
+                                        TextColor="{StaticResource MaxVonBlack}"
+                                        TitleColor="{StaticResource MaxVonBlack}" />
+
+
+                                    <ImageButton
+                                        Grid.Column="2"
+                                        Margin="0,0,10,0"
+                                        BackgroundColor="Transparent"
+                                        Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconDown.png}" />
+
+                                </Grid>
+                            </Frame>-->
+
+                            <!--<ImageButton
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                BackgroundColor="Transparent"
+                                HeightRequest="30"
+                                Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.calender.png}" />-->
+
+                            <!--<ImageButton
+                                Grid.Row="5"
+                                Grid.Column="0"
+                                BackgroundColor="Transparent"
+                                HeightRequest="30"
+                                Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.calender.png}" />
+
+                            <ImageButton
+                                Grid.Row="2"
+                                Grid.Column="0"
+                                BackgroundColor="Transparent"
+                                HeightRequest="30"
+                                Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.time.png}" />
+
+                            <ImageButton
+                                Grid.Row="6"
+                                Grid.Column="0"
+                                BackgroundColor="Transparent"
+                                HeightRequest="30"
+                                Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.time.png}" />
+
+                            <ImageButton
+                                Grid.Row="3"
+                                Grid.Column="0"
+                                BackgroundColor="Transparent"
+                                HeightRequest="30"
+                                Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.location.png}" />
+
+                            <ImageButton
+                                Grid.Row="7"
+                                Grid.Column="0"
+                                BackgroundColor="Transparent"
+                                HeightRequest="30"
+                                Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.location.png}" />-->
+                        </Grid>
+                    </ScrollView>
+
+                    <Button
+                        x:Name="bookNowNxtBtn"
+                        Grid.Row="1"
+                        Margin="0,0,0,20"
+                        BackgroundColor="{StaticResource MaxVonRed}"
+                        BorderWidth="0"
+                        Clicked="BookNowNxtBtn_Clicked"
+                        CornerRadius="10"
+                        FontFamily="Roboto-Medium"
+                        HorizontalOptions="FillAndExpand"
+                        StyleClass="bouncy"
+                        Text="Next"
+                        TextColor="{StaticResource MaxVonWhite}"
+                        VerticalOptions="EndAndExpand">
+                        <Button.HeightRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="50"
+                                        Tablet="60" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="50"
+                                        Tablet="60" />
+                                </On>
+                            </OnPlatform>
+                        </Button.HeightRequest>
+                        <Button.FontSize>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="14"
+                                        Tablet="18" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="16"
+                                        Tablet="20" />
+                                </On>
+                            </OnPlatform>
+                        </Button.FontSize>
+                    </Button>
+                </Grid>
+
+            </StackLayout>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

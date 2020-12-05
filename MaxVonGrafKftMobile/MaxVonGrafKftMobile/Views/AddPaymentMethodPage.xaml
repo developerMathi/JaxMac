@@ -1,0 +1,525 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:renders="clr-namespace:MaxVonGrafKftMobile.Renders" xmlns:local="clr-namespace:MaxVonGrafKftMobile.MarkupExtensions" xmlns:behaviors="clr-namespace:XamarinFastEntrySample.FastEntry;assembly=XamarinFastEntry.Behaviors"
+             mc:Ignorable="d"
+             x:Class="MaxVonGrafKftMobile.Views.AddPaymentMethodPage"
+                 Title="Add Card">
+
+    <ContentPage.Content>
+        <ScrollView>
+
+            <Grid Margin="20,20,20,0" RowSpacing="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <StackLayout
+                    HorizontalOptions="FillAndExpand"
+                    Orientation="Horizontal"
+                    Spacing="10"
+                    VerticalOptions="FillAndExpand"
+                    Grid.Row="1">
+                    <StackLayout.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="50"
+                                    Tablet="60" />
+                            </On>
+                            <On Platform="Android,Windows">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="50"
+                                    Tablet="60" />
+                            </On>
+                        </OnPlatform>
+                    </StackLayout.HeightRequest>
+                    <Frame
+                        Padding="0,0,0,0"
+                        BackgroundColor="Transparent"
+                        BorderColor="{StaticResource MaxVonBlack}"
+                        CornerRadius="10"
+                        HasShadow="False"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Start">
+                        <Frame.HeightRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="50"
+                                        Tablet="60" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="50"
+                                        Tablet="60" />
+                                </On>
+                            </OnPlatform>
+                        </Frame.HeightRequest>
+                        <renders:CustomEntry
+                            x:Name="CardNumber"
+                            Margin="10,0,0,0"
+                            FontFamily="Roboto-Medium"
+                            FontSize="Medium"
+                            HorizontalOptions="FillAndExpand"
+                            Placeholder="Card Number"
+                            PlaceholderColor="{StaticResource MaxVonBlack}"
+                            TextColor="{StaticResource MaxVonBlack}"
+                            Keyboard="Telephone"
+                            ClearButtonVisibility="WhileEditing"
+                            Focused="CardNumber_Focused">
+                            <renders:CustomEntry.BackgroundColor>
+                                    <OnPlatform x:TypeArguments="Color">
+                                        <On Platform="iOS">
+                                            <OnIdiom x:TypeArguments="Color"
+                                                     Phone="Transparent"
+                                                     Tablet="Transparent"></OnIdiom>
+                                        </On>
+                                    </OnPlatform>
+                                </renders:CustomEntry.BackgroundColor>
+                            <Entry.Behaviors>
+                                <behaviors:XamarinFastEntryBehaviour Mask="################"></behaviors:XamarinFastEntryBehaviour>
+                            </Entry.Behaviors>
+                         </renders:CustomEntry>
+
+                    </Frame>
+                    <Frame
+                        IsVisible="false"
+                        Margin="0"
+                        Padding="0"
+                        BackgroundColor="{StaticResource MaxVonRed}"
+                        CornerRadius="10"
+                        HasShadow="False"
+                        HorizontalOptions="End"
+                        VerticalOptions="Start">
+                        <Frame.WidthRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="80"
+                                        Tablet="100" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="80"
+                                        Tablet="100" />
+                                </On>
+                            </OnPlatform>
+                        </Frame.WidthRequest>
+                        <Frame.HeightRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="50"
+                                        Tablet="60" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="50"
+                                        Tablet="60" />
+                                </On>
+                            </OnPlatform>
+                        </Frame.HeightRequest>
+                        <Image
+                            x:Name="licImageBtn"
+                            HorizontalOptions="CenterAndExpand"
+                            Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconWhiteCamera.png}"
+                            VerticalOptions="CenterAndExpand">
+                            <Image.HeightRequest>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="iOS">
+                                        <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="20"
+                                            Tablet="30" />
+                                    </On>
+                                    <On Platform="Android,Windows">
+                                        <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="20"
+                                            Tablet="30" />
+                                    </On>
+                                </OnPlatform>
+                            </Image.HeightRequest>
+                            <Image.WidthRequest>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="iOS">
+                                        <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="20"
+                                            Tablet="30" />
+                                    </On>
+                                    <On Platform="Android,Windows">
+                                        <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="20"
+                                            Tablet="30" />
+                                    </On>
+                                </OnPlatform>
+                            </Image.WidthRequest>
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    x:Name="licimageUplaodViewer"
+                                    NumberOfTapsRequired="1"
+                                    Tapped="licimageUplaodViewer_Tapped" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </Frame>
+                </StackLayout>
+
+                <Frame
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Padding="0,0,0,0"
+                    BackgroundColor="Transparent"
+                    BorderColor="{StaticResource MaxVonBlack}"
+                    CornerRadius="10"
+                    HasShadow="False">
+                    <Frame.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="50"
+                                    Tablet="60" />
+                            </On>
+                            <On Platform="Android,Windows">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="50"
+                                    Tablet="60" />
+                            </On>
+                        </OnPlatform>
+                    </Frame.HeightRequest>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="9*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+
+                        <renders:CustomEntry
+                            x:Name="txtExpiryDate"
+                            Margin="10,0,0,0"
+                            FontFamily="Roboto-Medium"
+                            FontSize="Medium"
+                            HorizontalOptions="FillAndExpand"
+                            Placeholder="Expiry Date ( MM / YY )"
+                            PlaceholderColor="{StaticResource MaxVonBlack}"
+                            TextColor="{StaticResource MaxVonBlack}" 
+                            Keyboard="Numeric" >
+                            <renders:CustomEntry.BackgroundColor>
+                                    <OnPlatform x:TypeArguments="Color">
+                                        <On Platform="iOS">
+                                            <OnIdiom x:TypeArguments="Color"
+                                                     Phone="Transparent"
+                                                     Tablet="Transparent"></OnIdiom>
+                                        </On>
+                                    </OnPlatform>
+                                </renders:CustomEntry.BackgroundColor>
+                            <Entry.Behaviors>
+                                <behaviors:XamarinFastEntryBehaviour Mask="## / ##"></behaviors:XamarinFastEntryBehaviour>
+                            </Entry.Behaviors>
+                        </renders:CustomEntry>
+
+
+                        <Image
+                            Grid.Column="1"
+                            Margin="0,0,10,0"
+                            BackgroundColor="Transparent"
+                            Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconGrayPayment.png}"
+                            VerticalOptions="CenterAndExpand">
+                            <Image.HeightRequest>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="iOS">
+                                        <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="25"
+                                            Tablet="30" />
+                                    </On>
+                                    <On Platform="Android,Windows">
+                                        <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="25"
+                                            Tablet="30" />
+                                    </On>
+                                </OnPlatform>
+                            </Image.HeightRequest>
+                            <Image.WidthRequest>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="iOS">
+                                        <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="25"
+                                            Tablet="30" />
+                                    </On>
+                                    <On Platform="Android,Windows">
+                                        <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="25"
+                                            Tablet="30" />
+                                    </On>
+                                </OnPlatform>
+                            </Image.WidthRequest>
+                        </Image>
+                    </Grid>
+                </Frame>
+                <Frame
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Padding="0,0,0,0"
+                    BackgroundColor="Transparent"
+                    BorderColor="{StaticResource MaxVonBlack}"
+                    CornerRadius="10"
+                    HasShadow="False">
+                    <Frame.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="50"
+                                    Tablet="60" />
+                            </On>
+                            <On Platform="Android,Windows">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="50"
+                                    Tablet="60" />
+                            </On>
+                        </OnPlatform>
+                    </Frame.HeightRequest>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="9*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <renders:CustomEntry
+                            x:Name="txtCvv"
+                            Grid.Column="0"
+                            Margin="10,0,0,0"
+                            FontFamily="Roboto-Medium"
+                            FontSize="Medium"
+                            Placeholder="CVV"
+                            PlaceholderColor="{StaticResource MaxVonBlack}"
+                            TextColor="{StaticResource MaxVonBlack}" 
+                            Keyboard="Numeric"
+                            Focused="txtCvv_Focused">
+                            <renders:CustomEntry.BackgroundColor>
+                                    <OnPlatform x:TypeArguments="Color">
+                                        <On Platform="iOS">
+                                            <OnIdiom x:TypeArguments="Color"
+                                                     Phone="Transparent"
+                                                     Tablet="Transparent"></OnIdiom>
+                                        </On>
+                                    </OnPlatform>
+                                </renders:CustomEntry.BackgroundColor>
+                            <Entry.Behaviors>
+                                <behaviors:XamarinFastEntryBehaviour Mask="####"></behaviors:XamarinFastEntryBehaviour>
+                            </Entry.Behaviors>
+                        </renders:CustomEntry>
+
+                        <Image
+                            Grid.Column="1"
+                            Margin="0,0,10,0"
+                            BackgroundColor="Transparent"
+                            Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconGrayPayment.png}"
+                            VerticalOptions="CenterAndExpand">
+                            <Image.HeightRequest>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="iOS">
+                                        <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="25"
+                                            Tablet="30" />
+                                    </On>
+                                    <On Platform="Android,Windows">
+                                        <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="25"
+                                            Tablet="30" />
+                                    </On>
+                                </OnPlatform>
+                            </Image.HeightRequest>
+                            <Image.WidthRequest>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="iOS">
+                                        <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="25"
+                                            Tablet="30" />
+                                    </On>
+                                    <On Platform="Android,Windows">
+                                        <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="25"
+                                            Tablet="30" />
+                                    </On>
+                                </OnPlatform>
+                            </Image.WidthRequest>
+                        </Image>
+                    </Grid>
+                </Frame>
+                <Frame
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    Padding="0,0,0,0"
+                    BackgroundColor="Transparent"
+                    BorderColor="{StaticResource MaxVonBlack}"
+                    CornerRadius="10"
+                    HasShadow="False">
+                    <Frame.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="50"
+                                    Tablet="60" />
+                            </On>
+                            <On Platform="Android,Windows">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="50"
+                                    Tablet="60" />
+                            </On>
+                        </OnPlatform>
+                    </Frame.HeightRequest>
+
+                    <renders:CustomEntry
+                        x:Name="txtName"
+                        Margin="10,0,0,0"
+                        FontFamily="Roboto-Medium"
+                        FontSize="Medium"
+                        HorizontalOptions="FillAndExpand"
+                        Placeholder="Name on Card"
+                        PlaceholderColor="{StaticResource MaxVonBlack}"
+                        TextColor="{StaticResource MaxVonBlack}" >
+                        <renders:CustomEntry.BackgroundColor>
+                                    <OnPlatform x:TypeArguments="Color">
+                                        <On Platform="iOS">
+                                            <OnIdiom x:TypeArguments="Color"
+                                                     Phone="Transparent"
+                                                     Tablet="Transparent"></OnIdiom>
+                                        </On>
+                                    </OnPlatform>
+                                </renders:CustomEntry.BackgroundColor>
+                    </renders:CustomEntry>
+
+                </Frame>
+
+                <Frame
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Padding="0,0,0,0"
+                    BackgroundColor="Transparent"
+                    BorderColor="{StaticResource MaxVonBlack}"
+                    CornerRadius="10"
+                    HasShadow="False">
+                    <Frame.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="50"
+                                    Tablet="60" />
+                            </On>
+                            <On Platform="Android,Windows">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="50"
+                                    Tablet="60" />
+                            </On>
+                        </OnPlatform>
+                    </Frame.HeightRequest>
+
+                    <renders:BorderlessPicker
+                        x:Name="CardTypePicker"
+                         Margin="10,0,0,0"
+                        FontFamily="Roboto-Medium"
+                        FontSize="Medium"
+                        HorizontalOptions="FillAndExpand"
+                        Title=" Card type"
+                        TitleColor="{StaticResource MaxVonBlack}"
+                        TextColor="{StaticResource MaxVonBlack}"
+                        Unfocused="CardTypePicker_Unfocused"/>
+
+                </Frame>
+
+                <Button
+                    x:Name="btnSave"
+                    Grid.Row="5"
+                    BackgroundColor="{StaticResource MaxVonYellow}"
+                    BorderWidth="0"
+                    Clicked="btnSave_Clicked"
+                    CornerRadius="10"
+                    Text="Save"
+                    TextColor="{StaticResource MaxVonWhite}"
+                    VerticalOptions="EndAndExpand">
+                    <Button.Margin>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="iOS">
+                                <OnIdiom
+                                    x:TypeArguments="Thickness"
+                                    Phone="15,1,15,20"
+                                    Tablet="30,1,30,20" />
+                            </On>
+                            <On Platform="Android,Windows">
+                                <OnIdiom
+                                    x:TypeArguments="Thickness"
+                                    Phone="15,1,15,20"
+                                    Tablet="30,1,30,20" />
+                            </On>
+                        </OnPlatform>
+                    </Button.Margin>
+                    <Button.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="45"
+                                    Tablet="50" />
+                            </On>
+                            <On Platform="Android,Windows">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="45"
+                                    Tablet="50" />
+                            </On>
+                        </OnPlatform>
+                    </Button.HeightRequest>
+                    <Button.FontSize>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="14"
+                                    Tablet="18" />
+                            </On>
+                            <On Platform="Android,Windows">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="16"
+                                    Tablet="20" />
+                            </On>
+                        </OnPlatform>
+                    </Button.FontSize>
+                </Button>
+            </Grid>
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

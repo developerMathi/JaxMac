@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application
+    x:Class="MaxVonGrafKftMobile.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:converters="clr-namespace:MaxVonGrafKftMobile.Converters"
+    mc:Ignorable="d">
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <converters:statustoColourConverter x:Key="ReservationStatusToColor"
+                                                New="DarkGreen"
+                                                Open="Green"
+                                                CheckOut="Gray"
+                                                NoShow="Yellow"
+                                                Canceled="Red"
+                                                Quote="Orange"
+                                                noStatus="OrangeRed"></converters:statustoColourConverter>
+            <converters:CreditCardTypeToImage x:Key="cardTypeImageConverter"
+                                              Visa="ic_visa.png"
+                                              Master="ic_mastercard.png"
+                                              American_Express="ic_amex.png"
+                                              Discover="ic_discover.png"
+                                              Credit_Card="nocards.png"></converters:CreditCardTypeToImage>
+            
+            
+            
+            
+            <Color x:Key="MaxVonBlack">#000000</Color>
+            <Color x:Key="MaxVonYellow">#DD0803</Color>
+            <Color x:Key="MaxVonRed">#DD0803</Color>
+            <Color x:Key="MaxVonGray">#9C9D9E</Color>
+            <Color x:Key="MaxVonLightGray">#EAEAEA</Color>
+            <Color x:Key="MaxVonGreen">#219653</Color>
+            <Color x:Key="DanderRed">#801717</Color>
+            <Color x:Key="homeBtnFrame">#101944</Color>
+            <Color x:Key="frmGreen">#42C16F</Color>
+
+
+            <Color x:Key="Black">#000000</Color>
+            <Color x:Key="LightBlue">#7CAAF8</Color>
+            <Color x:Key="LightBlue2X">#568ff0</Color>
+
+
+            <!--<Color x:Key="MaxVonBlack">#232628</Color>-->
+            <Color x:Key="MaxVonWhite">#FFFFFF</Color>
+            <!--<Color x:Key="MaxVonYellow">#7d2c24</Color>-->
+            <Color x:Key="MaxVonYellowLight">#ffdcd9</Color>
+
+
+
+            <Color x:Key="popUpBackground">#eff6f7</Color>
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource MaxVonWhite}" />
+                <Setter Property="BarTextColor" Value="{StaticResource MaxVonYellow}" />
+            </Style>
+            <Style TargetType="Entry">
+                <Setter Property="Keyboard"  Value="Chat"></Setter>
+                <Setter Property="BackgroundColor">
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="iOS" Value="Transparent"></On>
+                </OnPlatform>
+                    </Setter>
+            </Style>
+            
+
+            <!--<Style TargetType="Entry">
+                <Setter Property="FontFamily">
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="Black Vosten Personal Use.ttf#Black Vosten" />
+                        <On Platform="iOS" Value="Black Vosten Personal Use" />
+                    </OnPlatform>
+                </Setter>
+            </Style>-->
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>

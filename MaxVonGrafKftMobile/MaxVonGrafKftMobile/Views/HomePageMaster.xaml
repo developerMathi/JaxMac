@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MaxVonGrafKftMobile.Views.HomePageMaster"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:local="clr-namespace:MaxVonGrafKftMobile.MarkupExtensions"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:renders="clr-namespace:MaxVonGrafKftMobile.Renders"
+    Title="Master"
+    mc:Ignorable="d">
+    <Frame
+        Padding="0"
+        BorderColor="Transparent"
+        CornerRadius="10">
+        <Grid Padding="0">
+            <Image
+                Grid.Row="0"
+                Grid.RowSpan="2"
+                Aspect="Fill"
+                Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconBgMenu.png}"
+                VerticalOptions="FillAndExpand" />
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Row="0" Padding="0">
+
+                <Image
+                    x:Name="logoImage"
+                    Margin="0,40,0,0"
+                    Aspect="AspectFit"
+                    HeightRequest="100"
+                    Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconMenuLogo.png}"
+                    VerticalOptions="CenterAndExpand" />
+                <!--<Frame
+                    Padding="0"
+                    BorderColor="{StaticResource MaxVonRed}"
+                    CornerRadius="150"
+                    HasShadow="False"
+                    HeightRequest="150"
+                    HorizontalOptions="Center"
+                    IsClippedToBounds="True"
+                    VerticalOptions="Start"
+                    WidthRequest="150">
+                    <Image
+                        x:Name="profileImage"
+                        Aspect="AspectFill"
+                        HeightRequest="150"
+                        Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.profile.jpg}" />
+                </Frame>-->
+                <renders:ImageCircle
+                    x:Name="profileImage"
+                    Aspect="AspectFill"
+                    HorizontalOptions="Center"
+                    Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.profile.jpg}"
+                    VerticalOptions="Center">
+                    <renders:ImageCircle.WidthRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="150"
+                                    Tablet="150" />
+                            </On>
+                            <On Platform="Android,Windows">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="150"
+                                    Tablet="150" />
+                            </On>
+                        </OnPlatform>
+                    </renders:ImageCircle.WidthRequest>
+                    <renders:ImageCircle.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="150"
+                                    Tablet="150" />
+                            </On>
+                            <On Platform="Android,Windows">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="150"
+                                    Tablet="150" />
+                            </On>
+                        </OnPlatform>
+                    </renders:ImageCircle.HeightRequest>
+                </renders:ImageCircle>
+
+                <Label
+                    x:Name="welcomeText"
+                    Grid.Column="1"
+                    FontAttributes="Bold"
+                    FontFamily="Roboto-Bold"
+                    FontSize="Large"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="Welcome"
+                    TextColor="{StaticResource MaxVonWhite}"
+                    VerticalOptions="FillAndExpand" />
+            </StackLayout>
+
+            <StackLayout Grid.Row="1">
+                <ListView
+                    x:Name="MenuItemsListView"
+                    Margin="0,20,0,0" BackgroundColor="Transparent"
+                    HasUnevenRows="true"
+                    ItemTapped="MenuItemsListView_ItemTapped"
+                    ItemsSource="{Binding MenuItems}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <renders:ExtendedViewCell SelectedBackgroundColor="{StaticResource MaxVonBlack}">
+                                <StackLayout Padding="15,10" HorizontalOptions="FillAndExpand">
+                                    <Grid BackgroundColor="{Binding BgColor}">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition>
+                                                <RowDefinition.Height>
+                                                    <OnPlatform x:TypeArguments="GridLength">
+                                                        <On Platform="iOS">
+                                                            <OnIdiom
+                                                                x:TypeArguments="GridLength"
+                                                                Phone="40"
+                                                                Tablet="50" />
+                                                        </On>
+                                                        <On Platform="Android,Windows">
+                                                            <OnIdiom
+                                                                x:TypeArguments="GridLength"
+                                                                Phone="40"
+                                                                Tablet="50" />
+                                                        </On>
+                                                    </OnPlatform>
+                                                </RowDefinition.Height>
+                                            </RowDefinition>
+
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Image
+                                            Aspect="AspectFit"
+                                            Source="{Binding IconSource}"
+                                            VerticalOptions="CenterAndExpand">
+                                            <Image.HeightRequest>
+                                                <OnPlatform x:TypeArguments="x:Double">
+                                                    <On Platform="iOS">
+                                                        <OnIdiom
+                                                            x:TypeArguments="x:Double"
+                                                            Phone="30"
+                                                            Tablet="40" />
+                                                    </On>
+                                                    <On Platform="Android,Windows">
+                                                        <OnIdiom
+                                                            x:TypeArguments="x:Double"
+                                                            Phone="30"
+                                                            Tablet="40" />
+                                                    </On>
+                                                </OnPlatform>
+                                            </Image.HeightRequest>
+                                            <Image.WidthRequest>
+                                                <OnPlatform x:TypeArguments="x:Double">
+                                                    <On Platform="iOS">
+                                                        <OnIdiom
+                                                            x:TypeArguments="x:Double"
+                                                            Phone="30"
+                                                            Tablet="40" />
+                                                    </On>
+                                                    <On Platform="Android,Windows">
+                                                        <OnIdiom
+                                                            x:TypeArguments="x:Double"
+                                                            Phone="30"
+                                                            Tablet="40" />
+                                                    </On>
+                                                </OnPlatform>
+                                            </Image.WidthRequest>
+                                        </Image>
+                                        <Label
+                                            Grid.Column="1"
+                                            d:Text="{Binding .}"
+                                            FontAttributes="Bold"
+                                            FontFamily="Roboto-Bold"
+                                            Text="{Binding Title}"
+                                            TextColor="{StaticResource MaxVonWhite}"
+                                            VerticalOptions="FillAndExpand"
+                                            VerticalTextAlignment="Center">
+                                            <Label.FontSize>
+                                                <OnPlatform x:TypeArguments="x:Double">
+                                                    <On Platform="iOS">
+                                                        <OnIdiom
+                                                            x:TypeArguments="x:Double"
+                                                            Phone="17"
+                                                            Tablet="20" />
+                                                    </On>
+                                                    <On Platform="Android,Windows">
+                                                        <OnIdiom
+                                                            x:TypeArguments="x:Double"
+                                                            Phone="18"
+                                                            Tablet="22" />
+                                                    </On>
+                                                </OnPlatform>
+                                            </Label.FontSize>
+                                        </Label>
+                                    </Grid>
+                                </StackLayout>
+                            </renders:ExtendedViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </Grid>
+    </Frame>
+</ContentPage>

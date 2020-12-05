@@ -1,0 +1,426 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\back.png" />
+    <None Remove="Assets\backicon.png" />
+    <None Remove="Assets\BgHomeScreen.png" />
+    <None Remove="Assets\bgHomeTablet.png" />
+    <None Remove="Assets\calender.png" />
+    <None Remove="Assets\cameraIcon.png" />
+    <None Remove="Assets\CarSample.JPEG" />
+    <None Remove="Assets\CarSample.jpg" />
+    <None Remove="Assets\emailIcon.png" />
+    <None Remove="Assets\facebook.png" />
+    <None Remove="Assets\Front.png" />
+    <None Remove="Assets\gears.png" />
+    <None Remove="Assets\google.png" />
+    <None Remove="Assets\home.png" />
+    <None Remove="Assets\iconAddress.png" />
+    <None Remove="Assets\iconAgreeMade.png" />
+    <None Remove="Assets\iconBack.png" />
+    <None Remove="Assets\iconBags.png" />
+    <None Remove="Assets\iconBgLogin.png" />
+    <None Remove="Assets\iconBgMenu.png" />
+    <None Remove="Assets\iconBlackLocation.png" />
+    <None Remove="Assets\iconCake.png" />
+    <None Remove="Assets\iconCalendar.png" />
+    <None Remove="Assets\iconCamera.png" />
+    <None Remove="Assets\iconCar.png" />
+    <None Remove="Assets\iconCarLoadin.png" />
+    <None Remove="Assets\iconCash.png" />
+    <None Remove="Assets\iconCharges.png" />
+    <None Remove="Assets\iconCircleSelected.png" />
+    <None Remove="Assets\iconCircleUnselect.png" />
+    <None Remove="Assets\iconCity.png" />
+    <None Remove="Assets\iconClock.png" />
+    <None Remove="Assets\iconContact.png" />
+    <None Remove="Assets\iconCountry.png" />
+    <None Remove="Assets\iconCSDNumber.png" />
+    <None Remove="Assets\iconDelete.png" />
+    <None Remove="Assets\iconDiscount.png" />
+    <None Remove="Assets\iconDown.png" />
+    <None Remove="Assets\iconEDate.png" />
+    <None Remove="Assets\iconEdit.png" />
+    <None Remove="Assets\iconEmail.png" />
+    <None Remove="Assets\iconFeature.png" />
+    <None Remove="Assets\iconFilter.png" />
+    <None Remove="Assets\iconGrayBag.png" />
+    <None Remove="Assets\iconGrayBluetooth.png" />
+    <None Remove="Assets\iconGrayCamera.png" />
+    <None Remove="Assets\iconGrayFeature.png" />
+    <None Remove="Assets\iconGrayPayment.png" />
+    <None Remove="Assets\iconGraySeat.png" />
+    <None Remove="Assets\iconInVisible.png" />
+    <None Remove="Assets\iconLDate.png" />
+    <None Remove="Assets\iconLNumber.png" />
+    <None Remove="Assets\iconLoginLogo.png" />
+    <None Remove="Assets\iconLogout.png" />
+    <None Remove="Assets\iconLState.png" />
+    <None Remove="Assets\iconMenu.png" />
+    <None Remove="Assets\iconMenuLogo.png" />
+    <None Remove="Assets\iconPassword.png" />
+    <None Remove="Assets\iconPayment.png" />
+    <None Remove="Assets\iconPicture.png" />
+    <None Remove="Assets\iconPopupCheck.png" />
+    <None Remove="Assets\iconPopupClose.png" />
+    <None Remove="Assets\iconPostalCode.png" />
+    <None Remove="Assets\iconProfile.png" />
+    <None Remove="Assets\iconRedBluetooth.png" />
+    <None Remove="Assets\iconRedCamera.png" />
+    <None Remove="Assets\iconRedCar.png" />
+    <None Remove="Assets\iconRedCircleFilter.png" />
+    <None Remove="Assets\iconRedClose.png" />
+    <None Remove="Assets\iconRedDashboard.png" />
+    <None Remove="Assets\iconRedDoor.png" />
+    <None Remove="Assets\iconRedFilter.png" />
+    <None Remove="Assets\iconRedHelp.png" />
+    <None Remove="Assets\iconRedRental.png" />
+    <None Remove="Assets\iconRedSearch.png" />
+    <None Remove="Assets\iconRedSeat.png" />
+    <None Remove="Assets\iconRedStore.png" />
+    <None Remove="Assets\iconRedUser.png" />
+    <None Remove="Assets\iconRentalFee.png" />
+    <None Remove="Assets\iconRentPay.png" />
+    <None Remove="Assets\iconResAdvance.png" />
+    <None Remove="Assets\iconResDt.png" />
+    <None Remove="Assets\iconResDue.png" />
+    <None Remove="Assets\iconResId.png" />
+    <None Remove="Assets\iconResInDt.png" />
+    <None Remove="Assets\iconResINLoc.png" />
+    <None Remove="Assets\iconResMade.png" />
+    <None Remove="Assets\iconResOUTDT.png" />
+    <None Remove="Assets\iconResOUTLoc.png" />
+    <None Remove="Assets\iconResStatus.png" />
+    <None Remove="Assets\iconRight.png" />
+    <None Remove="Assets\iconSelectBookNow1.png" />
+    <None Remove="Assets\iconSelectBookNow2.png" />
+    <None Remove="Assets\iconSelectBookNow3.png" />
+    <None Remove="Assets\iconSelectBookNow4.png" />
+    <None Remove="Assets\iconSelectOtherInfo.png" />
+    <None Remove="Assets\iconSelectPerInfo.png" />
+    <None Remove="Assets\iconSelectReg.png" />
+    <None Remove="Assets\iconShare.png" />
+    <None Remove="Assets\iconSilverCar.png" />
+    <None Remove="Assets\iconState.png" />
+    <None Remove="Assets\iconTimer.png" />
+    <None Remove="Assets\iconTotalAmt.png" />
+    <None Remove="Assets\iconTotalTax.png" />
+    <None Remove="Assets\iconUnSelectBookNow1.png" />
+    <None Remove="Assets\iconUnSelectBookNow2.png" />
+    <None Remove="Assets\iconUnSelectBookNow3.png" />
+    <None Remove="Assets\iconUnSelectBookNow4.png" />
+    <None Remove="Assets\iconUnSelectOtherInfo.png" />
+    <None Remove="Assets\iconUnselectPerInfo.png" />
+    <None Remove="Assets\iconUnSelectReg.png" />
+    <None Remove="Assets\iconUser.png" />
+    <None Remove="Assets\iconVisa.png" />
+    <None Remove="Assets\iconVisible.png" />
+    <None Remove="Assets\iconWhiteCamera.png" />
+    <None Remove="Assets\iconWhiteCar.png" />
+    <None Remove="Assets\iconWhiteDashboard.png" />
+    <None Remove="Assets\iconWhiteDown.png" />
+    <None Remove="Assets\iconWhiteHelp.png" />
+    <None Remove="Assets\iconWhiteLogout.png" />
+    <None Remove="Assets\iconWhitePayment.png" />
+    <None Remove="Assets\iconWhiteRental.png" />
+    <None Remove="Assets\iconWhiteStore.png" />
+    <None Remove="Assets\iconWhiteUp.png" />
+    <None Remove="Assets\iconWhiteUser.png" />
+    <None Remove="Assets\location.png" />
+    <None Remove="Assets\Login.png" />
+    <None Remove="Assets\LoginIcon.png" />
+    <None Remove="Assets\LogInTool.png" />
+    <None Remove="Assets\logo.jpg" />
+    <None Remove="Assets\logOutTool.png" />
+    <None Remove="Assets\logo_high_resolution_white-1.png" />
+    <None Remove="Assets\luggage.png" />
+    <None Remove="Assets\neonbrand-263896-unsplash.jpg" />
+    <None Remove="Assets\nextIcon.png" />
+    <None Remove="Assets\odometer.png" />
+    <None Remove="Assets\passwordIcon.png" />
+    <None Remove="Assets\profile.jpg" />
+    <None Remove="Assets\registerPageImage.png" />
+    <None Remove="Assets\rental.png" />
+    <None Remove="Assets\seat.png" />
+    <None Remove="Assets\sendEmail.png" />
+    <None Remove="Assets\side1.png" />
+    <None Remove="Assets\side2.png" />
+    <None Remove="Assets\time.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\iconDelete.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\bgHomeTablet.png" />
+    <EmbeddedResource Include="Assets\iconAddress.png" />
+    <EmbeddedResource Include="Assets\iconAgreeMade.png" />
+    <EmbeddedResource Include="Assets\iconBgMenu.png" />
+    <EmbeddedResource Include="Assets\iconBlackLocation.png" />
+    <EmbeddedResource Include="Assets\iconCamera.png" />
+    <EmbeddedResource Include="Assets\iconCash.png" />
+    <EmbeddedResource Include="Assets\iconCircleSelected.png" />
+    <EmbeddedResource Include="Assets\iconCircleUnselect.png" />
+    <EmbeddedResource Include="Assets\iconEdit.png" />
+    <EmbeddedResource Include="Assets\iconFilter.png" />
+    <EmbeddedResource Include="Assets\iconGrayBag.png" />
+    <EmbeddedResource Include="Assets\iconGrayBluetooth.png" />
+    <EmbeddedResource Include="Assets\iconGrayCamera.png" />
+    <EmbeddedResource Include="Assets\iconGrayFeature.png" />
+    <EmbeddedResource Include="Assets\iconGrayPayment.png" />
+    <EmbeddedResource Include="Assets\iconGraySeat.png" />
+    <EmbeddedResource Include="Assets\iconMenuLogo.png" />
+    <EmbeddedResource Include="Assets\iconPayment.png" />
+    <EmbeddedResource Include="Assets\iconPicture.png" />
+    <EmbeddedResource Include="Assets\iconPopupCheck.png" />
+    <EmbeddedResource Include="Assets\iconPopupClose.png" />
+    <EmbeddedResource Include="Assets\iconProfile.png" />
+    <EmbeddedResource Include="Assets\iconRedBluetooth.png" />
+    <EmbeddedResource Include="Assets\iconRedCamera.png" />
+    <EmbeddedResource Include="Assets\iconRedCar.png" />
+    <EmbeddedResource Include="Assets\iconRedCircleFilter.png" />
+    <EmbeddedResource Include="Assets\iconRedClose.png" />
+    <EmbeddedResource Include="Assets\iconRedDashboard.png" />
+    <EmbeddedResource Include="Assets\iconRedDoor.png" />
+    <EmbeddedResource Include="Assets\iconRedFilter.png" />
+    <EmbeddedResource Include="Assets\iconRedHelp.png" />
+    <EmbeddedResource Include="Assets\iconRedRental.png" />
+    <EmbeddedResource Include="Assets\iconRedSearch.png" />
+    <EmbeddedResource Include="Assets\iconRedSeat.png" />
+    <EmbeddedResource Include="Assets\iconRedStore.png" />
+    <EmbeddedResource Include="Assets\iconRedUser.png" />
+    <EmbeddedResource Include="Assets\iconSelectBookNow1.png" />
+    <EmbeddedResource Include="Assets\iconSelectBookNow2.png" />
+    <EmbeddedResource Include="Assets\iconSelectBookNow3.png" />
+    <EmbeddedResource Include="Assets\iconSelectBookNow4.png" />
+    <EmbeddedResource Include="Assets\iconSelectOtherInfo.png" />
+    <EmbeddedResource Include="Assets\iconSelectPerInfo.png" />
+    <EmbeddedResource Include="Assets\iconSelectReg.png" />
+    <EmbeddedResource Include="Assets\iconShare.png" />
+    <EmbeddedResource Include="Assets\iconSilverCar.png" />
+    <EmbeddedResource Include="Assets\iconUnSelectBookNow1.png" />
+    <EmbeddedResource Include="Assets\iconUnSelectBookNow2.png" />
+    <EmbeddedResource Include="Assets\iconUnSelectBookNow3.png" />
+    <EmbeddedResource Include="Assets\iconUnSelectBookNow4.png" />
+    <EmbeddedResource Include="Assets\iconUser.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\iconMenu.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\back.png" />
+    <EmbeddedResource Include="Assets\backicon.png" />
+    <EmbeddedResource Include="Assets\BgHomeScreen.png" />
+    <EmbeddedResource Include="Assets\calender.png" />
+    <EmbeddedResource Include="Assets\cameraIcon.png" />
+    <EmbeddedResource Include="Assets\CarSample.JPEG" />
+    <EmbeddedResource Include="Assets\CarSample.jpg" />
+    <EmbeddedResource Include="Assets\facebook.png" />
+    <EmbeddedResource Include="Assets\Front.png" />
+    <EmbeddedResource Include="Assets\gears.png" />
+    <EmbeddedResource Include="Assets\google.png" />
+    <EmbeddedResource Include="Assets\home.png" />
+    <EmbeddedResource Include="Assets\iconBack.png" />
+    <EmbeddedResource Include="Assets\iconBags.png" />
+    <EmbeddedResource Include="Assets\iconBgLogin.png" />
+    <EmbeddedResource Include="Assets\iconCake.png" />
+    <EmbeddedResource Include="Assets\iconCalendar.png" />
+    <EmbeddedResource Include="Assets\iconCar.png" />
+    <EmbeddedResource Include="Assets\iconCarLoadin.png" />
+    <EmbeddedResource Include="Assets\iconCharges.png" />
+    <EmbeddedResource Include="Assets\iconCity.png" />
+    <EmbeddedResource Include="Assets\iconClock.png" />
+    <EmbeddedResource Include="Assets\iconContact.png" />
+    <EmbeddedResource Include="Assets\iconCountry.png" />
+    <EmbeddedResource Include="Assets\iconCSDNumber.png" />
+    <EmbeddedResource Include="Assets\iconDiscount.png" />
+    <EmbeddedResource Include="Assets\iconDown.png" />
+    <EmbeddedResource Include="Assets\iconEDate.png" />
+    <EmbeddedResource Include="Assets\iconEmail.png" />
+    <EmbeddedResource Include="Assets\iconFeature.png" />
+    <EmbeddedResource Include="Assets\iconInVisible.png" />
+    <EmbeddedResource Include="Assets\iconLDate.png" />
+    <EmbeddedResource Include="Assets\iconLNumber.png" />
+    <EmbeddedResource Include="Assets\iconLoginLogo.png" />
+    <EmbeddedResource Include="Assets\iconLogout.png" />
+    <EmbeddedResource Include="Assets\iconLState.png" />
+    <EmbeddedResource Include="Assets\iconPassword.png" />
+    <EmbeddedResource Include="Assets\iconPostalCode.png" />
+    <EmbeddedResource Include="Assets\iconRentalFee.png" />
+    <EmbeddedResource Include="Assets\iconRentPay.png" />
+    <EmbeddedResource Include="Assets\iconResAdvance.png" />
+    <EmbeddedResource Include="Assets\iconResDt.png" />
+    <EmbeddedResource Include="Assets\iconResId.png" />
+    <EmbeddedResource Include="Assets\iconResInDt.png" />
+    <EmbeddedResource Include="Assets\iconResINLoc.png" />
+    <EmbeddedResource Include="Assets\iconResMade.png" />
+    <EmbeddedResource Include="Assets\iconResOUTDT.png" />
+    <EmbeddedResource Include="Assets\iconResOUTLoc.png" />
+    <EmbeddedResource Include="Assets\iconResStatus.png" />
+    <EmbeddedResource Include="Assets\iconRight.png" />
+    <EmbeddedResource Include="Assets\iconState.png" />
+    <EmbeddedResource Include="Assets\iconTimer.png" />
+    <EmbeddedResource Include="Assets\iconTotalAmt.png" />
+    <EmbeddedResource Include="Assets\iconTotalTax.png" />
+    <EmbeddedResource Include="Assets\iconUnSelectOtherInfo.png" />
+    <EmbeddedResource Include="Assets\iconUnselectPerInfo.png" />
+    <EmbeddedResource Include="Assets\iconUnSelectReg.png" />
+    <EmbeddedResource Include="Assets\iconVisa.png" />
+    <EmbeddedResource Include="Assets\iconVisible.png" />
+    <EmbeddedResource Include="Assets\iconWhiteCamera.png" />
+    <EmbeddedResource Include="Assets\iconWhiteCar.png" />
+    <EmbeddedResource Include="Assets\iconWhiteDashboard.png" />
+    <EmbeddedResource Include="Assets\iconWhiteDown.png" />
+    <EmbeddedResource Include="Assets\iconWhiteHelp.png" />
+    <EmbeddedResource Include="Assets\iconWhiteLogout.png" />
+    <EmbeddedResource Include="Assets\iconWhitePayment.png" />
+    <EmbeddedResource Include="Assets\iconWhiteRental.png" />
+    <EmbeddedResource Include="Assets\iconWhiteStore.png" />
+    <EmbeddedResource Include="Assets\iconWhiteUp.png" />
+    <EmbeddedResource Include="Assets\iconWhiteUser.png" />
+    <EmbeddedResource Include="Assets\location.png" />
+    <EmbeddedResource Include="Assets\Login.png" />
+    <EmbeddedResource Include="Assets\LoginIcon.png" />
+    <EmbeddedResource Include="Assets\LogInTool.png" />
+    <EmbeddedResource Include="Assets\logOutTool.png" />
+    <EmbeddedResource Include="Assets\logo_high_resolution_white-1.png" />
+    <EmbeddedResource Include="Assets\luggage.png" />
+    <EmbeddedResource Include="Assets\neonbrand-263896-unsplash.jpg" />
+    <EmbeddedResource Include="Assets\nextIcon.png" />
+    <EmbeddedResource Include="Assets\odometer.png" />
+    <EmbeddedResource Include="Assets\profile.jpg" />
+    <EmbeddedResource Include="Assets\registerPageImage.png" />
+    <EmbeddedResource Include="Assets\rental.png" />
+    <EmbeddedResource Include="Assets\seat.png" />
+    <EmbeddedResource Include="Assets\sendEmail.png" />
+    <EmbeddedResource Include="Assets\side1.png" />
+    <EmbeddedResource Include="Assets\side2.png" />
+    <EmbeddedResource Include="Assets\time.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CardsView" Version="2.6.2" />
+    <PackageReference Include="ContextViewCell" Version="2.0.1" />
+    <PackageReference Include="DLToolkit.Forms.Controls.FlowListView" Version="2.0.11" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.24" />
+    <PackageReference Include="Microsoft.AppCenter.Push" Version="2.6.4" />
+    <PackageReference Include="Microsoft.NETCore.Platforms" Version="3.1.0-preview1.19504.10" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="PdfSharp.Xamarin.Forms" Version="1.0.0" />
+    <PackageReference Include="Plugin.FacebookClient" Version="2.2.1" />
+    <PackageReference Include="Plugin.Permissions" Version="5.0.0-beta" />
+    <PackageReference Include="Refractored.MvvmHelpers" Version="1.3.0" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="1.2.0.223" />
+    <PackageReference Include="System.Buffers" Version="4.5.0" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.6.0" />
+    <PackageReference Include="Xam.Plugin.Media" Version="4.4.6-beta" />
+    <PackageReference Include="Xamarin.Auth" Version="1.7.0" />
+    <PackageReference Include="Xamarin.Controls.SignaturePad.Forms" Version="3.0.0" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1560" />
+    <PackageReference Include="Xamarin.Forms.InputKit" Version="3.0.15" />
+    <PackageReference Include="Xamarin.Forms.PancakeView" Version="1.4.2" />
+    <PackageReference Include="XamarinFastEntry.Behaviors" Version="1.1.1" />
+    <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\iconResDue.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\MaxVonGrafKftMobileController\MaxVonGrafKftMobileController.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Drawing.Common">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\Xamarin.iOS\v1.0\Facades\System.Drawing.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Popups\editPrrofilePhotoPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Popups\ExtendPopup.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Popups\FilterPopup.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Popups\PriceDetailPopup.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Popups\SuccessWithClosePopup.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Popups\TermAndConditionPopup.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Popups\VehicleImagePopup.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Renders\ExtStepper.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\AddAditionalDriver.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\AddNewDriver.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\AddPaymentMethodPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\DriverDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\EditAddAditionalDiver.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\EditAddNewDriver.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\EditBookNow.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\EditSummaryOfCharges.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\EditVehicleDetail.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\EditVehicleRates.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\GoogleRegisterPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\PaymentMethodPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ProcessPaymentPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\VechicleInformationPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\VehicleDamageImage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+ 
+</Project>
