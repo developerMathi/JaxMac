@@ -105,9 +105,9 @@ namespace MaxVonGrafKftMobile.Views
                     {
                         firstNameLabel.Text = customerReview.FirstName;
                         LastNameLabel.Text = customerReview.LastName;
-                        dobLabel.Text = string.Format("{0:dddd, MMMM d, yyyy}", customerReview.DateOfbirth);
+                        dobLabel.Text = string.Format("{0:MMMM d, yyyy}", customerReview.DateOfbirth);
                         addressLabel.Text = customerReview.Address1 + customerReview.Address2+", "+customerReview.City + ", " + customerReview.ZipCode + ", " + customerReview.CountryName;
-                        MobileNoLabel.Text = customerReview.hPhone;
+                        MobileNoLabel.Text = String.Format("{0:(###) ###-####}", long.Parse(customerReview.hPhone) );
                         EmailLabel.Text = customerReview.Email;
                         
                         if (PortalDetailsMobileResponse != null)

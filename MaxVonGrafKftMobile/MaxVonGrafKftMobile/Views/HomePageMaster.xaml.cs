@@ -126,12 +126,12 @@ namespace MaxVonGrafKftMobile.Views
                 MenuItems = new ObservableCollection<HomePageMasterMenuItem>(new[]
                 {
 
-                    new HomePageMasterMenuItem { Id = 0,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("MaxVonGrafKftMobile.Assets.iconWhiteDashboard.png"),  Title = "Dashboard" },
+                    new HomePageMasterMenuItem { Id = 0,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("MaxVonGrafKftMobile.Assets.iconWhiteDashboard.png"),  Title = "Home" },
                     new HomePageMasterMenuItem { Id = 1,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("MaxVonGrafKftMobile.Assets.iconWhiteCar.png"), Title = "Book Now" },
                     //new HomePageMasterMenuItem { Id = 2,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("MaxVonGrafKftMobile.Assets.iconWhiteRental.png"), Title = "My Rentals " },
-                    new HomePageMasterMenuItem { Id = 5,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("MaxVonGrafKftMobile.Assets.iconWhiteUser.png"), Title = "My Profile" },
-                    new HomePageMasterMenuItem { Id = 3,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("MaxVonGrafKftMobile.Assets.iconWhiteHelp.png"), Title = "Help" },
-                    new HomePageMasterMenuItem { Id = 4,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("MaxVonGrafKftMobile.Assets.iconWhitePayment.png"), Title = "Payment Method" },
+                    new HomePageMasterMenuItem { Id = 5,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("MaxVonGrafKftMobile.Assets.iconWhiteUser.png"), Title = "Profile" },
+                    new HomePageMasterMenuItem { Id = 3,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("MaxVonGrafKftMobile.Assets.iconWhitePayment.png"), Title = "Payment Method" },
+                    new HomePageMasterMenuItem { Id = 4,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("MaxVonGrafKftMobile.Assets.iconWhiteHelp.png"), Title = "Help" },
                     new HomePageMasterMenuItem { Id = 6,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("MaxVonGrafKftMobile.Assets.iconWhiteLogout.png"), Title = "Log out" },
                    // new HomePageMasterMenuItem { Id = 2, Title = "Upcoming reservation " },
                    // new HomePageMasterMenuItem { Id = 3, Title = "My Rentals" },
@@ -169,11 +169,11 @@ namespace MaxVonGrafKftMobile.Views
             {
                 Navigation.PushAsync(new MyRentals());
             }
-            else if (item.Id == 3)
+            else if (item.Id == 4)
             {
                 Navigation.PushAsync(new HelpFunnelPage());
             }
-            else if (item.Id == 4)
+            else if (item.Id == 3)
             {
                 Navigation.PushAsync(new PaymentMethodPage());
             }

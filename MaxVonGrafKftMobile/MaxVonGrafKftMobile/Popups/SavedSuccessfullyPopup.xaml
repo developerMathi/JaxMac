@@ -105,7 +105,7 @@
                         FontAttributes="Bold"
                         FontFamily="Roboto-Bold"
                         HorizontalOptions="CenterAndExpand"
-                        Text="Registration success"
+                        Text="Registration Success"
                         TextColor="{StaticResource frmGreen}"
                         VerticalOptions="EndAndExpand">
                         <Label.FontSize>
@@ -139,7 +139,7 @@
                         Grid.Row="1"
                         FontFamily="Roboto-Medium"
                         HorizontalTextAlignment="Center"
-                        Text="Congrats! Your registration was successful! Please log in now."
+                        Text="Congrats! Your registration was successful! Please check your inbox to confirm your email address now."
                         TextColor="{StaticResource MaxVonBlack}"
                         VerticalOptions="CenterAndExpand">
                         <Label.FontSize>

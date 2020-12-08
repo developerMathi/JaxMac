@@ -265,7 +265,7 @@
                             FontAttributes="Bold"
                             FontFamily="Roboto-Bold"
                             HorizontalOptions="CenterAndExpand"
-                            Text="Book now - Vehicle details"
+                            Text="Select a Vehicle"
                             TextColor="{StaticResource MaxVonRed}">
                         <Label.FontSize>
                             <OnPlatform x:TypeArguments="x:Double">
@@ -847,7 +847,7 @@
                                                             <ColumnDefinition Width="*" />
                                                             <ColumnDefinition Width="Auto" />
                                                         </Grid.ColumnDefinitions>
-                                                        <StackLayout Orientation="Horizontal" Spacing="5">
+                                                        <StackLayout Orientation="Horizontal" Spacing="1">
                                                             <Label
                                                                         Margin="0"
                                                                         FontFamily="Roboto-Bold"

@@ -178,7 +178,7 @@ namespace MaxVonGrafKftMobile.Views
             {
                 PopupNavigation.Instance.PushAsync(new Error_popup("Please enter a valid contact number."));
             }
-            else if (ContactNoEntry.Text.Length != 10)
+            else if (ContactNoEntry.Text.Replace(" ", "").Replace("(", "").Replace(")", "").Replace("-", "").Length != 10)
             {
                 PopupNavigation.Instance.PushAsync(new Error_popup("Please enter a valid contact no."));
             }
@@ -254,7 +254,7 @@ namespace MaxVonGrafKftMobile.Views
             customer.StateId = returnStateIdByStateName(statePicker.SelectedItem.ToString());
             customer.StateName = statePicker.SelectedItem.ToString();
             customer.ZipCode = PostalCodeEntry.Text;
-            customer.hPhone = ContactNoEntry.Text;
+            customer.hPhone = ContactNoEntry.Text.Replace(" ", "").Replace("(", "").Replace(")", "").Replace("-", "");
             if (images != null)
             {
                 if (images.Base64 != null)

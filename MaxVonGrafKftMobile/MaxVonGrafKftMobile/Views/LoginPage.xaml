@@ -38,7 +38,7 @@
                     <Label
                         FontFamily="Roboto-Black"
                         HorizontalOptions="Center"
-                        Text="Login"
+                        Text="Log In"
                         TextColor="{StaticResource MaxVonRed}">
                         <Label.FontSize>
                             <OnPlatform x:TypeArguments="x:Double">
@@ -369,7 +369,7 @@
                     FontFamily="Roboto-Medium"
                     HorizontalOptions="FillAndExpand"
                     StyleClass="bouncy"
-                    Text="Login"
+                    Text="Log In"
                     TextColor="{StaticResource MaxVonWhite}"
                     VerticalOptions="CenterAndExpand">
                     <Button.HeightRequest>
@@ -458,7 +458,7 @@
                     Margin="0,20,0,0"
                     FontFamily="Roboto-Medium"
                     HorizontalOptions="Center"
-                    Text="Forget Password?"
+                    Text="Forgot Password?"
                     TextColor="{StaticResource MaxVonBlack}"
                     TextDecorations="Underline">
                     <Label.FontSize>

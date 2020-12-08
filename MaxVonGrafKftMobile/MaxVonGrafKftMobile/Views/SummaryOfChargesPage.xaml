@@ -271,7 +271,7 @@
                         FontAttributes="Bold"
                         FontFamily="Roboto-Bold"
                         HorizontalOptions="CenterAndExpand"
-                        Text="Summary of charges"
+                        Text="Summary of Charges"
                         TextColor="{StaticResource MaxVonRed}">
                         <Label.FontSize>
                             <OnPlatform x:TypeArguments="x:Double">
@@ -742,6 +742,7 @@
 
                                 <Label
                                     Grid.Row="0"
+                                    IsVisible="false"
                                     Grid.ColumnSpan="2"
                                     FontAttributes="Bold"
                                     FontFamily="Roboto-Bold"
@@ -777,7 +778,7 @@
                                     Grid.Row="1"
                                     Grid.Column="0"
                                     FontFamily="Roboto-Bold"
-                                    Text="No of Days "
+                                    Text="Rental Days "
                                     TextColor="{StaticResource MaxVonBlack}"
                                     VerticalOptions="Center">
                                     <Label.Margin>
@@ -868,7 +869,7 @@
                                     Grid.Row="2"
                                     Grid.Column="0"
                                     FontFamily="Roboto-Bold"
-                                    Text="Total Rental Fee"
+                                    Text="Daily Rental Fee"
                                     TextColor="{StaticResource MaxVonBlack}"
                                     VerticalOptions="Center">
                                     <Label.Margin>
@@ -1048,7 +1049,7 @@
                                     Grid.Row="4"
                                     Grid.Column="0"
                                     FontFamily="Roboto-Bold"
-                                    Text="Total Misc.Charge"
+                                    Text="Additional Fees"
                                     TextColor="{StaticResource MaxVonBlack}"
                                     VerticalOptions="Center">
                                     <Label.Margin>
@@ -1137,7 +1138,7 @@
                                     Grid.Row="5"
                                     Grid.Column="0"
                                     FontFamily="Roboto-Bold"
-                                    Text="Total Tax Amount"
+                                    Text="Sales Tax (8.9%)"
                                     TextColor="{StaticResource MaxVonBlack}"
                                     VerticalOptions="Center">
                                     <Label.Margin>
@@ -1234,7 +1235,7 @@
                                         VerticalOptions="CenterAndExpand">
                                         <Label
                                             FontFamily="Roboto-Bold"
-                                            Text="Sub Total :"
+                                            Text="Total :"
                                             TextColor="{StaticResource MaxVonWhite}">
                                             <Label.FontSize>
                                                 <OnPlatform x:TypeArguments="x:Double">
@@ -1646,7 +1647,7 @@
                                     FontAttributes="Bold"
                                     FontFamily="Roboto-Bold"
                                     HorizontalOptions="CenterAndExpand"
-                                    Text="Terms And Conditions"
+                                    Text="Terms and Conditions"
                                     TextColor="{StaticResource MaxVonRed}"
                                     TextDecorations="Underline">
                                     <Label.FontSize>
@@ -1684,7 +1685,7 @@
                                     Grid.Column="0"
                                     Grid.ColumnSpan="2"
                                     FontFamily="Roboto-Bold"
-                                    Text="I hereby accept the terms and conditions"
+                                    Text="I hereby accept the Terms and Conditions"
                                     TextColor="{StaticResource MaxVonBlack}"
                                     Type="Material"
                                     Color="{StaticResource MaxVonRed}">

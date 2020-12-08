@@ -224,7 +224,7 @@
                                 CornerRadius="10"
                                 FontFamily="Roboto-Medium"
                                 StyleClass="bouncy"
-                                Text="Signup"
+                                Text="Sign Up"
                                 TextColor="{StaticResource MaxVonWhite}"
                                 VerticalOptions="End">
                                 <Button.FontSize>
@@ -272,7 +272,7 @@
                                 CornerRadius="10"
                                 FontFamily="Roboto-Medium"
                                 StyleClass="bouncy"
-                                Text="Login"
+                                Text="Log In"
                                 TextColor="{StaticResource MaxVonWhite}"
                                 VerticalOptions="End">
                                 <Button.FontSize>

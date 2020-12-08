@@ -6,7 +6,8 @@
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:local="clr-namespace:MaxVonGrafKftMobile.MarkupExtensions"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:renders="clr-namespace:MaxVonGrafKftMobile.Renders"
+    xmlns:renders="clr-namespace:MaxVonGrafKftMobile.Renders" 
+    xmlns:behaviors="clr-namespace:XamarinFastEntrySample.FastEntry;assembly=XamarinFastEntry.Behaviors"
     BackgroundColor="{StaticResource MaxVonWhite}"
     BackgroundImageSource="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconBgLogin.png}"
     NavigationPage.HasNavigationBar="False"
@@ -720,10 +721,13 @@
                                         Margin="10,0,0,0"
                                         FontFamily="Roboto-Medium"
                                         FontSize="Medium"
-                                        Keyboard="Telephone"
                                         Placeholder="Contact Number"
                                         PlaceholderColor="{StaticResource MaxVonBlack}"
-                                        TextColor="{StaticResource MaxVonBlack}" >
+                                        TextColor="{StaticResource MaxVonBlack}" 
+                                        Keyboard="Numeric">
+                                        <Entry.Behaviors>
+                                            <renders:MaskedBehavior Mask="(XXX) XXX-XXXX" />
+                                        </Entry.Behaviors>
                                         <renders:CustomEntry.BackgroundColor>
                                     <OnPlatform x:TypeArguments="Color">
                                         <On Platform="iOS">
@@ -873,14 +877,14 @@
                                         <On Platform="iOS">
                                             <OnIdiom
                                                 x:TypeArguments="x:Double"
-                                                Phone="50"
-                                                Tablet="60" />
+                                                Phone="80"
+                                                Tablet="105" />
                                         </On>
                                         <On Platform="Android,Windows">
                                             <OnIdiom
                                                 x:TypeArguments="x:Double"
-                                                Phone="50"
-                                                Tablet="60" />
+                                                Phone="80"
+                                                Tablet="105" />
                                         </On>
                                     </OnPlatform>
                                 </Frame.HeightRequest>
@@ -930,7 +934,7 @@
                                         </Image.WidthRequest>
                                     </Image>
 
-                                    <renders:CustomEntry
+                                    <renders:CustomEditer
                                         x:Name="AddressEntry"
                                         Grid.Column="1"
                                         Margin="10,0,0,0"
@@ -938,8 +942,26 @@
                                         FontSize="Medium"
                                         Placeholder="Address"
                                         PlaceholderColor="{StaticResource MaxVonBlack}"
-                                        TextColor="{StaticResource MaxVonBlack}" >
-                                        <renders:CustomEntry.BackgroundColor>
+                                        TextColor="{StaticResource MaxVonBlack}" 
+                                        VerticalOptions="Center">
+
+                                        <Editor.HeightRequest>
+                                            <OnPlatform x:TypeArguments="x:Double">
+                                                <On Platform="iOS">
+                                                    <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="80"
+                                                Tablet="105" />
+                                                </On>
+                                                <On Platform="Android,Windows">
+                                                    <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="80"
+                                                Tablet="105" />
+                                                </On>
+                                            </OnPlatform>
+                                        </Editor.HeightRequest>
+                                        <Editor.BackgroundColor>
                                     <OnPlatform x:TypeArguments="Color">
                                         <On Platform="iOS">
                                             <OnIdiom x:TypeArguments="Color"
@@ -947,8 +969,8 @@
                                                      Tablet="Transparent"></OnIdiom>
                                         </On>
                                     </OnPlatform>
-                                </renders:CustomEntry.BackgroundColor>
-                                    </renders:CustomEntry>
+                                </Editor.BackgroundColor>
+                                    </renders:CustomEditer>
                                 </Grid>
                             </Frame>
 

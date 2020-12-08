@@ -492,5 +492,16 @@ namespace MaxVonGrafKftMobile.Views
                 }
             }
         }
+
+        private void descriptionBtn_Tapped(object sender, EventArgs e)
+        {
+            var obj = (Image)sender;
+            var objstac = (StackLayout)obj.Parent;
+            var objGrid = (Grid)objstac.Parent;
+            var viewcell = (ExtendedViewCell)objGrid.Parent;
+            MiscChargeSearchReview selectedMischrge = objGrid.BindingContext as MiscChargeSearchReview;
+            PopupNavigation.Instance.PushAsync(new DetailPopUp(selectedMischrge.Name,selectedMischrge.Description));
+
+        }
     }
 }

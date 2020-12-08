@@ -59,6 +59,7 @@
     <None Remove="Assets\iconGrayFeature.png" />
     <None Remove="Assets\iconGrayPayment.png" />
     <None Remove="Assets\iconGraySeat.png" />
+    <None Remove="Assets\iconInfoRed.png" />
     <None Remove="Assets\iconInVisible.png" />
     <None Remove="Assets\iconLDate.png" />
     <None Remove="Assets\iconLNumber.png" />
@@ -179,6 +180,7 @@
     <EmbeddedResource Include="Assets\iconGrayFeature.png" />
     <EmbeddedResource Include="Assets\iconGrayPayment.png" />
     <EmbeddedResource Include="Assets\iconGraySeat.png" />
+    <EmbeddedResource Include="Assets\iconInfoRed.png" />
     <EmbeddedResource Include="Assets\iconMenuLogo.png" />
     <EmbeddedResource Include="Assets\iconPayment.png" />
     <EmbeddedResource Include="Assets\iconPicture.png" />
@@ -351,6 +353,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Popups\DetailPopUp.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Popups\editPrrofilePhotoPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

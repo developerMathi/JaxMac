@@ -30,5 +30,31 @@ namespace MaxVonGrafKftMobile
         {
             admin = admi;
         }
+
+        public static string returnNavotarCardTypes(string type)
+        {
+            if (type.ToLower().Contains("visa"))
+            {
+                return "Visa";
+            }
+
+            else if (type.ToLower().Contains("master"))
+            {
+                return "Master";
+            }
+            else if (type.ToLower().Contains("discover"))
+            {
+                return "Discover";
+            }
+            else if (type.ToLower().Contains("express"))
+            {
+                return "American_Express";
+            }
+            else
+            {
+                return "Credit_Card";
+            }
+            
+        }
     }
 }

@@ -99,9 +99,11 @@
     <MtouchArch>ARM64</MtouchArch>
     <CodesignKey>Apple Distribution: Jax Automotive, LLC (NFT93H2D66)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <MtouchProfiling></MtouchProfiling>
+    <MtouchProfiling>
+    </MtouchProfiling>
     <CrashReportingEnabled>false</CrashReportingEnabled>
-    <MtouchLink></MtouchLink>
+    <MtouchLink>
+    </MtouchLink>
     <CodesignProvision>JAXAPPSTORE</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
@@ -114,6 +116,7 @@
     <Compile Include="BorderlessDatePickerRenderer.cs" />
     <Compile Include="BorderlessPickerRenderer.cs" />
     <Compile Include="BorderlessTimePickerRenderer.cs" />
+    <Compile Include="CustomEditorRenderer.cs" />
     <Compile Include="CustomEntryRenderer.cs" />
     <Compile Include="ExtendedViewCellRenderer.cs" />
     <Compile Include="ImageCircleRendereriOS.cs" />

@@ -90,7 +90,7 @@ namespace MaxVonGrafKftMobile.Views
                             //agreementResponse = getAgreementMobile(getAgreementByCustomerIdMobileRequest, token);
                             //customerAgreementModels = agreementResponse.listAgreements;
                             AgreementByAgreementIdMobileResponse = getAgreement(AgreementByAgreementIdMobileRequest, token, vehicleId);
-                            imageURLMobileResponse = getDamageSignature(imageURLMobileRequest, token);
+                            //imageURLMobileResponse = getDamageSignature(imageURLMobileRequest, token);
                         }
                         catch (Exception ex)
                         {
@@ -130,7 +130,7 @@ namespace MaxVonGrafKftMobile.Views
                         }
                     }
 
-                    if (AgreementByAgreementIdMobileResponse != null && imageURLMobileResponse != null)
+                    if (AgreementByAgreementIdMobileResponse != null )
                     {
                         if (AgreementByAgreementIdMobileResponse.message.ErrorCode == "200")
                         {
@@ -228,63 +228,63 @@ namespace MaxVonGrafKftMobile.Views
                             //    noSignatureFrame.IsVisible = false;
                             //}
                             //else 
-                            if (imageURLMobileResponse.message.ErrorCode == "200")
-                            {
-                                if (!string.IsNullOrEmpty(imageURLMobileResponse.SignatureImageUrl))
-                                {
-                                    TCcheckBox.IsVisible = false;
-                                    signatureFrame.IsVisible = false;
-                                    signatureGrid.IsVisible = false;
-                                    imageFrame.IsVisible = true;
-                                    byte[] Base64Stream = Convert.FromBase64String(imageURLMobileResponse.SignatureImageUrl);
-                                    signatureImage.Source = ImageSource.FromStream(() => new MemoryStream(Base64Stream));
-                                }
-                                else if (agreement.AgreementDetail.Status == (int)AgreementStatusConst.Open)
-                                {
-                                    //TCcheckBox.IsVisible = true;
-                                    //signatureFrame.IsVisible = false;
+                            //if (imageURLMobileResponse.message.ErrorCode == "200")
+                            //{
+                            //    if (!string.IsNullOrEmpty(imageURLMobileResponse.SignatureImageUrl))
+                            //    {
+                            //        TCcheckBox.IsVisible = false;
+                            //        signatureFrame.IsVisible = false;
+                            //        signatureGrid.IsVisible = false;
+                            //        imageFrame.IsVisible = true;
+                            //        byte[] Base64Stream = Convert.FromBase64String(imageURLMobileResponse.SignatureImageUrl);
+                            //        signatureImage.Source = ImageSource.FromStream(() => new MemoryStream(Base64Stream));
+                            //    }
+                            //    else if (agreement.AgreementDetail.Status == (int)AgreementStatusConst.Open)
+                            //    {
+                            //        //TCcheckBox.IsVisible = true;
+                            //        //signatureFrame.IsVisible = false;
 
-                                    signatureGrid.IsVisible = true;
-                                    signatureFrame.IsVisible = true;
+                            //        signatureGrid.IsVisible = true;
+                            //        signatureFrame.IsVisible = true;
 
                                     
-                                    imageFrame.IsVisible = false;
-                                    noSignatureFrame.IsVisible = false;
-                                }
-                                else
-                                {
-                                    TCcheckBox.IsVisible = false;
-                                    signatureFrame.IsVisible = false;
-                                    signatureGrid.IsVisible = false;
-                                    noSignatureFrame.IsVisible = true;
-                                    imageFrame.IsVisible = false;
-                                }
-                            }
-                            else if (agreement.AgreementDetail.Status == (int)AgreementStatusConst.Open)
-                            {
-                                //signatureFrame.IsVisible = false;
-                                //signatureGrid.IsVisible = false;
-                                //imageFrame.IsVisible = true;
-                                //signatureImage.Source = ImageSource.FromUri(new Uri("D:\\Navotar\\Websites\\Images\\Signatures\\Agreement\\158233.jpg"));
+                            //        imageFrame.IsVisible = false;
+                            //        noSignatureFrame.IsVisible = false;
+                            //    }
+                            //    else
+                            //    {
+                            //        TCcheckBox.IsVisible = false;
+                            //        signatureFrame.IsVisible = false;
+                            //        signatureGrid.IsVisible = false;
+                            //        noSignatureFrame.IsVisible = true;
+                            //        imageFrame.IsVisible = false;
+                            //    }
+                            //}
+                            //else if (agreement.AgreementDetail.Status == (int)AgreementStatusConst.Open)
+                            //{
+                            //    //signatureFrame.IsVisible = false;
+                            //    //signatureGrid.IsVisible = false;
+                            //    //imageFrame.IsVisible = true;
+                            //    //signatureImage.Source = ImageSource.FromUri(new Uri("D:\\Navotar\\Websites\\Images\\Signatures\\Agreement\\158233.jpg"));
 
-                                //TCcheckBox.IsVisible = true;
-                                //signatureFrame.IsVisible = false;
-                                //signatureGrid.IsVisible = false;
+                            //    //TCcheckBox.IsVisible = true;
+                            //    //signatureFrame.IsVisible = false;
+                            //    //signatureGrid.IsVisible = false;
 
-                                signatureFrame.IsVisible = true;
-                                signatureGrid.IsVisible = true;
+                            //    signatureFrame.IsVisible = true;
+                            //    signatureGrid.IsVisible = true;
 
-                                imageFrame.IsVisible = false;
-                                noSignatureFrame.IsVisible = false;
-                            }
-                            else
-                            {
-                                TCcheckBox.IsVisible = false;
-                                signatureFrame.IsVisible = false;
-                                signatureGrid.IsVisible = false;
-                                noSignatureFrame.IsVisible = true;
-                                imageFrame.IsVisible = false;
-                            }
+                            //    imageFrame.IsVisible = false;
+                            //    noSignatureFrame.IsVisible = false;
+                            //}
+                            //else
+                            //{
+                            //    TCcheckBox.IsVisible = false;
+                            //    signatureFrame.IsVisible = false;
+                            //    signatureGrid.IsVisible = false;
+                            //    noSignatureFrame.IsVisible = true;
+                            //    imageFrame.IsVisible = false;
+                            //}
                         }
                         else
                         {

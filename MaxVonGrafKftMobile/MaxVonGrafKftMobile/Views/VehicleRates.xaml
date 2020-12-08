@@ -267,7 +267,7 @@
                             FontAttributes="Bold"
                             FontFamily="Roboto-Bold"
                             HorizontalOptions="CenterAndExpand"
-                            Text="Book now - Vehicle rates"
+                            Text="Vehicle Rates"
                             TextColor="{StaticResource MaxVonRed}">
                             <Label.FontSize>
                                 <OnPlatform x:TypeArguments="x:Double">
@@ -1134,6 +1134,9 @@
 
                                                     <!--  Row1  -->
 
+                                                    <StackLayout Padding="0"
+                                                                 Orientation="Horizontal"
+                                                                 Spacing="10">
                                                     <StackLayout
                                                         Grid.Column="0"
                                                         Spacing="0"
@@ -1200,6 +1203,36 @@
                                                             </Label.FontSize>
 
                                                         </Label>
+                                                    </StackLayout>
+                                                        <Image
+                                                            Aspect="AspectFit"
+                                                            HorizontalOptions="StartAndExpand"
+                                                            Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconInfoRed.png}"
+                                                            VerticalOptions="Center">
+                                                            <Image.WidthRequest>
+                                                                <OnPlatform x:TypeArguments="x:Double">
+                                                                    <On Platform="iOS">
+                                                                        <OnIdiom
+                                                                            x:TypeArguments="x:Double"
+                                                                            Phone="25"
+                                                                            Tablet="30" />
+                                                                    </On>
+                                                                    <On Platform="Android,Windows">
+                                                                        <OnIdiom
+                                                                            x:TypeArguments="x:Double"
+                                                                            Phone="25"
+                                                                            Tablet="30" />
+                                                                    </On>
+                                                                </OnPlatform>
+                                                            </Image.WidthRequest>
+                                                            <Image.GestureRecognizers>
+                                                                <TapGestureRecognizer
+                                                                    x:Name="descriptionBtn"
+                                                                    NumberOfTapsRequired="1"
+                                                                    Tapped="descriptionBtn_Tapped"
+                                                                    CommandParameter="{Binding .}"/>
+                                                            </Image.GestureRecognizers>
+                                                        </Image>
                                                     </StackLayout>
                                                     <renders:ExtStepper
                                                         Grid.Column="1"

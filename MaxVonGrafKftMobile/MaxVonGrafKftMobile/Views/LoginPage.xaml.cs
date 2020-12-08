@@ -200,7 +200,7 @@ namespace MaxVonGrafKftMobile.Views
                         }
                         else
                         {
-                            await PopupNavigation.Instance.PushAsync(new Error_popup("Log in failed . Please try again"));
+                            await PopupNavigation.Instance.PushAsync(new Error_popup("Login failed. Please try again."));
                             loginPassword.Text = null;
                             errorLabel.IsVisible = false;
                         }

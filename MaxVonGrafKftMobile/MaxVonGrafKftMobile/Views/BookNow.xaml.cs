@@ -151,6 +151,10 @@ namespace MaxVonGrafKftMobile.Views
                     }
                     pickUpLocation.ItemsSource = locationNames;
                     //dropOffLocation.ItemsSource = locationNames;
+                    if (locationNames.Count > 0)
+                    {
+                        pickUpLocation.SelectedIndex = 0;
+                    }
                 }
                 else
                 {

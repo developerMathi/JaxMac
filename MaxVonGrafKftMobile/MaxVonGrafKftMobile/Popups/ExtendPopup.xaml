@@ -199,6 +199,17 @@
                                     <x:Int32>18</x:Int32>
                                     <x:Int32>19</x:Int32>
                                     <x:Int32>20</x:Int32>
+                                    <x:Int32>21</x:Int32>
+                                    <x:Int32>22</x:Int32>
+                                    <x:Int32>23</x:Int32>
+                                    <x:Int32>24</x:Int32>
+                                    <x:Int32>25</x:Int32>
+                                    <x:Int32>26</x:Int32>
+                                    <x:Int32>27</x:Int32>
+                                    <x:Int32>28</x:Int32>
+                                    <x:Int32>29</x:Int32>
+                                    <x:Int32>30</x:Int32>
+                                    <x:Int32>31</x:Int32>
                                 </x:Array>
                             </renders:BorderlessPicker.ItemsSource>
                         </renders:BorderlessPicker>

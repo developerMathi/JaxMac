@@ -218,7 +218,7 @@
                             FontFamily="Roboto-Medium"
                             FontSize="Medium"
                             HorizontalOptions="FillAndExpand"
-                            Placeholder="Expiry Date ( MM / YY )"
+                            Placeholder="Expiration Date ( MM / YY )"
                             PlaceholderColor="{StaticResource MaxVonBlack}"
                             TextColor="{StaticResource MaxVonBlack}" 
                             Keyboard="Numeric" >
@@ -275,6 +275,11 @@
                                     </On>
                                 </OnPlatform>
                             </Image.WidthRequest>
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                      x:Name="expiryDateTap"
+                                                      Tapped="expiryDateTap_Tapped"></TapGestureRecognizer>
+                            </Image.GestureRecognizers>
                         </Image>
                     </Grid>
                 </Frame>
@@ -371,6 +376,11 @@
                                     </On>
                                 </OnPlatform>
                             </Image.WidthRequest>
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                      x:Name="cvvTap"
+                                                      Tapped="cvvTap_Tapped"></TapGestureRecognizer>
+                            </Image.GestureRecognizers>
                         </Image>
                     </Grid>
                 </Frame>
@@ -452,7 +462,7 @@
                         FontFamily="Roboto-Medium"
                         FontSize="Medium"
                         HorizontalOptions="FillAndExpand"
-                        Title=" Card type"
+                        Title=" Card Type"
                         TitleColor="{StaticResource MaxVonBlack}"
                         TextColor="{StaticResource MaxVonBlack}"
                         Unfocused="CardTypePicker_Unfocused"/>

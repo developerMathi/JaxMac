@@ -57,10 +57,7 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" /> 
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
@@ -612,7 +609,7 @@
                                 HorizontalOptions="CenterAndExpand"
                                 TextColor="{StaticResource MaxVonWhite}"
                                 VerticalOptions="CenterAndExpand">
-                                Pick up Information
+                                Pickup Information
                                 <Label.FontSize>
                                     <OnPlatform x:TypeArguments="x:Double">
                                         <On Platform="iOS">
@@ -638,7 +635,7 @@
                             Margin="15,0,0,0"
                             FontFamily="Roboto-Bold"
                             TextColor="{StaticResource MaxVonBlack}">
-                            CheckOUT Location
+                            Return Location
                             <Label.FontSize>
                                 <OnPlatform x:TypeArguments="x:Double">
                                     <On Platform="iOS">
@@ -688,7 +685,7 @@
                             Margin="15,0,0,0"
                             FontFamily="Roboto-Bold"
                             TextColor="{StaticResource MaxVonBlack}">
-                            CheckOUT Date Time
+                            Return Date/Time"
                             <Label.FontSize>
                                 <OnPlatform x:TypeArguments="x:Double">
                                     <On Platform="iOS">
@@ -784,7 +781,7 @@
                             Margin="15,0,0,0"
                             FontFamily="Roboto-Bold"
                             TextColor="{StaticResource MaxVonBlack}">
-                            CheckIN Location
+                            Pickup Location
                             <Label.FontSize>
                                 <OnPlatform x:TypeArguments="x:Double">
                                     <On Platform="iOS">
@@ -834,7 +831,7 @@
                             Margin="15,0,0,0"
                             FontFamily="Roboto-Bold"
                             TextColor="{StaticResource MaxVonBlack}">
-                            CheckIN Date Time
+                            Pickup Date/Time
                             <Label.FontSize>
                                 <OnPlatform x:TypeArguments="x:Double">
                                     <On Platform="iOS">
@@ -929,7 +926,8 @@
                             Grid.Column="0"
                             Margin="15,0,0,0"
                             FontFamily="Roboto-Bold"
-                            TextColor="{StaticResource MaxVonBlack}">
+                            TextColor="{StaticResource MaxVonBlack}"
+                            IsVisible="false">
                             Total Rental Fee
                             <Label.FontSize>
                                 <OnPlatform x:TypeArguments="x:Double">
@@ -955,7 +953,8 @@
                             Margin="0,0,15,0"
                             FontFamily="Roboto-Medium"
                             HorizontalTextAlignment="End"
-                            TextColor="{StaticResource MaxVonBlack}">
+                            TextColor="{StaticResource MaxVonBlack}"
+                            IsVisible="false">
                             <Label.FontSize>
                                 <OnPlatform x:TypeArguments="x:Double">
                                     <On Platform="iOS">
@@ -975,7 +974,7 @@
                         </Label>
 
                         <Label
-                            Grid.Row="14"
+                            Grid.Row="13"
                             Grid.Column="0"
                             Margin="15,0,0,0"
                             FontFamily="Roboto-Bold"
@@ -1000,7 +999,7 @@
                         </Label>
                         <Label
                             x:Name="Discount"
-                            Grid.Row="14"
+                            Grid.Row="13"
                             Grid.Column="1"
                             Margin="0,0,15,0"
                             FontFamily="Roboto-Medium"
@@ -1130,7 +1129,7 @@
                         </Label>
 
                         <Label
-                            Grid.Row="15"
+                            Grid.Row="14"
                             Grid.Column="0"
                             Margin="15,0,0,0"
                             FontFamily="Roboto-Bold"
@@ -1155,6 +1154,56 @@
                         </Label>
                         <Label
                             x:Name="GrandTotal"
+                            Grid.Row="14"
+                            Grid.Column="1"
+                            Margin="0,0,15,0"
+                            FontFamily="Roboto-Medium"
+                            HorizontalTextAlignment="End"
+                            TextColor="{StaticResource MaxVonBlack}">
+                            <Label.FontSize>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="iOS">
+                                        <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="14"
+                                            Tablet="18" />
+                                    </On>
+                                    <On Platform="Android,Windows">
+                                        <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="14"
+                                            Tablet="18" />
+                                    </On>
+                                </OnPlatform>
+                            </Label.FontSize>
+                        </Label>
+
+                        <Label
+                            Grid.Row="15"
+                            Grid.Column="0"
+                            Margin="15,0,0,0"
+                            FontFamily="Roboto-Bold"
+                            TextColor="{StaticResource MaxVonBlack}">
+                            Advance Paid
+                            <Label.FontSize>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="iOS">
+                                        <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="16"
+                                            Tablet="20" />
+                                    </On>
+                                    <On Platform="Android,Windows">
+                                        <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="18"
+                                            Tablet="22" />
+                                    </On>
+                                </OnPlatform>
+                            </Label.FontSize>
+                        </Label>
+                        <Label
+                            x:Name="AdvancePaid"
                             Grid.Row="15"
                             Grid.Column="1"
                             Margin="0,0,15,0"
@@ -1185,56 +1234,6 @@
                             Margin="15,0,0,0"
                             FontFamily="Roboto-Bold"
                             TextColor="{StaticResource MaxVonBlack}">
-                            Advance Paid
-                            <Label.FontSize>
-                                <OnPlatform x:TypeArguments="x:Double">
-                                    <On Platform="iOS">
-                                        <OnIdiom
-                                            x:TypeArguments="x:Double"
-                                            Phone="16"
-                                            Tablet="20" />
-                                    </On>
-                                    <On Platform="Android,Windows">
-                                        <OnIdiom
-                                            x:TypeArguments="x:Double"
-                                            Phone="18"
-                                            Tablet="22" />
-                                    </On>
-                                </OnPlatform>
-                            </Label.FontSize>
-                        </Label>
-                        <Label
-                            x:Name="AdvancePaid"
-                            Grid.Row="16"
-                            Grid.Column="1"
-                            Margin="0,0,15,0"
-                            FontFamily="Roboto-Medium"
-                            HorizontalTextAlignment="End"
-                            TextColor="{StaticResource MaxVonBlack}">
-                            <Label.FontSize>
-                                <OnPlatform x:TypeArguments="x:Double">
-                                    <On Platform="iOS">
-                                        <OnIdiom
-                                            x:TypeArguments="x:Double"
-                                            Phone="14"
-                                            Tablet="18" />
-                                    </On>
-                                    <On Platform="Android,Windows">
-                                        <OnIdiom
-                                            x:TypeArguments="x:Double"
-                                            Phone="14"
-                                            Tablet="18" />
-                                    </On>
-                                </OnPlatform>
-                            </Label.FontSize>
-                        </Label>
-
-                        <Label
-                            Grid.Row="17"
-                            Grid.Column="0"
-                            Margin="15,0,0,0"
-                            FontFamily="Roboto-Bold"
-                            TextColor="{StaticResource MaxVonBlack}">
                             Balance Due
                             <Label.FontSize>
                                 <OnPlatform x:TypeArguments="x:Double">
@@ -1255,7 +1254,7 @@
                         </Label>
                         <Label
                             x:Name="BalanceDue"
-                            Grid.Row="17"
+                            Grid.Row="16"
                             Grid.Column="1"
                             Margin="0,0,15,0"
                             FontFamily="Roboto-Medium"
@@ -1284,7 +1283,8 @@
                             Grid.Column="0"
                             Margin="15,0,0,0"
                             FontFamily="Roboto-Bold"
-                            TextColor="{StaticResource MaxVonBlack}">
+                            TextColor="{StaticResource MaxVonBlack}"
+                            IsVisible="false">
                             Balance Deposite
                             <Label.FontSize>
                                 <OnPlatform x:TypeArguments="x:Double">
@@ -1310,7 +1310,8 @@
                             FontFamily="Roboto-Medium"
                             HorizontalTextAlignment="End"
                             Text="$0"
-                            TextColor="{StaticResource MaxVonBlack}">
+                            TextColor="{StaticResource MaxVonBlack}"
+                             IsVisible="false">
                             <Label.FontSize>
                                 <OnPlatform x:TypeArguments="x:Double">
                                     <On Platform="iOS">
@@ -1334,7 +1335,8 @@
                             Grid.Column="0"
                             Margin="15,0,0,0"
                             FontFamily="Roboto-Bold"
-                            TextColor="{StaticResource MaxVonBlack}">
+                            TextColor="{StaticResource MaxVonBlack}"
+                             IsVisible="false">
                             Security Deposit
                             <Label.FontSize>
                                 <OnPlatform x:TypeArguments="x:Double">
@@ -1360,7 +1362,8 @@
                             FontFamily="Roboto-Medium"
                             HorizontalTextAlignment="End"
                             Text="$0"
-                            TextColor="{StaticResource MaxVonBlack}">
+                            TextColor="{StaticResource MaxVonBlack}"
+                             IsVisible="false">
                             <Label.FontSize>
                                 <OnPlatform x:TypeArguments="x:Double">
                                     <On Platform="iOS">
@@ -1384,7 +1387,8 @@
                             Grid.Column="0"
                             Margin="15,0,0,0"
                             FontFamily="Roboto-Bold"
-                            TextColor="{StaticResource MaxVonBlack}">
+                            TextColor="{StaticResource MaxVonBlack}"
+                             IsVisible="false">
                             Liability Disclaimers
                             <Label.FontSize>
                                 <OnPlatform x:TypeArguments="x:Double">
@@ -1410,7 +1414,8 @@
                             FontFamily="Roboto-Medium"
                             HorizontalTextAlignment="End"
                             Text="$0"
-                            TextColor="{StaticResource MaxVonBlack}">
+                            TextColor="{StaticResource MaxVonBlack}"
+                             IsVisible="false">
                             <Label.FontSize>
                                 <OnPlatform x:TypeArguments="x:Double">
                                     <On Platform="iOS">
@@ -1433,7 +1438,8 @@
                             Grid.ColumnSpan="2"
                             HeightRequest="1"
                             VerticalOptions="StartAndExpand"
-                            Color="{StaticResource MaxVonGray}" />
+                            Color="{StaticResource MaxVonGray}" 
+                            IsVisible="false"/>
 
                         <input:CheckBox
                             x:Name="TCcheckBox"
@@ -1478,11 +1484,12 @@
                             Grid.ColumnSpan="2"
                             HeightRequest="1"
                             VerticalOptions="EndAndExpand"
+                            IsVisible="false"
                             Color="{StaticResource MaxVonGray}" />
 
                         <Button
                             x:Name="VechileBtn"
-                            Grid.Row="22"
+                            Grid.Row="17"
                             Grid.Column="0"
                             Grid.ColumnSpan="2"
                             Margin="15,0"
@@ -1497,7 +1504,7 @@
                             TextColor="{StaticResource MaxVonWhite}" />
 
                         <Grid
-                            Grid.Row="23"
+                            Grid.Row="18"
                             Grid.Column="0"
                             Grid.ColumnSpan="2">
                             <Grid.RowDefinitions>
@@ -1576,7 +1583,7 @@
 
                         <Frame
                             x:Name="imageFrame"
-                            Grid.Row="23"
+                            Grid.Row="19"
                             Grid.Column="0"
                             Grid.ColumnSpan="2"
                             Margin="15,0"
@@ -1597,7 +1604,7 @@
 
                         <Frame
                             x:Name="noSignatureFrame"
-                            Grid.Row="23"
+                            Grid.Row="19"
                             Grid.Column="0"
                             Grid.ColumnSpan="2"
                             Margin="15,0"
@@ -1620,7 +1627,7 @@
 
                         <Button
                             x:Name="ExtendBtn"
-                            Grid.Row="24"
+                            Grid.Row="20"
                             Grid.ColumnSpan="2"
                             Margin="15,0,15,15"
                             BackgroundColor="{StaticResource MaxVonYellow}"
@@ -1635,7 +1642,7 @@
 
                         <Button
                             x:Name="paymentBtn"
-                            Grid.Row="25"
+                            Grid.Row="21"
                             Grid.ColumnSpan="2"
                             Margin="15,0,15,15"
                             BackgroundColor="{StaticResource MaxVonYellow}"

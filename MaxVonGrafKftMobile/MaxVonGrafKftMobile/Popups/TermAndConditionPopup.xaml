@@ -178,7 +178,8 @@
                                     Text="{Binding Description}"
                                     TextColor="{StaticResource Black}"
                                     VerticalOptions="FillAndExpand"
-                                    VerticalTextAlignment="Start">
+                                    VerticalTextAlignment="Start"
+                                    LineBreakMode="WordWrap">
                                     <Label.FontSize>
                                         <OnPlatform x:TypeArguments="x:Double">
                                             <On Platform="iOS">
