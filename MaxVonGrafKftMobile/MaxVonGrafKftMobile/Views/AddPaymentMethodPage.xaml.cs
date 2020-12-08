@@ -29,7 +29,9 @@ namespace MaxVonGrafKftMobile.Views
             token = App.Current.Properties["currentToken"].ToString();
             customerCreditCards = new CustomerCreditCards();
             cardResponse = null;
-            List<string> cardTypes = Enum.GetValues(typeof(CreditCardType)).Cast<CreditCardType>().Select(t => t.ToString()).ToList();
+            //List<string> cardTypes = Enum.GetValues(typeof(CreditCardType)).Cast<CreditCardType>().Select(t => t.ToString()).ToList();
+            List<string> cardTypes = new List<string>()
+                    {"Visa", "Mastercard", "American Express", "Discover" };
             CardTypePicker.ItemsSource = cardTypes;
             On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true);
 
@@ -63,7 +65,7 @@ namespace MaxVonGrafKftMobile.Views
 
                 bool isIssue = false;
 
-                if (CardTypePicker.SelectedItem.ToString() == "American_Express")
+                if (CardTypePicker.SelectedItem.ToString() == "American Express")
                 {
                     if (userCardNu.Length != 15)
                     {
@@ -127,7 +129,9 @@ namespace MaxVonGrafKftMobile.Views
                         customerCreditCards.CreatedDate = DateTime.Now;
                         customerCreditCards.IsDeleted = 0;
                         customerCreditCards.CreditCardNo = userCardNu;
-                        customerCreditCards.CreditCardType = CardTypePicker.SelectedItem.ToString();
+                        customerCreditCards.CreditCardType = Constants.returnNavotarCardTypes(CardTypePicker.SelectedItem.ToString());
+                            
+                            
                         customerCreditCards.NameOnCard = txtName.Text;
                         customerCreditCards.Month = Convert.ToInt32(exList[0].ToString());
                         customerCreditCards.Year = Convert.ToInt32(exList[1].ToString());
@@ -169,8 +173,17 @@ namespace MaxVonGrafKftMobile.Views
                                     {
                                         if (cardResponse.creditCardID > 0)
                                         {
+                                            if (App.Current.Properties.ContainsKey("LastCreditCardId"))
+                                            {
+                                                App.Current.Properties["LastCreditCardId"] = cardResponse.creditCardID;
+                                            }
+                                            else
+                                            {
+                                                App.Current.Properties.Add("LastCreditCardId", cardResponse.creditCardID);
+                                            }
                                             await Navigation.PopAsync();
                                             //await PopupNavigation.Instance.PushAsync(new SuccessPopUp("Your CrediCard added Successfully.", 3));
+
                                         }
                                         else
                                         {
@@ -249,6 +262,16 @@ namespace MaxVonGrafKftMobile.Views
             {
                 PopupNavigation.Instance.PushAsync(new Error_popup("Please select a card type."));
             }
+        }
+
+        private void expiryDateTap_Tapped(object sender, EventArgs e)
+        {
+            PopupNavigation.Instance.PushAsync(new DetailPopUp("Expiration Date", "This date is printed on the front side of the credit card and is an important piece of information that is used for verification purposes. Therefore, it adds up to also act as a security feature. An expiration date basically means that the credit card is not valid and can be used only up to the said date printed on the respective card. All customers will have to renew their credit cards post their expiration date.&#10; For example, if the expiry date printed/embossed on the card is ‘06/19’, this means that the card will expire in the June of 2019."));
+        }
+
+        private void cvvTap_Tapped(object sender, EventArgs e)
+        {
+            PopupNavigation.Instance.PushAsync(new DetailPopUp("CVV", "The CVV Number ('Card Verification Value') on your credit card or debit card is a 3 digit number on VISA®, MasterCard® and Discover® branded credit and debit cards. On your American Express® branded credit or debit card it is a 4 digit numeric code."));
         }
     }
 }

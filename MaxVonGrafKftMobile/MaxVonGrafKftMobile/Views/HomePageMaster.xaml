@@ -8,7 +8,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:renders="clr-namespace:MaxVonGrafKftMobile.Renders"
     Title="Master"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    BackgroundColor="Transparent">
     <Frame
         Padding="0"
         BorderColor="Transparent"

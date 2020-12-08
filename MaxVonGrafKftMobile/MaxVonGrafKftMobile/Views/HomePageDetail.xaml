@@ -132,7 +132,7 @@
                 CornerRadius="10"
                 FontFamily="Roboto-Medium"
                 HorizontalOptions="FillAndExpand"
-                Text="My Rentals"
+                Text="Active Rentals"
                 TextColor="#ffffff">
                 <Button.HeightRequest>
                     <OnPlatform x:TypeArguments="x:Double">
@@ -740,14 +740,13 @@
                                             Margin="0,0,0,5"
                                             FontAttributes="Bold"
                                             FontFamily="Roboto-Bold"
-                                            Text="{Binding reservationData.ReservationTotal.TotalAmount}"
                                             TextColor="{StaticResource MaxVonRed}">
                                             <Label.FormattedText>
                                                 <FormattedString>
                                                     <Span
                                                         FontAttributes="Bold"
                                                         FontFamily="Roboto-Bold"
-                                                        Text="$ "
+                                                        Text="Days: "
                                                         TextColor="{StaticResource MaxVonRed}">
                                                         <Span.FontSize>
                                                             <OnPlatform x:TypeArguments="x:Double">
@@ -769,7 +768,7 @@
                                                     <Span
                                                         FontAttributes="Bold"
                                                         FontFamily="Roboto-Bold"
-                                                        Text="{Binding reservationData.ReservationTotal.TotalAmount}"
+                                                        Text="{Binding reservationData.Reservationview.TotalDays}"
                                                         TextColor="{StaticResource MaxVonRed}">
                                                         <Span.FontSize>
                                                             <OnPlatform x:TypeArguments="x:Double">
@@ -1275,7 +1274,7 @@
                 FontSize="Default"
                 HorizontalOptions="Center"
                 HorizontalTextAlignment="Center"
-                Text="No ongoing Reservations. "
+                Text="No Active Reservations."
                 TextColor="{StaticResource MaxVonGray}"
                 VerticalOptions="Center">
                 <Label.FontSize>
@@ -3224,7 +3223,7 @@
                 HorizontalOptions="Center"
                 HorizontalTextAlignment="Center"
                 IsVisible="false"
-                Text="No past rentals"
+                Text="No Past Rentals"
                 TextColor="{StaticResource MaxVonGray}"
                 VerticalOptions="Center">
                 <Label.FontSize>

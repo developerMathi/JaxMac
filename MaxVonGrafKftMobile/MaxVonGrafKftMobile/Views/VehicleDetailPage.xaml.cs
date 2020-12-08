@@ -281,7 +281,7 @@ namespace MaxVonGrafKftMobile.Views
                                         typeForMobile.locationIdList.Add(rvsv.LocationId);
                                     }
                                     typeForMobile.vehicleId = rvsv.vehicleId;
-                                    typeForMobile.vehicleName = rvsv.VehicleMakeName + " " + rvsv.ModelName + " " + rvsv.Year;
+                                    typeForMobile.vehicleName = rvsv.Year+ " " + rvsv.VehicleMakeName + " " + rvsv.ModelName ;
 
                                     forlistViewItemSource.Add(typeForMobile);
                                     if (!vehicletypeList.Contains(rvsv.VehicleType))

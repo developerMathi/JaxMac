@@ -294,7 +294,7 @@
                         FontAttributes="Bold"
                         FontFamily="Roboto-Bold"
                         HorizontalOptions="CenterAndExpand"
-                        Text="Other Informations"
+                        Text="Driver's License Info"
                         TextColor="{StaticResource MaxVonRed}"
                         VerticalOptions="Start">
                         <Label.FontSize>

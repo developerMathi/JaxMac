@@ -24,13 +24,12 @@
         IconImageSource="iconRedCar.png"/>
     <views:MyProfile
         x:Name="MembershipScreen"
-        Title="MyProfile"
+        Title="Profile"
         IconImageSource="iconRedUser.png"/>
     <views:HelpFunnelPage
         x:Name="AcountPage"
-        Title="Contact Us"
+        Title="Help"
         IconImageSource="iconRedHelp.png"/>
 
-    <views:LogoutPage Title="Logout"
-                      IconImageSource="iconLogout.png"/>
+  
 </TabbedPage>

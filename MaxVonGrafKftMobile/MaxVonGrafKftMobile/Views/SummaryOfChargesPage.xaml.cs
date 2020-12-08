@@ -102,10 +102,24 @@ namespace MaxVonGrafKftMobile.Views
                 {
                     foreach (CreditCards cc in listCard)
                     {
+                        int lastCardId = 0;
+                        if (App.Current.Properties.ContainsKey("LastCreditCardId"))
+                        {
+                            lastCardId=(int) App.Current.Properties["LastCreditCardId"] ;
+                        }
                         string cardnu = cc.CreditCardNoForDisplay.Substring(cc.CreditCardNoForDisplay.Length-4);
                         string editedNumber = "**** **** **** " + cardnu;
-                        CardDetails details = new CardDetails() { cardId = (int)cc.CreditCardId, cardNumber = editedNumber, ExpiryDt = cc.Month.ToString("00") + "/" + cc.Year.ToString("00"), cardType = cc.CreditCardType };
-                        cardDetails.Add(details);
+
+                        if (cc.CreditCardId == lastCardId)
+                        {
+                            CardDetails details = new CardDetails() { cardId = (int)cc.CreditCardId, cardNumber = editedNumber, ExpiryDt = cc.Month.ToString("00") + "/" + cc.Year.ToString("00"), cardType = cc.CreditCardType, _isCardSelect= "iconCircleSelected.png" };
+                            cardDetails.Add(details);
+                        }
+                        else
+                        {
+                            CardDetails details = new CardDetails() { cardId = (int)cc.CreditCardId, cardNumber = editedNumber, ExpiryDt = cc.Month.ToString("00") + "/" + cc.Year.ToString("00"), cardType = cc.CreditCardType };
+                            cardDetails.Add(details);
+                        }
                     }
                 }
 
@@ -566,6 +580,15 @@ namespace MaxVonGrafKftMobile.Views
                 billingInformation.PaymentInfo.PaymentBy = Constants.customerDetails.FirstName;
                 ReservationController reservationController = new ReservationController();
                 submitPaymentandCreateReservationRequest.billingInformation = billingInformation;
+
+                if (App.Current.Properties.ContainsKey("LastCreditCardId"))
+                {
+                    App.Current.Properties["LastCreditCardId"] = (int)selectedCard.CreditCardId;
+                }
+                else
+                {
+                    App.Current.Properties.Add("LastCreditCardId", (int)selectedCard.CreditCardId);
+                }
                 bool busy = false;
                 if (!busy)
                 {
@@ -614,7 +637,7 @@ namespace MaxVonGrafKftMobile.Views
                                     {
                                         if (PaymentResponse.Data.reservationRespose.ReserveId > 0)
                                         {
-                                            await PopupNavigation.Instance.PushAsync(new SuccessPopUp("Your payment Successfull and Your reservation has been submitted. You will receive an email when your background check has been completed and your insurance has been issued (you will not be able to pick up the vehicle until then.)", 1));
+                                            await PopupNavigation.Instance.PushAsync(new SuccessPopUp("Congrats! Your payment was successful! You will receive an email once your insurance card has been issued. Please DO NOT attempt to pick up the vehicle until then."));
                                         }
                                         else if (PaymentResponse.RefundStatus)
                                         {
