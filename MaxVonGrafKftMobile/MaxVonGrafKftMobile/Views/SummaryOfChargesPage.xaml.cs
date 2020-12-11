@@ -297,8 +297,12 @@ namespace MaxVonGrafKftMobile.Views
                             {
                                 noOfDaysEntry.Text = reservationView.TotalDays.ToString();
 
-                                totalRentalFeeEntry.Text = "$" + summaryMobileResponsecs.rate.RateTotal.ToString("0.00");
+                                totalRentalFeeEntry.Text = "$" + summaryMobileResponsecs.rate.ReservationSummary.BaseRate.ToString();
 
+                                if(summaryMobileResponsecs.rate.ReservationSummary.PromoDiscount != null)
+                                {
+                                    DiscountEntry.Text = "[$" + summaryMobileResponsecs.rate.ReservationSummary.PromoDiscount.ToString() + "]";
+                                }
                                 totalMisChargeEntry.Text = "$" + (Convert.ToDecimal(summaryMobileResponsecs.rate.ReservationSummary.TotacMiscNonTaxable) + Convert.ToDecimal(summaryMobileResponsecs.rate.ReservationSummary.TotacMiscTaxable)).ToString();
 
                                 if (summaryMobileResponsecs.rate.ReservationSummary.TotalTax == null)
@@ -319,6 +323,11 @@ namespace MaxVonGrafKftMobile.Views
                                 else if (summaryMobileResponsecs.rate.ReservationSummary.EstimatedTotal != null)
                                 {
                                     totalAmountEntry.Text = "$" + summaryMobileResponsecs.rate.ReservationSummary.EstimatedTotal;
+                                }
+
+                                if (summaryMobileResponsecs.rate.ReservationSummary.PromotionList != null && reservationView.PromotionList!= null)
+                                {
+                                    reservationView.PromotionList = summaryMobileResponsecs.rate.ReservationSummary.PromotionList;
                                 }
 
                             }
@@ -455,7 +464,12 @@ namespace MaxVonGrafKftMobile.Views
                 else
                 {
                     reservationView.CustomerId = (int)App.Current.Properties["CustomerId"];
-                    reservationView.BasePrice = Convert.ToDecimal(summaryMobileResponsecs.rate.ReservationSummary.BaseRate);
+                    //if(summaryMobileResponsecs.rate.ReservationSummary.PromoDiscount != null)
+                    //{
+                    //    reservationView.TotalDiscount = Convert.ToDecimal(summaryMobileResponsecs.rate.ReservationSummary.PromoDiscount);
+                    //}
+                    
+                    reservationView.BasePrice = Convert.ToDecimal(summaryMobileResponsecs.rate.ReservationSummary.FinalBaseRate);
                     reservationView.Status = (short)MaxVonGrafKftMobileModel.Constants.ReservationStatuses.Quote;
                     reservationView.StatusId = (short)MaxVonGrafKftMobileModel.Constants.ReservationStatuses.Quote;
                     ReservationMobileRequest.reversationData = reservationView;
@@ -637,7 +651,7 @@ namespace MaxVonGrafKftMobile.Views
                                     {
                                         if (PaymentResponse.Data.reservationRespose.ReserveId > 0)
                                         {
-                                            await PopupNavigation.Instance.PushAsync(new SuccessPopUp("Congrats! Your payment was successful! You will receive an email once your insurance card has been issued. Please DO NOT attempt to pick up the vehicle until then."));
+                                            await PopupNavigation.Instance.PushAsync(new SuccessPopUp("Congrats! Your payment was successful! You will receive an email once your insurance card has been issued. Please DO NOT attempt to pick up the vehicle until then.",1));
                                         }
                                         else if (PaymentResponse.RefundStatus)
                                         {
@@ -683,7 +697,7 @@ namespace MaxVonGrafKftMobile.Views
             }
             else
             {
-                await PopupNavigation.Instance.PushAsync(new Error_popup("Please select a valid card detsils"));
+                await PopupNavigation.Instance.PushAsync(new Error_popup("Please select a valid card details"));
             }
         }
 

@@ -434,6 +434,12 @@ namespace MaxVonGrafKftMobile.Views
                     {
                         await PopupNavigation.Instance.PushAsync(new SuccessPopUp("Promo code has been applied successfully!"));
                         reservationView.PromotionCode = promoCodeEntry.Text;
+                        //if(reservationView.PromotionList== null)
+                        //{
+                            reservationView.PromotionList = new List<PromotionItem>();
+                        //}
+
+                        reservationView.PromotionList.Add(new PromotionItem() { PromotionID = promotionMobileResponse.PromResult.PromotionID ,PromotionDiscount=(decimal)promotionMobileResponse.PromResult.DiscountValue});
                     }
                 }
             }
