@@ -21,6 +21,6 @@ namespace MaxVonGrafKftMobile
 
 		// Set these to reversed iOS/Android client ids, with :/oauth2redirect appended
 		public static string iOSRedirectUrl = "com.googleusercontent.apps.453794223987-7iqid06hph885kqvj2pkha06jed55k20:/oauth2redirect";
-		public static string AndroidRedirectUrl = "com.googleusercontent.apps.453794223987-c9vel7ddri0ftaipr12tv3d01h6t2e14:/oauth2redirect";
+		public static string AndroidRedirectUrl = "com.googleusercontent.apps.453794223987-c9vel7ddri0ftaipr12tv3d01h6t2e14:/oauth2redirect" ;
 	}
 }
