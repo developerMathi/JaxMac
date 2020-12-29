@@ -1890,38 +1890,31 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Thanah\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "/Users/navotar/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Thanah\\Source\\Repos\\JaxMac\\MaxVonGrafKftMobile\\MaxVonGrafKftMobile\\MaxVonGrafKftMobile.csproj",
+      "projectUniqueName": "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile/MaxVonGrafKftMobile.csproj",
       "projectName": "MaxVonGrafKftMobile",
-      "projectPath": "C:\\Users\\Thanah\\Source\\Repos\\JaxMac\\MaxVonGrafKftMobile\\MaxVonGrafKftMobile\\MaxVonGrafKftMobile.csproj",
-      "packagesPath": "C:\\Users\\Thanah\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Thanah\\Source\\Repos\\JaxMac\\MaxVonGrafKftMobile\\MaxVonGrafKftMobile\\obj\\",
+      "projectPath": "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile/MaxVonGrafKftMobile.csproj",
+      "packagesPath": "/Users/navotar/.nuget/packages/",
+      "outputPath": "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Thanah\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "/Users/navotar/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\Users\\Thanah\\Source\\Repos\\JaxMac\\MaxVonGrafKftMobileController\\MaxVonGrafKftMobileController.csproj": {
-              "projectPath": "C:\\Users\\Thanah\\Source\\Repos\\JaxMac\\MaxVonGrafKftMobileController\\MaxVonGrafKftMobileController.csproj"
+            "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobileController/MaxVonGrafKftMobileController.csproj": {
+              "projectPath": "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobileController/MaxVonGrafKftMobileController.csproj"
             }
           }
         }
@@ -2044,7 +2037,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.402/RuntimeIdentifierGraph.json"
       }
     }
   }
