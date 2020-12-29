@@ -213,9 +213,9 @@ namespace MaxVonGrafKftMobile.Views
             {
                 PopupNavigation.Instance.PushAsync(new Error_popup("Please select valid pick-up time. "));
             }
-            else if (estTime.AddHours(4) > pickupDateTime || estTime.AddHours(36) < pickupDateTime)
+            else if ( estTime.AddHours(36) < pickupDateTime)
             {
-                PopupNavigation.Instance.PushAsync(new Error_popup("Bookings can be made only 4-36 hours prior to the pickup time."));
+                PopupNavigation.Instance.PushAsync(new Error_popup("Bookings can be made only 36 hours prior to the pickup time."));
             }
             else if (pickUpLocation.SelectedIndex == -1)
             {

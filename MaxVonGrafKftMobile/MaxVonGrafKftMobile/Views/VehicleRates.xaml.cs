@@ -506,7 +506,20 @@ namespace MaxVonGrafKftMobile.Views
             var objGrid = (Grid)objstac.Parent;
             var viewcell = (ExtendedViewCell)objGrid.Parent;
             MiscChargeSearchReview selectedMischrge = objGrid.BindingContext as MiscChargeSearchReview;
-            PopupNavigation.Instance.PushAsync(new DetailPopUp(selectedMischrge.Name,selectedMischrge.Description));
+            string discription = selectedMischrge.Description;
+            if(selectedMischrge.Name== "Insurance")
+            {
+                discription = "Premium rideshare insurance is included in your rental. All damage, accidents, and thefts are covered under this policy. Renter is responsible for paying any deductibles";
+            }
+            if (selectedMischrge.Name == "Jax Maintenance Plan")
+            {
+                discription = "All maintenance and wear parts such as oil changes, brakes, and tires are covered under this plan";
+            }
+            if (selectedMischrge.Name == "Jax Protection Plan")
+            {
+                discription = "All mechanical failures are covered under this plan. Renter is only responsible if mechanical failure is due to renter negligence";
+            }
+            PopupNavigation.Instance.PushAsync(new DetailPopUp(selectedMischrge.Name,discription));
 
         }
     }

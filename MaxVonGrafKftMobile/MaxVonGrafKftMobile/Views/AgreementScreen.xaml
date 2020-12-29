@@ -685,7 +685,7 @@
                             Margin="15,0,0,0"
                             FontFamily="Roboto-Bold"
                             TextColor="{StaticResource MaxVonBlack}">
-                            Return Date/Time"
+                            Return Date/Time
                             <Label.FontSize>
                                 <OnPlatform x:TypeArguments="x:Double">
                                     <On Platform="iOS">

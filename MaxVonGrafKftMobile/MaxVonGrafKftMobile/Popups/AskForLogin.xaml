@@ -218,7 +218,7 @@
                         Clicked="LoginBtn_Clicked"
                         CornerRadius="10"
                         FontFamily="Roboto-Bold"
-                        Text="Log-in"
+                        Text="Log In"
                         TextColor="{StaticResource MaxVonWhite}">
                         <Button.HeightRequest>
                             <OnPlatform x:TypeArguments="x:Double">
@@ -264,7 +264,7 @@
                         CornerRadius="10"
                         FontAttributes="Bold"
                         FontFamily="Roboto-Bold"
-                        Text="Sign up"
+                        Text="Sign Up"
                         TextColor="{StaticResource MaxVonWhite}">
                         <Button.HeightRequest>
                             <OnPlatform x:TypeArguments="x:Double">

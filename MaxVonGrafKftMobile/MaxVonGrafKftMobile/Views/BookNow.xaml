@@ -1114,7 +1114,8 @@
                             <StackLayout
                                 Grid.Row="4"
                                 Grid.Column="0"
-                                Grid.ColumnSpan="2">
+                                Grid.ColumnSpan="2"
+                                IsVisible="false">
                                 <Label
                                     IsVisible="false"
                                     Margin="10,0,0,0"
