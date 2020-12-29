@@ -8,10 +8,10 @@ namespace MaxVonGrafKftMobile
     public class Constants
     {
         //public static int ClientId = 971;  //CSD live
-        public static int ClientId = 369;  // QA
+        //public static int ClientId = 369;  // QA
         //public static int ClientId = 391;  //  staging
         //public static int ClientId = 321;
-        //public static int ClientId = 1028;
+        public static int ClientId = 1028;//Jax Live
 
         //public static int ClientId = 1013;
         //public static int ClientId = 975;

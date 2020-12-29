@@ -10,7 +10,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:renders="clr-namespace:MaxVonGrafKftMobile.Renders"
     mc:Ignorable="d">
-    <NavigationPage.TitleView>
+    <!--<NavigationPage.TitleView >
         <StackLayout>
             <Label
                 Margin="-60,0,0,0"
@@ -20,7 +20,7 @@
                 Text="Help"
                 TextColor="{StaticResource MaxVonRed}" />
         </StackLayout>
-    </NavigationPage.TitleView>
+    </NavigationPage.TitleView>-->
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
