@@ -1,0 +1,11 @@
+C:\Users\Thanah\Source\Repos\JaxMac\MaxVonGrafKftMobileModel\bin\Release\MaxVonGrafKftMobileModel.dll.config
+C:\Users\Thanah\Source\Repos\JaxMac\MaxVonGrafKftMobileModel\bin\Release\MaxVonGrafKftMobileModel.dll
+C:\Users\Thanah\Source\Repos\JaxMac\MaxVonGrafKftMobileModel\bin\Release\MaxVonGrafKftMobileModel.pdb
+C:\Users\Thanah\Source\Repos\JaxMac\MaxVonGrafKftMobileModel\bin\Release\System.Net.Http.dll
+C:\Users\Thanah\Source\Repos\JaxMac\MaxVonGrafKftMobileModel\bin\Release\System.Net.Http.xml
+C:\Users\Thanah\Source\Repos\JaxMac\MaxVonGrafKftMobileModel\obj\Release\MaxVonGrafKftMobileModel.csprojAssemblyReference.cache
+C:\Users\Thanah\Source\Repos\JaxMac\MaxVonGrafKftMobileModel\obj\Release\MaxVonGrafKftMobileModel.csproj.CoreCompileInputs.cache
+C:\Users\Thanah\Source\Repos\JaxMac\MaxVonGrafKftMobileModel\obj\Release\XamlC.stamp
+C:\Users\Thanah\Source\Repos\JaxMac\MaxVonGrafKftMobileModel\obj\Release\MaxVonGrafKftMobileModel.csproj.CopyComplete
+C:\Users\Thanah\Source\Repos\JaxMac\MaxVonGrafKftMobileModel\obj\Release\MaxVonGrafKftMobileModel.dll
+C:\Users\Thanah\Source\Repos\JaxMac\MaxVonGrafKftMobileModel\obj\Release\MaxVonGrafKftMobileModel.pdb
