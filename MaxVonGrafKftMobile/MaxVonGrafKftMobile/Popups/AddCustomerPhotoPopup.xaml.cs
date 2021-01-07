@@ -93,9 +93,10 @@ namespace MaxVonGrafKftMobile.Popups
                 {
                     var files = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
                     {
-                        PhotoSize = PhotoSize.Medium,
+                        PhotoSize = PhotoSize.Small,
                         SaveToAlbum = true,
-                        ModalPresentationStyle = MediaPickerModalPresentationStyle.OverFullScreen
+                        ModalPresentationStyle = MediaPickerModalPresentationStyle.OverFullScreen,
+                        AllowCropping = true
                     });
 
                     if (files == null)
@@ -151,7 +152,7 @@ namespace MaxVonGrafKftMobile.Popups
                 }
                 var selectedImages = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions
                 {
-                    PhotoSize = PhotoSize.Medium
+                    PhotoSize = PhotoSize.Small
                 });
 
                 if (selectedImages == null)
