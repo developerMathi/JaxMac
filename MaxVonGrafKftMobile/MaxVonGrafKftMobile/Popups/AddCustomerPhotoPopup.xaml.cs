@@ -79,16 +79,16 @@ namespace MaxVonGrafKftMobile.Popups
             try
             {
 
-                
 
 
-                    await CrossMedia.Current.Initialize();
 
-                    if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
-                    {
-                        _ = DisplayAlert("No Camera", ":( No camera available.", "OK");
+                await CrossMedia.Current.Initialize();
 
-                    }
+                if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
+                {
+                    _ = DisplayAlert("No Camera", ":( No camera available.", "OK");
+
+                }
                 else
                 {
                     var files = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
@@ -141,51 +141,51 @@ namespace MaxVonGrafKftMobile.Popups
         {
             try
             {
-                
-                    await CrossMedia.Current.Initialize();
-                    if (!CrossMedia.Current.IsPickPhotoSupported)
-                    {
-                        await DisplayAlert("Not Sopported", "Your device does not currently support this functionality", "OK");
-                        return;
 
-                    }
-                    var selectedImages = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions
-                    {
-                        PhotoSize = PhotoSize.Medium
-                    });
+                await CrossMedia.Current.Initialize();
+                if (!CrossMedia.Current.IsPickPhotoSupported)
+                {
+                    await DisplayAlert("Not Sopported", "Your device does not currently support this functionality", "OK");
+                    return;
 
-                    if (selectedImages == null)
-                    {
-                        await DisplayAlert("Error", "Could not get the image, Please try again", "Ok");
-                        return;
-                    }
-                    else
-                    {
-                        // provide read access to the file
-                        FileStream fs = new FileStream(selectedImages.Path, FileMode.Open, FileAccess.Read);
-                        // Create a byte array of file stream length
-                        byte[] ImageData = new byte[fs.Length];
-                        //Read block of bytes from stream into the byte array
-                        fs.Read(ImageData, 0, System.Convert.ToInt32(fs.Length));
-                        //Close the File Stream
-                        fs.Close();
-                        _base64Image = Convert.ToBase64String(ImageData);
+                }
+                var selectedImages = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions
+                {
+                    PhotoSize = PhotoSize.Medium
+                });
+
+                if (selectedImages == null)
+                {
+                    await DisplayAlert("Error", "Could not get the image, Please try again", "Ok");
+                    return;
+                }
+                else
+                {
+                    // provide read access to the file
+                    FileStream fs = new FileStream(selectedImages.Path, FileMode.Open, FileAccess.Read);
+                    // Create a byte array of file stream length
+                    byte[] ImageData = new byte[fs.Length];
+                    //Read block of bytes from stream into the byte array
+                    fs.Read(ImageData, 0, System.Convert.ToInt32(fs.Length));
+                    //Close the File Stream
+                    fs.Close();
+                    _base64Image = Convert.ToBase64String(ImageData);
 
 
-                        //PhotoPath = selectedImage.Path;
-                        //                    stream = selectedImage.GetStream();
-                        //uploadTime = DateTime.Now;
+                    //PhotoPath = selectedImage.Path;
+                    //                    stream = selectedImage.GetStream();
+                    //uploadTime = DateTime.Now;
 
-                        //imageBox.IsVisible = true;
-                        selectedImage.Source = ImageSource.FromStream(() => selectedImages.GetStream());
-                        PhotoFrame.IsVisible = true;
-                        SaveBtn.IsVisible = true;
-                        cancelBtn.IsVisible = true;
-                        PhysicalPath = selectedImages.Path;
-                        UploadedDate = DateTime.Now;
+                    //imageBox.IsVisible = true;
+                    selectedImage.Source = ImageSource.FromStream(() => selectedImages.GetStream());
+                    PhotoFrame.IsVisible = true;
+                    SaveBtn.IsVisible = true;
+                    cancelBtn.IsVisible = true;
+                    PhysicalPath = selectedImages.Path;
+                    UploadedDate = DateTime.Now;
 
-                    }
-                
+                }
+
             }
             catch (Exception ex)
             {
