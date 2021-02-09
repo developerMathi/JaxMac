@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:MaxVonGrafKftMobile.MarkupExtensions"
+             x:Class="MaxVonGrafKftMobile.Views.NoNetwork"
+              BackgroundColor="{StaticResource MaxVonWhite}"
+                 NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" 
+                HorizontalOptions="CenterAndExpand"
+                     Margin="20">
+
+        
+
+            <Image
+                    HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand"
+                    x:Name="illuImage"
+                    Margin="10,0,10,10"
+                    Aspect="AspectFit"
+                    Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.Illustrations.Warning.png}">
+                <Image.HeightRequest>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="iOS">
+                            <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="220"
+                                    Tablet="260" />
+                        </On>
+                        <On Platform="Android,Windows">
+                            <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="220"
+                                    Tablet="260" />
+                        </On>
+                    </OnPlatform>
+                </Image.HeightRequest>
+            </Image>
+
+            <Label
+                Margin="0,0,0,20"
+                        FontAttributes="Bold"
+                        FontFamily="Roboto-Bold"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="Connection Failed ...!"
+                        TextColor="{StaticResource MaxVonRed}"
+                        VerticalOptions="End">
+                <Label.FontSize>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="iOS">
+                            <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="25"
+                                        Tablet="29" />
+                        </On>
+                        <On Platform="Android,Windows">
+                            <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="26"
+                                        Tablet="30" />
+                        </On>
+                    </OnPlatform>
+                </Label.FontSize>
+            </Label>
+
+            <Label
+                        Margin="0,0,0,20"
+                        FontFamily="Roboto-Medium"
+                HorizontalTextAlignment="Center"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="Pleash check your internet connection and retry again. "
+                        TextColor="{StaticResource MaxVonBlack}"
+                        VerticalOptions="End">
+                <Label.FontSize>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="iOS">
+                            <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="17"
+                                        Tablet="21" />
+                        </On>
+                        <On Platform="Android,Windows">
+                            <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="18"
+                                        Tablet="22" />
+                        </On>
+                    </OnPlatform>
+                </Label.FontSize>
+            </Label>
+
+
+
+            <Button
+                Margin="10,0,10,20"
+                        x:Name="refreshBtn"
+                        BackgroundColor="{StaticResource MaxVonRed}"
+                        BorderWidth="0"
+                        Clicked="refreshBtn_Clicked"
+                        CornerRadius="10"
+                        FontFamily="Roboto-Medium"
+                        HorizontalOptions="FillAndExpand"
+                        StyleClass="bouncy"
+                        Text="Refresh"
+                        TextColor="{StaticResource MaxVonWhite}"
+                        VerticalOptions="End">
+                <Button.HeightRequest>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="iOS">
+                            <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="50"
+                                        Tablet="60" />
+                        </On>
+                        <On Platform="Android,Windows">
+                            <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="50"
+                                        Tablet="60" />
+                        </On>
+                    </OnPlatform>
+                </Button.HeightRequest>
+                <Button.FontSize>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="iOS">
+                            <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="14"
+                                        Tablet="18" />
+                        </On>
+                        <On Platform="Android,Windows">
+                            <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="16"
+                                        Tablet="20" />
+                        </On>
+                    </OnPlatform>
+                </Button.FontSize>
+            </Button>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

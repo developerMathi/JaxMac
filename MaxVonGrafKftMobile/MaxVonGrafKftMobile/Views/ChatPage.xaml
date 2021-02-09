@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:MaxVonGrafKftMobile.Helpers" 
+             xmlns:partials="clr-namespace:MaxVonGrafKftMobile.Views.Partials" 
+             xmlns:controls="clr-namespace:MaxVonGrafKftMobile.Renders" xmlns:local1="clr-namespace:MaxVonGrafKftMobile.MarkupExtensions"
+             x:Class="MaxVonGrafKftMobile.Views.ChatPage"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ChatTemplateSelector x:Key="MessageTemplateSelector"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid RowSpacing="0" 
+           ColumnSpacing="0"
+          Margin="5,10,5,10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="1" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="50" />
+            </Grid.ColumnDefinitions>
+            <Grid.HeightRequest>
+                <OnPlatform x:TypeArguments="x:Double">
+                    <On Platform="iOS">
+                        <OnIdiom
+                                x:TypeArguments="x:Double"
+                                Phone="50"
+                                Tablet="60" />
+                    </On>
+                    <On Platform="Android,Windows">
+                        <OnIdiom
+                                x:TypeArguments="x:Double"
+                                Phone="50"
+                                Tablet="60" />
+                    </On>
+                </OnPlatform>
+            </Grid.HeightRequest>
+            <ImageButton
+                    x:Name="btnMenu"
+                    Margin="0"
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    Clicked="btnMenu_Clicked"
+                    HeightRequest="30"
+                    Source="{local1:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconBack.png}"
+                    VerticalOptions="CenterAndExpand" />
+
+            <Label
+                    Grid.Column="1"
+                    Margin="0,0,0,0"
+                    FontAttributes="Bold"
+                    FontFamily="Roboto-Bold"
+                    FontSize="Medium"
+                    HorizontalOptions="CenterAndExpand"
+                    x:Name="TopicLabel"
+                    TextColor="{StaticResource MaxVonRed}"
+                    VerticalOptions="CenterAndExpand" 
+                HorizontalTextAlignment="Center"/>
+
+
+        </Grid>
+        <controls:ExtendedListView Grid.Row="1" 
+                 ItemTemplate="{StaticResource MessageTemplateSelector}" 
+                 ItemsSource="{Binding Messages}" 
+                 Margin="0"
+                 ItemTapped="OnListTapped"
+                 Rotation="180" 
+                 FlowDirection="RightToLeft"
+                 HasUnevenRows="True" x:Name="ChatList"
+                 VerticalOptions="FillAndExpand" 
+                 SeparatorColor="Transparent"
+                 ItemAppearingCommand="{Binding MessageAppearingCommand}"
+                 ItemDisappearingCommand="{Binding MessageDisappearingCommand}">
+        </controls:ExtendedListView>
+        <Frame HorizontalOptions="EndAndExpand" 
+                                 Margin="0,0,2,15"
+                                 VerticalOptions="End"
+                                 HasShadow="false" 
+                                 Grid.Row="1"  
+                                 HeightRequest="50" WidthRequest="50"
+                                 CornerRadius="25"
+                                 Padding="1"
+                                 BackgroundColor="Blue"   
+                                 IsVisible="{Binding ShowScrollTap,Mode=TwoWay}">
+            <StackLayout Spacing="3">
+                <Label Text="{Binding PendingMessageCount}"
+                              HorizontalOptions="CenterAndExpand"
+                              IsVisible="{Binding PendingMessageCountVisible}"
+                              VerticalTextAlignment="Center"
+                              TextColor="{DynamicResource primary}"/>
+                <Image Source="{local1:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconDown.png}"
+                               WidthRequest="30"
+                               HeightRequest="30"
+                               VerticalOptions="CenterAndExpand"/>
+
+            </StackLayout>
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="ScrollTap"/>
+            </Frame.GestureRecognizers>
+        </Frame>
+        <BoxView HorizontalOptions="FillAndExpand"
+                 HeightRequest="1"
+                 BackgroundColor="LightGray"
+                 Grid.Row="2"/>
+        <partials:ChatInputBarView Grid.Row="3"
+                                   Margin="0,0,10,0"
+                                   x:Name="chatInput"/>
+    </Grid>
+</ContentPage>
