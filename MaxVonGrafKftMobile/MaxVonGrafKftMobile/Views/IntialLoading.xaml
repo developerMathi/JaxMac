@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:MaxVonGrafKftMobile.MarkupExtensions"
+             x:Class="MaxVonGrafKftMobile.Views.IntialLoading"
+              BackgroundColor="{StaticResource MaxVonWhite}"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout
+                Margin="20,30,20,20"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="CenterAndExpand">
+            <Image
+                    x:Name="logoImage"
+                    Margin="20,0,20,50"
+                    Aspect="AspectFit"
+                    HeightRequest="120"
+                    Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconLoginLogo.png}">
+                <Image.HeightRequest>
+                    <OnIdiom
+                            x:TypeArguments="x:Double"
+                            Phone="120"
+                            Tablet="160" />
+                </Image.HeightRequest>
+            </Image>
+
+            <ActivityIndicator Color="{StaticResource MaxVonRed}"
+                               IsRunning="True">
+                <ActivityIndicator.HeightRequest>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="iOS">
+                            <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="50"
+                                    Tablet="60" />
+                        </On>
+                        <On Platform="Android,Windows">
+                            <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="50"
+                                    Tablet="70" />
+                        </On>
+                    </OnPlatform>
+                </ActivityIndicator.HeightRequest>
+
+            </ActivityIndicator>
+        </StackLayout>
+        </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:local="clr-namespace:MaxVonGrafKftMobile.MarkupExtensions" 
+             xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" xmlns:renders="clr-namespace:MaxVonGrafKftMobile.Renders"
+             mc:Ignorable="d"
+             x:Class="MaxVonGrafKftMobile.Views.MyDouments"
+             BackgroundColor="{StaticResource MaxVonWhite}"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout  Margin="20,10,20,0" HorizontalOptions="Fill" VerticalOptions="StartAndExpand">
+                <StackLayout
+                    HeightRequest="50"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Start">
+                    <ImageButton
+                        x:Name="titleBackBtn"
+                        Aspect="AspectFit"
+                        BackgroundColor="Transparent"
+                        Clicked="titleBackBtn_Clicked"
+                        HorizontalOptions="StartAndExpand"
+                        Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconBack.png}">
+                        <ImageButton.WidthRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="25"
+                                        Tablet="30" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="25"
+                                        Tablet="40" />
+                                </On>
+                            </OnPlatform>
+                        </ImageButton.WidthRequest>
+                    </ImageButton>
+                </StackLayout>
+
+
+                <Grid Margin="0,10,0,0" >
+                    <!--<Grid.RowDefinitions>
+                        <RowDefinition Height="40"></RowDefinition>
+                    </Grid.RowDefinitions>-->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition Height="220"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Label
+                        Margin="0,0,0,0"
+                        Grid.ColumnSpan="2"
+                        FontAttributes="Bold"
+                        FontFamily="Roboto-Bold"
+                        HorizontalOptions="Center"
+                        Text="My Documents"
+                        TextColor="{StaticResource MaxVonRed}">
+                        <Label.FontSize>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="20"
+                                            Tablet="26" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="22"
+                                            Tablet="28" />
+                                </On>
+                            </OnPlatform>
+                        </Label.FontSize>
+                    </Label>
+
+                    <pancakeview:PancakeView CornerRadius="15"
+                                             Margin="5,20,5,20"
+                                             Grid.Row="1"
+                                             Grid.Column="0"
+                                             Padding="10"
+                                             OffsetAngle="45"
+                                             BackgroundColor="#ffeeed"
+                                             HorizontalOptions="FillAndExpand">
+                        <pancakeview:PancakeView.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                  x:Name="GalleryPan"
+                                                  Tapped="GalleryPan_Tapped"></TapGestureRecognizer>
+                        </pancakeview:PancakeView.GestureRecognizers>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="80"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Image HeightRequest="80"
+                               Aspect="AspectFit"
+                              Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.IconRedGallery.png}"
+                                   HorizontalOptions="Center"></Image>
+                            <Label Grid.Row="1"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="End"
+                                    FontFamily="Roboto-Medium">Photos</Label>
+                            <Label Grid.Row="2"
+                                   HorizontalOptions="Center"
+                                    >
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span FontFamily="Roboto-Medium"
+                                                  FontSize="Micro"
+                                                  Text="0"
+                                                  x:Name="imFileCount"></Span>
+                                            <Span Text=" Files"
+                                                   FontFamily="Roboto-Medium"
+                                                  FontSize="Micro"> </Span>
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label Grid.Row="3"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Start"
+                                    >
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span FontFamily="Roboto-Medium"
+                                                  FontSize="Micro"
+                                                  Text="0"
+                                                  x:Name="imageSize"></Span>
+                                            <Span Text=" MB"
+                                                   FontFamily="Roboto-Medium"
+                                                  FontSize="Micro"
+                                                  x:Name="imageSizeUnit"></Span>
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                        </Grid>
+                        
+                       
+                    </pancakeview:PancakeView>
+
+                    <pancakeview:PancakeView CornerRadius="15"
+                                             Margin="5,20,5,20"
+                                             Grid.Row="1"
+                                             Grid.Column="1"
+                                             Padding="10"
+                                             OffsetAngle="45"
+                                             BackgroundColor="#ffeeed"
+                                             HorizontalOptions="FillAndExpand">
+                        <pancakeview:PancakeView.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                  x:Name="docPan"
+                                                  Tapped="docPan_Tapped"></TapGestureRecognizer>
+                        </pancakeview:PancakeView.GestureRecognizers>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="80"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Image HeightRequest="80"
+                               Aspect="AspectFit"
+                              Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.IconRedDocument.png}"
+                                   HorizontalOptions="Center"></Image>
+                            <Label Grid.Row="1"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="End"
+                                    FontFamily="Roboto-Medium">Documents</Label>
+                            <Label Grid.Row="2"
+                                   HorizontalOptions="Center"
+                                    >
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span FontFamily="Roboto-Medium"
+                                                  FontSize="Micro"
+                                                  Text="0"
+                                                  x:Name="othFilesCount"></Span>
+                                            <Span Text=" Files"
+                                                   FontFamily="Roboto-Medium"
+                                                  FontSize="Micro"></Span>
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label Grid.Row="3"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Start"
+                                    >
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span FontFamily="Roboto-Medium"
+                                                  FontSize="Micro"
+                                                  x:Name="fileSize"
+                                                  Text="0"></Span>
+                                            <Span Text=" MB"
+                                                   FontFamily="Roboto-Medium"
+                                                  FontSize="Micro"
+                                                  x:Name="fileSizeUnit"></Span>
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+
+                        </Grid>
+
+                    </pancakeview:PancakeView>
+
+                    <Label Text="Recent files"
+                           Grid.ColumnSpan="2"
+                           Grid.Row="2"
+                            FontFamily="Roboto-Medium"
+                           TextColor="{StaticResource MaxVonBlack}">
+                        <Label.Margin>
+                            <OnPlatform x:TypeArguments="Thickness">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                            x:TypeArguments="Thickness"
+                                            Phone="5,10,10,0"
+                                            Tablet="5,10,20,0" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                            x:TypeArguments="Thickness"
+                                            Phone="5,10,10,0"
+                                            Tablet="5,10,20,0" />
+                                </On>
+                            </OnPlatform>
+                        </Label.Margin>
+                        <Label.FontSize>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="15"
+                                            Tablet="18" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="16"
+                                            Tablet="19" />
+                                </On>
+                            </OnPlatform>
+                        </Label.FontSize>
+                    </Label>
+
+                    <ListView Grid.Row="3"
+                              Grid.Column="0"
+                              Grid.ColumnSpan="2"
+                              HorizontalOptions="Fill"
+                              Margin="5,10,5,10"
+                              x:Name="recentFileList"
+                              RowHeight="125"
+                              VerticalScrollBarVisibility="Never"
+                              ItemTapped="recentFileList_ItemTapped">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <renders:ExtendedViewCell SelectedBackgroundColor="{StaticResource MaxVonWhite}">
+                                    <Grid HeightRequest="120">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                                            <ColumnDefinition Width="7*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Image WidthRequest="70"
+                                            HeightRequest="70"
+                                               Aspect="AspectFit"
+                                               VerticalOptions="CenterAndExpand"
+                                               HorizontalOptions="CenterAndExpand"
+                                               Grid.Column="0"
+                                               Grid.Row="0"
+                                               Grid.RowSpan="3"
+                                               Source="{Binding previewImageSource}"
+                                               BackgroundColor="Transparent"></Image>
+                                        <Label HorizontalOptions="Start"
+                                               VerticalOptions="CenterAndExpand"
+                                               FontFamily="Roboto-Medium"
+                                               Text="{Binding OldFileName}"
+                                               Grid.Row="0"
+                                               Grid.Column="1"
+                                               TextColor="Black"></Label>
+                                        <Label HorizontalOptions="Start"
+                                               VerticalOptions="Center"
+                                               Margin="1"
+                                               FontFamily="Roboto-Medium"
+                                               Text="{Binding Side}"
+                                               Grid.Row="1"
+                                               Grid.Column="1"
+                                               TextColor="Black"></Label>
+                                        <Label HorizontalOptions="End"
+                                               VerticalOptions="Center"
+                                               Margin="2"
+                                               FontFamily="Roboto-Medium"
+                                               Text="{Binding sizeLabel}"
+                                               Grid.Row="2"
+                                               Grid.Column="1"
+                                               TextColor="Gray"></Label>
+
+                                        <BoxView Grid.Row="2"
+                                                 Grid.ColumnSpan="2"
+                                                 VerticalOptions="End"
+                                                 BackgroundColor="Black"
+                                                 HorizontalOptions="Fill"
+                                                 HeightRequest="1"></BoxView>
+
+                                    </Grid>
+                                </renders:ExtendedViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+                
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

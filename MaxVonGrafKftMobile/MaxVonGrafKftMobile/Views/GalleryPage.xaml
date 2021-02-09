@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:local="clr-namespace:MaxVonGrafKftMobile.MarkupExtensions" 
+             xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView" 
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" xmlns:renders="clr-namespace:MaxVonGrafKftMobile.Renders"
+             mc:Ignorable="d"
+             x:Class="MaxVonGrafKftMobile.Views.GalleryPage"
+              BackgroundColor="{StaticResource MaxVonWhite}"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout  Margin="20,10,20,0" HorizontalOptions="Fill" VerticalOptions="StartAndExpand">
+                <StackLayout
+                    HeightRequest="50"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Start">
+                    <ImageButton
+                        x:Name="titleBackBtn"
+                        Aspect="AspectFit"
+                        BackgroundColor="Transparent"
+                        Clicked="titleBackBtn_Clicked"
+                        HorizontalOptions="StartAndExpand"
+                        Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconBack.png}">
+                        <ImageButton.WidthRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="25"
+                                        Tablet="30" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="25"
+                                        Tablet="40" />
+                                </On>
+                            </OnPlatform>
+                        </ImageButton.WidthRequest>
+                    </ImageButton>
+                </StackLayout>
+                <Grid Margin="0,10,0,0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                </Grid>
+
+                <Label
+                        Margin="0,0,0,0"
+                        Grid.ColumnSpan="2"
+                        FontAttributes="Bold"
+                        FontFamily="Roboto-Bold"
+                        HorizontalOptions="Center"
+                        Text="Photos"
+                    x:Name="titleLabel"
+                        TextColor="{StaticResource MaxVonRed}">
+                    <Label.FontSize>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">
+                                <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="20"
+                                            Tablet="26" />
+                            </On>
+                            <On Platform="Android,Windows">
+                                <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="22"
+                                            Tablet="28" />
+                            </On>
+                        </OnPlatform>
+                    </Label.FontSize>
+                </Label>
+
+
+                <BoxView VerticalOptions="End"
+                         BackgroundColor="Black"
+                         HorizontalOptions="Fill"
+                         HeightRequest="1"
+                          Margin="5,10,5,0"></BoxView>
+                
+                <ListView Grid.Row="3"
+                              Grid.Column="0"
+                              Grid.ColumnSpan="2"
+                              HorizontalOptions="Fill"
+                              Margin="0,0,0,10"
+                              x:Name="imageListView"
+                              RowHeight="125"
+                              VerticalScrollBarVisibility="Never"
+                          ItemTapped="imageListView_ItemTapped">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <renders:ExtendedViewCell SelectedBackgroundColor="{StaticResource MaxVonWhite}">
+                                <Grid HeightRequest="120">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                        <ColumnDefinition Width="7*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image WidthRequest="70"
+                                            HeightRequest="70"
+                                               Aspect="AspectFit"
+                                               VerticalOptions="CenterAndExpand"
+                                               HorizontalOptions="CenterAndExpand"
+                                               Grid.Column="0"
+                                               Grid.Row="0"
+                                               Grid.RowSpan="3"
+                                               Source="{Binding previewImageSource}"
+                                               BackgroundColor="Transparent"></Image>
+                                    <Label HorizontalOptions="Start"
+                                               VerticalOptions="CenterAndExpand"
+                                               FontFamily="Roboto-Medium"
+                                               Text="{Binding OldFileName}"
+                                               Grid.Row="0"
+                                               Grid.Column="1"
+                                               TextColor="Black"></Label>
+                                    <Label HorizontalOptions="Start"
+                                               VerticalOptions="Center"
+                                               Margin="1"
+                                               FontFamily="Roboto-Medium"
+                                               Text="{Binding Side}"
+                                               Grid.Row="1"
+                                               Grid.Column="1"
+                                               TextColor="Black"></Label>
+                                    <Label HorizontalOptions="End"
+                                               VerticalOptions="Center"
+                                               Margin="2"
+                                               FontFamily="Roboto-Medium"
+                                               Text="{Binding sizeLabel}"
+                                               Grid.Row="2"
+                                               Grid.Column="1"
+                                               TextColor="Gray"></Label>
+
+                                    <BoxView Grid.Row="2"
+                                                 Grid.ColumnSpan="2"
+                                                 VerticalOptions="End"
+                                                 BackgroundColor="Black"
+                                                 HorizontalOptions="Fill"
+                                                 HeightRequest="1"></BoxView>
+
+                                </Grid>
+                            </renders:ExtendedViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>

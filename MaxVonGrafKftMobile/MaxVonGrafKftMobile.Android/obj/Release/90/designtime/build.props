@@ -2,7 +2,7 @@ bundleassemblies=false
 aotassemblies=false
 androidaotmode=none
 androidembedprofilers=
-androidenableprofiledaot=false
+androidenableprofiledaot=
 androiddextool=d8
 androidlinktool=
 androidpackageformat=apk
@@ -24,7 +24,7 @@ androidgeneratejnimarshalmethods=false
 os=windows_nt
 androidincludedebugsymbols=false
 androidpackagenamingpolicy=lowercasecrc64
-_nugetassetstimestamp=637484719275866630
+_nugetassetstimestamp=637484857938817319
 typemapkind=mvid
 androidsupportedabis=armeabi-v7a
 arm64-v8a
