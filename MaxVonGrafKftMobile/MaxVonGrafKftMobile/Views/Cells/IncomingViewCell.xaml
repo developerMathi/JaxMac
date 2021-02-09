@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:renders="clr-namespace:MaxVonGrafKftMobile.Renders" xmlns:local="clr-namespace:MaxVonGrafKftMobile.MarkupExtensions"
+          x:Class="MaxVonGrafKftMobile.Views.Cells.IncomingViewCell">
+    <ViewCell.View>
+        <StackLayout
+            Rotation="180"
+              FlowDirection="LeftToRight"
+            Margin="10,10,80,10">
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand"
+                         FlowDirection="LeftToRight">
+
+                <Label Text="{Binding User}"
+                   FontSize="Small"
+                   TextColor="Black"
+                   HorizontalOptions="End"
+                   VerticalOptions="Center"
+                   ></Label>
+                <renders:ImageCircle  Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconLoginLogo.png}"
+                                     HeightRequest="30"
+                                      WidthRequest="30"
+                                      Aspect="AspectFit">
+                    
+                </renders:ImageCircle>
+
+            </StackLayout>
+
+            <Frame BackgroundColor="{StaticResource MaxVonRed}"
+              Padding="10"
+              HasShadow="false"
+               CornerRadius="40">
+                <Label Text="{Binding Text}"
+                   TextColor="White"/>
+                
+
+            </Frame>
+            <Label Text="{Binding sentTime}"
+                   FontSize="Micro"
+                   TextColor="Black"
+                   HorizontalOptions="Start"
+                   ></Label>
+
+
+        </StackLayout>
+    </ViewCell.View>
+</ViewCell>

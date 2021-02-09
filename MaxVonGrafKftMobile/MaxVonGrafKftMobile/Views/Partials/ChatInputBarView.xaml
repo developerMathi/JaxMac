@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:controls="clr-namespace:MaxVonGrafKftMobile.Renders" 
+             xmlns:helpers="clr-namespace:MaxVonGrafKftMobile.Helpers"
+             x:Class="MaxVonGrafKftMobile.Views.Partials.ChatInputBarView">
+    <ContentView.Content>
+        <Grid RowSpacing="0" 
+           ColumnSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <controls:ExtendedEditorControl x:Name="chatTextInput" 
+                 Text="{Binding TextToSend}" 
+                 Margin="1"  
+                 TextColor="Black" 
+                 Keyboard="Chat"  
+                 IsExpandable="true"
+                 HorizontalOptions="FillAndExpand" 
+                 PlaceholderColor="LightGray"
+                 Placeholder="Type your message here"
+                 Grid.Row="0" 
+                 Grid.Column="0" />
+            <Label Text="Send"
+               Grid.Row="0"
+               Grid.Column="1"
+                   FontFamily="Roboto-Bold"
+               VerticalTextAlignment="Center"
+                   IsVisible="{Binding isSenderBusy, Converter={helpers:InverseBoolConverter}}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer
+                      Command="{Binding OnSendCommand}"
+                      Tapped="Handle_Completed"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <ActivityIndicator
+                IsVisible="{Binding isSenderBusy}"
+                IsRunning="{Binding isSenderBusy}"
+                 Grid.Row="0"
+               Grid.Column="1"
+                 VerticalOptions="Center"
+                Color="{StaticResource MaxVonRed}">
+                
+            </ActivityIndicator>
+        </Grid>
+    </ContentView.Content>
+</ContentView>
