@@ -113,6 +113,10 @@
               "target": "Package",
               "version": "[2.6.4, )"
             },
+            "MvvmLightLibsStd10": {
+              "target": "Package",
+              "version": "[5.4.1.1, )"
+            },
             "PdfSharp.Xamarin.Forms": {
               "target": "Package",
               "version": "[1.0.0, )"
@@ -179,7 +183,11 @@
             },
             "Xamarin.Essentials": {
               "target": "Package",
-              "version": "[1.3.1, )"
+              "version": "[1.6.1-preview2, )"
+            },
+            "Xamarin.FFImageLoading.Forms": {
+              "target": "Package",
+              "version": "[2.4.11.982, )"
             },
             "Xamarin.Forms": {
               "target": "Package",
@@ -191,7 +199,7 @@
             },
             "Xamarin.Forms.PancakeView": {
               "target": "Package",
-              "version": "[1.4.2, )"
+              "version": "[2.3.0.759, )"
             },
             "XamarinFastEntry.Behaviors": {
               "target": "Package",
@@ -227,6 +235,7 @@
         },
         "frameworks": {
           "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
             "projectReferences": {
               "C:\\Users\\Thanah\\Source\\Repos\\JaxMac\\MaxVonGrafKftMobileController\\MaxVonGrafKftMobileController.csproj": {
                 "projectPath": "C:\\Users\\Thanah\\Source\\Repos\\JaxMac\\MaxVonGrafKftMobileController\\MaxVonGrafKftMobileController.csproj"
@@ -242,6 +251,7 @@
       },
       "frameworks": {
         "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
           "dependencies": {
             "CardsView": {
               "target": "Package",
@@ -266,6 +276,10 @@
             "Microsoft.NETCore.Platforms": {
               "target": "Package",
               "version": "[3.1.0-preview1.19504.10, )"
+            },
+            "MvvmLightLibsStd10": {
+              "target": "Package",
+              "version": "[5.4.1.1, )"
             },
             "NETStandard.Library": {
               "suppressParent": "All",
@@ -323,7 +337,11 @@
             },
             "Xamarin.Essentials": {
               "target": "Package",
-              "version": "[1.3.1, )"
+              "version": "[1.6.1-preview2, )"
+            },
+            "Xamarin.FFImageLoading.Forms": {
+              "target": "Package",
+              "version": "[2.4.11.982, )"
             },
             "Xamarin.Forms": {
               "target": "Package",
@@ -335,7 +353,7 @@
             },
             "Xamarin.Forms.PancakeView": {
               "target": "Package",
-              "version": "[1.4.2, )"
+              "version": "[2.3.0.759, )"
             },
             "XamarinFastEntry.Behaviors": {
               "target": "Package",
@@ -352,7 +370,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

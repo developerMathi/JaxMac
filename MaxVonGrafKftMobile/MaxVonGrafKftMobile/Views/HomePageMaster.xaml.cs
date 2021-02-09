@@ -132,7 +132,10 @@ namespace MaxVonGrafKftMobile.Views
                     new HomePageMasterMenuItem { Id = 5,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("MaxVonGrafKftMobile.Assets.iconWhiteUser.png"), Title = "Profile" },
                     new HomePageMasterMenuItem { Id = 3,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("MaxVonGrafKftMobile.Assets.iconWhitePayment.png"), Title = "Payment Method" },
                     new HomePageMasterMenuItem { Id = 4,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("MaxVonGrafKftMobile.Assets.iconWhiteHelp.png"), Title = "Help" },
-                    new HomePageMasterMenuItem { Id = 6,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("MaxVonGrafKftMobile.Assets.iconWhiteLogout.png"), Title = "Log out" },
+                    new HomePageMasterMenuItem { Id = 7,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("MaxVonGrafKftMobile.Assets.iconsDocument.png"), Title = "My Documents" },
+                    new HomePageMasterMenuItem { Id = 8,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("MaxVonGrafKftMobile.Assets.iconChat.png"), Title = "Chat" },
+                    new HomePageMasterMenuItem { Id = 6,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("MaxVonGrafKftMobile.Assets.iconWhiteLogout.png"), Title = "Log Out" },
+                  
                    // new HomePageMasterMenuItem { Id = 2, Title = "Upcoming reservation " },
                    // new HomePageMasterMenuItem { Id = 3, Title = "My Rentals" },
                 });
@@ -181,9 +184,18 @@ namespace MaxVonGrafKftMobile.Views
             {
                 Navigation.PushAsync(new MyProfile());
             }
+            else if (item.Id == 7)
+            {
+                Navigation.PushAsync(new MyDouments());
+            }
+            else if (item.Id == 8)
+            {
+                Navigation.PushAsync(new ChatListPage());
+            }
             else if (item.Id == 6)
             {
                 App.Current.Properties["CustomerId"] = 0;
+                App.Current.Properties["InquiryID"] = 0;
                 Constants.cutomerAuthContext = null;
                 Navigation.PushAsync(new WelcomPage());
             }

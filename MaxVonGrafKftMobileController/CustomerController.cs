@@ -60,6 +60,20 @@ namespace MaxVonGrafKftMobileController
             return response;
         }
 
+        public int addInquiryChatModel(InquiryChatModel inquiryChatModel, string token)
+        {
+            int response=0;
+            try
+            {
+                response = customerService.addInquiryChatModel(inquiryChatModel, token);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return response;
+        }
+
         public List<CustomerSeachResult> getCustomerByFilter(CustomerSerach customerSerach, string token)
         {
             List<CustomerSeachResult> response;
@@ -80,6 +94,20 @@ namespace MaxVonGrafKftMobileController
             try
             {
                 response = customerService.getCustomerDetailsWithProfilePic(portalDetailsMobileRequest, token);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return response;
+        }
+
+        public List<Inquiry> getInquries(int customerId, string token)
+        {
+            List<Inquiry> response = new List<Inquiry>();
+            try
+            {
+                response = customerService.getInquries(customerId, token);
             }
             catch (Exception ex)
             {
@@ -116,6 +144,20 @@ namespace MaxVonGrafKftMobileController
             return response;
         }
 
+        public List<InquiryChatModel> getChatModels(int inquiryId, string token)
+        {
+            List<InquiryChatModel> response = new List<InquiryChatModel>();
+            try
+            {
+                response = customerService.getChatModels(inquiryId, token);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return response;
+        }
+
         public UpdateCustomerMobileCreditCardResponse UpdateMobileCustomerCreditCard(CreditCards cards, string token)
         {
             UpdateCustomerMobileCreditCardResponse response = new UpdateCustomerMobileCreditCardResponse();
@@ -130,6 +172,19 @@ namespace MaxVonGrafKftMobileController
             return response;
         }
 
+        public int addInquiry(Inquiry newInquiry, string token)
+        {
+            int id = 0;
+            try
+            {
+                id = customerService.addInquiry(newInquiry, token);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return id;
+        }
 
         public GetAllCustomerMobileCreditCardResponse GetAllMobileCustomerCreditCard(GetAllCustomerMobileCreditCardRequest cards, string token)
         {

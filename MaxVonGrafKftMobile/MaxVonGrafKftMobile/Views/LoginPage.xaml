@@ -514,7 +514,8 @@
                         FontFamily="Roboto-Bold"
                         Text="Sign Up"
                         TextColor="{StaticResource MaxVonRed}"
-                        VerticalOptions="Center">
+                        VerticalOptions="Center"
+                        TextDecorations="Underline">
 
                         <Label.FontSize>
                             <OnPlatform x:TypeArguments="x:Double">

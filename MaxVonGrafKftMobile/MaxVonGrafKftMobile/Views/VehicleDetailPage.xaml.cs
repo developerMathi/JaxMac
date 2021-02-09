@@ -34,6 +34,8 @@ namespace MaxVonGrafKftMobile.Views
         GetReservationConfigurationResponse vehicleMobileResponse;
         List<VehicleViewByTypeForMobile> forlistViewItemSource;
         List<VehicleViewByTypeForMobile> forlistViewItemSourceWithFiter;
+
+        VehicleFilterMenus vehicleFilterMenus;
         List<string> vehicletypeList;
 
 
@@ -72,6 +74,7 @@ namespace MaxVonGrafKftMobile.Views
 
 
             vehicleMobileRequest.search = search;
+            vehicleFilterMenus = new VehicleFilterMenus();
         }
 
 
@@ -109,7 +112,7 @@ namespace MaxVonGrafKftMobile.Views
             vehicletypeList = new List<string>();
             VehicleFilter = new VehicleFilterSearch();
 
-
+            vehicleFilterMenus = new VehicleFilterMenus();
             vehicleMobileRequest.search = search;
         }
 
@@ -124,65 +127,8 @@ namespace MaxVonGrafKftMobile.Views
 
             MessagingCenter.Subscribe<FilterPopup>(this, "FilterUpdated", sender =>
             {
-                if (forlistViewItemSource != null)
-                {
-                    if (forlistViewItemSource.Count > 0)
-                    {
-                        forlistViewItemSourceWithFiter = new List<VehicleViewByTypeForMobile>();
-                        forlistViewItemSourceWithFiter = forlistViewItemSource;
-                        if (VehicleFilter.Price > 0)
-                        {
-                            forlistViewItemSourceWithFiter = filterbyPrice();
-                        }
-                        if (VehicleFilter.MinPrice > 0)
-                        {
-                            forlistViewItemSourceWithFiter = filterbyPriceMin();
-                        }
-                        if (VehicleFilter.VehicleType != null && forlistViewItemSourceWithFiter.Count > 0)
-                        {
-                            forlistViewItemSourceWithFiter = filterByVehType();
-                        }
-
-                        if (VehicleFilter.seatsCount > 0 && forlistViewItemSourceWithFiter.Count > 0)
-                        {
-                            forlistViewItemSourceWithFiter = filterbySeatCount();
-                        }
-                        if (VehicleFilter.buggageCount > 0 && forlistViewItemSourceWithFiter.Count > 0)
-                        {
-                            forlistViewItemSourceWithFiter = filterbyBAgCount();
-                        }
-                        if (VehicleFilter.DoorsCount > 0 && forlistViewItemSourceWithFiter.Count > 0)
-                        {
-                            forlistViewItemSourceWithFiter = filterbyDoorCount();
-                        }
-                        if (VehicleFilter.SortingOrder > -1 && forlistViewItemSourceWithFiter.Count > 0)
-                        {
-                            forlistViewItemSourceWithFiter = filterbySortingOrder();
-                        }
-                        if (forlistViewItemSourceWithFiter.Count > 0)
-                        {
-                            vehicleDetailList.ItemsSource = null;
-                            vehicleDetailList.ItemsSource = forlistViewItemSourceWithFiter;
-                            vehicleDetailList.HeightRequest = forlistViewItemSourceWithFiter.Count * 295;
-                            noVehicleLabel.IsVisible = false;
-                            vehicleDetailList.IsVisible = true;
-                            VehicleFilter = null;
-                            VehicleFilter = new VehicleFilterSearch();
-                        }
-                        else
-                        {
-                            vehicleDetailList.IsVisible = false;
-                            //noVehicleLabel.IsVisible = true;
-                            // buttonGrid.IsVisible = true;
-                            noVehicleLabel.IsVisible = true;
-                            VehicleFilter = null;
-                            VehicleFilter = new VehicleFilterSearch();
-
-                        }
-
-
-                    }
-                }
+                refreshVehicleList();
+                
             });
 
 
@@ -247,6 +193,12 @@ namespace MaxVonGrafKftMobile.Views
                     {
                         if (vehicleMobileResponse.listVehicle.Count > 0)
                         {
+                            vehicleFilterMenus.vehicleTypes = new List<string>();
+                            vehicleFilterMenus.vehicleMakes = new List<string>();
+                            vehicleFilterMenus.vehicleModels = new List<string>();
+                            vehicleFilterMenus.VehicleYear = new List<int>();
+                            vehicleFilterMenus.NumberOfseats = new List<int>();
+                            vehicleFilterMenus.Colors = new List<string>();
 
                             List<int> vehicleTypeIds = new List<int>();
 
@@ -258,6 +210,9 @@ namespace MaxVonGrafKftMobile.Views
                                     VehicleViewByTypeForMobile typeForMobile = new VehicleViewByTypeForMobile();
                                     typeForMobile.VehicleTypeId = rvsv.VehicleTypeId;
                                     typeForMobile.VehicleType = rvsv.VehicleType;
+                                    typeForMobile.vehicleMakeName = rvsv.VehicleMakeName;
+                                    typeForMobile.vehicleModelName = rvsv.ModelName;
+                                    typeForMobile.vehicleYear = (int)rvsv.Year;
                                     typeForMobile.Transmission = rvsv.Transmission;
                                     typeForMobile.Seats = rvsv.Seats;
                                     typeForMobile.NoOfLuggage = rvsv.Baggages;
@@ -273,6 +228,8 @@ namespace MaxVonGrafKftMobile.Views
                                     typeForMobile.mantatoryMiscChargeDetails = rvsv.mantatoryMiscChargeDetails;
                                     typeForMobile.mantatoryMiscChargeNonTaxableTotalForOneDay = rvsv.mantatoryMiscChargeNonTaxableTotalForOneDay;
                                     typeForMobile.mantatoryMiscChargeTotalForOneDay = rvsv.mantatoryMiscChargeTotalForOneDay;
+                                    typeForMobile.color = rvsv.Color;
+                                    
 
                                     typeForMobile.sample = rvsv.Sample;
                                     typeForMobile.locationIdList = new List<int>();
@@ -281,14 +238,33 @@ namespace MaxVonGrafKftMobile.Views
                                         typeForMobile.locationIdList.Add(rvsv.LocationId);
                                     }
                                     typeForMobile.vehicleId = rvsv.vehicleId;
-                                    typeForMobile.vehicleName = rvsv.Year+ " " + rvsv.VehicleMakeName + " " + rvsv.ModelName ;
+                                    typeForMobile.vehicleName = rvsv.Year + " " + rvsv.VehicleMakeName + " " + rvsv.ModelName;
 
                                     forlistViewItemSource.Add(typeForMobile);
-                                    if (!vehicletypeList.Contains(rvsv.VehicleType))
+                                    if (!vehicleFilterMenus.vehicleTypes.Contains(rvsv.VehicleType))
                                     {
-                                        vehicletypeList.Add(rvsv.VehicleType);
+                                        vehicleFilterMenus.vehicleTypes.Add(rvsv.VehicleType);
                                     }
-
+                                    if (!vehicleFilterMenus.vehicleMakes.Contains(rvsv.VehicleMakeName))
+                                    {
+                                        vehicleFilterMenus.vehicleMakes.Add(rvsv.VehicleMakeName);
+                                    }
+                                    if (!vehicleFilterMenus.vehicleModels.Contains(rvsv.ModelName))
+                                    {
+                                        vehicleFilterMenus.vehicleModels.Add(rvsv.ModelName);
+                                    }
+                                    if (!vehicleFilterMenus.VehicleYear.Contains((int)rvsv.Year))
+                                    {
+                                        vehicleFilterMenus.VehicleYear.Add((int)rvsv.Year);
+                                    }
+                                    if (!vehicleFilterMenus.NumberOfseats.Contains(rvsv.Seats))
+                                    {
+                                        vehicleFilterMenus.NumberOfseats.Add(rvsv.Seats);
+                                    }
+                                    if (!vehicleFilterMenus.Colors.Contains(rvsv.Color.ToLower().Trim()))
+                                    {
+                                        vehicleFilterMenus.Colors.Add(rvsv.Color.ToLower().Trim());
+                                    }
                                 }
                                 //else
                                 //{
@@ -339,6 +315,174 @@ namespace MaxVonGrafKftMobile.Views
             }
         }
 
+        private void refreshVehicleList()
+        {
+            if (forlistViewItemSource != null)
+            {
+                if (forlistViewItemSource.Count > 0)
+                {
+                    forlistViewItemSourceWithFiter = new List<VehicleViewByTypeForMobile>();
+                    forlistViewItemSourceWithFiter = forlistViewItemSource;
+                    List<filterFormat> filterFormats = new List<filterFormat>();
+                    if(VehicleFilter != null)
+                    {
+                        if (VehicleFilter.vehicleTypes != null)
+                        {
+                            if (VehicleFilter.vehicleTypes.Count > 0)
+                            {
+                                forlistViewItemSourceWithFiter = filterByVehicleType();
+                            }
+                            foreach (string s in VehicleFilter.vehicleTypes)
+                            {
+                                filterFormat filter = new filterFormat() { title = s, isAvailable = true, type = "VehicleType" };
+                                filterFormats.Add(filter);
+                            }
+                        }
+                        if (VehicleFilter.vehicleMakes != null)
+                        {
+                            if (VehicleFilter.vehicleMakes.Count > 0)
+                            {
+                                forlistViewItemSourceWithFiter = filterByVehicleMake();
+                            }
+                            foreach (string s in VehicleFilter.vehicleMakes)
+                            {
+                                filterFormat filter = new filterFormat() { title = s, isAvailable = true, type = "VehicleMake" };
+                                filterFormats.Add(filter);
+                            }
+                        }
+                        if (VehicleFilter.vehicleModels != null)
+                        {
+                            if (VehicleFilter.vehicleModels.Count > 0)
+                            {
+                                forlistViewItemSourceWithFiter = filterByVehicleModel();
+                            }
+                            foreach (string s in VehicleFilter.vehicleModels)
+                            {
+                                filterFormat filter = new filterFormat() { title = s, isAvailable = true, type = "VehicleModel" };
+                                filterFormats.Add(filter);
+                            }
+                        }
+                        if (VehicleFilter.VehicleYear != null)
+                        {
+                            if (VehicleFilter.VehicleYear.Count > 0)
+                            {
+                                forlistViewItemSourceWithFiter = filterByVehicleYear();
+                            }
+                            foreach (int s in VehicleFilter.VehicleYear)
+                            {
+                                filterFormat filter = new filterFormat() { title = s.ToString(), isAvailable = true, type = "VehicleYear" };
+                                filterFormats.Add(filter);
+                            }
+                        }
+                        if (VehicleFilter.Colors != null)
+                        {
+                            if (VehicleFilter.Colors.Count > 0)
+                            {
+                                forlistViewItemSourceWithFiter = filterByVehicleColor();
+                            }
+                            foreach (string s in VehicleFilter.Colors)
+                            {
+                                filterFormat filter = new filterFormat() { title = s, isAvailable = true, type = "VehicleColor" };
+                                filterFormats.Add(filter);
+                            }
+                        }
+                    }
+                    if (lthSortbtn.IsChecked && forlistViewItemSourceWithFiter != null)
+                    {
+                        forlistViewItemSourceWithFiter=forlistViewItemSourceWithFiter.OrderBy(x => x.DailyRate).ToList();
+                    }
+                    if (htlSortbtn.IsChecked && forlistViewItemSourceWithFiter != null)
+                    {
+                        forlistViewItemSourceWithFiter=forlistViewItemSourceWithFiter.OrderByDescending(x => x.DailyRate).ToList();
+                    }
+
+                    //if (VehicleFilter.Price > 0)
+                    //{
+                    //    forlistViewItemSourceWithFiter = filterbyPrice();
+                    //}
+                    //if (VehicleFilter.MinPrice > 0)
+                    //{
+                    //    forlistViewItemSourceWithFiter = filterbyPriceMin();
+                    //}
+                    //if (VehicleFilter.VehicleType != null && forlistViewItemSourceWithFiter.Count > 0)
+                    //{
+                    //    forlistViewItemSourceWithFiter = filterByVehType();
+                    //}
+
+                    //if (VehicleFilter.seatsCount > 0 && forlistViewItemSourceWithFiter.Count > 0)
+                    //{
+                    //    forlistViewItemSourceWithFiter = filterbySeatCount();
+                    //}
+                    //if (VehicleFilter.buggageCount > 0 && forlistViewItemSourceWithFiter.Count > 0)
+                    //{
+                    //    forlistViewItemSourceWithFiter = filterbyBAgCount();
+                    //}
+                    //if (VehicleFilter.DoorsCount > 0 && forlistViewItemSourceWithFiter.Count > 0)
+                    //{
+                    //    forlistViewItemSourceWithFiter = filterbyDoorCount();
+                    //}
+                    //if (VehicleFilter.SortingOrder > -1 && forlistViewItemSourceWithFiter.Count > 0)
+                    //{
+                    //    forlistViewItemSourceWithFiter = filterbySortingOrder();
+                    //}
+                    if (filterFormats != null)
+                    {
+                        filterList.ItemsSource = null;
+                        if (filterFormats.Count > 0)
+                        {
+                            filterList.ItemsSource = filterFormats;
+                        }
+                    }
+
+                    if (forlistViewItemSourceWithFiter.Count > 0)
+                    {
+                        vehicleDetailList.ItemsSource = null;
+                        vehicleDetailList.ItemsSource = forlistViewItemSourceWithFiter;
+                        vehicleDetailList.HeightRequest = forlistViewItemSourceWithFiter.Count * 295;
+                        noVehicleLabel.IsVisible = false;
+                        vehicleDetailList.IsVisible = true;
+                        //VehicleFilter = null;
+                        //VehicleFilter = new VehicleFilterSearch();
+                    }
+                    else
+                    {
+                        vehicleDetailList.IsVisible = false;
+                        //noVehicleLabel.IsVisible = true;
+                        // buttonGrid.IsVisible = true;
+                        noVehicleLabel.IsVisible = true;
+                        //VehicleFilter = null;
+                        //VehicleFilter = new VehicleFilterSearch();
+
+                    }
+                }
+            }
+        }
+
+        private List<VehicleViewByTypeForMobile> filterByVehicleColor()
+        {
+            return forlistViewItemSourceWithFiter.Where(c => VehicleFilter.Colors.Contains(c.color.ToLower().Trim())).ToList();
+        }
+
+        private List<VehicleViewByTypeForMobile> filterByVehicleYear()
+        {
+            return forlistViewItemSourceWithFiter.Where(c => VehicleFilter.VehicleYear.Contains(c.vehicleYear)).ToList();
+        }
+
+        private List<VehicleViewByTypeForMobile> filterByVehicleModel()
+        {
+            return forlistViewItemSourceWithFiter.Where(c => VehicleFilter.vehicleModels.Contains(c.vehicleModelName)).ToList();
+        }
+
+        private List<VehicleViewByTypeForMobile> filterByVehicleMake()
+        {
+            return forlistViewItemSourceWithFiter.Where(c => VehicleFilter.vehicleMakes.Contains(c.vehicleMakeName)).ToList();
+        }
+
+        private List<VehicleViewByTypeForMobile> filterByVehicleType()
+        {
+            return forlistViewItemSourceWithFiter.Where(c => VehicleFilter.vehicleTypes.Contains(c.VehicleType) ).ToList();
+        }
+
         private decimal calculateMantatryCharges(List<ReservationMiscDetails> mantatoryMiscChargeDetails, int noOfDays)
         {
             decimal sum = 0;
@@ -364,10 +508,10 @@ namespace MaxVonGrafKftMobile.Views
             return sum;
         }
 
-        private List<VehicleViewByTypeForMobile> filterbyPriceMin()
-        {
-            return forlistViewItemSourceWithFiter.Where(c => (int)c.DailyRate >= (int)VehicleFilter.MinPrice).ToList();
-        }
+        //private List<VehicleViewByTypeForMobile> filterbyPriceMin()
+        //{
+        //    return forlistViewItemSourceWithFiter.Where(c => (int)c.DailyRate >= (int)VehicleFilter.MinPrice).ToList();
+        //}
 
         protected override void OnDisappearing()
         {
@@ -375,46 +519,46 @@ namespace MaxVonGrafKftMobile.Views
             MessagingCenter.Unsubscribe<FilterPopup>(this, "FilterUpdated");
         }
 
-        private List<VehicleViewByTypeForMobile> filterbySortingOrder()
-        {
-            if (VehicleFilter.SortingOrder == 0)
-            {
-                return forlistViewItemSourceWithFiter.OrderBy(x => x.DailyRate).ToList();
-            }
-            else if (VehicleFilter.SortingOrder == 1)
-            {
-                return forlistViewItemSourceWithFiter.OrderByDescending(x => x.DailyRate).ToList();
-            }
-            else
-            {
-                return forlistViewItemSourceWithFiter;
-            }
-        }
+        //private List<VehicleViewByTypeForMobile> filterbySortingOrder()
+        //{
+        //    if (VehicleFilter.SortingOrder == 0)
+        //    {
+        //        return forlistViewItemSourceWithFiter.OrderBy(x => x.DailyRate).ToList();
+        //    }
+        //    else if (VehicleFilter.SortingOrder == 1)
+        //    {
+        //        return forlistViewItemSourceWithFiter.OrderByDescending(x => x.DailyRate).ToList();
+        //    }
+        //    else
+        //    {
+        //        return forlistViewItemSourceWithFiter;
+        //    }
+        //}
 
-        private List<VehicleViewByTypeForMobile> filterbyDoorCount()
-        {
-            return forlistViewItemSourceWithFiter.Where(c => int.Parse(c.doors) == VehicleFilter.DoorsCount).ToList();
-        }
+        //private List<VehicleViewByTypeForMobile> filterbyDoorCount()
+        //{
+        //    return forlistViewItemSourceWithFiter.Where(c => int.Parse(c.doors) == VehicleFilter.DoorsCount).ToList();
+        //}
 
-        private List<VehicleViewByTypeForMobile> filterbyBAgCount()
-        {
-            return forlistViewItemSourceWithFiter.Where(c => c.NoOfLuggage == VehicleFilter.buggageCount).ToList();
-        }
+        //private List<VehicleViewByTypeForMobile> filterbyBAgCount()
+        //{
+        //    return forlistViewItemSourceWithFiter.Where(c => c.NoOfLuggage == VehicleFilter.buggageCount).ToList();
+        //}
 
-        private List<VehicleViewByTypeForMobile> filterByVehType()
-        {
-            return forlistViewItemSourceWithFiter.Where(c => c.VehicleType.ToLower().Contains(VehicleFilter.VehicleType.ToLower())).ToList();
-        }
+        //private List<VehicleViewByTypeForMobile> filterByVehType()
+        //{
+        //    return forlistViewItemSourceWithFiter.Where(c => c.VehicleType.ToLower().Contains(VehicleFilter.VehicleType.ToLower())).ToList();
+        //}
 
-        private List<VehicleViewByTypeForMobile> filterbyPrice()
-        {
-            return forlistViewItemSourceWithFiter.Where(c => (int)c.DailyRate <= (int)VehicleFilter.Price).ToList();
-        }
+        //private List<VehicleViewByTypeForMobile> filterbyPrice()
+        //{
+        //    return forlistViewItemSourceWithFiter.Where(c => (int)c.DailyRate <= (int)VehicleFilter.Price).ToList();
+        //}
 
-        private List<VehicleViewByTypeForMobile> filterbySeatCount()
-        {
-            return forlistViewItemSourceWithFiter.Where(c => c.Seats == VehicleFilter.seatsCount).ToList();
-        }
+        //private List<VehicleViewByTypeForMobile> filterbySeatCount()
+        //{
+        //    return forlistViewItemSourceWithFiter.Where(c => c.Seats == VehicleFilter.seatsCount).ToList();
+        //}
 
         private GetReservationConfigurationResponse getVehicleTypesMobileNew(GetReservationConfigurationMobileRequest vehicleMobileRequest, string token)
         {
@@ -519,7 +663,7 @@ namespace MaxVonGrafKftMobile.Views
 
         private void btnFilter_Tapped(object sender, EventArgs e)
         {
-            PopupNavigation.Instance.PushAsync(new Popups.FilterPopup(VehicleFilter, vehicletypeList));
+            PopupNavigation.Instance.PushAsync(new Popups.FilterPopup(VehicleFilter, vehicleFilterMenus));
         }
 
         private void btnBookNow_Clicked(object sender, EventArgs e)
@@ -556,7 +700,8 @@ namespace MaxVonGrafKftMobile.Views
             reservationView.TotalDays = rates.TotalDays;
             reservationView.VehicleId = selectedVehicle.vehicleId;
             reservationView.VehicleId2 = selectedVehicle.vehicleId;
-            Navigation.PushAsync(new BookNow(reservationView, selectedVehicle, selectedVehicle.locationIdList));
+            //Navigation.PushAsync(new BookNow(reservationView, selectedVehicle, selectedVehicle.locationIdList));
+            Navigation.PushAsync(new VechicleInformationPage(reservationView, selectedVehicle, selectedVehicle.locationIdList));
         }
 
         private void vehicleDetailList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -574,7 +719,110 @@ namespace MaxVonGrafKftMobile.Views
             reservationView.TotalDays = rates.TotalDays;
             reservationView.VehicleId = selectedVehicle.vehicleId;
             reservationView.VehicleId2 = selectedVehicle.vehicleId;
-            Navigation.PushAsync(new BookNow(reservationView, selectedVehicle, selectedVehicle.locationIdList));
+            Navigation.PushAsync(new VechicleInformationPage(reservationView, selectedVehicle, selectedVehicle.locationIdList));
+            //Navigation.PushAsync(new BookNow(reservationView, selectedVehicle, selectedVehicle.locationIdList));
         }
+
+        private async void filterDetailLabel_Tapped(object sender, EventArgs e)
+        {
+            if (sortDetailsGrid.IsVisible)
+            {
+                sortDetailsGrid.IsVisible = false;
+                await SortArrow.RotateTo(360, 200);
+            }
+
+            if (!filterDetailsgrid.IsVisible)
+            {
+                filterDetailsgrid.IsVisible = !filterDetailsgrid.IsVisible;
+                await filterArrow.RotateTo(180, 200);
+            }
+            else
+            {
+                filterDetailsgrid.IsVisible = !filterDetailsgrid.IsVisible;
+                await filterArrow.RotateTo(360, 200);
+            }
+           
+        }
+
+        private async void sortDetailLabel_Tapped(object sender, EventArgs e)
+        {
+            if (filterDetailsgrid.IsVisible)
+            {
+                filterDetailsgrid.IsVisible = false;
+                await filterArrow.RotateTo(360, 200);
+            }
+            if (!sortDetailsGrid.IsVisible)
+            {
+                sortDetailsGrid.IsVisible = !sortDetailsGrid.IsVisible;
+                await SortArrow.RotateTo(180, 200);
+            }
+            else
+            {
+                sortDetailsGrid.IsVisible = !sortDetailsGrid.IsVisible;
+                await SortArrow.RotateTo(360, 200);
+            }
+            
+        }
+
+        private void resetFilter_Clicked(object sender, EventArgs e)
+        {
+            VehicleFilter = null;
+            VehicleFilter = new VehicleFilterSearch();
+            refreshVehicleList();
+        }
+
+        private void filterItemDeleteBtn_Clicked(object sender, EventArgs e)
+        {
+            var obj = (ImageButton)sender;
+            filterFormat selectedfilter = obj.BindingContext as filterFormat;
+            if(selectedfilter != null)
+            {
+                if (selectedfilter.type == "VehicleType")
+                {
+                    VehicleFilter.vehicleTypes.Remove(selectedfilter.title);
+                }
+                if (selectedfilter.type == "VehicleMake")
+                {
+                    VehicleFilter.vehicleMakes.Remove(selectedfilter.title);
+                }
+                if (selectedfilter.type == "VehicleModel")
+                {
+                    VehicleFilter.vehicleModels.Remove(selectedfilter.title);
+                }
+                if (selectedfilter.type == "VehicleYear")
+                {
+                    VehicleFilter.VehicleYear.Remove( Convert.ToInt32(selectedfilter.title));
+                }
+                if (selectedfilter.type == "VehicleColor")
+                {
+                    VehicleFilter.Colors.Remove(selectedfilter.title);
+                }
+            }
+            refreshVehicleList();
+        }
+
+        private void resetsort_Clicked(object sender, EventArgs e)
+        {
+            lthSortbtn.IsChecked = false;
+            htlSortbtn.IsChecked = false;
+            refreshVehicleList();
+        }
+
+        private void sortRadioBtn_Checked(object sender, EventArgs e)
+        {
+            refreshVehicleList();
+        }
+
+        private void sortRadioBtn_SelectedItemChanged(object sender, EventArgs e)
+        {
+            refreshVehicleList();
+        }
+    }
+
+    public class filterFormat{
+        public string title { get; set; }
+        public string type { get; set; }
+        public bool isAvailable { get; set; }
+
     }
 }

@@ -121,7 +121,7 @@
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
 
-                        <Button
+                        <Button IsVisible="false"
                             x:Name="BooknowBtn"
                             Grid.Row="1"
                             Margin="0,0,0,0"

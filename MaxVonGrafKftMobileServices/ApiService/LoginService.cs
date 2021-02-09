@@ -43,6 +43,99 @@ namespace MaxVonGrafKftMobileServices.ApiService
             return tokenResponse;
         }
 
+        public CheckConfirmEmailAddressResponse checkConfirmEmailAddress(ConfirmEmailAddressRequest request, string token)
+        {
+            CheckConfirmEmailAddressResponse res = new CheckConfirmEmailAddressResponse();
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri(ConstantData.ApiURL.ToString() + "RegistrationMobile/checkConfirmEmailAddress");
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+                    var myContent = JsonConvert.SerializeObject(request);
+                    var buffer = Encoding.UTF8.GetBytes(myContent);
+                    var byteContent = new ByteArrayContent(buffer);
+                    byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+                    var response = client.PostAsync(client.BaseAddress, byteContent).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var responseStream = response.Content.ReadAsStringAsync().Result;
+                        res = JsonConvert.DeserializeObject<CheckConfirmEmailAddressResponse>(responseStream);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return res;
+        }
+
+        public GetAllDocumentByCustomerIdResponse getDocuments(GetMobileCustomerByIDRequest request, string token)
+        {
+            GetAllDocumentByCustomerIdResponse res = new GetAllDocumentByCustomerIdResponse();
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri(ConstantData.ApiURL.ToString() + "CustomerMobile/GetAllDocumentByCustomerId");
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+                    var myContent = JsonConvert.SerializeObject(request);
+                    var buffer = Encoding.UTF8.GetBytes(myContent);
+                    var byteContent = new ByteArrayContent(buffer);
+                    byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+                    var response = client.PostAsync(client.BaseAddress, byteContent).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var responseStream = response.Content.ReadAsStringAsync().Result;
+                        res = JsonConvert.DeserializeObject<GetAllDocumentByCustomerIdResponse>(responseStream);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return res;
+        }
+
+        public ConfirmEmailAddressResponse ConfirmEmailAddress(ConfirmEmailAddressRequest confirmEmailAddressRequest, string token)
+        {
+            ConfirmEmailAddressResponse res = new ConfirmEmailAddressResponse();
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri(ConstantData.ApiURL.ToString() + "RegistrationMobile/confirmEmailAddress");
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+                    var myContent = JsonConvert.SerializeObject(confirmEmailAddressRequest);
+                    var buffer = Encoding.UTF8.GetBytes(myContent);
+                    var byteContent = new ByteArrayContent(buffer);
+                    byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+                    var response = client.PostAsync(client.BaseAddress, byteContent).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var responseStream = response.Content.ReadAsStringAsync().Result;
+                        res = JsonConvert.DeserializeObject<ConfirmEmailAddressResponse>(responseStream);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return res;
+        }
+
         public CutomerAuthContext CheckLogin(CustomerLogin loginCustomer,string token)
         {
             CutomerAuthContext authContext = new CutomerAuthContext();

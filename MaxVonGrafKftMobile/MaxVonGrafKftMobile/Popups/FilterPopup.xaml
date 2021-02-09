@@ -9,6 +9,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
     xmlns:renders="clr-namespace:MaxVonGrafKftMobile.Renders"
+    xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
     mc:Ignorable="d">
     <pages:PopupPage.Animation>
         <animations:ScaleAnimation
@@ -176,7 +177,7 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <Frame
+                    <!--<Frame
                         Grid.Row="0"
                         Padding="0,0,0,0"
                         BackgroundColor="Transparent"
@@ -402,51 +403,521 @@
                                 BackgroundColor="Transparent"
                                 Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconDown.png}" />
                         </Grid>
-                    </Frame>
+                    </Frame>-->
 
                     <Frame
-                        Grid.Row="6"
-                        Padding="0,0,0,0"
+                        Grid.Row="1"
+                        Padding="10,10,10,10"
                         BackgroundColor="Transparent"
                         BorderColor="{StaticResource Black}"
                         CornerRadius="10"
                         HasShadow="False">
-                        <Frame.HeightRequest>
-                            <OnPlatform x:TypeArguments="x:Double">
-                                <On Platform="iOS">
-                                    <OnIdiom
-                                        x:TypeArguments="x:Double"
-                                        Phone="50"
-                                        Tablet="60" />
-                                </On>
-                                <On Platform="Android,Windows">
-                                    <OnIdiom
-                                        x:TypeArguments="x:Double"
-                                        Phone="50"
-                                        Tablet="60" />
-                                </On>
-                            </OnPlatform>
-                        </Frame.HeightRequest>
+                
                         <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="9*" />
                                 <ColumnDefinition Width="40" />
                             </Grid.ColumnDefinitions>
-                            <renders:BorderlessPicker
-                                x:Name="vehtypePicker"
-                                Title="Vehicle Type"
+                            <Label
+                                VerticalOptions="Center"
+                                Text="Vehicle Type"
                                 Margin="10,0,0,0"
                                 FontFamily="Roboto-Medium"
                                 FontSize="Medium"
-                                TitleColor="{StaticResource Black}" />
+                                TextColor="{StaticResource Black}" >
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        x:Name="vehtypePicker"
+                                        NumberOfTapsRequired="1"
+                                        Tapped="vehtypePicker_Tapped"></TapGestureRecognizer>
+                                </Label.GestureRecognizers>
+                            </Label>
 
                             <ImageButton
-                                Grid.Column="1"
+                                Grid.Column="2"
                                 Margin="0,0,10,0"
                                 BackgroundColor="Transparent"
-                                Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconDown.png}" />
+                                Aspect="AspectFit"
+                                HeightRequest="30"
+                                Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconDown.png}" 
+                                x:Name="vehiTypeArrow"
+                                Clicked="vehModelPicker_Tapped"/>
+                            <ListView x:Name="vehicleTypeList"
+                                      Grid.Row="2"
+                                      SeparatorVisibility="None"
+                                      VerticalScrollBarVisibility="Never"
+                                      HasUnevenRows="False"
+                                      IsVisible="false"
+                                      RowHeight="35"
+                                      >
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <renders:ExtendedViewCell SelectedBackgroundColor="{StaticResource MaxVonWhite}">
+                                            <input:CheckBox
+                                                Text="{Binding title}"
+                                                        x:Name="TCcheckBox"
+                                                        FontFamily="Roboto-Bold"
+                                                        TextColor="{StaticResource MaxVonBlack}"
+                                                        Type="Material"
+                                                        Color="{StaticResource MaxVonRed}"
+                                                IsChecked="{Binding isSelected}"
+                                                VerticalOptions="Start">
+                                                <input:CheckBox.TextFontSize>
+                                                    <OnPlatform x:TypeArguments="x:Double">
+                                                        <On Platform="iOS">
+                                                            <OnIdiom
+                                                    x:TypeArguments="x:Double"
+                                                    Phone="12"
+                                                    Tablet="14" />
+                                                        </On>
+                                                        <On Platform="Android,Windows">
+                                                            <OnIdiom
+                                                    x:TypeArguments="x:Double"
+                                                    Phone="12"
+                                                    Tablet="14" />
+                                                        </On>
+                                                    </OnPlatform>
+                                                </input:CheckBox.TextFontSize>
+                                                <input:CheckBox.Margin>
+                                                    <OnPlatform x:TypeArguments="Thickness">
+                                                        <On Platform="iOS">
+                                                            <OnIdiom
+                                                    x:TypeArguments="Thickness"
+                                                    Phone="5,0,5,0"
+                                                    Tablet="10,0,10,0" />
+                                                        </On>
+                                                        <On Platform="Android,Windows">
+                                                            <OnIdiom
+                                                    x:TypeArguments="Thickness"
+                                                    Phone="5,0,5,0"
+                                                    Tablet="10,0,10,0" />
+                                                        </On>
+                                                    </OnPlatform>
+                                                </input:CheckBox.Margin>
+                                            </input:CheckBox>
+
+                                        </renders:ExtendedViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
                         </Grid>
                     </Frame>
+
+                    <Frame
+                        Grid.Row="2"
+                        Padding="10,10,10,10"
+                        BackgroundColor="Transparent"
+                        BorderColor="{StaticResource Black}"
+                        CornerRadius="10"
+                        HasShadow="False">
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="9*" />
+                                <ColumnDefinition Width="40" />
+                            </Grid.ColumnDefinitions>
+                            <Label
+                                VerticalOptions="Center"
+                                Text="Vehicle Make"
+                                Margin="10,0,0,0"
+                                FontFamily="Roboto-Medium"
+                                FontSize="Medium"
+                                TextColor="{StaticResource Black}" >
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        x:Name="vehMakePicker"
+                                        NumberOfTapsRequired="1"
+                                        Tapped="vehMakePicker_Tapped"></TapGestureRecognizer>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <ImageButton
+                                Grid.Column="2"
+                                Margin="0,0,10,0"
+                                BackgroundColor="Transparent"
+                                Aspect="AspectFit"
+                                HeightRequest="30"
+                                Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconDown.png}" 
+                                x:Name="vehiMakeArrow"/>
+                            <ListView x:Name="vehicleMakeList"
+                                      Grid.Row="2"
+                                      SeparatorVisibility="None"
+                                      VerticalScrollBarVisibility="Never"
+                                      HasUnevenRows="False"
+                                      IsVisible="false"
+                                      RowHeight="35"
+                                      >
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <renders:ExtendedViewCell SelectedBackgroundColor="{StaticResource MaxVonWhite}">
+                                            <input:CheckBox
+                                                Text="{Binding title}"
+                                                        x:Name="TCcheckBox"
+                                                        FontFamily="Roboto-Bold"
+                                                        TextColor="{StaticResource MaxVonBlack}"
+                                                        Type="Material"
+                                                        Color="{StaticResource MaxVonRed}"
+                                                IsChecked="{Binding isSelected}"
+                                                VerticalOptions="Start">
+                                                <input:CheckBox.TextFontSize>
+                                                    <OnPlatform x:TypeArguments="x:Double">
+                                                        <On Platform="iOS">
+                                                            <OnIdiom
+                                                    x:TypeArguments="x:Double"
+                                                    Phone="12"
+                                                    Tablet="14" />
+                                                        </On>
+                                                        <On Platform="Android,Windows">
+                                                            <OnIdiom
+                                                    x:TypeArguments="x:Double"
+                                                    Phone="12"
+                                                    Tablet="14" />
+                                                        </On>
+                                                    </OnPlatform>
+                                                </input:CheckBox.TextFontSize>
+                                                <input:CheckBox.Margin>
+                                                    <OnPlatform x:TypeArguments="Thickness">
+                                                        <On Platform="iOS">
+                                                            <OnIdiom
+                                                    x:TypeArguments="Thickness"
+                                                    Phone="5,0,5,0"
+                                                    Tablet="10,0,10,0" />
+                                                        </On>
+                                                        <On Platform="Android,Windows">
+                                                            <OnIdiom
+                                                    x:TypeArguments="Thickness"
+                                                    Phone="5,0,5,0"
+                                                    Tablet="10,0,10,0" />
+                                                        </On>
+                                                    </OnPlatform>
+                                                </input:CheckBox.Margin>
+                                            </input:CheckBox>
+
+                                        </renders:ExtendedViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Grid>
+                    </Frame>
+
+
+
+                    <Frame
+                        Grid.Row="3"
+                        Padding="10,10,10,10"
+                        BackgroundColor="Transparent"
+                        BorderColor="{StaticResource Black}"
+                        CornerRadius="10"
+                        HasShadow="False">
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="9*" />
+                                <ColumnDefinition Width="40" />
+                            </Grid.ColumnDefinitions>
+                            <Label
+                                VerticalOptions="Center"
+                                Text="Vehicle Model"
+                                Margin="10,0,0,0"
+                                FontFamily="Roboto-Medium"
+                                FontSize="Medium"
+                                TextColor="{StaticResource Black}" >
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        x:Name="vehModelPicker"
+                                        NumberOfTapsRequired="1"
+                                        Tapped="vehModelPicker_Tapped"></TapGestureRecognizer>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <ImageButton
+                                Grid.Column="2"
+                                Margin="0,0,10,0"
+                                BackgroundColor="Transparent"
+                                Aspect="AspectFit"
+                                HeightRequest="30"
+                                Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconDown.png}" 
+                                x:Name="vehiModelArrow"/>
+                            <ListView x:Name="vehicleModelList"
+                                      Grid.Row="2"
+                                      SeparatorVisibility="None"
+                                      VerticalScrollBarVisibility="Never"
+                                      HasUnevenRows="False"
+                                      IsVisible="false"
+                                      RowHeight="35"
+                                      >
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <renders:ExtendedViewCell SelectedBackgroundColor="{StaticResource MaxVonWhite}">
+                                            <input:CheckBox
+                                                Text="{Binding title}"
+                                                        x:Name="TCcheckBox"
+                                                        FontFamily="Roboto-Bold"
+                                                        TextColor="{StaticResource MaxVonBlack}"
+                                                        Type="Material"
+                                                        Color="{StaticResource MaxVonRed}"
+                                                IsChecked="{Binding isSelected}"
+                                                VerticalOptions="Start">
+                                                <input:CheckBox.TextFontSize>
+                                                    <OnPlatform x:TypeArguments="x:Double">
+                                                        <On Platform="iOS">
+                                                            <OnIdiom
+                                                    x:TypeArguments="x:Double"
+                                                    Phone="12"
+                                                    Tablet="14" />
+                                                        </On>
+                                                        <On Platform="Android,Windows">
+                                                            <OnIdiom
+                                                    x:TypeArguments="x:Double"
+                                                    Phone="12"
+                                                    Tablet="14" />
+                                                        </On>
+                                                    </OnPlatform>
+                                                </input:CheckBox.TextFontSize>
+                                                <input:CheckBox.Margin>
+                                                    <OnPlatform x:TypeArguments="Thickness">
+                                                        <On Platform="iOS">
+                                                            <OnIdiom
+                                                    x:TypeArguments="Thickness"
+                                                    Phone="5,0,5,0"
+                                                    Tablet="10,0,10,0" />
+                                                        </On>
+                                                        <On Platform="Android,Windows">
+                                                            <OnIdiom
+                                                    x:TypeArguments="Thickness"
+                                                    Phone="5,0,5,0"
+                                                    Tablet="10,0,10,0" />
+                                                        </On>
+                                                    </OnPlatform>
+                                                </input:CheckBox.Margin>
+                                            </input:CheckBox>
+
+                                        </renders:ExtendedViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Grid>
+                    </Frame>
+
+                    <Frame
+                        Grid.Row="4"
+                        Padding="10,10,10,10"
+                        BackgroundColor="Transparent"
+                        BorderColor="{StaticResource Black}"
+                        CornerRadius="10"
+                        HasShadow="False">
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="9*" />
+                                <ColumnDefinition Width="40" />
+                            </Grid.ColumnDefinitions>
+                            <Label
+                                VerticalOptions="Center"
+                                Text="Vehicle Year"
+                                Margin="10,0,0,0"
+                                FontFamily="Roboto-Medium"
+                                FontSize="Medium"
+                                TextColor="{StaticResource Black}" >
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        x:Name="vehYearPicker"
+                                        NumberOfTapsRequired="1"
+                                        Tapped="vehYearPicker_Tapped"></TapGestureRecognizer>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <ImageButton
+                                Grid.Column="2"
+                                Margin="0,0,10,0"
+                                BackgroundColor="Transparent"
+                                Aspect="AspectFit"
+                                HeightRequest="30"
+                                Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconDown.png}" 
+                                x:Name="vehiYearArrow"/>
+                            <ListView x:Name="vehicleYearList"
+                                      Grid.Row="2"
+                                      SeparatorVisibility="None"
+                                      VerticalScrollBarVisibility="Never"
+                                      HasUnevenRows="False"
+                                      IsVisible="false"
+                                      RowHeight="35"
+                                      >
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <renders:ExtendedViewCell SelectedBackgroundColor="{StaticResource MaxVonWhite}">
+                                            <input:CheckBox
+                                                Text="{Binding title}"
+                                                        x:Name="TCcheckBox"
+                                                        FontFamily="Roboto-Bold"
+                                                        TextColor="{StaticResource MaxVonBlack}"
+                                                        Type="Material"
+                                                        Color="{StaticResource MaxVonRed}"
+                                                IsChecked="{Binding isSelected}"
+                                                VerticalOptions="Start">
+                                                <input:CheckBox.TextFontSize>
+                                                    <OnPlatform x:TypeArguments="x:Double">
+                                                        <On Platform="iOS">
+                                                            <OnIdiom
+                                                    x:TypeArguments="x:Double"
+                                                    Phone="12"
+                                                    Tablet="14" />
+                                                        </On>
+                                                        <On Platform="Android,Windows">
+                                                            <OnIdiom
+                                                    x:TypeArguments="x:Double"
+                                                    Phone="12"
+                                                    Tablet="14" />
+                                                        </On>
+                                                    </OnPlatform>
+                                                </input:CheckBox.TextFontSize>
+                                                <input:CheckBox.Margin>
+                                                    <OnPlatform x:TypeArguments="Thickness">
+                                                        <On Platform="iOS">
+                                                            <OnIdiom
+                                                    x:TypeArguments="Thickness"
+                                                    Phone="5,0,5,0"
+                                                    Tablet="10,0,10,0" />
+                                                        </On>
+                                                        <On Platform="Android,Windows">
+                                                            <OnIdiom
+                                                    x:TypeArguments="Thickness"
+                                                    Phone="5,0,5,0"
+                                                    Tablet="10,0,10,0" />
+                                                        </On>
+                                                    </OnPlatform>
+                                                </input:CheckBox.Margin>
+                                            </input:CheckBox>
+
+                                        </renders:ExtendedViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Grid>
+                    </Frame>
+
+                    <Frame
+                        Grid.Row="5"
+                        Padding="10,10,10,10"
+                        BackgroundColor="Transparent"
+                        BorderColor="{StaticResource Black}"
+                        CornerRadius="10"
+                        HasShadow="False">
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="9*" />
+                                <ColumnDefinition Width="40" />
+                            </Grid.ColumnDefinitions>
+                            <Label
+                                VerticalOptions="Center"
+                                Text="Vehicle Color"
+                                Margin="10,0,0,0"
+                                FontFamily="Roboto-Medium"
+                                FontSize="Medium"
+                                TextColor="{StaticResource Black}" >
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        x:Name="vehColorPicker"
+                                        NumberOfTapsRequired="1"
+                                        Tapped="vehColorPicker_Tapped"></TapGestureRecognizer>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <ImageButton
+                                Grid.Column="2"
+                                Margin="0,0,10,0"
+                                BackgroundColor="Transparent"
+                                Aspect="AspectFit"
+                                HeightRequest="30"
+                                Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconDown.png}" 
+                                x:Name="vehiColorArrow"/>
+                            <ListView x:Name="vehicleColorList"
+                                      Grid.Row="2"
+                                      SeparatorVisibility="None"
+                                      VerticalScrollBarVisibility="Never"
+                                      HasUnevenRows="False"
+                                      IsVisible="false"
+                                      RowHeight="35"
+                                      >
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <renders:ExtendedViewCell SelectedBackgroundColor="{StaticResource MaxVonWhite}">
+                                            <input:CheckBox
+                                                Text="{Binding title}"
+                                                        x:Name="TCcheckBox"
+                                                        FontFamily="Roboto-Bold"
+                                                        TextColor="{StaticResource MaxVonBlack}"
+                                                        Type="Material"
+                                                        Color="{StaticResource MaxVonRed}"
+                                                IsChecked="{Binding isSelected}"
+                                                VerticalOptions="Start">
+                                                <input:CheckBox.TextFontSize>
+                                                    <OnPlatform x:TypeArguments="x:Double">
+                                                        <On Platform="iOS">
+                                                            <OnIdiom
+                                                    x:TypeArguments="x:Double"
+                                                    Phone="12"
+                                                    Tablet="14" />
+                                                        </On>
+                                                        <On Platform="Android,Windows">
+                                                            <OnIdiom
+                                                    x:TypeArguments="x:Double"
+                                                    Phone="12"
+                                                    Tablet="14" />
+                                                        </On>
+                                                    </OnPlatform>
+                                                </input:CheckBox.TextFontSize>
+                                                <input:CheckBox.Margin>
+                                                    <OnPlatform x:TypeArguments="Thickness">
+                                                        <On Platform="iOS">
+                                                            <OnIdiom
+                                                    x:TypeArguments="Thickness"
+                                                    Phone="5,0,5,0"
+                                                    Tablet="10,0,10,0" />
+                                                        </On>
+                                                        <On Platform="Android,Windows">
+                                                            <OnIdiom
+                                                    x:TypeArguments="Thickness"
+                                                    Phone="5,0,5,0"
+                                                    Tablet="10,0,10,0" />
+                                                        </On>
+                                                    </OnPlatform>
+                                                </input:CheckBox.Margin>
+                                            </input:CheckBox>
+
+                                        </renders:ExtendedViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Grid>
+                    </Frame>
+
+
+
+
+
+
 
                     <Grid Grid.Row="7" Margin="0,20,0,20">
                         <Grid.ColumnDefinitions>

@@ -41,6 +41,9 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing.Common">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\Xamarin.iOS\v1.0\Facades\System.Drawing.Common.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Http">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Net.Http.dll</HintPath>
     </Reference>
@@ -53,6 +56,9 @@
     <Compile Include="AccessModels\AddDamageSignMobileResponse.cs" />
     <Compile Include="AccessModels\AddLicenceImageResponse.cs" />
     <Compile Include="AccessModels\AddLicenceImagesRequest.cs" />
+    <Compile Include="AccessModels\CheckConfirmEmailAddressResponse.cs" />
+    <Compile Include="AccessModels\ConfirmEmailAddressRequest.cs" />
+    <Compile Include="AccessModels\ConfirmEmailAddressResponse.cs" />
     <Compile Include="AccessModels\CreditCards.cs" />
     <Compile Include="AccessModels\CustomerCreditCards.cs" />
     <Compile Include="AccessModels\DeleteCreditCardRequest.cs" />
@@ -63,8 +69,11 @@
     <Compile Include="AccessModels\GetAgreementByAgreementIdMobileRequest.cs" />
     <Compile Include="AccessModels\GetAllCustomerMobileCreditCardRequest.cs" />
     <Compile Include="AccessModels\GetAllCustomerMobileCreditCardResponse.cs" />
+    <Compile Include="AccessModels\GetAllDocumentByCustomerIdReq.cs" />
+    <Compile Include="AccessModels\GetAllDocumentByCustomerIdResponse.cs" />
     <Compile Include="AccessModels\GetChecklistMobileRequest.cs" />
     <Compile Include="AccessModels\GetChecklistMobileResponse.cs" />
+    <Compile Include="AccessModels\GetClientAttributesRespose.cs" />
     <Compile Include="AccessModels\GetClientDetailsForMobileResponse.cs" />
     <Compile Include="AccessModels\GetCustomerPortalDetailsMobileRequest.cs" />
     <Compile Include="AccessModels\GetCustomerPortalDetailsMobileResponse.cs" />
@@ -132,19 +141,27 @@
     <Compile Include="AccessModels\UpdateCustomerProfileDetailsMobileRequest.cs" />
     <Compile Include="AccessModels\UpdateCustomerProfileDetailsMobileResponse.cs" />
     <Compile Include="BillingInformation.cs" />
+    <Compile Include="Conviction.cs" />
     <Compile Include="Customer.cs" />
+    <Compile Include="CustomerList.cs" />
     <Compile Include="DefaultDamageList.cs" />
     <Compile Include="DepositViewModel.cs" />
     <Compile Include="Driver.cs" />
     <Compile Include="EmailContactusReq.cs" />
     <Compile Include="EmailContactusRes.cs" />
+    <Compile Include="FilterListViewCells.cs" />
     <Compile Include="GetCustomerAgreementReservationCountRequest.cs" />
     <Compile Include="GetCustomerAgreementReservationCountResponse.cs" />
     <Compile Include="GetVehicleDetailsMobileListResponse.cs" />
     <Compile Include="GetVehicleIdByCodeResponse.cs" />
+    <Compile Include="Inquiry.cs" />
+    <Compile Include="InquiryChatModel.cs" />
+    <Compile Include="InquiryItems.cs" />
+    <Compile Include="InquiryNote.cs" />
     <Compile Include="InsuranceClaimStatusModel.cs" />
     <Compile Include="LoadvehicleViewImagesReq.cs" />
     <Compile Include="LoadvehicleViewImagesResponse.cs" />
+    <Compile Include="Message.cs" />
     <Compile Include="MiscChargeTaxModel.cs" />
     <Compile Include="MischargeResultMobile.cs" />
     <Compile Include="AccessModels\TaxFilter.cs" />
@@ -216,6 +233,7 @@
     <Compile Include="Terms.cs" />
     <Compile Include="Vehicle.cs" />
     <Compile Include="VehicleDamageImageForList.cs" />
+    <Compile Include="VehicleFilterMenus.cs" />
     <Compile Include="VehicleFilterSearch.cs" />
     <Compile Include="VehicleImage.cs" />
     <Compile Include="VehicleMake.cs" />

@@ -113,6 +113,10 @@ namespace MaxVonGrafKftMobileModel
 
         public string ClientCurrencySymbol { get; set; }
 
+        public bool IsEmailConfirmed { get; set; }
+
+        public string CustomerEmail { get; set; }
+
         #endregion
 
         public CutomerAuthContext()

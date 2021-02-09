@@ -1,5 +1,6 @@
 ﻿using MaxVonGrafKftMobile.Popups;
 using MaxVonGrafKftMobile.Utilties;
+using MaxVonGrafKftMobile.ViewModels;
 using MaxVonGrafKftMobileController;
 using MaxVonGrafKftMobileModel;
 using MaxVonGrafKftMobileModel.AccessModels;
@@ -32,6 +33,9 @@ namespace MaxVonGrafKftMobile.Views
         getAgreementByCustomerIdMobileRequest getAgreementByCustomerIdMobileRequest;
         List<CustomerAgreementModel> customerAgreementModels;
         List<CustomerAgreementModel> customerAgreementModelsForList;
+        ExtendAgreementRequest request;
+        ExtendAgreementResponse response;
+
 
         bool isreservation;
         bool isAgreement;
@@ -49,6 +53,7 @@ namespace MaxVonGrafKftMobile.Views
         string lastAgreementStatus;
         DateTime estTime;
         TimeSpan dateDiff;
+        private OverDueBalanceViewModel overDueBalanceViewModel;
 
 
         public HomePageDetail()
@@ -75,6 +80,9 @@ namespace MaxVonGrafKftMobile.Views
             vehicleId = 0;
             isAgreeRefreshed = false;
             estTime = DateTime.Now;
+            request = new ExtendAgreementRequest();
+            response = null;
+            overDueBalanceViewModel=new OverDueBalanceViewModel();
 
             // BooknowBtn.BackgroundColor = (Color)App.Current.Properties["MaxVonYellow"];
         }
@@ -273,11 +281,14 @@ namespace MaxVonGrafKftMobile.Views
                             {
                                 isAgreement = true;
                                 agreementTimerList = new ObservableCollection<Event>() { new Event { Date = registrationDBModel.Agreements[0].CheckinDate } };
+
+
                                 Setup();
                                 agreementIdMobileRequest.agreementId = registrationDBModel.Agreements[0].AgreementId;
                                 agreementId = registrationDBModel.Agreements[0].AgreementId;
                                 int vehicleID = registrationDBModel.Agreements[0].VehicleId;
                                 vehicleId = vehicleID;
+                                request.agreementId = agreementId;
 
                                 busy = false;
                                 if (!busy)
@@ -325,6 +336,14 @@ namespace MaxVonGrafKftMobile.Views
                                         dropOffLocationLabel.Text = agreement.AgreementDetail.CheckinLocationName;
                                         dropOffDateLabel.Text = agreement.AgreementDetail.CheckinDate.ToString("dddd, dd MMMM yyyy hh:mm tt");
                                         VehicleImage.Source = ImageSource.FromUri(new Uri(agreementIdMobileResponse.agreementVehicle.ImageUrl));
+
+
+
+
+                                        if (estTime > agreement.AgreementDetail.CheckinDate)
+                                        {
+                                            setUpOverDueBalance();
+                                        }
 
                                     }
 
@@ -422,6 +441,42 @@ namespace MaxVonGrafKftMobile.Views
 
 
 
+        }
+
+        private void setUpOverDueBalance()
+        {
+            refreshBalance();
+
+
+            // this.BindingContext = overDueBalanceViewModel;
+
+            Device.StartTimer(TimeSpan.FromSeconds(10), () =>
+            {
+                Device.BeginInvokeOnMainThread(() => refreshBalance());
+                return true;
+            });
+
+        }
+
+        private void refreshBalance()
+        {
+            DateTime timeUtc = DateTime.UtcNow;
+            TimeZoneInfo estZone = TimeZoneInfo.FindSystemTimeZoneById("America/New_York");
+            estTime = TimeZoneInfo.ConvertTimeFromUtc(timeUtc, estZone);
+            request.extendDate=estTime.ToString("MM/dd/yyyy hh:mm tt").Replace("PM", "pm").Replace("AM", "am");
+            AgreementController controller = new AgreementController();
+            response = controller.extendAgreement(request, _token);
+          
+            if(response!= null)
+            {
+                if(response.agreementReview!= null){
+                    if(response.agreementReview.BalanceDue != null)
+                    {
+                        averDueStack.IsVisible = true;
+                        overdueBalanceAmount.Text = ((decimal)response.agreementReview.BalanceDue).ToString("0.00");
+                    }
+                }
+            }
         }
 
         private GetReservationByIDMobileResponse FixAsResponsibleToReservationByVehicle(GetReservationByIDMobileResponse reservationByIDMobileResponse)
@@ -690,6 +745,11 @@ namespace MaxVonGrafKftMobile.Views
             {
                 PopupNavigation.Instance.PushAsync(new Error_popup("Waiting for background check results or waiting for insurance documents to be generated"));
             }
+        }
+
+        private void btnChat_Tapped(object sender, EventArgs e)
+        {
+
         }
     }
 }
