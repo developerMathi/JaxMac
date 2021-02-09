@@ -1919,6 +1919,7 @@
       },
       "frameworks": {
         "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
           "projectReferences": {
             "C:\\Users\\Thanah\\Source\\Repos\\JaxMac\\MaxVonGrafKftMobileController\\MaxVonGrafKftMobileController.csproj": {
               "projectPath": "C:\\Users\\Thanah\\Source\\Repos\\JaxMac\\MaxVonGrafKftMobileController\\MaxVonGrafKftMobileController.csproj"
@@ -1934,6 +1935,7 @@
     },
     "frameworks": {
       "netstandard2.0": {
+        "targetAlias": "netstandard2.0",
         "dependencies": {
           "CardsView": {
             "target": "Package",
@@ -2044,7 +2046,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }
