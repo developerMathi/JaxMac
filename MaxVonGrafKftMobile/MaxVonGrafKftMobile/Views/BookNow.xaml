@@ -6,10 +6,15 @@
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:local="clr-namespace:MaxVonGrafKftMobile.MarkupExtensions"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:renders="clr-namespace:MaxVonGrafKftMobile.Renders"
+    xmlns:renders="clr-namespace:MaxVonGrafKftMobile.Renders" 
+    xmlns:viewmodels="clr-namespace:MaxVonGrafKftMobile.ViewModels"
     BackgroundColor="{StaticResource MaxVonWhite}"
     NavigationPage.HasBackButton="True"
     mc:Ignorable="d">
+    
+    <ContentPage.BindingContext>
+        <viewmodels:refreshViewModel />
+    </ContentPage.BindingContext>
 
 
     <ContentPage.Content>
@@ -408,155 +413,157 @@
                 </ScrollView>
             </StackLayout>
         </StackLayout>-->
-        <Grid RowSpacing="20">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-            <Grid ColumnSpacing="10">
-                <Grid.Margin>
-                    <OnPlatform x:TypeArguments="Thickness">
-                        <On Platform="iOS">
-                            <OnIdiom
+
+        
+            <Grid RowSpacing="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid ColumnSpacing="10">
+                    <Grid.Margin>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="iOS">
+                                <OnIdiom
                                 x:TypeArguments="Thickness"
                                 Phone="20,20,20,10"
                                 Tablet="60,30,60,20" />
-                        </On>
-                        <On Platform="Android,Windows">
-                            <OnIdiom
+                            </On>
+                            <On Platform="Android,Windows">
+                                <OnIdiom
                                 x:TypeArguments="Thickness"
                                 Phone="20,20,20,10"
                                 Tablet="60,30,60,20" />
-                        </On>
-                    </OnPlatform>
-                </Grid.Margin>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
+                            </On>
+                        </OnPlatform>
+                    </Grid.Margin>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
 
 
 
-                <StackLayout Margin="0" Padding="0">
-                    <Image Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconUnSelectBookNow2.png}">
-                        <Image.WidthRequest>
-                            <OnPlatform x:TypeArguments="x:Double">
-                                <On Platform="iOS">
-                                    <OnIdiom
+                    <StackLayout Margin="0" Padding="0">
+                        <Image Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconUnSelectBookNow2.png}">
+                            <Image.WidthRequest>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="iOS">
+                                        <OnIdiom
                                         x:TypeArguments="x:Double"
                                         Phone="50"
                                         Tablet="60" />
-                                </On>
-                                <On Platform="Android,Windows">
-                                    <OnIdiom
+                                    </On>
+                                    <On Platform="Android,Windows">
+                                        <OnIdiom
                                         x:TypeArguments="x:Double"
                                         Phone="50"
                                         Tablet="60" />
-                                </On>
-                            </OnPlatform>
-                        </Image.WidthRequest>
-                    </Image>
-                </StackLayout>
+                                    </On>
+                                </OnPlatform>
+                            </Image.WidthRequest>
+                        </Image>
+                    </StackLayout>
 
-                <BoxView
+                    <BoxView
                     Grid.Column="1"
                     HeightRequest="1"
                     HorizontalOptions="FillAndExpand"
                     VerticalOptions="CenterAndExpand"
                     Color="Black" />
 
-                <StackLayout
+                    <StackLayout
                     Grid.Column="2"
                     Margin="0"
                     Padding="0">
-                    <Image Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconSelectBookNow1.png}">
-                        <Image.WidthRequest>
-                            <OnPlatform x:TypeArguments="x:Double">
-                                <On Platform="iOS">
-                                    <OnIdiom
+                        <Image Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconSelectBookNow1.png}">
+                            <Image.WidthRequest>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="iOS">
+                                        <OnIdiom
                                         x:TypeArguments="x:Double"
                                         Phone="50"
                                         Tablet="60" />
-                                </On>
-                                <On Platform="Android,Windows">
-                                    <OnIdiom
+                                    </On>
+                                    <On Platform="Android,Windows">
+                                        <OnIdiom
                                         x:TypeArguments="x:Double"
                                         Phone="50"
                                         Tablet="60" />
-                                </On>
-                            </OnPlatform>
-                        </Image.WidthRequest>
-                    </Image>
-                </StackLayout>
-                <BoxView
+                                    </On>
+                                </OnPlatform>
+                            </Image.WidthRequest>
+                        </Image>
+                    </StackLayout>
+                    <BoxView
                     Grid.Column="3"
                     HeightRequest="1"
                     HorizontalOptions="FillAndExpand"
                     VerticalOptions="CenterAndExpand"
                     Color="Black" />
 
-                <StackLayout
+                    <StackLayout
                     Grid.Column="4"
                     Margin="0"
                     Padding="0">
-                    <Image Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconUnSelectBookNow3.png}">
-                        <Image.WidthRequest>
-                            <OnPlatform x:TypeArguments="x:Double">
-                                <On Platform="iOS">
-                                    <OnIdiom
+                        <Image Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconUnSelectBookNow3.png}">
+                            <Image.WidthRequest>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="iOS">
+                                        <OnIdiom
                                         x:TypeArguments="x:Double"
                                         Phone="50"
                                         Tablet="60" />
-                                </On>
-                                <On Platform="Android,Windows">
-                                    <OnIdiom
+                                    </On>
+                                    <On Platform="Android,Windows">
+                                        <OnIdiom
                                         x:TypeArguments="x:Double"
                                         Phone="50"
                                         Tablet="60" />
-                                </On>
-                            </OnPlatform>
-                        </Image.WidthRequest>
-                    </Image>
-                </StackLayout>
+                                    </On>
+                                </OnPlatform>
+                            </Image.WidthRequest>
+                        </Image>
+                    </StackLayout>
 
-                <BoxView
+                    <BoxView
                     Grid.Column="5"
                     HeightRequest="1"
                     HorizontalOptions="FillAndExpand"
                     VerticalOptions="CenterAndExpand"
                     Color="Black" />
 
-                <StackLayout
+                    <StackLayout
                     Grid.Column="6"
                     Margin="0"
                     Padding="0">
-                    <Image Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconUnSelectBookNow4.png}">
-                        <Image.WidthRequest>
-                            <OnPlatform x:TypeArguments="x:Double">
-                                <On Platform="iOS">
-                                    <OnIdiom
+                        <Image Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconUnSelectBookNow4.png}">
+                            <Image.WidthRequest>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="iOS">
+                                        <OnIdiom
                                         x:TypeArguments="x:Double"
                                         Phone="50"
                                         Tablet="60" />
-                                </On>
-                                <On Platform="Android,Windows">
-                                    <OnIdiom
+                                    </On>
+                                    <On Platform="Android,Windows">
+                                        <OnIdiom
                                         x:TypeArguments="x:Double"
                                         Phone="50"
                                         Tablet="60" />
-                                </On>
-                            </OnPlatform>
-                        </Image.WidthRequest>
-                    </Image>
-                </StackLayout>
+                                    </On>
+                                </OnPlatform>
+                            </Image.WidthRequest>
+                        </Image>
+                    </StackLayout>
 
 
-                <!--<Frame
+                    <!--<Frame
                     Grid.Row="0"
                     Grid.Column="1"
                     Padding="0"
@@ -640,10 +647,11 @@
                 </Frame>-->
 
 
-            </Grid>
+                </Grid>
 
-            <StackLayout Grid.Row="1" VerticalOptions="FillAndExpand">
-                <Label
+
+                <StackLayout Grid.Row="1" VerticalOptions="FillAndExpand">
+                    <Label
                     Margin="0,10,0,0"
                     FontAttributes="Bold"
                     FontFamily="Roboto-Bold"
@@ -651,46 +659,46 @@
                     Text="Rental Details"
                     TextColor="{StaticResource MaxVonRed}"
                     VerticalOptions="Start">
-                    <Label.FontSize>
-                        <OnPlatform x:TypeArguments="x:Double">
-                            <On Platform="iOS">
-                                <OnIdiom
+                        <Label.FontSize>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">
+                                    <OnIdiom
                                     x:TypeArguments="x:Double"
                                     Phone="20"
                                     Tablet="24" />
-                            </On>
-                            <On Platform="Android,Windows">
-                                <OnIdiom
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
                                     x:TypeArguments="x:Double"
                                     Phone="22"
                                     Tablet="26" />
-                            </On>
-                        </OnPlatform>
-                    </Label.FontSize>
-                </Label>
+                                </On>
+                            </OnPlatform>
+                        </Label.FontSize>
+                    </Label>
 
-                <Grid Margin="15,0" VerticalOptions="FillAndExpand">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <ScrollView Margin="0,0,0,0">
-                        <Grid
+                    <Grid Margin="15,0" VerticalOptions="FillAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <ScrollView Margin="0,0,0,0">
+                            <Grid
                             Margin="0,20,0,0"
                             RowSpacing="20"
                             VerticalOptions="StartAndExpand">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <Label
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Label
                                 Grid.Row="0"
                                 Grid.Column="0"
                                 Grid.ColumnSpan="2"
@@ -699,25 +707,25 @@
                                 Text="Pick Up Info"
                                 TextColor="{StaticResource Black}"
                                 VerticalOptions="End">
-                                <Label.FontSize>
-                                    <OnPlatform x:TypeArguments="x:Double">
-                                        <On Platform="iOS">
-                                            <OnIdiom
+                                    <Label.FontSize>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <On Platform="iOS">
+                                                <OnIdiom
                                                 x:TypeArguments="x:Double"
                                                 Phone="20"
                                                 Tablet="24" />
-                                        </On>
-                                        <On Platform="Android,Windows">
-                                            <OnIdiom
+                                            </On>
+                                            <On Platform="Android,Windows">
+                                                <OnIdiom
                                                 x:TypeArguments="x:Double"
                                                 Phone="22"
                                                 Tablet="26" />
-                                        </On>
-                                    </OnPlatform>
-                                </Label.FontSize>
-                            </Label>
+                                            </On>
+                                        </OnPlatform>
+                                    </Label.FontSize>
+                                </Label>
 
-                            <Frame
+                                <Frame
                                 Grid.Row="1"
                                 Grid.Column="0"
                                 Padding="0,0,0,0"
@@ -726,30 +734,30 @@
                                 CornerRadius="10"
                                 HasShadow="False"
                                 VerticalOptions="CenterAndExpand">
-                                <Frame.HeightRequest>
-                                    <OnPlatform x:TypeArguments="x:Double">
-                                        <On Platform="iOS">
-                                            <OnIdiom
+                                    <Frame.HeightRequest>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <On Platform="iOS">
+                                                <OnIdiom
                                                 x:TypeArguments="x:Double"
                                                 Phone="50"
                                                 Tablet="60" />
-                                        </On>
-                                        <On Platform="Android,Windows">
-                                            <OnIdiom
+                                            </On>
+                                            <On Platform="Android,Windows">
+                                                <OnIdiom
                                                 x:TypeArguments="x:Double"
                                                 Phone="50"
                                                 Tablet="60" />
-                                        </On>
-                                    </OnPlatform>
-                                </Frame.HeightRequest>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
+                                            </On>
+                                        </OnPlatform>
+                                    </Frame.HeightRequest>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
 
-                                        <ColumnDefinition Width="9*" />
-                                        <ColumnDefinition Width="30" />
-                                    </Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="9*" />
+                                            <ColumnDefinition Width="30" />
+                                        </Grid.ColumnDefinitions>
 
-                                    <!--<ImageButton
+                                        <!--<ImageButton
                                         Margin="10,0,0,0"
                                         BackgroundColor="Transparent"
                                         HeightRequest="15"
@@ -758,7 +766,7 @@
                                         VerticalOptions="FillAndExpand"
                                         WidthRequest="15" />-->
 
-                                    <renders:BorderlessDatePicker
+                                        <renders:BorderlessDatePicker
                                         x:Name="pickUpDate"
                                         Grid.Column="0"
                                         Margin="10,0,0,0"
@@ -768,51 +776,51 @@
                                         TextColor="{StaticResource Black}"
                                         Unfocused="PickUpDate_Unfocused" />
 
-                                    <Image
+                                        <Image
                                         Grid.Column="1"
                                         Margin="0,0,10,0"
                                         BackgroundColor="Transparent"
                                         HeightRequest="30"
                                         Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconCalendar.png}">
-                                        <Image.HeightRequest>
-                                            <OnPlatform x:TypeArguments="x:Double">
-                                                <On Platform="iOS">
-                                                    <OnIdiom
+                                            <Image.HeightRequest>
+                                                <OnPlatform x:TypeArguments="x:Double">
+                                                    <On Platform="iOS">
+                                                        <OnIdiom
                                                         x:TypeArguments="x:Double"
                                                         Phone="25"
                                                         Tablet="30" />
-                                                </On>
-                                                <On Platform="Android,Windows">
-                                                    <OnIdiom
+                                                    </On>
+                                                    <On Platform="Android,Windows">
+                                                        <OnIdiom
                                                         x:TypeArguments="x:Double"
                                                         Phone="25"
                                                         Tablet="30" />
-                                                </On>
-                                            </OnPlatform>
-                                        </Image.HeightRequest>
-                                        <Image.WidthRequest>
-                                            <OnPlatform x:TypeArguments="x:Double">
-                                                <On Platform="iOS">
-                                                    <OnIdiom
+                                                    </On>
+                                                </OnPlatform>
+                                            </Image.HeightRequest>
+                                            <Image.WidthRequest>
+                                                <OnPlatform x:TypeArguments="x:Double">
+                                                    <On Platform="iOS">
+                                                        <OnIdiom
                                                         x:TypeArguments="x:Double"
                                                         Phone="25"
                                                         Tablet="30" />
-                                                </On>
-                                                <On Platform="Android,Windows">
-                                                    <OnIdiom
+                                                    </On>
+                                                    <On Platform="Android,Windows">
+                                                        <OnIdiom
                                                         x:TypeArguments="x:Double"
                                                         Phone="25"
                                                         Tablet="30" />
-                                                </On>
-                                            </OnPlatform>
-                                        </Image.WidthRequest>
-                                    </Image>
+                                                    </On>
+                                                </OnPlatform>
+                                            </Image.WidthRequest>
+                                        </Image>
 
-                                </Grid>
-                            </Frame>
+                                    </Grid>
+                                </Frame>
 
 
-                            <Frame
+                                <Frame
                                 Grid.Row="1"
                                 Grid.Column="1"
                                 Padding="0,0,0,0"
@@ -821,35 +829,35 @@
                                 CornerRadius="10"
                                 HasShadow="False"
                                 VerticalOptions="CenterAndExpand">
-                                <Frame.HeightRequest>
-                                    <OnPlatform x:TypeArguments="x:Double">
-                                        <On Platform="iOS">
-                                            <OnIdiom
+                                    <Frame.HeightRequest>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <On Platform="iOS">
+                                                <OnIdiom
                                                 x:TypeArguments="x:Double"
                                                 Phone="50"
                                                 Tablet="60" />
-                                        </On>
-                                        <On Platform="Android,Windows">
-                                            <OnIdiom
+                                            </On>
+                                            <On Platform="Android,Windows">
+                                                <OnIdiom
                                                 x:TypeArguments="x:Double"
                                                 Phone="50"
                                                 Tablet="60" />
-                                        </On>
-                                    </OnPlatform>
-                                </Frame.HeightRequest>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
+                                            </On>
+                                        </OnPlatform>
+                                    </Frame.HeightRequest>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
 
-                                        <ColumnDefinition Width="9*" />
-                                        <ColumnDefinition Width="30" />
-                                    </Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="9*" />
+                                            <ColumnDefinition Width="30" />
+                                        </Grid.ColumnDefinitions>
 
-                                    <!--<ImageButton
+                                        <!--<ImageButton
                                         Margin="10,0,0,0"
                                         BackgroundColor="Transparent"
                                         Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconTimer.png}" />-->
 
-                                    <renders:BorderlessTimePicker
+                                        <renders:BorderlessTimePicker
                                         x:Name="pickUpTime"
                                         Grid.Column="0"
                                         Margin="10,0,0,0"
@@ -858,49 +866,49 @@
                                         Placeholder="Pick-up time"
                                         TextColor="{StaticResource MaxVonBlack}" />
 
-                                    <Image
+                                        <Image
                                         Grid.Column="1"
                                         Margin="0,0,10,0"
                                         BackgroundColor="Transparent"
                                         Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconClock.png}">
-                                        <Image.HeightRequest>
-                                            <OnPlatform x:TypeArguments="x:Double">
-                                                <On Platform="iOS">
-                                                    <OnIdiom
+                                            <Image.HeightRequest>
+                                                <OnPlatform x:TypeArguments="x:Double">
+                                                    <On Platform="iOS">
+                                                        <OnIdiom
                                                         x:TypeArguments="x:Double"
                                                         Phone="25"
                                                         Tablet="30" />
-                                                </On>
-                                                <On Platform="Android,Windows">
-                                                    <OnIdiom
+                                                    </On>
+                                                    <On Platform="Android,Windows">
+                                                        <OnIdiom
                                                         x:TypeArguments="x:Double"
                                                         Phone="25"
                                                         Tablet="30" />
-                                                </On>
-                                            </OnPlatform>
-                                        </Image.HeightRequest>
-                                        <Image.WidthRequest>
-                                            <OnPlatform x:TypeArguments="x:Double">
-                                                <On Platform="iOS">
-                                                    <OnIdiom
+                                                    </On>
+                                                </OnPlatform>
+                                            </Image.HeightRequest>
+                                            <Image.WidthRequest>
+                                                <OnPlatform x:TypeArguments="x:Double">
+                                                    <On Platform="iOS">
+                                                        <OnIdiom
                                                         x:TypeArguments="x:Double"
                                                         Phone="25"
                                                         Tablet="30" />
-                                                </On>
-                                                <On Platform="Android,Windows">
-                                                    <OnIdiom
+                                                    </On>
+                                                    <On Platform="Android,Windows">
+                                                        <OnIdiom
                                                         x:TypeArguments="x:Double"
                                                         Phone="25"
                                                         Tablet="30" />
-                                                </On>
-                                            </OnPlatform>
-                                        </Image.WidthRequest>
-                                    </Image>
+                                                    </On>
+                                                </OnPlatform>
+                                            </Image.WidthRequest>
+                                        </Image>
 
-                                </Grid>
-                            </Frame>
+                                    </Grid>
+                                </Frame>
 
-                            <Frame
+                                <Frame
                                 Grid.Row="2"
                                 Grid.Column="0"
                                 Grid.ColumnSpan="2"
@@ -910,69 +918,69 @@
                                 CornerRadius="10"
                                 HasShadow="False"
                                 VerticalOptions="CenterAndExpand">
-                                <Frame.HeightRequest>
-                                    <OnPlatform x:TypeArguments="x:Double">
-                                        <On Platform="iOS">
-                                            <OnIdiom
+                                    <Frame.HeightRequest>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <On Platform="iOS">
+                                                <OnIdiom
                                                 x:TypeArguments="x:Double"
                                                 Phone="50"
                                                 Tablet="60" />
-                                        </On>
-                                        <On Platform="Android,Windows">
-                                            <OnIdiom
+                                            </On>
+                                            <On Platform="Android,Windows">
+                                                <OnIdiom
                                                 x:TypeArguments="x:Double"
                                                 Phone="50"
                                                 Tablet="60" />
-                                        </On>
-                                    </OnPlatform>
-                                </Frame.HeightRequest>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="9*" />
-                                        <ColumnDefinition Width="30" />
-                                    </Grid.ColumnDefinitions>
+                                            </On>
+                                        </OnPlatform>
+                                    </Frame.HeightRequest>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="9*" />
+                                            <ColumnDefinition Width="30" />
+                                        </Grid.ColumnDefinitions>
 
-                                    <Image
+                                        <Image
                                         Margin="10,0,0,0"
                                         BackgroundColor="Transparent"
                                         Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconLState.png}"
                                         VerticalOptions="CenterAndExpand">
-                                        <Image.HeightRequest>
-                                            <OnPlatform x:TypeArguments="x:Double">
-                                                <On Platform="iOS">
-                                                    <OnIdiom
+                                            <Image.HeightRequest>
+                                                <OnPlatform x:TypeArguments="x:Double">
+                                                    <On Platform="iOS">
+                                                        <OnIdiom
                                                         x:TypeArguments="x:Double"
                                                         Phone="25"
                                                         Tablet="30" />
-                                                </On>
-                                                <On Platform="Android,Windows">
-                                                    <OnIdiom
+                                                    </On>
+                                                    <On Platform="Android,Windows">
+                                                        <OnIdiom
                                                         x:TypeArguments="x:Double"
                                                         Phone="25"
                                                         Tablet="30" />
-                                                </On>
-                                            </OnPlatform>
-                                        </Image.HeightRequest>
-                                        <Image.WidthRequest>
-                                            <OnPlatform x:TypeArguments="x:Double">
-                                                <On Platform="iOS">
-                                                    <OnIdiom
+                                                    </On>
+                                                </OnPlatform>
+                                            </Image.HeightRequest>
+                                            <Image.WidthRequest>
+                                                <OnPlatform x:TypeArguments="x:Double">
+                                                    <On Platform="iOS">
+                                                        <OnIdiom
                                                         x:TypeArguments="x:Double"
                                                         Phone="25"
                                                         Tablet="30" />
-                                                </On>
-                                                <On Platform="Android,Windows">
-                                                    <OnIdiom
+                                                    </On>
+                                                    <On Platform="Android,Windows">
+                                                        <OnIdiom
                                                         x:TypeArguments="x:Double"
                                                         Phone="25"
                                                         Tablet="30" />
-                                                </On>
-                                            </OnPlatform>
-                                        </Image.WidthRequest>
-                                    </Image>
+                                                    </On>
+                                                </OnPlatform>
+                                            </Image.WidthRequest>
+                                        </Image>
 
-                                    <renders:BorderlessPicker
+                                        <renders:BorderlessPicker
                                         x:Name="pickUpLocation"
                                         Title="Pick-up location"
                                         Grid.Column="1"
@@ -982,7 +990,7 @@
                                         TextColor="{StaticResource MaxVonBlack}"
                                         TitleColor="{StaticResource MaxVonBlack}"
                                         Unfocused="pickUpLocation_Unfocused" />
-                                    <ImageButton
+                                        <ImageButton
                                         Grid.Column="2"
                                         Margin="0,0,10,0"
                                         BackgroundColor="Transparent"
@@ -990,10 +998,10 @@
                                         x:Name="pickUpLocationArrow"
                                         Clicked="pickUpLocationArrow_Clicked"/>
 
-                                </Grid>
-                            </Frame>
+                                    </Grid>
+                                </Frame>
 
-                            <Frame
+                                <Frame
                                 x:Name="pickUpdateGrid"
                                 Grid.Row="3"
                                 Grid.Column="0"
@@ -1004,31 +1012,31 @@
                                 CornerRadius="10"
                                 HasShadow="False"
                                 VerticalOptions="CenterAndExpand">
-                                <Frame.HeightRequest>
-                                    <OnPlatform x:TypeArguments="x:Double">
-                                        <On Platform="iOS">
-                                            <OnIdiom
+                                    <Frame.HeightRequest>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <On Platform="iOS">
+                                                <OnIdiom
                                                 x:TypeArguments="x:Double"
                                                 Phone="50"
                                                 Tablet="60" />
-                                        </On>
-                                        <On Platform="Android,Windows">
-                                            <OnIdiom
+                                            </On>
+                                            <On Platform="Android,Windows">
+                                                <OnIdiom
                                                 x:TypeArguments="x:Double"
                                                 Phone="50"
                                                 Tablet="60" />
-                                        </On>
-                                    </OnPlatform>
-                                </Frame.HeightRequest>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
+                                            </On>
+                                        </OnPlatform>
+                                    </Frame.HeightRequest>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
 
-                                        <ColumnDefinition Width="9*" />
-                                        <ColumnDefinition Width="30" />
-                                    </Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="9*" />
+                                            <ColumnDefinition Width="30" />
+                                        </Grid.ColumnDefinitions>
 
 
-                                    <renders:BorderlessPicker
+                                        <renders:BorderlessPicker
                                         x:Name="NumberOfDays"
                                         Title="Number of Days"
                                         Grid.Column="0"
@@ -1038,42 +1046,42 @@
                                         TextColor="{StaticResource MaxVonBlack}"
                                         TitleColor="{StaticResource MaxVonBlack}"
                                         Unfocused="pickUpLocation_Unfocused">
-                                        <renders:BorderlessPicker.ItemsSource>
-                                            <x:Array Type="{x:Type x:Int32}">
-                                                <x:Int32>2</x:Int32>
-                                                <x:Int32>3</x:Int32>
-                                                <x:Int32>4</x:Int32>
-                                                <x:Int32>5</x:Int32>
-                                                <x:Int32>6</x:Int32>
-                                                <x:Int32>7</x:Int32>
-                                                <x:Int32>8</x:Int32>
-                                                <x:Int32>9</x:Int32>
-                                                <x:Int32>10</x:Int32>
-                                                <x:Int32>11</x:Int32>
-                                                <x:Int32>12</x:Int32>
-                                                <x:Int32>13</x:Int32>
-                                                <x:Int32>14</x:Int32>
-                                                <x:Int32>15</x:Int32>
-                                                <x:Int32>16</x:Int32>
-                                                <x:Int32>17</x:Int32>
-                                                <x:Int32>18</x:Int32>
-                                                <x:Int32>19</x:Int32>
-                                                <x:Int32>20</x:Int32>
-                                                <x:Int32>21</x:Int32>
-                                                <x:Int32>22</x:Int32>
-                                                <x:Int32>23</x:Int32>
-                                                <x:Int32>24</x:Int32>
-                                                <x:Int32>25</x:Int32>
-                                                <x:Int32>26</x:Int32>
-                                                <x:Int32>27</x:Int32>
-                                                <x:Int32>28</x:Int32>
-                                                <x:Int32>29</x:Int32>
-                                                <x:Int32>30</x:Int32>
-                                                <x:Int32>31</x:Int32>
-                                            </x:Array>
-                                        </renders:BorderlessPicker.ItemsSource>
-                                    </renders:BorderlessPicker>
-                                    <ImageButton
+                                            <renders:BorderlessPicker.ItemsSource>
+                                                <x:Array Type="{x:Type x:Int32}">
+                                                    <x:Int32>2</x:Int32>
+                                                    <x:Int32>3</x:Int32>
+                                                    <x:Int32>4</x:Int32>
+                                                    <x:Int32>5</x:Int32>
+                                                    <x:Int32>6</x:Int32>
+                                                    <x:Int32>7</x:Int32>
+                                                    <x:Int32>8</x:Int32>
+                                                    <x:Int32>9</x:Int32>
+                                                    <x:Int32>10</x:Int32>
+                                                    <x:Int32>11</x:Int32>
+                                                    <x:Int32>12</x:Int32>
+                                                    <x:Int32>13</x:Int32>
+                                                    <x:Int32>14</x:Int32>
+                                                    <x:Int32>15</x:Int32>
+                                                    <x:Int32>16</x:Int32>
+                                                    <x:Int32>17</x:Int32>
+                                                    <x:Int32>18</x:Int32>
+                                                    <x:Int32>19</x:Int32>
+                                                    <x:Int32>20</x:Int32>
+                                                    <x:Int32>21</x:Int32>
+                                                    <x:Int32>22</x:Int32>
+                                                    <x:Int32>23</x:Int32>
+                                                    <x:Int32>24</x:Int32>
+                                                    <x:Int32>25</x:Int32>
+                                                    <x:Int32>26</x:Int32>
+                                                    <x:Int32>27</x:Int32>
+                                                    <x:Int32>28</x:Int32>
+                                                    <x:Int32>29</x:Int32>
+                                                    <x:Int32>30</x:Int32>
+                                                    <x:Int32>31</x:Int32>
+                                                </x:Array>
+                                            </renders:BorderlessPicker.ItemsSource>
+                                        </renders:BorderlessPicker>
+                                        <ImageButton
                                         Grid.Column="1"
                                         Margin="0,0,10,0"
                                         BackgroundColor="Transparent"
@@ -1081,10 +1089,10 @@
                                         x:Name="NumberOfDaysArrow"
                                         Clicked="NumberOfDaysArrow_Clicked"/>
 
-                                </Grid>
-                            </Frame>
+                                    </Grid>
+                                </Frame>
 
-                            <!--<Frame
+                                <!--<Frame
 
                                 Padding="0,0,0,0"
                                 BackgroundColor="Transparent"
@@ -1111,12 +1119,12 @@
                                 <Grid>-->
 
 
-                            <StackLayout
+                                <StackLayout
                                 Grid.Row="4"
                                 Grid.Column="0"
                                 Grid.ColumnSpan="2"
                                 IsVisible="false">
-                                <Label
+                                    <Label
                                     IsVisible="false"
                                     Margin="10,0,0,0"
                                     FontFamily="Roboto-Medium"
@@ -1124,27 +1132,27 @@
                                     Text="Note: "
                                     TextColor="{StaticResource MaxVonBlack}"
                                     Unfocused="pickUpLocation_Unfocused" />
-                                <Label
+                                    <Label
                                     Margin="10,0,0,0"
                                     FontFamily="Roboto-Medium"
                                     FontSize="Large"
                                     Text="Minimum booking - 2 days"
                                     TextColor="{StaticResource MaxVonBlack}"
                                     Unfocused="pickUpLocation_Unfocused" />
-                                <Label
+                                    <Label
                                     Margin="10,10,0,0"
                                     FontFamily="Roboto-Medium"
                                     FontSize="Large"
                                     Text="Daily extentions available for booking."
                                     TextColor="{StaticResource MaxVonBlack}"
                                     Unfocused="pickUpLocation_Unfocused" />
-                            </StackLayout>
+                                </StackLayout>
 
-                            <!--</Grid>
+                                <!--</Grid>
                             </Frame>-->
 
 
-                            <!--<Label
+                                <!--<Label
                                 Grid.Row="4"
                                 FontFamily="Roboto-Bold"
                                 FontSize="Large"
@@ -1265,14 +1273,14 @@
                                 </Grid>
                             </Frame>-->
 
-                            <!--<ImageButton
+                                <!--<ImageButton
                                 Grid.Row="1"
                                 Grid.Column="0"
                                 BackgroundColor="Transparent"
                                 HeightRequest="30"
                                 Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.calender.png}" />-->
 
-                            <!--<ImageButton
+                                <!--<ImageButton
                                 Grid.Row="5"
                                 Grid.Column="0"
                                 BackgroundColor="Transparent"
@@ -1306,10 +1314,10 @@
                                 BackgroundColor="Transparent"
                                 HeightRequest="30"
                                 Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.location.png}" />-->
-                        </Grid>
-                    </ScrollView>
+                            </Grid>
+                        </ScrollView>
 
-                    <Button
+                        <Button
                         x:Name="bookNowNxtBtn"
                         Grid.Row="1"
                         Margin="0,0,0,20"
@@ -1323,43 +1331,44 @@
                         Text="Next"
                         TextColor="{StaticResource MaxVonWhite}"
                         VerticalOptions="EndAndExpand">
-                        <Button.HeightRequest>
-                            <OnPlatform x:TypeArguments="x:Double">
-                                <On Platform="iOS">
-                                    <OnIdiom
+                            <Button.HeightRequest>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="iOS">
+                                        <OnIdiom
                                         x:TypeArguments="x:Double"
                                         Phone="50"
                                         Tablet="60" />
-                                </On>
-                                <On Platform="Android,Windows">
-                                    <OnIdiom
+                                    </On>
+                                    <On Platform="Android,Windows">
+                                        <OnIdiom
                                         x:TypeArguments="x:Double"
                                         Phone="50"
                                         Tablet="60" />
-                                </On>
-                            </OnPlatform>
-                        </Button.HeightRequest>
-                        <Button.FontSize>
-                            <OnPlatform x:TypeArguments="x:Double">
-                                <On Platform="iOS">
-                                    <OnIdiom
+                                    </On>
+                                </OnPlatform>
+                            </Button.HeightRequest>
+                            <Button.FontSize>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="iOS">
+                                        <OnIdiom
                                         x:TypeArguments="x:Double"
                                         Phone="14"
                                         Tablet="18" />
-                                </On>
-                                <On Platform="Android,Windows">
-                                    <OnIdiom
+                                    </On>
+                                    <On Platform="Android,Windows">
+                                        <OnIdiom
                                         x:TypeArguments="x:Double"
                                         Phone="16"
                                         Tablet="20" />
-                                </On>
-                            </OnPlatform>
-                        </Button.FontSize>
-                    </Button>
-                </Grid>
+                                    </On>
+                                </OnPlatform>
+                            </Button.FontSize>
+                        </Button>
+                    </Grid>
 
-            </StackLayout>
+                </StackLayout>
         </Grid>
+        
 
     </ContentPage.Content>
 </ContentPage>
