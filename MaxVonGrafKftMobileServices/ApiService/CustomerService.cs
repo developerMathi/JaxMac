@@ -78,6 +78,41 @@ namespace MaxVonGrafKftMobileServices.ApiService
             return result;
         }
 
+        public int addInquiryChatModel(InquiryChatModel inquiryChatModel, string token)
+        {
+            int result = 0;
+
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri(ConstantData.ApiURL.ToString() + "Customer/AddInquiryChat");
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+                    var myContent = JsonConvert.SerializeObject(inquiryChatModel);
+                    var buffer = Encoding.UTF8.GetBytes(myContent);
+                    var byteContent = new ByteArrayContent(buffer);
+                    byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+
+
+                    var response = client.PostAsync(client.BaseAddress, byteContent).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var responseStream = response.Content.ReadAsStringAsync().Result;
+                        result = JsonConvert.DeserializeObject<int>(responseStream);
+                    }
+                }
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+
         public GetCustomerPortalDetailsMobileResponse getCustomerDetailsWithProfilePic(GetCustomerPortalDetailsMobileRequest portalDetailsMobileRequest, string token)
         {
 
@@ -103,6 +138,105 @@ namespace MaxVonGrafKftMobileServices.ApiService
                     {
                         var responseStream = response.Content.ReadAsStringAsync().Result;
                         result = JsonConvert.DeserializeObject<GetCustomerPortalDetailsMobileResponse>(responseStream);
+                    }
+                }
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+
+        public List<Inquiry> getInquries(int customerId, string token)
+        {
+            List<Inquiry> result = null;
+
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri(ConstantData.ApiURL.ToString() + "Customer/GetAllInquiry");
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+                    var url = string.Format(
+                    client.BaseAddress +
+                    "?customerId=" +
+                    customerId);
+
+                    var response = client.GetAsync(url).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var responseStream = response.Content.ReadAsStringAsync().Result;
+                        result = JsonConvert.DeserializeObject<List<Inquiry>>(responseStream);
+                    }
+                }
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+
+        public List<InquiryChatModel> getChatModels(int inquiryId, string token)
+        {
+            List<InquiryChatModel> result = null;
+
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri(ConstantData.ApiURL.ToString() + "Customer/GetAllInquiryChat");
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+                    var url = string.Format(
+                    client.BaseAddress +
+                    "?inquiryId=" +
+                    inquiryId);
+
+                    var response = client.GetAsync(url).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var responseStream = response.Content.ReadAsStringAsync().Result;
+                        result = JsonConvert.DeserializeObject<List<InquiryChatModel>>(responseStream);
+                    }
+                }
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+
+        public int addInquiry(Inquiry newInquiry, string token)
+        {
+            int result = 0;
+
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri(ConstantData.ApiURL.ToString() + "Customer/AddInquiry");
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+                    var myContent = JsonConvert.SerializeObject(newInquiry);
+                    var buffer = Encoding.UTF8.GetBytes(myContent);
+                    var byteContent = new ByteArrayContent(buffer);
+                    byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+
+
+                    var response = client.PostAsync(client.BaseAddress, byteContent).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var responseStream = response.Content.ReadAsStringAsync().Result;
+                        result = JsonConvert.DeserializeObject<int>(responseStream);
                     }
                 }
             }

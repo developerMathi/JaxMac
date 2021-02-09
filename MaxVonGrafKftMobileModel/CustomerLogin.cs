@@ -31,5 +31,7 @@ namespace MaxVonGrafKftMobileModel
         public string Country { get; set; }
         public bool RememberMe { get; set; }
         public string email { get; set; }
+        public DateTime ClientTime { get; set; }
+
     }
 }

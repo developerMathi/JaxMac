@@ -79,5 +79,55 @@ namespace MaxVonGrafKftMobileController
 
             return response;
         }
+
+        public bool checkForApplicationUpdates(string token, string currentVersion, string v)
+        {
+            bool isUpdateAvailable  = false;
+            GetClientAttributesRespose response = null;
+            try
+
+            {
+                response = commonService.checkForApplicationUpdates(token);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if(response != null)
+                {
+                    if(response.nameValues != null)
+                    {
+                        foreach( NameValueModel nv in response.nameValues)
+                        {
+                            if(v== "Android")
+                            {
+                                if(nv.Name== "CustomerMobileAppVersionAndroid")
+                                {
+                                    if (float.Parse(currentVersion) < float.Parse(nv.Value))
+                                    {
+                                        isUpdateAvailable = true;
+                                    }
+                                }
+                            }
+                            if(v== "iOS")
+                            {
+                                if (nv.Name == "CustomerMobileAppVersionIOS")
+                                {
+                                    if (float.Parse(currentVersion) < float.Parse(nv.Value))
+                                    {
+                                        isUpdateAvailable = true;
+                                    }
+                                }
+                            }
+                           
+                        }
+                    }
+                }
+            }
+
+            return isUpdateAvailable;
+        }
     }
 }

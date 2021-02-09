@@ -256,6 +256,7 @@
                 <Grid Grid.Row="1" VerticalOptions="CenterAndExpand">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                         <!--<RowDefinition Height="0" />
                             <RowDefinition Height="0" />-->
                         <RowDefinition Height="Auto" />
@@ -584,7 +585,470 @@
 
 
                         </Grid>-->
-                    <Grid Grid.Row="1" Margin="15,0,15,20">
+                    <Grid Grid.Row="1" Margin="15,0,15,0" HeightRequest="40" x:Name="filterbuttonGrid">
+                        <Grid Padding="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="4*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="4*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="Filter" 
+                                   Grid.Column="0"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Center"
+                                   FontFamily="Roboto-Bold">
+                                <Label.FontSize>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="iOS">
+                                            <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="15"
+                                                Tablet="18" />
+                                        </On>
+                                        <On Platform="Android,Windows">
+                                            <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="15"
+                                                Tablet="18" />
+                                        </On>
+                                    </OnPlatform>
+                                </Label.FontSize>
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        x:Name="filterDetailLabel"
+                                        NumberOfTapsRequired="1"
+                                        Tapped="filterDetailLabel_Tapped"></TapGestureRecognizer>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <ImageButton
+                                Grid.Column="1"
+                                Margin="0,0,0,0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                BackgroundColor="Transparent"
+                                Aspect="AspectFit"
+                                HeightRequest="30"
+                                Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconDown.png}" 
+                                x:Name="filterArrow"
+                                Clicked="filterDetailLabel_Tapped"/>
+                            
+                            
+                            <Label Text="Sort by" 
+                                   Grid.Column="3"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Center"
+                                   FontFamily="Roboto-Bold">
+                                <Label.FontSize>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="iOS">
+                                            <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="15"
+                                                Tablet="18" />
+                                        </On>
+                                        <On Platform="Android,Windows">
+                                            <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="15"
+                                                Tablet="18" />
+                                        </On>
+                                    </OnPlatform>
+                                </Label.FontSize>
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        x:Name="sortDetailLabel"
+                                        NumberOfTapsRequired="1"
+                                        Tapped="sortDetailLabel_Tapped"></TapGestureRecognizer>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+
+                            <ImageButton
+                                Grid.Column="4"
+                                Margin="0,0,0,0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                BackgroundColor="Transparent"
+                                Aspect="AspectFit"
+                                HeightRequest="30"
+                                Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconDown.png}" 
+                                x:Name="SortArrow"
+                                Clicked="sortDetailLabel_Tapped"/>
+
+                        </Grid>
+                    </Grid>
+                    
+                    
+                    <Grid Grid.Row="2" Margin="15,0,15,0" HeightRequest="90" x:Name="filterDetailsgrid" IsVisible="false">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="45"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="4*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <BoxView Grid.Row="0"
+                                     Grid.ColumnSpan="4"
+                                     HeightRequest="1"
+                                     VerticalOptions="Start"
+                                     HorizontalOptions="Fill"
+                                     BackgroundColor="Black"></BoxView>
+                            <Label FontFamily="Roboto-Bold"
+                                   VerticalOptions="Center" 
+                                   HorizontalOptions="Start"
+                                   TextColor="{StaticResource Black}"
+                                   Text="Filters : ">
+                                <Label.FontSize>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="iOS">
+                                            <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="18"
+                                                Tablet="22" />
+                                        </On>
+                                        <On Platform="Android,Windows">
+                                            <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="18"
+                                                Tablet="22" />
+                                        </On>
+                                    </OnPlatform>
+                                </Label.FontSize>
+                            </Label>
+                            
+                            <Button Text="Add"
+                                    BackgroundColor="White"
+                                    FontFamily="Roboto-Medium"
+                                   VerticalOptions="Center" 
+                                   HorizontalOptions="Center"
+                                    Padding="5"
+                                    Margin="5"
+                                    HeightRequest="35"
+                                    BorderColor="{StaticResource MaxVonRed}"
+                                    CornerRadius="10"
+                                    BorderWidth="2"
+                                    Grid.Column="1"
+                                    Clicked="btnFilter_Tapped">
+                                <Button.FontSize>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="iOS">
+                                            <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="12"
+                                                Tablet="15" />
+                                        </On>
+                                        <On Platform="Android,Windows">
+                                            <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="12"
+                                                Tablet="15" />
+                                        </On>
+                                    </OnPlatform>
+                                </Button.FontSize>
+                            </Button>
+
+                            <Button Text="Reset"
+                                    Margin="5"
+                                    BackgroundColor="White"
+                                    FontFamily="Roboto-Medium"
+                                   VerticalOptions="Center" 
+                                   HorizontalOptions="Center"
+                                    Padding="5"
+                                    HeightRequest="35"
+                                    BorderColor="{StaticResource MaxVonRed}"
+                                    CornerRadius="10"
+                                    BorderWidth="2"
+                                    Grid.Column="2"
+                                    x:Name="resetFilter"
+                                    Clicked="resetFilter_Clicked">
+                                <Button.FontSize>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="iOS">
+                                            <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="12"
+                                                Tablet="15" />
+                                        </On>
+                                        <On Platform="Android,Windows">
+                                            <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="12"
+                                                Tablet="15" />
+                                        </On>
+                                    </OnPlatform>
+                                </Button.FontSize>
+                            </Button>
+
+                            <ImageButton Grid.Row="0"
+                                    Grid.Column="3"
+                                   VerticalOptions="Start" 
+                                   HorizontalOptions="End"
+                                         HeightRequest="25"
+                                         Aspect="AspectFit"
+                                         Margin="5"
+                                         Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconPopupClose.png}"
+                                         Clicked="filterDetailLabel_Tapped">
+                            </ImageButton>
+                            <ContentView Grid.Row="1" HeightRequest="40" Grid.ColumnSpan="4" VerticalOptions="Start">
+                            <CarouselView x:Name="filterList" HorizontalOptions="StartAndExpand" PeekAreaInsets="110" >
+                                <CarouselView.ItemsLayout>
+                                    <LinearItemsLayout Orientation="Horizontal"
+                           ItemSpacing="5" />
+                                </CarouselView.ItemsLayout>
+                                <CarouselView.ItemTemplate >
+                                    <DataTemplate>
+                                        <Frame HasShadow="False"
+                                               Margin="10,0,10,0"
+                                                        Padding="2"
+                                                        BackgroundColor="{StaticResource MaxVonRed}"
+                                                        BorderColor="{StaticResource MaxVonWhite}"
+                                                        CornerRadius="20"
+                                                        IsClippedToBounds="True">
+                                            <Grid Padding="0">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="10*"></ColumnDefinition>
+                                                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <Label MinimumWidthRequest="40"
+                                                        FontFamily="Roboto-Bold"
+                                                       Text="{Binding title}" 
+                                                       VerticalOptions="Center" 
+                                                       HorizontalOptions="Center"
+                                                       TextColor="{StaticResource MaxVonWhite}">
+                                                    <Label.FontSize>
+                                                        <OnPlatform x:TypeArguments="x:Double">
+                                                            <On Platform="iOS">
+                                                                <OnIdiom
+                                                                                    x:TypeArguments="x:Double"
+                                                                                    Phone="10"
+                                                                                    Tablet="12" />
+                                                            </On>
+                                                            <On Platform="Android,Windows">
+                                                                <OnIdiom
+                                                                                    x:TypeArguments="x:Double"
+                                                                                    Phone="10"
+                                                                                    Tablet="12" />
+                                                            </On>
+                                                        </OnPlatform>
+                                                    </Label.FontSize>
+
+                                                </Label>
+                                                <ImageButton Source="{local:EmbeddedImage  ResourceId=MaxVonGrafKftMobile.Assets.iconWhiteClose.png}"
+                                                             HeightRequest="45"
+                                                             VerticalOptions="Center"
+                                                             HorizontalOptions="Center"
+                                                             Aspect="AspectFit"
+                                                             Grid.Column="1"
+                                                             Padding="0"
+                                                             BackgroundColor="Transparent"
+                                                             Margin="0,0,5,0"
+                                                             x:Name="filterItemDeleteBtn"
+                                                             Clicked="filterItemDeleteBtn_Clicked"></ImageButton>
+
+                                            </Grid>
+                                        </Frame>
+                                        
+                                    </DataTemplate>
+                                </CarouselView.ItemTemplate>
+                            </CarouselView>
+                        </ContentView>
+                            <BoxView Grid.Row="1"
+                                     Grid.ColumnSpan="4"
+                                     HeightRequest="1"
+                                     VerticalOptions="End"
+                                     HorizontalOptions="Fill"
+                                     BackgroundColor="Black"></BoxView>
+                        </Grid>
+
+                    </Grid>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <Grid Grid.Row="2" Margin="15,0,15,0" HeightRequest="90" x:Name="sortDetailsGrid" IsVisible="false">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="45"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="4*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <BoxView Grid.Row="0"
+                                     Grid.ColumnSpan="4"
+                                     HeightRequest="1"
+                                     VerticalOptions="Start"
+                                     HorizontalOptions="Fill"
+                                     BackgroundColor="Black"></BoxView>
+                            <Label FontFamily="Roboto-Bold"
+                                   VerticalOptions="Center" 
+                                   HorizontalOptions="Start"
+                                   TextColor="{StaticResource Black}"
+                                   Text="Sort by : ">
+                                <Label.FontSize>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="iOS">
+                                            <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="18"
+                                                Tablet="22" />
+                                        </On>
+                                        <On Platform="Android,Windows">
+                                            <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="18"
+                                                Tablet="22" />
+                                        </On>
+                                    </OnPlatform>
+                                </Label.FontSize>
+                            </Label>
+
+                            
+                            <Button Text="Reset"
+                                    Margin="5"
+                                    BackgroundColor="White"
+                                    FontFamily="Roboto-Medium"
+                                   VerticalOptions="Center" 
+                                   HorizontalOptions="Center" 
+                                    Padding="5"
+                                    HeightRequest="35"
+                                    BorderColor="{StaticResource MaxVonRed}"
+                                    CornerRadius="10"
+                                    BorderWidth="2"
+                                    Grid.Column="2"
+                                    x:Name="resetsort"
+                                    Clicked="resetsort_Clicked">
+                                <Button.FontSize>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="iOS">
+                                            <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="12"
+                                                Tablet="15" />
+                                        </On>
+                                        <On Platform="Android,Windows">
+                                            <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="12"
+                                                Tablet="15" />
+                                        </On>
+                                    </OnPlatform>
+                                </Button.FontSize>
+                            </Button>
+
+                            <ImageButton Grid.Row="0"
+                                    Grid.Column="3"
+                                   VerticalOptions="Start" 
+                                   HorizontalOptions="End"
+                                         HeightRequest="25"
+                                         Aspect="AspectFit"
+                                         Margin="5"
+                                         Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconPopupClose.png}"
+                                         Clicked="sortDetailLabel_Tapped">
+                            </ImageButton>
+                            <Label Text="Price"
+                                   Grid.Row="1"
+                                   Grid.Column="0"
+                                   FontFamily="Roboto-Medium"
+                                   FontAttributes="Bold"
+                                  HorizontalOptions="Start"
+                                   VerticalOptions="Center"
+                                   >
+                                <Label.FontSize>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="iOS">
+                                            <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="14"
+                                                Tablet="18" />
+                                        </On>
+                                        <On Platform="Android,Windows">
+                                            <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="14"
+                                                Tablet="18" />
+                                        </On>
+                                    </OnPlatform>
+                                </Label.FontSize>
+                            </Label>
+
+                            <input:RadioButtonGroupView Grid.Row="1"
+                                                        Grid.ColumnSpan="3"
+                                                        Grid.Column="1"
+                                                       x:Name="sortRadioBtn"
+                                                       SelectedItemChanged="sortRadioBtn_SelectedItemChanged"
+                                                        Orientation="Horizontal"
+                                                    Spacing="15">
+                                <input:RadioButton Text="Low to High"
+                                                   TextColor="{StaticResource MaxVonBlack}"
+                                                   Value="0"
+                                                    FontFamily="Roboto-Medium"
+                                                   x:Name="lthSortbtn">
+                                    <input:RadioButton.TextFontSize>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <On Platform="iOS">
+                                                <OnIdiom  x:TypeArguments="x:Double"
+                                                          Phone="12"
+                                                          Tablet="16" />
+                                            </On>
+                                            <On Platform="Android,Windows">
+                                                <OnIdiom x:TypeArguments="x:Double"
+                                                         Phone="12"
+                                                         Tablet="16" />
+                                            </On>
+                                        </OnPlatform>
+                                    </input:RadioButton.TextFontSize>
+                                </input:RadioButton>
+                                <input:RadioButton Text="High to Low"
+                                                   TextColor="{StaticResource MaxVonBlack}"
+                                                   Value="1"
+                                                    FontFamily="Roboto-Medium"
+                                                   x:Name="htlSortbtn">
+                                    <input:RadioButton.TextFontSize>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <On Platform="iOS">
+                                                <OnIdiom  x:TypeArguments="x:Double"
+                                                          Phone="12"
+                                                          Tablet="16" />
+                                            </On>
+                                            <On Platform="Android,Windows">
+                                                <OnIdiom x:TypeArguments="x:Double"
+                                                         Phone="12"
+                                                         Tablet="16" />
+                                            </On>
+                                        </OnPlatform>
+                                    </input:RadioButton.TextFontSize>
+                                </input:RadioButton>
+                            </input:RadioButtonGroupView>
+                            
+                            
+                            <BoxView Grid.Row="1"
+                                     Grid.ColumnSpan="4"
+                                     HeightRequest="1"
+                                     VerticalOptions="End"
+                                     HorizontalOptions="Fill"
+                                     BackgroundColor="Black"></BoxView>
+                        </Grid>
+
+                    </Grid>
+                    
+                    <Grid Grid.Row="3" Margin="20,0,15,20">
 
                         <ListView
                                     HasUnevenRows="True"

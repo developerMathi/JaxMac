@@ -1,0 +1,6 @@
+C:\Users\Thanah\Source\Repos\JaxMac\MobileControllers\bin\Debug\MobileControllers.dll
+C:\Users\Thanah\Source\Repos\JaxMac\MobileControllers\bin\Debug\MobileControllers.pdb
+C:\Users\Thanah\Source\Repos\JaxMac\MobileControllers\obj\Debug\MobileControllers.csprojAssemblyReference.cache
+C:\Users\Thanah\Source\Repos\JaxMac\MobileControllers\obj\Debug\MobileControllers.csproj.CoreCompileInputs.cache
+C:\Users\Thanah\Source\Repos\JaxMac\MobileControllers\obj\Debug\MobileControllers.dll
+C:\Users\Thanah\Source\Repos\JaxMac\MobileControllers\obj\Debug\MobileControllers.pdb

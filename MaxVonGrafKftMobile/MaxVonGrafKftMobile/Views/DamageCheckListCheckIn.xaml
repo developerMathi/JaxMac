@@ -373,6 +373,8 @@
                                                         </OnPlatform>
                                                     </input:CheckBox.TextFontSize>
                                                 </input:CheckBox>
+                                                
+                                                
                                                 <input:CheckBox
                                                     x:Name="chkPassengerSide"
                                                     Grid.Row="1"

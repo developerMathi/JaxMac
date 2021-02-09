@@ -77,11 +77,12 @@ namespace MaxVonGrafKftMobile.Views
 
         private async void LoginButton_Clicked(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(loginEmailAddress.Text)){
+            if (!string.IsNullOrEmpty(loginEmailAddress.Text))
+            {
                 string emailen = loginEmailAddress.Text.Replace(" ", "");
                 loginEmailAddress.Text = emailen;
             }
-            
+
             if (string.IsNullOrEmpty(loginEmailAddress.Text))
             {
                 errorLabel.Text = "Please enter a email address";
@@ -126,6 +127,7 @@ namespace MaxVonGrafKftMobile.Views
                             loginCustomer.email = loginEmailAddress.Text;
                             loginCustomer.Password = loginPassword.Text;
                             loginCustomer.clientId = Constants.ClientId;
+                            loginCustomer.ClientTime = DateTime.Now;
 
 
                             LoginController loginController = new LoginController();
@@ -158,45 +160,60 @@ namespace MaxVonGrafKftMobile.Views
                                 App.Current.Properties.Add("currentToken", token);
                             }
 
-                            if (App.Current.Properties.ContainsKey("CustomerId"))
-                            {
-                                App.Current.Properties["CustomerId"] = cutomerAuthContext.CustomerId;
-                            }
-                            else
-                            {
-                                App.Current.Properties.Add("CustomerId", cutomerAuthContext.CustomerId);
-                            }
-                            Type type = typeof(WelcomPage);
 
-                            if (Navigation.NavigationStack[Navigation.NavigationStack.Count - 2].GetType() == type)
+
+
+
+                            //if (cutomerAuthContext.IsEmailConfirmed)
+                            if (cutomerAuthContext.IsEmailConfirmed)
                             {
-                                await Navigation.PushAsync(new HomePage());
-                            }
-                            else if (Navigation.NavigationStack[Navigation.NavigationStack.Count - 2].GetType() == typeof(OtherInformationPage))
-                            {
-                                if (Navigation.NavigationStack[Navigation.NavigationStack.Count - 3].GetType() == type)
+                                if (App.Current.Properties.ContainsKey("CustomerId"))
                                 {
-                                    await Navigation.PushAsync(new HomePage());
+                                    App.Current.Properties["CustomerId"] = cutomerAuthContext.CustomerId;
                                 }
                                 else
                                 {
-                                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
-                                    await Navigation.PopAsync();
+                                    App.Current.Properties.Add("CustomerId", cutomerAuthContext.CustomerId);
                                 }
 
-                            }
+                                Type type = typeof(WelcomPage);
 
-                            else
-                            {
-                                if (Navigation.NavigationStack.Count < 3)
+                                if (Navigation.NavigationStack[Navigation.NavigationStack.Count - 2].GetType() == type)
                                 {
                                     await Navigation.PushAsync(new HomePage());
                                 }
+                                else if (Navigation.NavigationStack[Navigation.NavigationStack.Count - 2].GetType() == typeof(OtherInformationPage))
+                                {
+                                    if (Navigation.NavigationStack[Navigation.NavigationStack.Count - 3].GetType() == type)
+                                    {
+                                        await Navigation.PushAsync(new HomePage());
+                                    }
+                                    else
+                                    {
+                                        Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+                                        await Navigation.PopAsync();
+                                    }
+
+                                }
+
                                 else
                                 {
-                                    await Navigation.PopAsync();
+                                    if (Navigation.NavigationStack.Count < 3)
+                                    {
+                                        await Navigation.PushAsync(new HomePage());
+                                    }
+                                    else
+                                    {
+                                        await Navigation.PopAsync();
+                                    }
                                 }
-                            }   
+                            }
+                            else
+                            {
+                                await Navigation.PushAsync(new ConfirmEmailRequest(cutomerAuthContext.CustomerId));
+                            }
+
+
                         }
                         else
                         {

@@ -444,5 +444,16 @@ namespace MaxVonGrafKftMobile.Views
         {
             Navigation.PushAsync(new ProcessPaymentPage((decimal)AgreementByAgreementIdMobileResponse.custAgreement.AgreementTotal.BalanceDue, agreementId, locationIdForPayment,null));
         }
+
+        private void RefreshView_Refreshing(object sender, EventArgs e)
+        {
+
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            return base.OnBackButtonPressed();
+            return true;
+        }
     }
 }

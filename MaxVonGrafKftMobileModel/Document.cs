@@ -31,5 +31,8 @@ namespace MaxVonGrafKftMobileModel
         public string Image { get; set; }
         public string Side { get; set; }
         public string DocName { get; set; }
+        public string sizeLabel { get; set; }
+        public string previewImageSource { get; set; }
+
     }
 }

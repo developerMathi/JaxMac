@@ -82,6 +82,17 @@
           "lib/netstandard1.0/_._": {}
         }
       },
+      "MvvmLightLibsStd10/5.4.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/xamarin.ios10/GalaSoft.MvvmLight.Platform.dll": {},
+          "lib/xamarin.ios10/GalaSoft.MvvmLight.dll": {}
+        },
+        "runtime": {
+          "lib/xamarin.ios10/GalaSoft.MvvmLight.Platform.dll": {},
+          "lib/xamarin.ios10/GalaSoft.MvvmLight.dll": {}
+        }
+      },
       "Newtonsoft.Json/12.0.3": {
         "type": "package",
         "compile": {
@@ -352,13 +363,15 @@
           "lib/Xamarin.iOS/SignaturePad.Forms.dll": {}
         }
       },
-      "Xamarin.Essentials/1.3.1": {
+      "Xamarin.Essentials/1.6.1-preview2": {
         "type": "package",
         "dependencies": {
           "System.Numerics.Vectors": "4.5.0"
         },
         "frameworkAssemblies": [
-          "OpenTK-1.0"
+          "OpenTK-1.0",
+          "System.Drawing.Common.dll",
+          "System.Numerics"
         ],
         "compile": {
           "lib/xamarinios10/Xamarin.Essentials.dll": {}
@@ -653,11 +666,11 @@
           "lib/xamarin.ios10/Plugin.InputKit.dll": {}
         }
       },
-      "Xamarin.Forms.PancakeView/1.4.2": {
+      "Xamarin.Forms.PancakeView/2.3.0.759": {
         "type": "package",
         "dependencies": {
           "System.ComponentModel": "4.3.0",
-          "Xamarin.Forms": "3.6.0.220655"
+          "Xamarin.Forms": "4.8.0.1451"
         },
         "compile": {
           "lib/xamarinios10/Xamarin.Forms.PancakeView.dll": {}
@@ -698,6 +711,7 @@
           "MaxVonGrafKftMobileController": "1.0.0",
           "Microsoft.AppCenter.Push": "2.6.4",
           "Microsoft.NETCore.Platforms": "3.1.0-preview1.19504.10",
+          "MvvmLightLibsStd10": "5.4.1.1",
           "Newtonsoft.Json": "12.0.3",
           "PdfSharp.Xamarin.Forms": "1.0.0",
           "Plugin.FacebookClient": "2.2.1",
@@ -710,10 +724,11 @@
           "Xam.Plugin.Media": "4.4.6-beta",
           "Xamarin.Auth": "1.7.0",
           "Xamarin.Controls.SignaturePad.Forms": "3.0.0",
-          "Xamarin.Essentials": "1.3.1",
+          "Xamarin.Essentials": "1.6.1-preview2",
+          "Xamarin.FFImageLoading.Forms": "2.4.11.982",
           "Xamarin.Forms": "4.8.0.1560",
           "Xamarin.Forms.InputKit": "3.0.15",
-          "Xamarin.Forms.PancakeView": "1.4.2",
+          "Xamarin.Forms.PancakeView": "2.3.0.759",
           "XamarinFastEntry.Behaviors": "1.1.1"
         },
         "compile": {
@@ -837,6 +852,17 @@
         },
         "runtime": {
           "lib/netstandard1.0/_._": {}
+        }
+      },
+      "MvvmLightLibsStd10/5.4.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/xamarin.ios10/GalaSoft.MvvmLight.Platform.dll": {},
+          "lib/xamarin.ios10/GalaSoft.MvvmLight.dll": {}
+        },
+        "runtime": {
+          "lib/xamarin.ios10/GalaSoft.MvvmLight.Platform.dll": {},
+          "lib/xamarin.ios10/GalaSoft.MvvmLight.dll": {}
         }
       },
       "Newtonsoft.Json/12.0.3": {
@@ -1087,13 +1113,15 @@
           "lib/Xamarin.iOS/SignaturePad.Forms.dll": {}
         }
       },
-      "Xamarin.Essentials/1.3.1": {
+      "Xamarin.Essentials/1.6.1-preview2": {
         "type": "package",
         "dependencies": {
           "System.Numerics.Vectors": "4.5.0"
         },
         "frameworkAssemblies": [
-          "OpenTK-1.0"
+          "OpenTK-1.0",
+          "System.Drawing.Common.dll",
+          "System.Numerics"
         ],
         "compile": {
           "lib/xamarinios10/Xamarin.Essentials.dll": {}
@@ -1388,11 +1416,11 @@
           "lib/xamarin.ios10/Plugin.InputKit.dll": {}
         }
       },
-      "Xamarin.Forms.PancakeView/1.4.2": {
+      "Xamarin.Forms.PancakeView/2.3.0.759": {
         "type": "package",
         "dependencies": {
           "System.ComponentModel": "4.3.0",
-          "Xamarin.Forms": "3.6.0.220655"
+          "Xamarin.Forms": "4.8.0.1451"
         },
         "compile": {
           "lib/xamarinios10/Xamarin.Forms.PancakeView.dll": {}
@@ -1433,6 +1461,7 @@
           "MaxVonGrafKftMobileController": "1.0.0",
           "Microsoft.AppCenter.Push": "2.6.4",
           "Microsoft.NETCore.Platforms": "3.1.0-preview1.19504.10",
+          "MvvmLightLibsStd10": "5.4.1.1",
           "Newtonsoft.Json": "12.0.3",
           "PdfSharp.Xamarin.Forms": "1.0.0",
           "Plugin.FacebookClient": "2.2.1",
@@ -1445,10 +1474,11 @@
           "Xam.Plugin.Media": "4.4.6-beta",
           "Xamarin.Auth": "1.7.0",
           "Xamarin.Controls.SignaturePad.Forms": "3.0.0",
-          "Xamarin.Essentials": "1.3.1",
+          "Xamarin.Essentials": "1.6.1-preview2",
+          "Xamarin.FFImageLoading.Forms": "2.4.11.982",
           "Xamarin.Forms": "4.8.0.1560",
           "Xamarin.Forms.InputKit": "3.0.15",
-          "Xamarin.Forms.PancakeView": "1.4.2",
+          "Xamarin.Forms.PancakeView": "2.3.0.759",
           "XamarinFastEntry.Behaviors": "1.1.1"
         },
         "compile": {
@@ -1572,6 +1602,17 @@
         },
         "runtime": {
           "lib/netstandard1.0/_._": {}
+        }
+      },
+      "MvvmLightLibsStd10/5.4.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/xamarin.ios10/GalaSoft.MvvmLight.Platform.dll": {},
+          "lib/xamarin.ios10/GalaSoft.MvvmLight.dll": {}
+        },
+        "runtime": {
+          "lib/xamarin.ios10/GalaSoft.MvvmLight.Platform.dll": {},
+          "lib/xamarin.ios10/GalaSoft.MvvmLight.dll": {}
         }
       },
       "Newtonsoft.Json/12.0.3": {
@@ -1825,13 +1866,15 @@
           "lib/Xamarin.iOS/SignaturePad.Forms.dll": {}
         }
       },
-      "Xamarin.Essentials/1.3.1": {
+      "Xamarin.Essentials/1.6.1-preview2": {
         "type": "package",
         "dependencies": {
           "System.Numerics.Vectors": "4.5.0"
         },
         "frameworkAssemblies": [
-          "OpenTK-1.0"
+          "OpenTK-1.0",
+          "System.Drawing.Common.dll",
+          "System.Numerics"
         ],
         "compile": {
           "lib/xamarinios10/Xamarin.Essentials.dll": {}
@@ -2126,11 +2169,11 @@
           "lib/xamarin.ios10/Plugin.InputKit.dll": {}
         }
       },
-      "Xamarin.Forms.PancakeView/1.4.2": {
+      "Xamarin.Forms.PancakeView/2.3.0.759": {
         "type": "package",
         "dependencies": {
           "System.ComponentModel": "4.3.0",
-          "Xamarin.Forms": "3.6.0.220655"
+          "Xamarin.Forms": "4.8.0.1451"
         },
         "compile": {
           "lib/xamarinios10/Xamarin.Forms.PancakeView.dll": {}
@@ -2171,6 +2214,7 @@
           "MaxVonGrafKftMobileController": "1.0.0",
           "Microsoft.AppCenter.Push": "2.6.4",
           "Microsoft.NETCore.Platforms": "3.1.0-preview1.19504.10",
+          "MvvmLightLibsStd10": "5.4.1.1",
           "Newtonsoft.Json": "12.0.3",
           "PdfSharp.Xamarin.Forms": "1.0.0",
           "Plugin.FacebookClient": "2.2.1",
@@ -2183,10 +2227,11 @@
           "Xam.Plugin.Media": "4.4.6-beta",
           "Xamarin.Auth": "1.7.0",
           "Xamarin.Controls.SignaturePad.Forms": "3.0.0",
-          "Xamarin.Essentials": "1.3.1",
+          "Xamarin.Essentials": "1.6.1-preview2",
+          "Xamarin.FFImageLoading.Forms": "2.4.11.982",
           "Xamarin.Forms": "4.8.0.1560",
           "Xamarin.Forms.InputKit": "3.0.15",
-          "Xamarin.Forms.PancakeView": "1.4.2",
+          "Xamarin.Forms.PancakeView": "2.3.0.759",
           "XamarinFastEntry.Behaviors": "1.1.1"
         },
         "compile": {
@@ -2310,6 +2355,17 @@
         },
         "runtime": {
           "lib/netstandard1.0/_._": {}
+        }
+      },
+      "MvvmLightLibsStd10/5.4.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/xamarin.ios10/GalaSoft.MvvmLight.Platform.dll": {},
+          "lib/xamarin.ios10/GalaSoft.MvvmLight.dll": {}
+        },
+        "runtime": {
+          "lib/xamarin.ios10/GalaSoft.MvvmLight.Platform.dll": {},
+          "lib/xamarin.ios10/GalaSoft.MvvmLight.dll": {}
         }
       },
       "Newtonsoft.Json/12.0.3": {
@@ -2563,13 +2619,15 @@
           "lib/Xamarin.iOS/SignaturePad.Forms.dll": {}
         }
       },
-      "Xamarin.Essentials/1.3.1": {
+      "Xamarin.Essentials/1.6.1-preview2": {
         "type": "package",
         "dependencies": {
           "System.Numerics.Vectors": "4.5.0"
         },
         "frameworkAssemblies": [
-          "OpenTK-1.0"
+          "OpenTK-1.0",
+          "System.Drawing.Common.dll",
+          "System.Numerics"
         ],
         "compile": {
           "lib/xamarinios10/Xamarin.Essentials.dll": {}
@@ -2864,11 +2922,11 @@
           "lib/xamarin.ios10/Plugin.InputKit.dll": {}
         }
       },
-      "Xamarin.Forms.PancakeView/1.4.2": {
+      "Xamarin.Forms.PancakeView/2.3.0.759": {
         "type": "package",
         "dependencies": {
           "System.ComponentModel": "4.3.0",
-          "Xamarin.Forms": "3.6.0.220655"
+          "Xamarin.Forms": "4.8.0.1451"
         },
         "compile": {
           "lib/xamarinios10/Xamarin.Forms.PancakeView.dll": {}
@@ -2909,6 +2967,7 @@
           "MaxVonGrafKftMobileController": "1.0.0",
           "Microsoft.AppCenter.Push": "2.6.4",
           "Microsoft.NETCore.Platforms": "3.1.0-preview1.19504.10",
+          "MvvmLightLibsStd10": "5.4.1.1",
           "Newtonsoft.Json": "12.0.3",
           "PdfSharp.Xamarin.Forms": "1.0.0",
           "Plugin.FacebookClient": "2.2.1",
@@ -2921,10 +2980,11 @@
           "Xam.Plugin.Media": "4.4.6-beta",
           "Xamarin.Auth": "1.7.0",
           "Xamarin.Controls.SignaturePad.Forms": "3.0.0",
-          "Xamarin.Essentials": "1.3.1",
+          "Xamarin.Essentials": "1.6.1-preview2",
+          "Xamarin.FFImageLoading.Forms": "2.4.11.982",
           "Xamarin.Forms": "4.8.0.1560",
           "Xamarin.Forms.InputKit": "3.0.15",
-          "Xamarin.Forms.PancakeView": "1.4.2",
+          "Xamarin.Forms.PancakeView": "2.3.0.759",
           "XamarinFastEntry.Behaviors": "1.1.1"
         },
         "compile": {
@@ -3136,6 +3196,45 @@
         "runtime.json",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "MvvmLightLibsStd10/5.4.1.1": {
+      "sha512": "zU9KXgq8dfnzxxOvvAVtasbhaQGoDlTr8Pw2AjZ1NB905GQljrxqkgh3jo5/47Vux5duw3/faUgcZjdfomGvFw==",
+      "type": "package",
+      "path": "mvvmlightlibsstd10/5.4.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid1/GalaSoft.MvvmLight.Platform.XML",
+        "lib/monoandroid1/GalaSoft.MvvmLight.Platform.dll",
+        "lib/monoandroid1/GalaSoft.MvvmLight.Platform.pdb",
+        "lib/monoandroid1/GalaSoft.MvvmLight.XML",
+        "lib/monoandroid1/GalaSoft.MvvmLight.dll",
+        "lib/monoandroid1/GalaSoft.MvvmLight.pdb",
+        "lib/net45/GalaSoft.MvvmLight.Platform.dll",
+        "lib/net45/GalaSoft.MvvmLight.Platform.pdb",
+        "lib/net45/GalaSoft.MvvmLight.Platform.xml",
+        "lib/net45/GalaSoft.MvvmLight.dll",
+        "lib/net45/GalaSoft.MvvmLight.pdb",
+        "lib/net45/GalaSoft.MvvmLight.xml",
+        "lib/net45/System.Windows.Interactivity.dll",
+        "lib/netstandard1.0/GalaSoft.MvvmLight.XML",
+        "lib/netstandard1.0/GalaSoft.MvvmLight.dll",
+        "lib/netstandard1.0/GalaSoft.MvvmLight.pdb",
+        "lib/uap10.0/GalaSoft.MvvmLight.Platform.dll",
+        "lib/uap10.0/GalaSoft.MvvmLight.Platform.pdb",
+        "lib/uap10.0/GalaSoft.MvvmLight.Platform.pri",
+        "lib/uap10.0/GalaSoft.MvvmLight.Platform.xml",
+        "lib/uap10.0/GalaSoft.MvvmLight.dll",
+        "lib/uap10.0/GalaSoft.MvvmLight.pdb",
+        "lib/uap10.0/GalaSoft.MvvmLight.xml",
+        "lib/xamarin.ios10/GalaSoft.MvvmLight.Platform.XML",
+        "lib/xamarin.ios10/GalaSoft.MvvmLight.Platform.dll",
+        "lib/xamarin.ios10/GalaSoft.MvvmLight.XML",
+        "lib/xamarin.ios10/GalaSoft.MvvmLight.dll",
+        "lib/xamarin.ios10/GalaSoft.MvvmLight.pdb",
+        "mvvmlightlibsstd10.5.4.1.1.nupkg.sha512",
+        "mvvmlightlibsstd10.nuspec"
       ]
     },
     "Newtonsoft.Json/12.0.3": {
@@ -3865,22 +3964,18 @@
         "xamarin.controls.signaturepad.forms.nuspec"
       ]
     },
-    "Xamarin.Essentials/1.3.1": {
-      "sha512": "+51728AdZ/qtABGvcIaNXgEoL2jAtxAXLHS8PvGCP0pb6n7twBqYpfgkmwHYVgu+U99szgtL+Jot8L+OXorPcA==",
+    "Xamarin.Essentials/1.6.1-preview2": {
+      "sha512": "TCmTzDxtI2xDsDzLn84wD8DvLGYzqwHG16Z34hTZEAnvTqNUBvLXSiECil1c6WAJ9lH+YbuyC6gIj6/GA/UNwg==",
       "type": "package",
-      "path": "xamarin.essentials/1.3.1",
+      "path": "xamarin.essentials/1.6.1-preview2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "lib/monoandroid60/Xamarin.Essentials.dll",
-        "lib/monoandroid60/Xamarin.Essentials.pdb",
-        "lib/monoandroid60/Xamarin.Essentials.xml",
-        "lib/monoandroid70/Xamarin.Essentials.dll",
-        "lib/monoandroid70/Xamarin.Essentials.pdb",
-        "lib/monoandroid70/Xamarin.Essentials.xml",
-        "lib/monoandroid71/Xamarin.Essentials.dll",
-        "lib/monoandroid71/Xamarin.Essentials.pdb",
-        "lib/monoandroid71/Xamarin.Essentials.xml",
+        "LICENSE",
+        "icon.png",
+        "lib/monoandroid10.0/Xamarin.Essentials.dll",
+        "lib/monoandroid10.0/Xamarin.Essentials.pdb",
+        "lib/monoandroid10.0/Xamarin.Essentials.xml",
         "lib/monoandroid80/Xamarin.Essentials.dll",
         "lib/monoandroid80/Xamarin.Essentials.pdb",
         "lib/monoandroid80/Xamarin.Essentials.xml",
@@ -3906,6 +4001,9 @@
         "lib/xamarinios10/Xamarin.Essentials.dll",
         "lib/xamarinios10/Xamarin.Essentials.pdb",
         "lib/xamarinios10/Xamarin.Essentials.xml",
+        "lib/xamarinmac20/Xamarin.Essentials.dll",
+        "lib/xamarinmac20/Xamarin.Essentials.pdb",
+        "lib/xamarinmac20/Xamarin.Essentials.xml",
         "lib/xamarintvos10/Xamarin.Essentials.dll",
         "lib/xamarintvos10/Xamarin.Essentials.pdb",
         "lib/xamarintvos10/Xamarin.Essentials.xml",
@@ -3913,7 +4011,7 @@
         "lib/xamarinwatchos10/Xamarin.Essentials.pdb",
         "lib/xamarinwatchos10/Xamarin.Essentials.xml",
         "readme.txt",
-        "xamarin.essentials.1.3.1.nupkg.sha512",
+        "xamarin.essentials.1.6.1-preview2.nupkg.sha512",
         "xamarin.essentials.nuspec"
       ]
     },
@@ -4536,22 +4634,39 @@
         "xamarin.forms.inputkit.nuspec"
       ]
     },
-    "Xamarin.Forms.PancakeView/1.4.2": {
-      "sha512": "0HGhwpvL8780UYmueP3Vazn6hmYB8GYEYyjkcPcW1qmnkYcfMc8h/9RZsDtUC7QFHikxCdxS29Aw8T0XrPETAQ==",
+    "Xamarin.Forms.PancakeView/2.3.0.759": {
+      "sha512": "TGVsLJuGd/PKlyhmcBxZnHhHqyhYppzyrdb2q/sy+S6dQYkeGM8A+HmIIHVhbi7r8Sjasa/HRBkOmTSYQOZzhQ==",
       "type": "package",
-      "path": "xamarin.forms.pancakeview/1.4.2",
+      "path": "xamarin.forms.pancakeview/2.3.0.759",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "lib/monoandroid81/Xamarin.Forms.PancakeView.dll",
+        "lib/monoandroid10.0/Xamarin.Forms.PancakeView.dll",
+        "lib/monoandroid10.0/Xamarin.Forms.PancakeView.xml",
         "lib/monoandroid90/Xamarin.Forms.PancakeView.dll",
-        "lib/net461/Xamarin.Forms.PancakeView.dll",
+        "lib/monoandroid90/Xamarin.Forms.PancakeView.xml",
+        "lib/net471/Xamarin.Forms.PancakeView.dll",
+        "lib/net471/Xamarin.Forms.PancakeView.xml",
+        "lib/net472/Xamarin.Forms.PancakeView.dll",
+        "lib/net472/Xamarin.Forms.PancakeView.xml",
+        "lib/netcoreapp3.1/Xamarin.Forms.PancakeView.dll",
+        "lib/netcoreapp3.1/Xamarin.Forms.PancakeView.xml",
         "lib/netstandard1.0/Xamarin.Forms.PancakeView.dll",
+        "lib/netstandard1.0/Xamarin.Forms.PancakeView.xml",
         "lib/netstandard2.0/Xamarin.Forms.PancakeView.dll",
-        "lib/uap10.0.16299/Xamarin.Forms.PancakeView.dll",
-        "lib/uap10.0.16299/Xamarin.Forms.PancakeView.pri",
+        "lib/netstandard2.0/Xamarin.Forms.PancakeView.xml",
+        "lib/netstandard2.1/Xamarin.Forms.PancakeView.dll",
+        "lib/netstandard2.1/Xamarin.Forms.PancakeView.xml",
+        "lib/tizen40/Xamarin.Forms.PancakeView.dll",
+        "lib/tizen40/Xamarin.Forms.PancakeView.xml",
+        "lib/uap10.0.17763/Xamarin.Forms.PancakeView.dll",
+        "lib/uap10.0.17763/Xamarin.Forms.PancakeView.pri",
+        "lib/uap10.0.17763/Xamarin.Forms.PancakeView.xml",
         "lib/xamarinios10/Xamarin.Forms.PancakeView.dll",
-        "xamarin.forms.pancakeview.1.4.2.nupkg.sha512",
+        "lib/xamarinios10/Xamarin.Forms.PancakeView.xml",
+        "lib/xamarinmac20/Xamarin.Forms.PancakeView.dll",
+        "lib/xamarinmac20/Xamarin.Forms.PancakeView.xml",
+        "xamarin.forms.pancakeview.2.3.0.759.nupkg.sha512",
         "xamarin.forms.pancakeview.nuspec"
       ]
     },
@@ -4608,6 +4723,7 @@
       "HtmlAgilityPack >= 1.11.24",
       "MaxVonGrafKftMobile >= 1.0.0",
       "Microsoft.AppCenter.Push >= 2.6.4",
+      "MvvmLightLibsStd10 >= 5.4.1.1",
       "Newtonsoft.Json >= 12.0.3",
       "PdfSharp.Xamarin.Forms >= 1.0.0",
       "Plugin.FacebookClient >= 2.2.1",
@@ -4620,7 +4736,7 @@
       "Xam.Plugin.Media >= 4.4.6-beta",
       "Xamarin.Auth >= 1.7.0",
       "Xamarin.Controls.SignaturePad.Forms >= 3.0.0",
-      "Xamarin.Essentials >= 1.3.1",
+      "Xamarin.Essentials >= 1.6.1-preview2",
       "Xamarin.FFImageLoading >= 2.4.11.982",
       "Xamarin.FFImageLoading.Forms >= 2.4.11.982",
       "Xamarin.FFImageLoading.Svg >= 2.4.11.982",
@@ -4628,7 +4744,7 @@
       "Xamarin.FFImageLoading.Transformations >= 2.4.11.982",
       "Xamarin.Forms >= 4.8.0.1560",
       "Xamarin.Forms.InputKit >= 3.0.15",
-      "Xamarin.Forms.PancakeView >= 1.4.2",
+      "Xamarin.Forms.PancakeView >= 2.3.0.759",
       "Xamarin.IQKeyboardManager >= 1.4.1",
       "XamarinFastEntry.Behaviors >= 1.1.1"
     ]
@@ -4695,6 +4811,10 @@
             "target": "Package",
             "version": "[2.6.4, )"
           },
+          "MvvmLightLibsStd10": {
+            "target": "Package",
+            "version": "[5.4.1.1, )"
+          },
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[12.0.3, )"
@@ -4745,7 +4865,7 @@
           },
           "Xamarin.Essentials": {
             "target": "Package",
-            "version": "[1.3.1, )"
+            "version": "[1.6.1-preview2, )"
           },
           "Xamarin.FFImageLoading": {
             "target": "Package",
@@ -4777,7 +4897,7 @@
           },
           "Xamarin.Forms.PancakeView": {
             "target": "Package",
-            "version": "[1.4.2, )"
+            "version": "[2.3.0.759, )"
           },
           "Xamarin.IQKeyboardManager": {
             "target": "Package",

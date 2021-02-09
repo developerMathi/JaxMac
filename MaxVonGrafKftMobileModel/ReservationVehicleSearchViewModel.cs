@@ -94,5 +94,8 @@ namespace MaxVonGrafKftMobileModel
         public List<ReservationMiscDetails> mantatoryMiscChargeDetails { get; set; }
         public decimal mantatoryMiscChargeTotalForOneDay { get; set; }
         public decimal mantatoryMiscChargeNonTaxableTotalForOneDay { get; set; }
+
+        public string Color { get; set; }
+
     }
 }

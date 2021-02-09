@@ -10,6 +10,8 @@ using MaxVonGrafKftMobileController;
 using Rg.Plugins.Popup.Services;
 using MaxVonGrafKftMobileModel;
 using MaxVonGrafKftMobile.Popups;
+using DLToolkit.Forms.Controls;
+using Xamarin.Essentials;
 
 namespace MaxVonGrafKftMobile
 {
@@ -17,173 +19,89 @@ namespace MaxVonGrafKftMobile
     {
         private ApiToken apiToken;
         private GetClientDetailsForMobileResponse getClientDetailsForMobile;
+        string _token;
+        bool IsUpdatesAvailable;
 
         public App(string pagename, string data)
         {
             Xamarin.Forms.Application.Current.On<Xamarin.Forms.PlatformConfiguration.Android>().UseWindowSoftInputModeAdjust(WindowSoftInputModeAdjust.Resize);
 
             InitializeComponent();
+            FlowListView.Init();
+            VersionTracking.Track();
 
-            if (!App.Current.Properties.ContainsKey("CustomerId"))
+            var currentVersion = VersionTracking.CurrentVersion;
+
+            MainPage = new NavigationPage(new IntialLoading());
+
+
+            
+        }
+
+       
+
+        private void getAndSaveClientSecrets()
+        {
+            GetClientSecretTokenRequest getClientSecretTokenRequest = new GetClientSecretTokenRequest();
+            getClientSecretTokenRequest.ClientId = Constants.ClientId;
+            ApiController apiController = new ApiController();
+            GetClientSecretTokenResponse clientSecretTokenResponse = null;
+            try
             {
-                App.Current.Properties.Add("CustomerId", 0);
+                clientSecretTokenResponse = apiController.GetClientSecretToken(getClientSecretTokenRequest);
             }
-
-            if ((int)App.Current.Properties["CustomerId"] == 0)
+            catch (Exception ex)
             {
-                GetClientSecretTokenRequest getClientSecretTokenRequest = new GetClientSecretTokenRequest();
-                getClientSecretTokenRequest.ClientId = Constants.ClientId;
-                ApiController apiController = new ApiController();
-                GetClientSecretTokenResponse clientSecretTokenResponse = null;
+                PopupNavigation.Instance.PushAsync(new Error_popup(ex.Message));
+            }
+            if (clientSecretTokenResponse != null)
+            {
+                GetAccessTokenRequest tokenRequest = new GetAccessTokenRequest();
+                tokenRequest.client_id = clientSecretTokenResponse.apiConsumerId;
+                tokenRequest.client_secret = clientSecretTokenResponse.apiConsumerSecret;
+                tokenRequest.grant_type = "client_credentials";
+
                 try
                 {
-                    clientSecretTokenResponse = apiController.GetClientSecretToken(getClientSecretTokenRequest);
+                    apiToken = apiController.GetAccessToken(tokenRequest);
                 }
                 catch (Exception ex)
                 {
-                    PopupNavigation.Instance.PushAsync(new Error_popup(ex.Message));
+                    apiToken = null;
                 }
-                if (clientSecretTokenResponse != null)
+                if (apiToken != null)
                 {
-                    GetAccessTokenRequest tokenRequest = new GetAccessTokenRequest();
-                    tokenRequest.client_id = clientSecretTokenResponse.apiConsumerId;
-                    tokenRequest.client_secret = clientSecretTokenResponse.apiConsumerSecret;
-                    tokenRequest.grant_type = "client_credentials";
+                     _token = apiToken.access_token;
+                    CommonController commonController = new CommonController();
 
                     try
                     {
-                        apiToken = apiController.GetAccessToken(tokenRequest);
+                        getClientDetailsForMobile = commonController.GetClientDetailsForMobile(_token);
                     }
                     catch (Exception ex)
                     {
                         PopupNavigation.Instance.PushAsync(new Error_popup(ex.Message));
                     }
-                    if (apiToken != null)
+
+
+                    if (getClientDetailsForMobile != null)
                     {
-                        string _token = apiToken.access_token;
-                        CommonController commonController = new CommonController();
-
-                        try
+                        if (getClientDetailsForMobile.admin != null)
                         {
-                            getClientDetailsForMobile = commonController.GetClientDetailsForMobile(_token);
-                        }
-                        catch (Exception ex)
-                        {
-                            PopupNavigation.Instance.PushAsync(new Error_popup(ex.Message));
-                        }
-
-
-                        if (getClientDetailsForMobile != null)
-                        {
-                            if (getClientDetailsForMobile.admin != null)
-                            {
-                                Constants.admin = getClientDetailsForMobile.admin;
-                            }
-                        }
-
-                        if (App.Current.Properties.ContainsKey("currentToken"))
-                        {
-                            App.Current.Properties["currentToken"] = _token;
-                        }
-                        else
-                        {
-                            App.Current.Properties.Add("currentToken", _token);
+                            Constants.admin = getClientDetailsForMobile.admin;
                         }
                     }
 
-                }
-
-
-                if (pagename != null)
-                {
-                    if (pagename == "ViewReservation")
+                    if (App.Current.Properties.ContainsKey("currentToken"))
                     {
-                        MainPage = new NavigationPage(new ViewReservation(Convert.ToInt32(data)));
+                        App.Current.Properties["currentToken"] = _token;
                     }
-                }
-                else
-                {
-                    MainPage = new NavigationPage(new WelcomPage());
+                    else
+                    {
+                        App.Current.Properties.Add("currentToken", _token);
+                    }
                 }
             }
-            else
-            {
-                GetClientSecretTokenRequest getClientSecretTokenRequest = new GetClientSecretTokenRequest();
-                getClientSecretTokenRequest.ClientId = Constants.ClientId;
-                ApiController apiController = new ApiController();
-                GetClientSecretTokenResponse clientSecretTokenResponse = null;
-                try
-                {
-                    clientSecretTokenResponse = apiController.GetClientSecretToken(getClientSecretTokenRequest);
-                }
-                catch (Exception ex)
-                {
-                    PopupNavigation.Instance.PushAsync(new Error_popup(ex.Message));
-                }
-
-                if (clientSecretTokenResponse != null)
-                {
-                    GetAccessTokenRequest tokenRequest = new GetAccessTokenRequest();
-                    tokenRequest.client_id = clientSecretTokenResponse.apiConsumerId;
-                    tokenRequest.client_secret = clientSecretTokenResponse.apiConsumerSecret;
-                    tokenRequest.grant_type = "client_credentials";
-
-                    try
-                    {
-                        apiToken = apiController.GetAccessToken(tokenRequest);
-                    }
-                    catch (Exception ex)
-                    {
-                        PopupNavigation.Instance.PushAsync(new Error_popup(ex.Message));
-                    }
-                    if (apiToken != null)
-                    {
-                        string _token = apiToken.access_token;
-                        CommonController commonController = new CommonController();
-
-                        try
-                        {
-                            getClientDetailsForMobile = commonController.GetClientDetailsForMobile(_token);
-                        }
-                        catch (Exception ex)
-                        {
-                            PopupNavigation.Instance.PushAsync(new Error_popup(ex.Message));
-                        }
-
-
-                        if (getClientDetailsForMobile != null)
-                        {
-                            if (getClientDetailsForMobile.admin != null)
-                            {
-                                Constants.admin = getClientDetailsForMobile.admin;
-                            }
-                        }
-
-                        if (App.Current.Properties.ContainsKey("currentToken"))
-                        {
-                            App.Current.Properties["currentToken"] = _token;
-                        }
-                        else
-                        {
-                            App.Current.Properties.Add("currentToken", _token);
-                        }
-                    }
-                }
-
-
-
-
-                MainPage = new NavigationPage(new HomePage());
-            }
-
-
-
-
-
-
-
-
-
         }
 
         protected override void OnStart()

@@ -32,10 +32,16 @@ namespace MaxVonGrafKftMobileModel
 
         public int vehicleId { get; set; }
         public string vehicleName { get; set; }
+        public string vehicleMakeName { get; set; }
+        public string vehicleModelName { get; set; }
+        public int vehicleYear { get; set; }
+        public string color { get; set; }
 
         public List<ReservationMiscDetails> mantatoryMiscChargeDetails { get; set; }
         public decimal mantatoryMiscChargeTotalForOneDay { get; set; }
         public decimal mantatoryMiscChargeNonTaxableTotalForOneDay { get; set; }
+
+
 
 
 

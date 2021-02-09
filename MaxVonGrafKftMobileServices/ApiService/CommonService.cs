@@ -80,6 +80,33 @@ namespace MaxVonGrafKftMobileServices.ApiService
             return resp;
         }
 
+        public GetClientAttributesRespose checkForApplicationUpdates(string token)
+        {
+            GetClientAttributesRespose respose = null;
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri(ConstantData.ApiURL.ToString() + "RegistrationMobile/GetClientAttributes");
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+
+
+                    var response = client.GetAsync(client.BaseAddress).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var responseStream = response.Content.ReadAsStringAsync().Result;
+                        respose = JsonConvert.DeserializeObject<GetClientAttributesRespose>(responseStream);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return respose;
+        }
+
         public GetClientDetailsForMobileResponse GetClientDetailsForMobile(string token)
         {
             GetClientDetailsForMobileResponse result = null;

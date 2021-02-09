@@ -34,3 +34,4 @@ using System.Runtime.InteropServices;
 
 [assembly: UsesFeature("android.hardware.camera", Required = true)]
 [assembly: UsesFeature("android.hardware.camera.autofocus", Required = true)]
+[assembly: UsesPermission(Android.Manifest.Permission.Vibrate)]
