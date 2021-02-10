@@ -1,6 +1,7 @@
 C:\Users\Thanah\Source\Repos\JaxMac\MaxVonGrafKftMobileModel\bin\Debug\MaxVonGrafKftMobileModel.dll.config
 C:\Users\Thanah\Source\Repos\JaxMac\MaxVonGrafKftMobileModel\bin\Debug\MaxVonGrafKftMobileModel.dll
 C:\Users\Thanah\Source\Repos\JaxMac\MaxVonGrafKftMobileModel\bin\Debug\MaxVonGrafKftMobileModel.pdb
+C:\Users\Thanah\Source\Repos\JaxMac\MaxVonGrafKftMobileModel\bin\Debug\System.Drawing.Common.dll
 C:\Users\Thanah\Source\Repos\JaxMac\MaxVonGrafKftMobileModel\bin\Debug\System.Net.Http.dll
 C:\Users\Thanah\Source\Repos\JaxMac\MaxVonGrafKftMobileModel\bin\Debug\System.Net.Http.xml
 C:\Users\Thanah\Source\Repos\JaxMac\MaxVonGrafKftMobileModel\obj\Debug\MaxVonGrafKftMobileModel.csproj.CoreCompileInputs.cache
@@ -9,4 +10,3 @@ C:\Users\Thanah\Source\Repos\JaxMac\MaxVonGrafKftMobileModel\obj\Debug\MaxVonGra
 C:\Users\Thanah\Source\Repos\JaxMac\MaxVonGrafKftMobileModel\obj\Debug\MaxVonGrafKftMobileModel.dll
 C:\Users\Thanah\Source\Repos\JaxMac\MaxVonGrafKftMobileModel\obj\Debug\MaxVonGrafKftMobileModel.pdb
 C:\Users\Thanah\Source\Repos\JaxMac\MaxVonGrafKftMobileModel\obj\Debug\MaxVonGrafKftMobileModel.csprojAssemblyReference.cache
-C:\Users\Thanah\source\repos\JaxMac\MaxVonGrafKftMobileModel\bin\Debug\System.Drawing.Common.dll

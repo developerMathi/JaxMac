@@ -4,6 +4,7 @@ C:\Users\Thanah\Source\Repos\JaxMac\MaxVonGrafKftMobileController\bin\Debug\MaxV
 C:\Users\Thanah\Source\Repos\JaxMac\MaxVonGrafKftMobileController\bin\Debug\MaxVonGrafKftMobileModel.dll
 C:\Users\Thanah\Source\Repos\JaxMac\MaxVonGrafKftMobileController\bin\Debug\MaxVonGrafKftMobileServices.dll
 C:\Users\Thanah\Source\Repos\JaxMac\MaxVonGrafKftMobileController\bin\Debug\System.Net.Http.dll
+C:\Users\Thanah\Source\Repos\JaxMac\MaxVonGrafKftMobileController\bin\Debug\System.Drawing.Common.dll
 C:\Users\Thanah\Source\Repos\JaxMac\MaxVonGrafKftMobileController\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Thanah\Source\Repos\JaxMac\MaxVonGrafKftMobileController\bin\Debug\MaxVonGrafKftMobileModel.pdb
 C:\Users\Thanah\Source\Repos\JaxMac\MaxVonGrafKftMobileController\bin\Debug\MaxVonGrafKftMobileModel.dll.config
@@ -17,4 +18,3 @@ C:\Users\Thanah\Source\Repos\JaxMac\MaxVonGrafKftMobileController\obj\Debug\Xaml
 C:\Users\Thanah\Source\Repos\JaxMac\MaxVonGrafKftMobileController\obj\Debug\MaxVonGrafKftMobileController.csproj.CopyComplete
 C:\Users\Thanah\Source\Repos\JaxMac\MaxVonGrafKftMobileController\obj\Debug\MaxVonGrafKftMobileController.dll
 C:\Users\Thanah\Source\Repos\JaxMac\MaxVonGrafKftMobileController\obj\Debug\MaxVonGrafKftMobileController.pdb
-C:\Users\Thanah\source\repos\JaxMac\MaxVonGrafKftMobileController\bin\Debug\System.Drawing.Common.dll

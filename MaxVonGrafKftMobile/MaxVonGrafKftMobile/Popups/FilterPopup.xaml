@@ -445,7 +445,7 @@
                                 HeightRequest="30"
                                 Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconDown.png}" 
                                 x:Name="vehiTypeArrow"
-                                Clicked="vehModelPicker_Tapped"/>
+                                Clicked="vehtypePicker_Tapped"/>
                             <ListView x:Name="vehicleTypeList"
                                       Grid.Row="2"
                                       SeparatorVisibility="None"
@@ -546,7 +546,9 @@
                                 Aspect="AspectFit"
                                 HeightRequest="30"
                                 Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconDown.png}" 
-                                x:Name="vehiMakeArrow"/>
+                                x:Name="vehiMakeArrow"
+                                Clicked="vehMakePicker_Tapped"
+                                />
                             <ListView x:Name="vehicleMakeList"
                                       Grid.Row="2"
                                       SeparatorVisibility="None"
@@ -649,7 +651,8 @@
                                 Aspect="AspectFit"
                                 HeightRequest="30"
                                 Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconDown.png}" 
-                                x:Name="vehiModelArrow"/>
+                                x:Name="vehiModelArrow"
+                                Clicked="vehModelPicker_Tapped"/>
                             <ListView x:Name="vehicleModelList"
                                       Grid.Row="2"
                                       SeparatorVisibility="None"
@@ -750,7 +753,8 @@
                                 Aspect="AspectFit"
                                 HeightRequest="30"
                                 Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconDown.png}" 
-                                x:Name="vehiYearArrow"/>
+                                x:Name="vehiYearArrow"
+                                Clicked="vehYearPicker_Tapped"/>
                             <ListView x:Name="vehicleYearList"
                                       Grid.Row="2"
                                       SeparatorVisibility="None"
@@ -851,7 +855,8 @@
                                 Aspect="AspectFit"
                                 HeightRequest="30"
                                 Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconDown.png}" 
-                                x:Name="vehiColorArrow"/>
+                                x:Name="vehiColorArrow"
+                                Clicked="vehColorPicker_Tapped"/>
                             <ListView x:Name="vehicleColorList"
                                       Grid.Row="2"
                                       SeparatorVisibility="None"

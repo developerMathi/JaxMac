@@ -10,8 +10,7 @@
     mc:Ignorable="d">
  
     <ContentPage.Content>
-        <RefreshView IsRefreshing="False"
-                         RefreshColor="{StaticResource MaxVonRed}">
+
             <Grid Margin="0,30,0,0">
                 <Grid.RowDefinitions>
                     <RowDefinition>
@@ -1115,6 +1114,5 @@
                     </Button.FontSize>
                 </Button>
             </Grid>
-        </RefreshView>
     </ContentPage.Content>
 </ContentPage>

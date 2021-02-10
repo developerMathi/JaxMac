@@ -655,8 +655,7 @@ namespace MaxVonGrafKftMobile.Views
 
         private void VehicleDetailList_Refreshing(object sender, EventArgs e)
         {
-            vehicleDetailList.ItemsSource = forlistViewItemSource;
-            vehicleDetailList.HeightRequest = (forlistViewItemSource.Count * 320) + 20;
+            refreshVehicleList();
             vehicleDetailList.IsVisible = true;
             vehicleDetailList.IsRefreshing = false;
         }
