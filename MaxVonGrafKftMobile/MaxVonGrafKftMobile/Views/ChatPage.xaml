@@ -78,7 +78,8 @@
                  VerticalOptions="FillAndExpand" 
                  SeparatorColor="Transparent"
                  ItemAppearingCommand="{Binding MessageAppearingCommand}"
-                 ItemDisappearingCommand="{Binding MessageDisappearingCommand}">
+                 ItemDisappearingCommand="{Binding MessageDisappearingCommand}"
+                                   BackgroundColor="Transparent">
         </controls:ExtendedListView>
         <Frame HorizontalOptions="EndAndExpand" 
                                  Margin="0,0,2,15"

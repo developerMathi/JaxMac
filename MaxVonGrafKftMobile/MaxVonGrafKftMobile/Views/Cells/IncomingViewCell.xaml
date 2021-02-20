@@ -29,7 +29,7 @@
             <Frame BackgroundColor="{StaticResource MaxVonRed}"
               Padding="10"
               HasShadow="false"
-               CornerRadius="40">
+               CornerRadius="20">
                 <Label Text="{Binding Text}"
                    TextColor="White"/>
                 

@@ -15,6 +15,7 @@ using Xamarin.Forms.Xaml;
 
 namespace MaxVonGrafKftMobile.Views
 {
+
     public partial class AddPersonalInformationPage : ContentPage
     {
         string _token;

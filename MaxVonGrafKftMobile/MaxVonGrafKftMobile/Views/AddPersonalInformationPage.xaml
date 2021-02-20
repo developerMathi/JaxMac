@@ -877,14 +877,14 @@
                                         <On Platform="iOS">
                                             <OnIdiom
                                                 x:TypeArguments="x:Double"
-                                                Phone="80"
-                                                Tablet="105" />
+                                                Phone="50"
+                                                Tablet="60" />
                                         </On>
                                         <On Platform="Android,Windows">
                                             <OnIdiom
                                                 x:TypeArguments="x:Double"
-                                                Phone="80"
-                                                Tablet="105" />
+                                                Phone="50"
+                                                Tablet="60" />
                                         </On>
                                     </OnPlatform>
                                 </Frame.HeightRequest>
@@ -934,7 +934,28 @@
                                         </Image.WidthRequest>
                                     </Image>
 
-                                    <renders:CustomEditer
+
+                                    <renders:CustomEntry
+                                        x:Name="AddressEntry"
+                                        Grid.Column="1"
+                                        Margin="10,0,0,0"
+                                        FontFamily="Roboto-Medium"
+                                        FontSize="Medium"
+                                        Placeholder="Address"
+                                        PlaceholderColor="{StaticResource MaxVonBlack}"
+                                        TextColor="{StaticResource MaxVonBlack}" >
+                                        <renders:CustomEntry.BackgroundColor>
+                                    <OnPlatform x:TypeArguments="Color">
+                                        <On Platform="iOS">
+                                            <OnIdiom x:TypeArguments="Color"
+                                                     Phone="Transparent"
+                                                     Tablet="Transparent"></OnIdiom>
+                                        </On>
+                                    </OnPlatform>
+                                </renders:CustomEntry.BackgroundColor>
+                                    </renders:CustomEntry>
+
+                                    <!--<renders:CustomEditer
                                         x:Name="AddressEntry"
                                         Grid.Column="1"
                                         Margin="10,0,0,0"
@@ -970,7 +991,7 @@
                                         </On>
                                     </OnPlatform>
                                 </Editor.BackgroundColor>
-                                    </renders:CustomEditer>
+                                    </renders:CustomEditer>-->
                                 </Grid>
                             </Frame>
 

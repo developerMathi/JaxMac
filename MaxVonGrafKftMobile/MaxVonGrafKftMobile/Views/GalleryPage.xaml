@@ -92,7 +92,8 @@
                               x:Name="imageListView"
                               RowHeight="125"
                               VerticalScrollBarVisibility="Never"
-                          ItemTapped="imageListView_ItemTapped">
+                          ItemTapped="imageListView_ItemTapped"
+                          BackgroundColor="Transparent">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <renders:ExtendedViewCell SelectedBackgroundColor="{StaticResource MaxVonWhite}">

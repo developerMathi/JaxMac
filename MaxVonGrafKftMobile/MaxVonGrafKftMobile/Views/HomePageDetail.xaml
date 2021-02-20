@@ -250,6 +250,7 @@
                             <DataTemplate>
                                 <ViewCell>
                                     <Frame
+                                        BackgroundColor="Transparent"
                                 Margin="10,10"
                                 Padding="0"
                                 BorderColor="LightGray"
@@ -1319,7 +1320,7 @@
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped" />
                     </StackLayout.GestureRecognizers>
-                    <ListView
+                    <ListView BackgroundColor="Transparent"
                 x:Name="onGoingRentalList"
                 Margin="0,10,0,0"
                 HorizontalScrollBarVisibility="Never"
@@ -1342,7 +1343,8 @@
                 BorderColor="LightGray"
                 CornerRadius="10"
                 HasShadow="False"
-                HeightRequest="400">
+                HeightRequest="400"
+                        BackgroundColor="Transparent">
                         <Grid Margin="5,10" Padding="0">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="45" />

@@ -79,7 +79,8 @@
                                     CornerRadius="10"
                                     HasShadow="False"
                                     HorizontalOptions="FillAndExpand"
-                                    VerticalOptions="FillAndExpand">
+                                    VerticalOptions="FillAndExpand"
+                                    BackgroundColor="Transparent">
                                     <Frame.HeightRequest>
                                         <OnPlatform x:TypeArguments="x:Double">
                                             <On Platform="iOS">
@@ -198,7 +199,7 @@
                                                 Grid.Column="1"
                                                 FontFamily="Roboto-Medium"
                                                 Text="{Binding statusNameView}"
-                                                TextColor="{Binding statusColor}"
+                                                TextColor="{Binding statusColor,Converter={StaticResource ReservationStatusToColor}}"
                                             HorizontalOptions="End">
                                             <Label.FontSize>
                                                 <OnPlatform x:TypeArguments="x:Double">

@@ -259,7 +259,7 @@
           "lib/xamarinios10/_._": {}
         }
       },
-      "System.Drawing.Common/4.7.0": {
+      "System.Drawing.Common/5.0.1": {
         "type": "package",
         "compile": {
           "ref/xamarinios10/_._": {}
@@ -1009,7 +1009,7 @@
           "lib/xamarinios10/_._": {}
         }
       },
-      "System.Drawing.Common/4.7.0": {
+      "System.Drawing.Common/5.0.1": {
         "type": "package",
         "compile": {
           "ref/xamarinios10/_._": {}
@@ -1762,7 +1762,7 @@
           "lib/xamarinios10/_._": {}
         }
       },
-      "System.Drawing.Common/4.7.0": {
+      "System.Drawing.Common/5.0.1": {
         "type": "package",
         "compile": {
           "ref/xamarinios10/_._": {}
@@ -2515,7 +2515,7 @@
           "lib/xamarinios10/_._": {}
         }
       },
-      "System.Drawing.Common/4.7.0": {
+      "System.Drawing.Common/5.0.1": {
         "type": "package",
         "compile": {
           "ref/xamarinios10/_._": {}
@@ -3661,18 +3661,21 @@
         "version.txt"
       ]
     },
-    "System.Drawing.Common/4.7.0": {
-      "sha512": "v+XbyYHaZjDfn0ENmJEV1VYLgGgCTx1gnfOBcppowbpOAriglYgGCvFCPr2EEZyBvXlpxbEsTwkOlInl107ahA==",
+    "System.Drawing.Common/5.0.1": {
+      "sha512": "3IN8zWk395Qu+7wnoTbebEjdP3izZBBKAahgWuC0jp9tCgTdUFN6KsrqQl0I3L+ptZD/LvwKjgFp1u+x3+p+DA==",
       "type": "package",
-      "path": "system.drawing.common/4.7.0",
+      "path": "system.drawing.common/5.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/MonoAndroid10/_._",
         "lib/MonoTouch10/_._",
         "lib/net461/System.Drawing.Common.dll",
+        "lib/netcoreapp3.0/System.Drawing.Common.dll",
+        "lib/netcoreapp3.0/System.Drawing.Common.xml",
         "lib/netstandard2.0/System.Drawing.Common.dll",
         "lib/xamarinios10/_._",
         "lib/xamarinmac20/_._",
@@ -3694,7 +3697,7 @@
         "runtimes/win/lib/netcoreapp2.0/System.Drawing.Common.dll",
         "runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll",
         "runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.xml",
-        "system.drawing.common.4.7.0.nupkg.sha512",
+        "system.drawing.common.5.0.1.nupkg.sha512",
         "system.drawing.common.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -4731,7 +4734,7 @@
       "Rg.Plugins.Popup >= 1.2.0.223",
       "System.Buffers >= 4.5.0",
       "System.ComponentModel.Annotations >= 4.6.0",
-      "System.Drawing.Common >= 4.7.0",
+      "System.Drawing.Common >= 5.0.1",
       "System.ValueTuple >= 4.5.0",
       "Xam.Plugin.Media >= 4.4.6-beta",
       "Xamarin.Auth >= 1.7.0",
@@ -4750,39 +4753,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Thanah\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "/Users/navotar/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Thanah\\Source\\Repos\\JaxMac\\MaxVonGrafKftMobile\\MaxVonGrafKftMobile.iOS\\MaxVonGrafKftMobile.iOS.csproj",
+      "projectUniqueName": "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile.iOS/MaxVonGrafKftMobile.iOS.csproj",
       "projectName": "MaxVonGrafKftMobile.iOS",
-      "projectPath": "C:\\Users\\Thanah\\Source\\Repos\\JaxMac\\MaxVonGrafKftMobile\\MaxVonGrafKftMobile.iOS\\MaxVonGrafKftMobile.iOS.csproj",
-      "packagesPath": "C:\\Users\\Thanah\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Thanah\\Source\\Repos\\JaxMac\\MaxVonGrafKftMobile\\MaxVonGrafKftMobile.iOS\\obj\\",
+      "projectPath": "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile.iOS/MaxVonGrafKftMobile.iOS.csproj",
+      "packagesPath": "/Users/navotar/.nuget/packages/",
+      "outputPath": "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile.iOS/obj/",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Thanah\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "/Users/navotar/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "xamarinios10"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\Thanah\\Source\\Repos\\JaxMac\\MaxVonGrafKftMobile\\MaxVonGrafKftMobile\\MaxVonGrafKftMobile.csproj": {
-              "projectPath": "C:\\Users\\Thanah\\Source\\Repos\\JaxMac\\MaxVonGrafKftMobile\\MaxVonGrafKftMobile\\MaxVonGrafKftMobile.csproj"
+            "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile/MaxVonGrafKftMobile.csproj": {
+              "projectPath": "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile/MaxVonGrafKftMobile.csproj"
             }
           }
         }
@@ -4845,7 +4841,7 @@
           },
           "System.Drawing.Common": {
             "target": "Package",
-            "version": "[4.7.0, )"
+            "version": "[5.0.1, )"
           },
           "System.ValueTuple": {
             "target": "Package",

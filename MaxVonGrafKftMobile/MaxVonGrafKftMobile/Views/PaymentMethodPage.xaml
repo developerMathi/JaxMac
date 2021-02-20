@@ -74,6 +74,7 @@
                         <DataTemplate>
                             <ViewCell>
                                 <Frame
+                                    BackgroundColor="Transparent"
                                     Margin="10,10,10,10"
                                     Padding="0"
                                     BorderColor="{StaticResource MaxVonGray}"

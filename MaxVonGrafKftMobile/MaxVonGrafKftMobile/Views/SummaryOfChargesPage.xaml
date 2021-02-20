@@ -529,6 +529,7 @@
                     </Grid>
 
                     <Frame
+                        BackgroundColor="Transparent"
                         Grid.Row="2"
                         Padding="0" HasShadow="False"
                         BorderColor="{StaticResource MaxVonBlack}"

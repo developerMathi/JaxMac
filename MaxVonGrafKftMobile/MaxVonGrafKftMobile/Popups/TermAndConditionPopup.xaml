@@ -118,6 +118,7 @@
             </Grid>
 
             <ListView
+                BackgroundColor="Transparent"
                 x:Name="termList"
                 Margin="0,20,0,20"
                 HasUnevenRows="True"

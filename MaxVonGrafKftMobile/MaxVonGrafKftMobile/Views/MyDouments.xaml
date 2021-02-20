@@ -111,10 +111,11 @@
                             <Label Grid.Row="1"
                                    HorizontalOptions="Center"
                                    VerticalOptions="End"
-                                    FontFamily="Roboto-Medium">Photos</Label>
+                                    FontFamily="Roboto-Medium"
+                                   TextColor="Black">Photos</Label>
                             <Label Grid.Row="2"
                                    HorizontalOptions="Center"
-                                    >
+                                    TextColor="Black">
                                 <Label.FormattedText>
                                     <FormattedString>
                                         <FormattedString.Spans>
@@ -132,7 +133,7 @@
                             <Label Grid.Row="3"
                                    HorizontalOptions="Center"
                                    VerticalOptions="Start"
-                                    >
+                                   TextColor="Black" >
                                 <Label.FormattedText>
                                     <FormattedString>
                                         <FormattedString.Spans>
@@ -181,10 +182,11 @@
                             <Label Grid.Row="1"
                                    HorizontalOptions="Center"
                                    VerticalOptions="End"
+                                   TextColor="Black"
                                     FontFamily="Roboto-Medium">Documents</Label>
                             <Label Grid.Row="2"
                                    HorizontalOptions="Center"
-                                    >
+                                    TextColor="Black">
                                 <Label.FormattedText>
                                     <FormattedString>
                                         <FormattedString.Spans>
@@ -202,7 +204,7 @@
                             <Label Grid.Row="3"
                                    HorizontalOptions="Center"
                                    VerticalOptions="Start"
-                                    >
+                                    TextColor="Black">
                                 <Label.FormattedText>
                                     <FormattedString>
                                         <FormattedString.Spans>
@@ -271,7 +273,8 @@
                               x:Name="recentFileList"
                               RowHeight="125"
                               VerticalScrollBarVisibility="Never"
-                              ItemTapped="recentFileList_ItemTapped">
+                              ItemTapped="recentFileList_ItemTapped"
+                              BackgroundColor="Transparent">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <renders:ExtendedViewCell SelectedBackgroundColor="{StaticResource MaxVonWhite}">

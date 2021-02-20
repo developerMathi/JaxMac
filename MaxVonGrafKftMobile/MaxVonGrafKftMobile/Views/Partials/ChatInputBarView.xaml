@@ -14,7 +14,8 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <controls:ExtendedEditorControl x:Name="chatTextInput" 
+            <controls:ExtendedEditorControl x:Name="chatTextInput"
+                                            BackgroundColor="Transparent"
                  Text="{Binding TextToSend}" 
                  Margin="1"  
                  TextColor="Black" 
@@ -26,6 +27,7 @@
                  Grid.Row="0" 
                  Grid.Column="0" />
             <Label Text="Send"
+                   TextColor="Black"
                Grid.Row="0"
                Grid.Column="1"
                    FontFamily="Roboto-Bold"

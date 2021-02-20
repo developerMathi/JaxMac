@@ -157,6 +157,7 @@
                                 Keyboard="Email"
                                 Placeholder="Email Address"
                                 PlaceholderColor="{StaticResource Black}"
+                                TextColor="Black"
                                 >
                                 <renders:CustomEntry.FontSize>
                                     <OnPlatform x:TypeArguments="x:Double">
@@ -275,6 +276,7 @@
                             </Image>
 
                             <renders:CustomEntry
+                                TextColor="Black"
                                 x:Name="loginPassword"
                                 Grid.Column="1"
                                 Margin="10,0,0,0"

@@ -25,7 +25,7 @@
             </StackLayout>
             <Frame BackgroundColor="Gray"
             Padding="10"
-            HasShadow="false" CornerRadius="40">
+            HasShadow="false" CornerRadius="20">
             <Label Text="{Binding Text}"
                   TextColor="White"/>
         </Frame>

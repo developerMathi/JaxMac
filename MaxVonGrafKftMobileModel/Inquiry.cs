@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -112,18 +111,21 @@ namespace MaxVonGrafKftMobileModel
             }
         }
 
-        public Color statusColor
+        public string statusColor
         {
-            get { if (Status == 1) {
-                    return Color.Green;
+            get
+            {
+                if (Status == 1)
+                {
+                    return "2";
                 }
                 if (Status == 2)
                 {
-                    return Color.Yellow;
+                    return "2";
                 }
                 else
                 {
-                    return Color.Red;
+                    return "5";
                 }
             }
             set

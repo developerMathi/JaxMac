@@ -453,7 +453,7 @@
                                       HasUnevenRows="False"
                                       IsVisible="false"
                                       RowHeight="35"
-                                      >
+                                      BackgroundColor="White" > 
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <renders:ExtendedViewCell SelectedBackgroundColor="{StaticResource MaxVonWhite}">
@@ -556,7 +556,7 @@
                                       HasUnevenRows="False"
                                       IsVisible="false"
                                       RowHeight="35"
-                                      >
+                                      BackgroundColor="White">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <renders:ExtendedViewCell SelectedBackgroundColor="{StaticResource MaxVonWhite}">
@@ -652,7 +652,8 @@
                                 HeightRequest="30"
                                 Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconDown.png}" 
                                 x:Name="vehiModelArrow"
-                                Clicked="vehModelPicker_Tapped"/>
+                                Clicked="vehModelPicker_Tapped"
+                                />
                             <ListView x:Name="vehicleModelList"
                                       Grid.Row="2"
                                       SeparatorVisibility="None"
@@ -660,7 +661,7 @@
                                       HasUnevenRows="False"
                                       IsVisible="false"
                                       RowHeight="35"
-                                      >
+                                      BackgroundColor="White">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <renders:ExtendedViewCell SelectedBackgroundColor="{StaticResource MaxVonWhite}">
@@ -762,7 +763,7 @@
                                       HasUnevenRows="False"
                                       IsVisible="false"
                                       RowHeight="35"
-                                      >
+                                      BackgroundColor="White">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <renders:ExtendedViewCell SelectedBackgroundColor="{StaticResource MaxVonWhite}">
@@ -864,7 +865,7 @@
                                       HasUnevenRows="False"
                                       IsVisible="false"
                                       RowHeight="35"
-                                      >
+                                      BackgroundColor="White">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <renders:ExtendedViewCell SelectedBackgroundColor="{StaticResource MaxVonWhite}">

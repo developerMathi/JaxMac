@@ -530,6 +530,7 @@
                         </Grid>
 
                         <Frame
+                            BackgroundColor="White"
                             Grid.Row="2"
                             Padding="0"
                             BorderColor="{StaticResource MaxVonBlack}"
@@ -927,6 +928,7 @@
                                     Color="{StaticResource MaxVonGray}" />
 
                                 <ListView
+                                    BackgroundColor="White"
                                     x:Name="RateListSelectLabel"
                                     Grid.Row="1"
                                     RowHeight="65"
@@ -1113,6 +1115,7 @@
 
 
                                 <ListView
+                                    BackgroundColor="White"
                                     x:Name="RateList"
                                     Grid.Row="2"
                                     RowHeight="65"
@@ -1976,6 +1979,7 @@
 
 
                                             <renders:CustomEntry
+                                                BackgroundColor="Transparent"
                                                 x:Name="promoCodeEntry"
                                                 Grid.Column="1"
                                                 Margin="0,0,0,0"
@@ -2096,7 +2100,7 @@
                                 </Label>
 
 
-                                <ListView
+                                <ListView BackgroundColor="Transparent"
                                     x:Name="taxList"
                                     Grid.Row="6"
                                     RowHeight="65"

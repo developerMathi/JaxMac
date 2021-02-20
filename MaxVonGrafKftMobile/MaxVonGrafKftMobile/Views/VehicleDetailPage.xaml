@@ -598,7 +598,8 @@
                                    Grid.Column="0"
                                    HorizontalOptions="Start"
                                    VerticalOptions="Center"
-                                   FontFamily="Roboto-Bold">
+                                   FontFamily="Roboto-Bold"
+                                   TextColor="Black">
                                 <Label.FontSize>
                                     <OnPlatform x:TypeArguments="x:Double">
                                         <On Platform="iOS">
@@ -640,7 +641,8 @@
                                    Grid.Column="3"
                                    HorizontalOptions="Start"
                                    VerticalOptions="Center"
-                                   FontFamily="Roboto-Bold">
+                                   FontFamily="Roboto-Bold"
+                                   TextColor="Black">
                                 <Label.FontSize>
                                     <OnPlatform x:TypeArguments="x:Double">
                                         <On Platform="iOS">
@@ -686,7 +688,24 @@
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="45"></RowDefinition>
+                                <RowDefinition >
+                                     <RowDefinition.Height>
+                        <OnPlatform x:TypeArguments="GridLength">
+                            <On Platform="iOS">
+                                <OnIdiom
+                                    x:TypeArguments="GridLength"
+                                    Phone="0"
+                                    Tablet="0" />
+                            </On>
+                            <On Platform="Android,Windows">
+                                <OnIdiom
+                                    x:TypeArguments="GridLength"
+                                    Phone="45"
+                                    Tablet="45" />
+                            </On>
+                        </OnPlatform>
+                    </RowDefinition.Height>
+                                </RowDefinition>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="4*"/>
@@ -727,7 +746,7 @@
                                     BackgroundColor="White"
                                     FontFamily="Roboto-Medium"
                                    VerticalOptions="Center" 
-                                   HorizontalOptions="Center"
+                                   HorizontalOptions="FillAndExpand"
                                     Padding="5"
                                     Margin="5"
                                     HeightRequest="35"
@@ -735,7 +754,8 @@
                                     CornerRadius="10"
                                     BorderWidth="2"
                                     Grid.Column="1"
-                                    Clicked="btnFilter_Tapped">
+                                    Clicked="btnFilter_Tapped"
+                                    TextColor="Black">
                                 <Button.FontSize>
                                     <OnPlatform x:TypeArguments="x:Double">
                                         <On Platform="iOS">
@@ -759,7 +779,7 @@
                                     BackgroundColor="White"
                                     FontFamily="Roboto-Medium"
                                    VerticalOptions="Center" 
-                                   HorizontalOptions="Center"
+                                   HorizontalOptions="FillAndExpand"
                                     Padding="5"
                                     HeightRequest="35"
                                     BorderColor="{StaticResource MaxVonRed}"
@@ -767,7 +787,8 @@
                                     BorderWidth="2"
                                     Grid.Column="2"
                                     x:Name="resetFilter"
-                                    Clicked="resetFilter_Clicked">
+                                    Clicked="resetFilter_Clicked"
+                                    TextColor="Black">
                                 <Button.FontSize>
                                     <OnPlatform x:TypeArguments="x:Double">
                                         <On Platform="iOS">
@@ -797,6 +818,7 @@
                                          Clicked="filterDetailLabel_Tapped">
                             </ImageButton>
                             <ContentView Grid.Row="1" HeightRequest="40" Grid.ColumnSpan="4" VerticalOptions="Start">
+                                <StackLayout>
                             <CarouselView x:Name="filterList" HorizontalOptions="StartAndExpand" PeekAreaInsets="110" >
                                 <CarouselView.ItemsLayout>
                                     <LinearItemsLayout Orientation="Horizontal"
@@ -804,6 +826,7 @@
                                 </CarouselView.ItemsLayout>
                                 <CarouselView.ItemTemplate >
                                     <DataTemplate>
+                                        <StackLayout>
                                         <Frame HasShadow="False"
                                                Margin="10,0,10,0"
                                                         Padding="2"
@@ -854,10 +877,12 @@
 
                                             </Grid>
                                         </Frame>
+                                            </StackLayout>
                                         
                                     </DataTemplate>
                                 </CarouselView.ItemTemplate>
                             </CarouselView>
+                                    </StackLayout>
                         </ContentView>
                             <BoxView Grid.Row="1"
                                      Grid.ColumnSpan="4"
@@ -925,7 +950,7 @@
                                     BackgroundColor="White"
                                     FontFamily="Roboto-Medium"
                                    VerticalOptions="Center" 
-                                   HorizontalOptions="Center" 
+                                   HorizontalOptions="FillAndExpand" 
                                     Padding="5"
                                     HeightRequest="35"
                                     BorderColor="{StaticResource MaxVonRed}"
@@ -933,7 +958,8 @@
                                     BorderWidth="2"
                                     Grid.Column="2"
                                     x:Name="resetsort"
-                                    Clicked="resetsort_Clicked">
+                                    Clicked="resetsort_Clicked"
+                                    TextColor="Black">
                                 <Button.FontSize>
                                     <OnPlatform x:TypeArguments="x:Double">
                                         <On Platform="iOS">
@@ -999,7 +1025,8 @@
                                                    TextColor="{StaticResource MaxVonBlack}"
                                                    Value="0"
                                                     FontFamily="Roboto-Medium"
-                                                   x:Name="lthSortbtn">
+                                                   x:Name="lthSortbtn"
+                                                   Color="Black">
                                     <input:RadioButton.TextFontSize>
                                         <OnPlatform x:TypeArguments="x:Double">
                                             <On Platform="iOS">
@@ -1019,7 +1046,8 @@
                                                    TextColor="{StaticResource MaxVonBlack}"
                                                    Value="1"
                                                     FontFamily="Roboto-Medium"
-                                                   x:Name="htlSortbtn">
+                                                   x:Name="htlSortbtn"
+                                                   Color="Black">
                                     <input:RadioButton.TextFontSize>
                                         <OnPlatform x:TypeArguments="x:Double">
                                             <On Platform="iOS">
@@ -1050,7 +1078,7 @@
                     
                     <Grid Grid.Row="3" Margin="20,0,15,20">
 
-                        <ListView
+                        <ListView BackgroundColor="White"
                                     HasUnevenRows="True"
                                     x:Name="vehicleDetailList"
                                     IsPullToRefreshEnabled="True"

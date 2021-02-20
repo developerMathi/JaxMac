@@ -26,7 +26,8 @@
                 Aspect="AspectFit"
                 HorizontalOptions="FillAndExpand"
                 Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconSilverCar.png}"
-                VerticalOptions="FillAndExpand" />
+                VerticalOptions="FillAndExpand"
+                HeightRequest="150"/>
         </StackLayout>
 
 
