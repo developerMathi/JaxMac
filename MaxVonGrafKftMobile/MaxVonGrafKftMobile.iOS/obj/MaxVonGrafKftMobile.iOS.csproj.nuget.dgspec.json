@@ -1,21 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile.iOS/MaxVonGrafKftMobile.iOS.csproj": {}
+    "/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile.iOS/MaxVonGrafKftMobile.iOS.csproj": {}
   },
   "projects": {
-    "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile.iOS/MaxVonGrafKftMobile.iOS.csproj": {
+    "/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile.iOS/MaxVonGrafKftMobile.iOS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile.iOS/MaxVonGrafKftMobile.iOS.csproj",
+        "projectUniqueName": "/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile.iOS/MaxVonGrafKftMobile.iOS.csproj",
         "projectName": "MaxVonGrafKftMobile.iOS",
-        "projectPath": "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile.iOS/MaxVonGrafKftMobile.iOS.csproj",
-        "packagesPath": "/Users/navotar/.nuget/packages/",
-        "outputPath": "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile.iOS/obj/",
+        "projectPath": "/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile.iOS/MaxVonGrafKftMobile.iOS.csproj",
+        "packagesPath": "/Users/mathi_navotar/.nuget/packages/",
+        "outputPath": "/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile.iOS/obj/",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [
-          "/Users/navotar/.config/NuGet/NuGet.Config"
+          "/Users/mathi_navotar/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "xamarinios10"
@@ -26,8 +26,8 @@
         "frameworks": {
           "xamarinios10": {
             "projectReferences": {
-              "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile/MaxVonGrafKftMobile.csproj": {
-                "projectPath": "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile/MaxVonGrafKftMobile.csproj"
+              "/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile/MaxVonGrafKftMobile.csproj": {
+                "projectPath": "/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile/MaxVonGrafKftMobile.csproj"
               }
             }
           }
@@ -167,17 +167,17 @@
         }
       }
     },
-    "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile/MaxVonGrafKftMobile.csproj": {
+    "/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile/MaxVonGrafKftMobile.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile/MaxVonGrafKftMobile.csproj",
+        "projectUniqueName": "/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile/MaxVonGrafKftMobile.csproj",
         "projectName": "MaxVonGrafKftMobile",
-        "projectPath": "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile/MaxVonGrafKftMobile.csproj",
-        "packagesPath": "/Users/navotar/.nuget/packages/",
-        "outputPath": "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile/obj/",
+        "projectPath": "/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile/MaxVonGrafKftMobile.csproj",
+        "packagesPath": "/Users/mathi_navotar/.nuget/packages/",
+        "outputPath": "/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/navotar/.config/NuGet/NuGet.Config"
+          "/Users/mathi_navotar/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
@@ -187,9 +187,10 @@
         },
         "frameworks": {
           "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
             "projectReferences": {
-              "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobileController/MaxVonGrafKftMobileController.csproj": {
-                "projectPath": "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobileController/MaxVonGrafKftMobileController.csproj"
+              "/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobileController/MaxVonGrafKftMobileController.csproj": {
+                "projectPath": "/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobileController/MaxVonGrafKftMobileController.csproj"
               }
             }
           }
@@ -202,6 +203,7 @@
       },
       "frameworks": {
         "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
           "dependencies": {
             "CardsView": {
               "target": "Package",
@@ -320,91 +322,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.402/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.103/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobileController/MaxVonGrafKftMobileController.csproj": {
+    "/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobileController/MaxVonGrafKftMobileController.csproj": {
       "restore": {
-        "projectUniqueName": "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobileController/MaxVonGrafKftMobileController.csproj",
+        "projectUniqueName": "/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobileController/MaxVonGrafKftMobileController.csproj",
         "projectName": "MaxVonGrafKftMobileController",
-        "projectPath": "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobileController/MaxVonGrafKftMobileController.csproj",
-        "packagesPath": "/Users/navotar/.nuget/packages/",
+        "projectPath": "/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobileController/MaxVonGrafKftMobileController.csproj",
+        "packagesPath": "/Users/mathi_navotar/.nuget/packages/",
         "projectStyle": "PackagesConfig",
         "configFilePaths": [
-          "/Users/navotar/.config/NuGet/NuGet.Config"
+          "/Users/mathi_navotar/.config/NuGet/NuGet.Config"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
-        "frameworks": {
-          "net461": {
-            "projectReferences": {
-              "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobileModel/MaxVonGrafKftMobileModel.csproj": {
-                "projectPath": "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobileModel/MaxVonGrafKftMobileModel.csproj"
-              },
-              "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobileServices/MaxVonGrafKftMobileServices.csproj": {
-                "projectPath": "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobileServices/MaxVonGrafKftMobileServices.csproj"
-              }
-            }
-          }
-        },
-        "packagesConfigPath": "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobileController/packages.config"
-      },
-      "frameworks": {
-        "net461": {}
-      }
-    },
-    "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobileModel/MaxVonGrafKftMobileModel.csproj": {
-      "restore": {
-        "projectUniqueName": "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobileModel/MaxVonGrafKftMobileModel.csproj",
-        "projectName": "MaxVonGrafKftMobileModel",
-        "projectPath": "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobileModel/MaxVonGrafKftMobileModel.csproj",
-        "packagesPath": "/Users/navotar/.nuget/packages/",
-        "projectStyle": "PackagesConfig",
-        "configFilePaths": [
-          "/Users/navotar/.config/NuGet/NuGet.Config"
-        ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net461": {
-            "projectReferences": {}
-          }
-        },
-        "packagesConfigPath": "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobileModel/packages.config"
-      },
-      "frameworks": {
-        "net461": {}
-      }
-    },
-    "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobileServices/MaxVonGrafKftMobileServices.csproj": {
-      "restore": {
-        "projectUniqueName": "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobileServices/MaxVonGrafKftMobileServices.csproj",
-        "projectName": "MaxVonGrafKftMobileServices",
-        "projectPath": "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobileServices/MaxVonGrafKftMobileServices.csproj",
-        "packagesPath": "/Users/navotar/.nuget/packages/",
-        "projectStyle": "PackagesConfig",
-        "configFilePaths": [
-          "/Users/navotar/.config/NuGet/NuGet.Config"
-        ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net461": {
-            "projectReferences": {
-              "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobileModel/MaxVonGrafKftMobileModel.csproj": {
-                "projectPath": "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobileModel/MaxVonGrafKftMobileModel.csproj"
-              }
-            }
-          }
-        },
-        "packagesConfigPath": "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobileServices/packages.config"
-      },
-      "frameworks": {
-        "net461": {}
+        "packagesConfigPath": "/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobileController/packages.config"
       }
     }
   }

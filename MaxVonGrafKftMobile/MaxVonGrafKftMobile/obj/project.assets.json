@@ -417,36 +417,11 @@
       },
       "MaxVonGrafKftMobileController/1.0.0": {
         "type": "project",
-        "dependencies": {
-          "MaxVonGrafKftMobileModel": "1.0.0",
-          "MaxVonGrafKftMobileServices": "1.0.0"
-        },
         "compile": {
           "bin/placeholder/MaxVonGrafKftMobileController.dll": {}
         },
         "runtime": {
           "bin/placeholder/MaxVonGrafKftMobileController.dll": {}
-        }
-      },
-      "MaxVonGrafKftMobileModel/1.0.0": {
-        "type": "project",
-        "compile": {
-          "bin/placeholder/MaxVonGrafKftMobileModel.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/MaxVonGrafKftMobileModel.dll": {}
-        }
-      },
-      "MaxVonGrafKftMobileServices/1.0.0": {
-        "type": "project",
-        "dependencies": {
-          "MaxVonGrafKftMobileModel": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/MaxVonGrafKftMobileServices.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/MaxVonGrafKftMobileServices.dll": {}
         }
       }
     }
@@ -2046,16 +2021,6 @@
       "type": "project",
       "path": "../../MaxVonGrafKftMobileController/MaxVonGrafKftMobileController.csproj",
       "msbuildProject": "../../MaxVonGrafKftMobileController/MaxVonGrafKftMobileController.csproj"
-    },
-    "MaxVonGrafKftMobileModel/1.0.0": {
-      "type": "project",
-      "path": "../../MaxVonGrafKftMobileModel/MaxVonGrafKftMobileModel.csproj",
-      "msbuildProject": "../../MaxVonGrafKftMobileModel/MaxVonGrafKftMobileModel.csproj"
-    },
-    "MaxVonGrafKftMobileServices/1.0.0": {
-      "type": "project",
-      "path": "../../MaxVonGrafKftMobileServices/MaxVonGrafKftMobileServices.csproj",
-      "msbuildProject": "../../MaxVonGrafKftMobileServices/MaxVonGrafKftMobileServices.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -2090,19 +2055,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/navotar/.nuget/packages/": {}
+    "/Users/mathi_navotar/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile/MaxVonGrafKftMobile.csproj",
+      "projectUniqueName": "/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile/MaxVonGrafKftMobile.csproj",
       "projectName": "MaxVonGrafKftMobile",
-      "projectPath": "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile/MaxVonGrafKftMobile.csproj",
-      "packagesPath": "/Users/navotar/.nuget/packages/",
-      "outputPath": "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile/obj/",
+      "projectPath": "/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile/MaxVonGrafKftMobile.csproj",
+      "packagesPath": "/Users/mathi_navotar/.nuget/packages/",
+      "outputPath": "/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/navotar/.config/NuGet/NuGet.Config"
+        "/Users/mathi_navotar/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
@@ -2112,9 +2077,10 @@
       },
       "frameworks": {
         "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
           "projectReferences": {
-            "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobileController/MaxVonGrafKftMobileController.csproj": {
-              "projectPath": "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobileController/MaxVonGrafKftMobileController.csproj"
+            "/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobileController/MaxVonGrafKftMobileController.csproj": {
+              "projectPath": "/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobileController/MaxVonGrafKftMobileController.csproj"
             }
           }
         }
@@ -2127,6 +2093,7 @@
     },
     "frameworks": {
       "netstandard2.0": {
+        "targetAlias": "netstandard2.0",
         "dependencies": {
           "CardsView": {
             "target": "Package",
@@ -2245,7 +2212,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.402/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.103/RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1659,36 +1659,11 @@
       },
       "MaxVonGrafKftMobileController/1.0.0": {
         "type": "project",
-        "dependencies": {
-          "MaxVonGrafKftMobileModel": "1.0.0",
-          "MaxVonGrafKftMobileServices": "1.0.0"
-        },
         "compile": {
           "bin/placeholder/MaxVonGrafKftMobileController.dll": {}
         },
         "runtime": {
           "bin/placeholder/MaxVonGrafKftMobileController.dll": {}
-        }
-      },
-      "MaxVonGrafKftMobileModel/1.0.0": {
-        "type": "project",
-        "compile": {
-          "bin/placeholder/MaxVonGrafKftMobileModel.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/MaxVonGrafKftMobileModel.dll": {}
-        }
-      },
-      "MaxVonGrafKftMobileServices/1.0.0": {
-        "type": "project",
-        "dependencies": {
-          "MaxVonGrafKftMobileModel": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/MaxVonGrafKftMobileServices.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/MaxVonGrafKftMobileServices.dll": {}
         }
       }
     }
@@ -4215,16 +4190,6 @@
       "type": "project",
       "path": "../../MaxVonGrafKftMobileController/MaxVonGrafKftMobileController.csproj",
       "msbuildProject": "../../MaxVonGrafKftMobileController/MaxVonGrafKftMobileController.csproj"
-    },
-    "MaxVonGrafKftMobileModel/1.0.0": {
-      "type": "project",
-      "path": "../../MaxVonGrafKftMobileModel/MaxVonGrafKftMobileModel.csproj",
-      "msbuildProject": "../../MaxVonGrafKftMobileModel/MaxVonGrafKftMobileModel.csproj"
-    },
-    "MaxVonGrafKftMobileServices/1.0.0": {
-      "type": "project",
-      "path": "../../MaxVonGrafKftMobileServices/MaxVonGrafKftMobileServices.csproj",
-      "msbuildProject": "../../MaxVonGrafKftMobileServices/MaxVonGrafKftMobileServices.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -4261,20 +4226,20 @@
     ]
   },
   "packageFolders": {
-    "/Users/navotar/.nuget/packages/": {}
+    "/Users/mathi_navotar/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile.Android/MaxVonGrafKftMobile.Android.csproj",
+      "projectUniqueName": "/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile.Android/MaxVonGrafKftMobile.Android.csproj",
       "projectName": "MaxVonGrafKftMobile.Android",
-      "projectPath": "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile.Android/MaxVonGrafKftMobile.Android.csproj",
-      "packagesPath": "/Users/navotar/.nuget/packages/",
-      "outputPath": "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile.Android/obj/",
+      "projectPath": "/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile.Android/MaxVonGrafKftMobile.Android.csproj",
+      "packagesPath": "/Users/mathi_navotar/.nuget/packages/",
+      "outputPath": "/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile.Android/obj/",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "/Users/navotar/.config/NuGet/NuGet.Config"
+        "/Users/mathi_navotar/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "monoandroid90"
@@ -4285,8 +4250,8 @@
       "frameworks": {
         "monoandroid90": {
           "projectReferences": {
-            "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile/MaxVonGrafKftMobile.csproj": {
-              "projectPath": "/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile/MaxVonGrafKftMobile.csproj"
+            "/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile/MaxVonGrafKftMobile.csproj": {
+              "projectPath": "/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile/MaxVonGrafKftMobile.csproj"
             }
           }
         }
