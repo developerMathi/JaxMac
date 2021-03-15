@@ -1,6 +1,0 @@
-/Users/mathi_navotar/Projects/JaxMac/MobileControllers/bin/Debug/MobileControllers.dll
-/Users/mathi_navotar/Projects/JaxMac/MobileControllers/bin/Debug/MobileControllers.pdb
-/Users/mathi_navotar/Projects/JaxMac/MobileControllers/obj/Debug/MobileControllers.csprojAssemblyReference.cache
-/Users/mathi_navotar/Projects/JaxMac/MobileControllers/obj/Debug/MobileControllers.csproj.CoreCompileInputs.cache
-/Users/mathi_navotar/Projects/JaxMac/MobileControllers/obj/Debug/MobileControllers.dll
-/Users/mathi_navotar/Projects/JaxMac/MobileControllers/obj/Debug/MobileControllers.pdb

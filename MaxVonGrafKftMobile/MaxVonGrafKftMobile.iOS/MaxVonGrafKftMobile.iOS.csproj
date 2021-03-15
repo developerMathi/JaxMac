@@ -320,6 +320,14 @@
     <BundleResource Include="Resources\ic_visa.png" />
     <BundleResource Include="Resources\IconRedchat.png" />
     <BundleResource Include="Resources\IconRedfolder.png" />
+    <BundleResource Include="Resources\IconRedchat64.png" />
+    <BundleResource Include="Resources\IconRedchat64%403x.png" />
+    <BundleResource Include="Resources\IconRedchat64%402x.png" />
+    <BundleResource Include="Resources\IconeRedFolder.png" />
+    <BundleResource Include="Resources\IconeRedFolder%402x.png" />
+    <BundleResource Include="Resources\IconeRedFolder%403x.png" />
+    <BundleResource Include="Resources\IconRedChat%402x.png" />
+    <BundleResource Include="Resources\IconRedChat%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\rental.png" />

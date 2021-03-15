@@ -23,14 +23,14 @@
         x:Name="bookingPage"
         Title="Book Now"
         IconImageSource="iconRedCar.png"/>
-    <views:MyProfile
+    <views:MyDouments
         x:Name="MembershipScreen"
         Title="Documents"
-        IconImageSource="IconRedfolder.png"/>
+        IconImageSource="IconeRedFolder.png"/>
     <views:ChatListPage
         x:Name="AcountPage"
         Title="Chat"
-        IconImageSource="IconRedchat.png"/>
+        IconImageSource="IconRedChat.png"/>
 
   
 </TabbedPage>

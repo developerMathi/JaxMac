@@ -1123,7 +1123,7 @@
                                 Grid.Row="4"
                                 Grid.Column="0"
                                 Grid.ColumnSpan="2"
-                                IsVisible="false">
+                                IsVisible="true">
                                     <Label
                                     IsVisible="false"
                                     Margin="10,0,0,0"
@@ -1143,7 +1143,7 @@
                                     Margin="10,10,0,0"
                                     FontFamily="Roboto-Medium"
                                     FontSize="Large"
-                                    Text="Daily extentions available for booking."
+                                    Text="Rental extensions available in 1 day increments."
                                     TextColor="{StaticResource MaxVonBlack}"
                                     Unfocused="pickUpLocation_Unfocused" />
                                 </StackLayout>

@@ -1,8 +1,0 @@
-/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobileModel/bin/Debug/MaxVonGrafKftMobileModel.dll.config
-/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobileModel/bin/Debug/MaxVonGrafKftMobileModel.dll
-/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobileModel/bin/Debug/MaxVonGrafKftMobileModel.pdb
-/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobileModel/obj/Debug/MaxVonGrafKftMobileModel.csprojAssemblyReference.cache
-/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobileModel/obj/Debug/MaxVonGrafKftMobileModel.csproj.CoreCompileInputs.cache
-/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobileModel/obj/Debug/XamlC.stamp
-/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobileModel/obj/Debug/MaxVonGrafKftMobileModel.dll
-/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobileModel/obj/Debug/MaxVonGrafKftMobileModel.pdb

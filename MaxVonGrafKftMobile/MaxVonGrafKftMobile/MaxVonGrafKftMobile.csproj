@@ -172,9 +172,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Remove="App.xaml" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Assets\iconChat.png" />
     <EmbeddedResource Include="Assets\iconDelete.png" />
   </ItemGroup>
