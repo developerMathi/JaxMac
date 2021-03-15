@@ -38,7 +38,8 @@ namespace MaxVonGrafKftMobile.Views
             PortalDetailsMobileResponse = null;
 
             BindingContext = new HomePageMasterViewModel();
-            if(Constants.cutomerAuthContext!= null){
+            if (Constants.cutomerAuthContext != null)
+            {
                 welcomeText.Text = "Welcome " + Constants.cutomerAuthContext.FirstName;
             }
             ListView = MenuItemsListView;
@@ -54,7 +55,7 @@ namespace MaxVonGrafKftMobile.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            if(Constants.customerDetails != null)
+            if (Constants.customerDetails != null)
             {
                 welcomeText.Text = "Welcome " + Constants.customerDetails.FirstName;
 
@@ -64,7 +65,7 @@ namespace MaxVonGrafKftMobile.Views
                 }
                 else
                 {
-                    if (Constants.customerDetails.CustomerImages.Count>0)
+                    if (Constants.customerDetails.CustomerImages.Count > 0)
                     {
                         if (Constants.customerDetails.CustomerImages[Constants.customerDetails.CustomerImages.Count - 1].Base64 != null)
                         {
@@ -129,10 +130,10 @@ namespace MaxVonGrafKftMobile.Views
                     new HomePageMasterMenuItem { Id = 0,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("MaxVonGrafKftMobile.Assets.iconWhiteDashboard.png"),  Title = "Home" },
                     new HomePageMasterMenuItem { Id = 1,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("MaxVonGrafKftMobile.Assets.iconWhiteCar.png"), Title = "Book Now" },
                     //new HomePageMasterMenuItem { Id = 2,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("MaxVonGrafKftMobile.Assets.iconWhiteRental.png"), Title = "My Rentals " },
-                    new HomePageMasterMenuItem { Id = 5,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("MaxVonGrafKftMobile.Assets.iconWhiteUser.png"), Title = "Profile" },
+                    new HomePageMasterMenuItem { Id = 5,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("MaxVonGrafKftMobile.Assets.iconWhiteUser.png"), Title = "Profile & Settings" },
+                    new HomePageMasterMenuItem { Id = 7,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("MaxVonGrafKftMobile.Assets.iconsDocument.png"), Title = "My Documents" },
                     new HomePageMasterMenuItem { Id = 3,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("MaxVonGrafKftMobile.Assets.iconWhitePayment.png"), Title = "Payment Method" },
                     new HomePageMasterMenuItem { Id = 4,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("MaxVonGrafKftMobile.Assets.iconWhiteHelp.png"), Title = "Help" },
-                    new HomePageMasterMenuItem { Id = 7,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("MaxVonGrafKftMobile.Assets.iconsDocument.png"), Title = "My Documents" },
                     new HomePageMasterMenuItem { Id = 8,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("MaxVonGrafKftMobile.Assets.iconChat.png"), Title = "Chat" },
                     new HomePageMasterMenuItem { Id = 6,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("MaxVonGrafKftMobile.Assets.iconWhiteLogout.png"), Title = "Log Out" },
                   
@@ -155,7 +156,7 @@ namespace MaxVonGrafKftMobile.Views
 
         private void MenuItemsListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            var item =MenuItemsListView.SelectedItem  as HomePageMasterMenuItem;
+            var item = MenuItemsListView.SelectedItem as HomePageMasterMenuItem;
             if (item == null)
                 return;
             else if (item.Id == 0)

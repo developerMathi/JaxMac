@@ -29,6 +29,8 @@ namespace MaxVonGrafKftMobile.Views
         public static CustomerImages licBackIamgeStat;
         AddLicenceImagesRequest LicenceImagesRequest;
         AddLicenceImageResponse licenceImageResponse;
+        ConfirmEmailAddressRequest confirmEmailAddressRequest;
+        ConfirmEmailAddressResponse emailAddressResponse;
 
         public OtherInformationPage(CustomerReview customer, CustomerImages images)
         {
@@ -53,6 +55,8 @@ namespace MaxVonGrafKftMobile.Views
             LicenceImagesRequest = new AddLicenceImagesRequest();
             licenceImageResponse = null;
             customer.CustomerType = "Retail";
+            confirmEmailAddressRequest = new ConfirmEmailAddressRequest();
+            emailAddressResponse = null;
 
         }
 
@@ -150,7 +154,7 @@ namespace MaxVonGrafKftMobile.Views
                             }
 
                             RegisterController registerController = new RegisterController();
-                            customerID = registerController.registerUser(customer, _token);
+                            customerID = registerController.registerUser( customer, _token);
                             if (images != null && customerID > 0)
                             {
                                 imageMobileRequest.custImag.CustomerID = customerID;
@@ -162,6 +166,11 @@ namespace MaxVonGrafKftMobile.Views
                             }
                             if (customerID > 0)
                             {
+                                confirmEmailAddressRequest.ClientId = Constants.ClientId;
+                                confirmEmailAddressRequest.CustomerId = customerID;
+                                confirmEmailAddressRequest.Email = customer.Email;
+
+
                                 if (licfrontIamgeStat.Base64 != null || licBackIamgeStat.Base64 != null)
                                 {
                                     if (licfrontIamgeStat.Base64 != null)
@@ -185,6 +194,7 @@ namespace MaxVonGrafKftMobile.Views
                                     try
                                     {
                                         licenceImageResponse = registerController.addLicenceImage(LicenceImagesRequest, _token);
+                                        emailAddressResponse = ConfirmEmailAddress(confirmEmailAddressRequest);
 
                                     }
                                     catch (Exception ex)
@@ -205,11 +215,12 @@ namespace MaxVonGrafKftMobile.Views
                 if (customerID > 0)
                 {
                     Constants.IsRegisteredandNotLogin = true;
-                    await PopupNavigation.Instance.PushAsync(new SavedSuccessfullyPopup());
+                    Constants.cutomerAuthContext = new CutomerAuthContext() { CustomerEmail = customer.Email, CustomerId = customerID };
+                    await PopupNavigation.Instance.PushAsync(new SavedSuccessfullyPopup(customerID));
                 }
                 else
                 {
-                    await PopupNavigation.Instance.PushAsync(new Error_popup("Registration failed.Please try again"));
+                    await PopupNavigation.Instance.PushAsync(new Error_popup("Registration failed. Please try again"));
                 }
 
 
@@ -282,5 +293,15 @@ namespace MaxVonGrafKftMobile.Views
         //    MessagingCenter.Unsubscribe<AddCustomerPhotoPopup>(this, "LicenceFrontImageAdded");
         //    MessagingCenter.Unsubscribe<AddCustomerPhotoPopup>(this, "LicenceBackImageAdded");
         //}
+
+        private ConfirmEmailAddressResponse ConfirmEmailAddress(ConfirmEmailAddressRequest confirmEmailAddressRequest)
+        {
+            ConfirmEmailAddressResponse response = null;
+            LoginController controller = new LoginController();
+
+            response = controller.ConfirmEmailAddress(confirmEmailAddressRequest, _token);
+            return response;
+
+        }
     }
 }

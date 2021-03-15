@@ -144,7 +144,7 @@ namespace MaxVonGrafKftMobile.Views
                             CheckOutLocation.Text = agreement.AgreementDetail.CheckinLocationName;
                             CheckOutDate.Text = agreement.AgreementDetail.CheckinDate.ToString("MM/dd/yyyy hh:mm tt");
                             CreateDate.Text = ((DateTime)agreement.AgreementDetail.CreatedDate).ToString("dddd, MM/dd/yyyy");
-                            vehicleEntry.Text = agreement.AgreementDetail.VehicleMakeName + " " + agreement.AgreementDetail.ModelName + " " + agreement.AgreementDetail.Year;
+                            vehicleEntry.Text = agreement.AgreementDetail.Year + " " + agreement.AgreementDetail.VehicleMakeName + " " + agreement.AgreementDetail.ModelName;
                             VehicleType.Text = agreement.AgreementDetail.VehicleType;
                             licenceNoEntry.Text = agreement.AgreementDetail.LicenseNo;
                             if (AgreementByAgreementIdMobileResponse.agreementVehicle != null)

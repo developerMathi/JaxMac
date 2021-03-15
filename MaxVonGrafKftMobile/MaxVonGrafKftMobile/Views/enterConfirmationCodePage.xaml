@@ -143,7 +143,8 @@
                                     FontFamily="Roboto-Medium"
                                     FontSize="Medium"
                                     PlaceholderColor="{StaticResource MaxVonBlack}"
-                                    TextColor="{StaticResource MaxVonBlack}" >
+                                    TextColor="{StaticResource MaxVonBlack}"
+                        Keyboard="Numeric">
                         <renders:CustomEntry.BackgroundColor>
                             <OnPlatform x:TypeArguments="Color">
                                 <On Platform="iOS">
@@ -155,7 +156,7 @@
                         </renders:CustomEntry.BackgroundColor>
 
                         <Entry.Behaviors>
-                            <renders:MaskedBehavior Mask="J - X X X X X X X X" />
+                            <renders:MaskedBehavior Mask="X X X X X X X X" />
                         </Entry.Behaviors>
                     </renders:CustomEntry>
                 </Frame>

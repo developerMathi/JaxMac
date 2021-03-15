@@ -325,12 +325,12 @@ namespace MaxVonGrafKftMobile.Views
                                         {
                                             statusLabel.Text = "Active";
                                         }
-                                        vehicleNameLabel.Text = agreement.AgreementDetail.VehicleMakeName + " " + agreement.AgreementDetail.ModelName + " " + agreement.AgreementDetail.Year;
+                                        vehicleNameLabel.Text = agreement.AgreementDetail.Year + " " + agreement.AgreementDetail.VehicleMakeName + " " + agreement.AgreementDetail.ModelName ;
                                         VehicleTypeLabel.Text = agreement.AgreementDetail.VehicleType;
                                         seatsCount.Text = agreementIdMobileResponse.agreementVehicle.Seats;
                                         bagsCount.Text = agreementIdMobileResponse.agreementVehicle.Baggages.ToString();
                                         TransType.Text = agreementIdMobileResponse.agreementVehicle.Transmission;
-                                        totalAmountLabel.Text = "$" + ((decimal)agreement.AgreementTotal.TotalAmount).ToString("0.00");
+                                        totalAmountLabel.Text = "Days: " + agreement.AgreementDetail.TotalDays.ToString();
                                         pickUpLocationLabel.Text = agreement.AgreementDetail.CheckoutLocationName;
                                         pickUpDateLabel.Text = agreement.AgreementDetail.CheckoutDate.ToString("dddd, dd MMMM yyyy hh:mm tt");
                                         dropOffLocationLabel.Text = agreement.AgreementDetail.CheckinLocationName;
@@ -749,6 +749,26 @@ namespace MaxVonGrafKftMobile.Views
 
         private void btnChat_Tapped(object sender, EventArgs e)
         {
+
+        }
+
+        void extendBtn_Clicked(System.Object sender, System.EventArgs e)
+        {
+            if (isreservation)
+            {
+                PopupNavigation.Instance.PushAsync(new Popups.ExtendPopup(reservationByIDMobileResponse.reservationData));
+            }
+            else if (isAgreement)
+            {
+
+                agreementIdMobileResponse.custAgreement.AgreementDetail.RateDetailsList = agreementIdMobileResponse.custAgreement.RateDetailsList;
+                agreementIdMobileResponse.custAgreement.AgreementDetail.AgreementInsurance = agreementIdMobileResponse.custAgreement.AgreementInsuranceReview;
+                agreementIdMobileResponse.custAgreement.AgreementDetail.vehicleResponse = new GetVehicleIdByCodeResponse();
+                agreementIdMobileResponse.custAgreement.AgreementDetail.vehicleResponse.VehicleID = agreementIdMobileResponse.agreementVehicle.VehicleId.ToString();
+                int locationIdForPayment = Convert.ToInt32(agreementIdMobileResponse.custAgreement.AgreementDetail.RateLocation);
+
+                PopupNavigation.Instance.PushAsync(new Popups.ExtendPopup(agreementIdMobileResponse.custAgreement.AgreementDetail, locationIdForPayment));
+            }
 
         }
     }

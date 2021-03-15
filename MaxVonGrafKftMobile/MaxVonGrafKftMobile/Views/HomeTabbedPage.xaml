@@ -17,19 +17,20 @@
     <views:HomePageDetail
         x:Name="Dashboard"
         Title="Home"
-        IconImageSource="iconRedDashboard.png"/>
+        IconImageSource="iconRedDashboard.png"
+        HeightRequest="30"/>
     <views:VehicleDetailPage
         x:Name="bookingPage"
         Title="Book Now"
         IconImageSource="iconRedCar.png"/>
     <views:MyProfile
         x:Name="MembershipScreen"
-        Title="Profile"
-        IconImageSource="iconRedUser.png"/>
-    <views:HelpFunnelPage
+        Title="Documents"
+        IconImageSource="IconRedfolder.png"/>
+    <views:ChatListPage
         x:Name="AcountPage"
-        Title="Help"
-        IconImageSource="iconRedHelp.png"/>
+        Title="Chat"
+        IconImageSource="IconRedchat.png"/>
 
   
 </TabbedPage>

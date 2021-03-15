@@ -39,7 +39,6 @@ namespace MaxVonGrafKftMobile.Views
             //BacKBtn.ImageSource = ImageSource.FromResource("MaxVonGrafKftMobile.Assets.backicon.png", assembly);
             //PhotoBtn.ImageSource = ImageSource.FromResource("MaxVonGrafKftMobile.Assets.cameraIcon.png", assembly);
 
-            FirstNameEntry.Keyboard = Keyboard.Create(KeyboardFlags.CapitalizeSentence);
 
 
 
@@ -248,7 +247,15 @@ namespace MaxVonGrafKftMobile.Views
             customer.FirstName = FirstNameEntry.Text;
             customer.LastName = LastNameEntry.Text;
             customer.DateOfbirth = DateOfBithEntry.Date;
-            customer.Address1 = AddressEntry.Text;
+            if (!string.IsNullOrEmpty(Address2Entry.Text))
+            {
+                customer.Address1 = AddressEntry.Text+" "+Address2Entry.Text;
+            }
+            else
+            {
+                customer.Address1 = AddressEntry.Text;
+            }
+            
             customer.City = CityEntry.Text;
             customer.CountryId = returnCountryIdByCountryName(countryPicker.SelectedItem.ToString());
             customer.CountryName = countryPicker.SelectedItem.ToString();

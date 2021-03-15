@@ -22,6 +22,7 @@ namespace MaxVonGrafKftMobile.Views
         private List<int> locationIdList;
         decimal jpp;
         decimal jmp;
+        decimal ins;
 
 
         //public VechicleInformationPage(ReservationView reservationView, VehicleViewByTypeForMobile selectedVehicle)
@@ -86,12 +87,13 @@ namespace MaxVonGrafKftMobile.Views
             {
                 VehicleDiscription.Text = selectedVehicle.HtmlContent.Replace("<p>", "").Replace("</p>", "").Replace("&nbsp;&nbsp;", "");
             }
-            totalAmtLabel.Text = "$ " + selectedVehicle.DailyRate.ToString();
+            totalAmtLabel.Text = "$ " + selectedVehicle.DailyRateWithInsurance.ToString();
             this.locationIdList = locationIdList;
 
 
             jpp = 0;
             jmp = 0;
+            ins = 0;
 
         }
 
@@ -118,6 +120,11 @@ namespace MaxVonGrafKftMobile.Views
                         {
                             jmp = Math.Round(Convert.ToDecimal(s.MiscChargePerDay), 2);
                         }
+                        if (s.Name == "Insurance")
+                        {
+                            ins = Math.Round(Convert.ToDecimal(s.MiscChargePerDay), 2);
+                        }
+
                     }
                 }
             }
@@ -130,6 +137,11 @@ namespace MaxVonGrafKftMobile.Views
 
             weekEndRateDetailLabeljmp.Text = "( Per day )";
             weekEndRateTotaljmp.Text = "$ " + (jmp).ToString("0.00");
+
+            weekEndRateDetailLabeljIns.Text = "( Per day )";
+            weekEndRateTotalIns.Text = "$ " + (ins).ToString("0.00");
+
+
         }
 
         private void ToolbarItem_Clicked(object sender, EventArgs e)

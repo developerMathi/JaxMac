@@ -3107,6 +3107,7 @@
         ".signature.p7s",
         "lib/monoandroid1/GalaSoft.MvvmLight.Platform.XML",
         "lib/monoandroid1/GalaSoft.MvvmLight.Platform.dll",
+        "lib/monoandroid1/GalaSoft.MvvmLight.Platform.dll.mdb",
         "lib/monoandroid1/GalaSoft.MvvmLight.Platform.pdb",
         "lib/monoandroid1/GalaSoft.MvvmLight.XML",
         "lib/monoandroid1/GalaSoft.MvvmLight.dll",

@@ -18,6 +18,7 @@ namespace MaxVonGrafKftMobileModel
         public int NoOfLuggage { get; set; }
         public string doors { get; set; }
         public decimal? DailyRate { get; set; }
+        public decimal? DailyRateWithInsurance { get; set; }
         public decimal? MileagePerDay { get; set; }
 
 

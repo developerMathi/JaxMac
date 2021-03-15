@@ -435,7 +435,7 @@ namespace MaxVonGrafKftMobile.Views
                             {
                                 if (profileDetailsMobileResponse.message.ErrorCode == "200")
                                 {
-                                    await PopupNavigation.Instance.PushAsync(new SuccessPopUp("Profile updated successfully!", 2));
+                                    await PopupNavigation.Instance.PushAsync(new SuccessPopUp("Profile updated successfully!", 3));
                                 }
                             }
                         }
@@ -529,6 +529,11 @@ namespace MaxVonGrafKftMobile.Views
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             PopupNavigation.Instance.PushAsync(new AddCustomerPhotoPopup(licfrontIamgeStat, 1));
+        }
+
+        void btnBack_Clicked(System.Object sender, System.EventArgs e)
+        {
+            Navigation.PopModalAsync();
         }
     }
 }

@@ -225,7 +225,6 @@
                 BackgroundColor="Transparent"
                 HorizontalScrollBarVisibility="Never"
                 ItemSelected="UpcomingReservation_ItemSelected"
-                RowHeight="330"
                 SeparatorVisibility="None"
                 VerticalOptions="Center"
                 VerticalScrollBarVisibility="Never">
@@ -234,14 +233,14 @@
                                 <On Platform="iOS">
                                     <OnIdiom
                                 x:TypeArguments="x:Int32"
-                                Phone="340"
-                                Tablet="390" />
+                                Phone="400"
+                                Tablet="450" />
                                 </On>
                                 <On Platform="Android,Windows">
                                     <OnIdiom
                                 x:TypeArguments="x:Int32"
-                                Phone="340"
-                                Tablet="390" />
+                                Phone="400"
+                                Tablet="450" />
                                 </On>
                             </OnPlatform>
 
@@ -285,7 +284,7 @@
                                             VerticalOptions="CenterAndExpand">
                                                     <Label
                                                 FontFamily="Roboto-Bold"
-                                                Text="Reservation Number : "
+                                                Text="Res-No: "
                                                 TextColor="{StaticResource Black}">
                                                         <Label.FontSize>
                                                             <OnPlatform x:TypeArguments="x:Double">
@@ -806,6 +805,8 @@
                                                 <Grid.RowDefinitions>
                                                     <RowDefinition Height="Auto" />
                                                     <RowDefinition Height="*" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
                                                 </Grid.RowDefinitions>
                                                 <StackLayout Grid.Column="0" BackgroundColor="{StaticResource MaxVonRed}">
                                                     <StackLayout.HeightRequest>
@@ -1259,6 +1260,68 @@
                                             WidthRequest="1"
                                             Color="{StaticResource MaxVonGray}" />
 
+
+                                                <Button
+                                                    x:Name="extendBtn"
+                                                    Grid.Row="3"
+                                                     Grid.ColumnSpan="2"
+                                                    BackgroundColor="{StaticResource MaxVonYellow}"
+                                                    BorderWidth="0"
+                                                    Clicked="extendBtn_Clicked"
+                                                    CornerRadius="10"
+                                                    Text="Extend Rental"
+                                                    TextColor="{StaticResource MaxVonWhite}"
+                                                    VerticalOptions="End">
+                                                    <Button.Margin>
+                                                        <OnPlatform x:TypeArguments="Thickness">
+                                                            <On Platform="iOS">
+                                                                <OnIdiom
+                                                                    x:TypeArguments="Thickness"
+                                                                    Phone="15,1,15,20"
+                                                                    Tablet="30,1,30,20" />
+                                                            </On>
+                                                            <On Platform="Android,Windows">
+                                                                <OnIdiom
+                                                                    x:TypeArguments="Thickness"
+                                                                    Phone="15,1,15,20"
+                                                                    Tablet="30,1,30,20" />
+                                                            </On>
+                                                        </OnPlatform>
+                                                    </Button.Margin>
+                                                    <Button.HeightRequest>
+                                                        <OnPlatform x:TypeArguments="x:Double">
+                                                            <On Platform="iOS">
+                                                                <OnIdiom
+                                                                    x:TypeArguments="x:Double"
+                                                                    Phone="45"
+                                                                    Tablet="50" />
+                                                            </On>
+                                                            <On Platform="Android,Windows">
+                                                                <OnIdiom
+                                                                    x:TypeArguments="x:Double"
+                                                                    Phone="45"
+                                                                    Tablet="50" />
+                                                            </On>
+                                                        </OnPlatform>
+                                                    </Button.HeightRequest>
+                                                    <Button.FontSize>
+                                                        <OnPlatform x:TypeArguments="x:Double">
+                                                            <On Platform="iOS">
+                                                                <OnIdiom
+                                                                    x:TypeArguments="x:Double"
+                                                                    Phone="14"
+                                                                    Tablet="18" />
+                                                            </On>
+                                                            <On Platform="Android,Windows">
+                                                                <OnIdiom
+                                                                    x:TypeArguments="x:Double"
+                                                                    Phone="16"
+                                                                    Tablet="20" />
+                                                            </On>
+                                                        </OnPlatform>
+                                                    </Button.FontSize>
+                                                </Button>
+
                                             </Grid>
                                         </Grid>
                                     </Frame>
@@ -1335,6 +1398,52 @@
                         </ListView.ItemTemplate>
                     </ListView>
 
+                     <StackLayout
+                             VerticalOptions="End"
+                             HorizontalOptions="Fill"
+                             Margin="10,0,10,20"
+                             x:Name="averDueStack"
+                             IsVisible="false">
+                        <!--IsVisible="{Binding stackVisible}"-->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="7*"></ColumnDefinition>
+                                <ColumnDefinition Width="3*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label
+                            x:Name="overdueBalanceLable"
+                        Grid.Column="0"
+                            Margin="5"
+                            FontFamily="Roboto-Bold"
+                            FontSize="Medium"
+                            TextColor="{StaticResource Black}" 
+                        HorizontalOptions="Start"
+                        VerticalOptions="Center"
+                        Text="Over Due Balance"/>
+                            <Label Margin="5"
+                            Grid.Column="1"
+                            TextColor="{StaticResource MaxVonRed}" 
+                        HorizontalOptions="End"
+                        VerticalOptions="Center"
+                           HorizontalTextAlignment="End">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span Text="$"
+                                          FontFamily="Roboto-Bold"
+                                            FontSize="Medium"
+                                          FontAttributes="Bold"></Span>
+                                            <Span x:Name="overdueBalanceAmount"
+                                          FontFamily="Roboto-Bold"
+                                            FontSize="Medium"
+                                          FontAttributes="Bold"></Span>
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </Grid>
+                    </StackLayout>
+
 
                     <Frame
                 Grid.Row="2"
@@ -1343,7 +1452,7 @@
                 BorderColor="LightGray"
                 CornerRadius="10"
                 HasShadow="False"
-                HeightRequest="400"
+                HeightRequest="440"
                         BackgroundColor="Transparent">
                         <Grid Margin="5,10" Padding="0">
                             <Grid.RowDefinitions>
@@ -1372,7 +1481,7 @@
                             VerticalOptions="CenterAndExpand">
                                     <Label
                                 FontFamily="Roboto-Bold"
-                                Text="Agreement Number :"
+                                Text="Agr No: "
                                 TextColor="{StaticResource Black}">
                                         <Label.FontSize>
                                             <OnPlatform x:TypeArguments="x:Double">
@@ -2079,6 +2188,8 @@
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto" />
                                     <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
                                 <StackLayout
                             Grid.Column="0"
@@ -2207,55 +2318,72 @@
                             WidthRequest="1"
                             Color="{StaticResource MaxVonGray}" />
 
+                                <Button
+                                    x:Name="extendBtn"
+                                    Grid.Row="3"
+                                    Grid.ColumnSpan="2"
+                                    BackgroundColor="{StaticResource MaxVonYellow}"
+                                    BorderWidth="0"
+                                    Clicked="extendBtn_Clicked"
+                                    CornerRadius="10"
+                                    Text="Extend Rental"
+                                    TextColor="{StaticResource MaxVonWhite}"
+                                    VerticalOptions="End">
+                                    <Button.Margin>
+                                        <OnPlatform x:TypeArguments="Thickness">
+                                            <On Platform="iOS">
+                                                <OnIdiom
+                                                    x:TypeArguments="Thickness"
+                                                    Phone="15,1,15,20"
+                                                    Tablet="30,1,30,20" />
+                                            </On>
+                                            <On Platform="Android,Windows">
+                                                <OnIdiom
+                                                    x:TypeArguments="Thickness"
+                                                    Phone="15,1,15,20"
+                                                    Tablet="30,1,30,20" />
+                                            </On>
+                                        </OnPlatform>
+                                    </Button.Margin>
+                                    <Button.HeightRequest>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <On Platform="iOS">
+                                                <OnIdiom
+                                                    x:TypeArguments="x:Double"
+                                                    Phone="45"
+                                                    Tablet="50" />
+                                            </On>
+                                            <On Platform="Android,Windows">
+                                                <OnIdiom
+                                                    x:TypeArguments="x:Double"
+                                                    Phone="45"
+                                                    Tablet="50" />
+                                            </On>
+                                        </OnPlatform>
+                                    </Button.HeightRequest>
+                                    <Button.FontSize>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <On Platform="iOS">
+                                                <OnIdiom
+                                                    x:TypeArguments="x:Double"
+                                                    Phone="14"
+                                                    Tablet="18" />
+                                            </On>
+                                            <On Platform="Android,Windows">
+                                                <OnIdiom
+                                                    x:TypeArguments="x:Double"
+                                                    Phone="16"
+                                                    Tablet="20" />
+                                            </On>
+                                        </OnPlatform>
+                                    </Button.FontSize>
+                                </Button>
+
                             </Grid>
                         </Grid>
                     </Frame>
 
-                    <StackLayout
-                             VerticalOptions="End"
-                             HorizontalOptions="Fill"
-                             Margin="10,0,10,20"
-                             x:Name="averDueStack"
-                             IsVisible="false">
-                        <!--IsVisible="{Binding stackVisible}"-->
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="7*"></ColumnDefinition>
-                                <ColumnDefinition Width="3*"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <Label
-                            x:Name="overdueBalanceLable"
-                        Grid.Column="0"
-                            Margin="5"
-                            FontFamily="Roboto-Bold"
-                            FontSize="Medium"
-                            TextColor="{StaticResource Black}" 
-                        HorizontalOptions="Start"
-                        VerticalOptions="Center"
-                        Text="Over Due Balance"/>
-                            <Label Margin="5"
-                            Grid.Column="1"
-                            TextColor="{StaticResource MaxVonRed}" 
-                        HorizontalOptions="End"
-                        VerticalOptions="Center"
-                           HorizontalTextAlignment="End">
-                                <Label.FormattedText>
-                                    <FormattedString>
-                                        <FormattedString.Spans>
-                                            <Span Text="$"
-                                          FontFamily="Roboto-Bold"
-                                            FontSize="Medium"
-                                          FontAttributes="Bold"></Span>
-                                            <Span x:Name="overdueBalanceAmount"
-                                          FontFamily="Roboto-Bold"
-                                            FontSize="Medium"
-                                          FontAttributes="Bold"></Span>
-                                        </FormattedString.Spans>
-                                    </FormattedString>
-                                </Label.FormattedText>
-                            </Label>
-                        </Grid>
-                    </StackLayout>
+                   
                 </StackLayout>
 
                 <StackLayout

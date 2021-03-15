@@ -148,7 +148,7 @@
                             Margin="15,0,0,0"
                             FontFamily="Roboto-Bold"
                             TextColor="{StaticResource MaxVonBlack}">
-                            No of Days
+                             Rental Days
                             <Label.FontSize>
                                 <OnPlatform x:TypeArguments="x:Double">
                                     <On Platform="iOS">

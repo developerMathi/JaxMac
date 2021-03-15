@@ -3508,4 +3508,10 @@ namespace MaxVonGrafKftMobileModel.Constants
         CustomerType = 6,
         VehicleStatus = 7
     }
+
+    public enum emailConfirmationType
+    {
+        LogIn = 1,
+        Register = 2
+    }
 }

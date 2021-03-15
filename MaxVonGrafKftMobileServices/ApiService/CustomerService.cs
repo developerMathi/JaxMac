@@ -78,6 +78,41 @@ namespace MaxVonGrafKftMobileServices.ApiService
             return result;
         }
 
+        public int changePassword(int customerId, string oldPassword, string newPassword, string token)
+        {
+            int id = 0;
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri(ConstantData.ApiURL.ToString() + "Registration/ResetPassword");
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+                    var url = string.Format(
+                    client.BaseAddress +
+                    "?customerid=" +
+                    customerId +
+                    "&currentPassword=" +
+                    oldPassword +
+                    "&newPassword=" +
+                    newPassword);
+
+                    var response = client.GetAsync(url).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var responseStream = response.Content.ReadAsStringAsync().Result;
+                        id = JsonConvert.DeserializeObject<int>(responseStream);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return id;
+        }
+
+
         public int addInquiryChatModel(InquiryChatModel inquiryChatModel, string token)
         {
             int result = 0;

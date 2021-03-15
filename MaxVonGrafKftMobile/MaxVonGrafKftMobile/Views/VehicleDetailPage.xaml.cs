@@ -217,6 +217,7 @@ namespace MaxVonGrafKftMobile.Views
                                     typeForMobile.Seats = rvsv.Seats;
                                     typeForMobile.NoOfLuggage = rvsv.Baggages;
                                     typeForMobile.DailyRate = decimal.Round(((decimal)rvsv.RateDetail.DailyRate + calculateMantatryCharges(rvsv.mantatoryMiscChargeDetails, 1)), 2);
+                                    typeForMobile.DailyRateWithInsurance = decimal.Round(((decimal)rvsv.RateDetail.DailyRate + calculateMantatryChargesWithInsurance(rvsv.mantatoryMiscChargeDetails, 1)), 2); 
                                     typeForMobile.VehicleTypeImageUrl = rvsv.VehicleTypeImage;
                                     typeForMobile.RateDetail = rvsv.RateDetail;
                                     typeForMobile.MileagePerDay = rvsv.MileagePerDay;
@@ -313,6 +314,31 @@ namespace MaxVonGrafKftMobile.Views
                     }
                 }
             }
+        }
+
+        private decimal calculateMantatryChargesWithInsurance(List<ReservationMiscDetails> mantatoryMiscChargeDetails, int v)
+        {
+            decimal sum = 0;
+            if (mantatoryMiscChargeDetails != null)
+            {
+                foreach (ReservationMiscDetails rmd in mantatoryMiscChargeDetails)
+                {
+                    if (rmd.Name == "Jax Protection Plan" || rmd.Name == "Jax Maintenance Plan" || rmd.Name== "Insurance")
+                    {
+                        switch (rmd.CalculationType)
+                        {
+                            case "Fixed":
+                                sum += (Math.Round(Convert.ToDecimal(rmd.MiscChargePerDay), 2));
+                                break;
+
+                            case "Perday":
+                                sum += ((Math.Round(Convert.ToDecimal(rmd.MiscChargePerDay), 2)) * v);
+                                break;
+                        }
+                    }
+                }
+            }
+            return sum;
         }
 
         private void refreshVehicleList()

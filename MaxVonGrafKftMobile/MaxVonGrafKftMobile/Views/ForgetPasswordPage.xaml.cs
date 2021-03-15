@@ -18,6 +18,7 @@ namespace MaxVonGrafKftMobile.Views
     {
         GetForgetPasswordMobileRequest forgetPasswordMobileRequest;
         private string token;
+        private string email;
         GetForgetPasswordMobileResponse forgetPasswordMobileResponse;
         public ForgetPasswordPage()
         {
@@ -96,7 +97,8 @@ namespace MaxVonGrafKftMobile.Views
                         {
                             if (forgetPasswordMobileResponse.retval != 0)
                             {
-                                await PopupNavigation.Instance.PushAsync(new SuccessPopUp("An email has been sent with instructions on how to reset your password"));
+                                email = emailEntry.Text;
+                                await PopupNavigation.Instance.PushAsync(new SuccessPopUp("An email has been sent with instructions on how to reset your password",5,email));
                             }
                         }
                         else

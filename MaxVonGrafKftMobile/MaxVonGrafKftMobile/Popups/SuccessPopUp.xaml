@@ -93,11 +93,12 @@
                 HasShadow="False"
                 VerticalOptions="FillAndExpand">
                 <Grid
-                    Margin="0,15,0,10"
+                    Margin="0,15,0,30"
                     Padding="0"
                     BackgroundColor="White">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
@@ -181,7 +182,7 @@
                     <Button
                         x:Name="Okbtn"
                         Grid.Row="2"
-                        Margin="20,20,20,20"
+                        Margin="20,20,20,0"
                         Padding="0"
                         BackgroundColor="{StaticResource frmGreen}"
                         BorderWidth="0"
@@ -226,6 +227,54 @@
                         </Button.FontSize>
                     </Button>
 
+                     <Button
+                        x:Name="LoginBtn"
+                        Grid.Row="3"
+                        Margin="20,5,20,20"
+                        Padding="0"
+                        BackgroundColor="{StaticResource frmGreen}"
+                        BorderWidth="0"
+                        Clicked="LoginBtn_Clicked"
+                        CornerRadius="10"
+                        FontFamily="Roboto-Medium"
+                        HorizontalOptions="FillAndExpand"
+                        Text="Continue to Sign In"
+                        TextColor="{StaticResource MaxVonWhite}"
+                        VerticalOptions="CenterAndExpand"
+                         IsVisible="false">
+                        <Button.HeightRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="40"
+                                        Tablet="50" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="40"
+                                        Tablet="50" />
+                                </On>
+                            </OnPlatform>
+                        </Button.HeightRequest>
+                        <Button.FontSize>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="16"
+                                        Tablet="20" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="18"
+                                        Tablet="22" />
+                                </On>
+                            </OnPlatform>
+                        </Button.FontSize>
+                    </Button>
                 </Grid>
             </Frame>
 

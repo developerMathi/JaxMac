@@ -1,4 +1,5 @@
 ﻿using MaxVonGrafKftMobile.Views;
+using MaxVonGrafKftMobileModel.Constants;
 using Rg.Plugins.Popup.Pages;
 using Rg.Plugins.Popup.Services;
 using System;
@@ -15,9 +16,17 @@ namespace MaxVonGrafKftMobile.Popups
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SavedSuccessfullyPopup : PopupPage
     {
+        private int customerID;
+
         public SavedSuccessfullyPopup()
         {
             InitializeComponent();
+        }
+
+        public SavedSuccessfullyPopup(int customerID)
+        {
+            InitializeComponent();
+            this.customerID = customerID;
         }
 
         private async void Okbtn_Clicked(object sender, EventArgs e)
@@ -30,15 +39,15 @@ namespace MaxVonGrafKftMobile.Popups
                 }
                 if (Navigation.NavigationStack[Navigation.NavigationStack.Count - 2].GetType() == typeof(LoginPage))
                 {
-                    await Navigation.PopAsync();
+                    await Navigation.PushAsync(new enterConfirmationCodePage(customerID, emailConfirmationType.Register));
                 }
                 else if (Navigation.NavigationStack[Navigation.NavigationStack.Count - 2].GetType() == typeof(WelcomPage))
                 {
-                    await Navigation.PushAsync(new LoginPage());
+                    await Navigation.PushAsync(new enterConfirmationCodePage(customerID, emailConfirmationType.Register));
                 }
                 else if (Navigation.NavigationStack[Navigation.NavigationStack.Count - 2].GetType() == typeof(SummaryOfChargesPage))
                 {
-                    await Navigation.PushAsync(new LoginPage());
+                    await Navigation.PushAsync(new enterConfirmationCodePage(customerID, emailConfirmationType.Register));
                 }
                 else
                 {
@@ -47,7 +56,7 @@ namespace MaxVonGrafKftMobile.Popups
             }
             else
             {
-                await Navigation.PushAsync(new LoginPage());
+                await Navigation.PushAsync(new enterConfirmationCodePage(customerID, emailConfirmationType.Register));
             }
            
            

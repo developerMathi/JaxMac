@@ -33,6 +33,7 @@
                     </RowDefinition>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Label
                 Margin="0,20,0,0"
@@ -1069,7 +1070,7 @@
                 <Button
                 x:Name="updateBtn"
                 Grid.Row="2"
-                Margin="20,0,20,20"
+                Margin="20,0,20,5"
                 BackgroundColor="{StaticResource MaxVonRed}"
                 BorderWidth="0"
                 Clicked="UpdateBtn_Clicked"
@@ -1113,6 +1114,54 @@
                         </OnPlatform>
                     </Button.FontSize>
                 </Button>
+
+                <Button
+                x:Name="changePwdBtn"
+                Grid.Row="3"
+                Margin="20,0,20,20"
+                BackgroundColor="{StaticResource MaxVonRed}"
+                BorderWidth="0"
+                Clicked="changePwdBtn_Clicked"
+                CornerRadius="10"
+                FontFamily="Roboto-Medium"
+                HorizontalOptions="FillAndExpand"
+                StyleClass="bouncy"
+                Text="Change Password"
+                TextColor="{StaticResource MaxVonWhite}"
+                VerticalOptions="CenterAndExpand">
+                <Button.HeightRequest>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="iOS">
+                            <OnIdiom
+                                x:TypeArguments="x:Double"
+                                Phone="50"
+                                Tablet="60" />
+                        </On>
+                        <On Platform="Android,Windows">
+                            <OnIdiom
+                                x:TypeArguments="x:Double"
+                                Phone="50"
+                                Tablet="60" />
+                        </On>
+                    </OnPlatform>
+                </Button.HeightRequest>
+                <Button.FontSize>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="iOS">
+                            <OnIdiom
+                                x:TypeArguments="x:Double"
+                                Phone="16"
+                                Tablet="20" />
+                        </On>
+                        <On Platform="Android,Windows">
+                            <OnIdiom
+                                x:TypeArguments="x:Double"
+                                Phone="18"
+                                Tablet="22" />
+                        </On>
+                    </OnPlatform>
+                </Button.FontSize>
+            </Button>
             </Grid>
     </ContentPage.Content>
 </ContentPage>

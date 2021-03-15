@@ -203,7 +203,7 @@ namespace MaxVonGrafKftMobile.Views
 
         private void UpdateBtn_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new UpdateProfile(customerReview));
+            Navigation.PushModalAsync(new UpdateProfile(customerReview));
         }
 
         private void ContactUsBtn_Clicked(object sender, EventArgs e)
@@ -215,6 +215,11 @@ namespace MaxVonGrafKftMobile.Views
         {
             App.Current.Properties["CustomerId"] = 0;
             Navigation.PushAsync(new WelcomPage());
+        }
+
+        void changePwdBtn_Clicked(System.Object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new changePasswordPage());
         }
     }
 }

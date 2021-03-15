@@ -63,6 +63,7 @@
     <CodesignProvision>VS: com.Navotar.JaxAutomative Development</CodesignProvision>
     <CodesignExtraArgs />
     <CodesignResourceRules />
+    <MtouchLink>SdkOnly</MtouchLink>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -75,6 +76,7 @@
     <CodesignKey>Apple Development: Joe Navotar (WN7945J53J)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <CodesignProvision>VS: com.Navotar.JaxAutomative Development</CodesignProvision>
+    <MtouchLink>SdkOnly</MtouchLink>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugType>none</DebugType>
@@ -88,6 +90,7 @@
     <CodesignKey>Apple Distribution: Jax Automotive, LLC (NFT93H2D66)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <CodesignProvision>Adhoc1103Mathi</CodesignProvision>
+    <MtouchLink>SdkOnly</MtouchLink>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
     <DebugType>none</DebugType>
@@ -102,8 +105,7 @@
     <MtouchProfiling>
     </MtouchProfiling>
     <CrashReportingEnabled>false</CrashReportingEnabled>
-    <MtouchLink>
-    </MtouchLink>
+    <MtouchLink>SdkOnly</MtouchLink>
     <CodesignProvision>JAXAPPSTORE</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
@@ -316,6 +318,8 @@
     <BundleResource Include="Resources\ic_discover.png" />
     <BundleResource Include="Resources\ic_mastercard.png" />
     <BundleResource Include="Resources\ic_visa.png" />
+    <BundleResource Include="Resources\IconRedchat.png" />
+    <BundleResource Include="Resources\IconRedfolder.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\rental.png" />

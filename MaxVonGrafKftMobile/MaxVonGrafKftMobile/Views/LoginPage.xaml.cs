@@ -165,7 +165,7 @@ namespace MaxVonGrafKftMobile.Views
 
 
                             //if (cutomerAuthContext.IsEmailConfirmed)
-                            if (cutomerAuthContext.IsEmailConfirmed)
+                            if (!cutomerAuthContext.IsEmailConfirmed)
                             {
                                 if (App.Current.Properties.ContainsKey("CustomerId"))
                                 {
@@ -191,26 +191,27 @@ namespace MaxVonGrafKftMobile.Views
                                     else
                                     {
                                         Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
-                                        await Navigation.PopAsync();
+                                        await Navigation.PushAsync(new HomePage());
                                     }
 
                                 }
 
                                 else
                                 {
-                                    if (Navigation.NavigationStack.Count < 3)
-                                    {
-                                        await Navigation.PushAsync(new HomePage());
-                                    }
-                                    else
-                                    {
-                                        await Navigation.PopAsync();
-                                    }
+                                    //if (Navigation.NavigationStack.Count < 3)
+                                    //{
+                                    //    await Navigation.PushAsync(new HomePage());
+                                    //}
+                                    //else
+                                    //{
+                                    //    await Navigation.PopAsync();
+                                    //}
+                                    await Navigation.PushAsync(new HomePage());
                                 }
                             }
                             else
                             {
-                                await Navigation.PushAsync(new ConfirmEmailRequest(cutomerAuthContext.CustomerId));
+                                await Navigation.PushAsync(new ConfirmEmailRequest(cutomerAuthContext.CustomerId,MaxVonGrafKftMobileModel.Constants.emailConfirmationType.LogIn));
                             }
 
 

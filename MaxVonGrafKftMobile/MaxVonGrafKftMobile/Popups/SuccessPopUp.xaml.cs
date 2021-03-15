@@ -16,6 +16,7 @@ namespace MaxVonGrafKftMobile.Popups
     public partial class SuccessPopUp : PopupPage
     {
         private int v;
+        private string email;
 
         public SuccessPopUp(string content)
         {
@@ -29,6 +30,16 @@ namespace MaxVonGrafKftMobile.Popups
             InitializeComponent();
             contentText.Text = content;
             this.v = v;
+        }
+
+        public SuccessPopUp(string content, int v,string email)
+        {
+            InitializeComponent();
+            contentText.Text = content;
+            this.email = email;
+            this.v = v;
+            Okbtn.Text = "Continue Change Password";
+            LoginBtn.IsVisible = true;
         }
 
         private void Okbtn_Clicked(object sender, EventArgs e)
@@ -47,8 +58,21 @@ namespace MaxVonGrafKftMobile.Popups
             }
             if (v == 3)
             {
-                Navigation.PopAsync();
+                Navigation.PopModalAsync();
             }
+            if (v == 5)
+            {
+                Navigation.PushAsync(new ChangePasswordWithoutLogin(email));
+            }
+            if (v == 6)
+            {
+                Navigation.PushAsync(new LoginPage());
+            }
+        }
+
+        void LoginBtn_Clicked(System.Object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new LoginPage());
         }
     }
 }

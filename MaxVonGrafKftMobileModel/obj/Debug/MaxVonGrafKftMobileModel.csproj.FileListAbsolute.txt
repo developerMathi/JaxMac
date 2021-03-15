@@ -1,23 +1,8 @@
-<<<<<<< Updated upstream
-C:/Users/Thanah/Source/Repos/JaxMac/MaxVonGrafKftMobileModel/bin/Debug/MaxVonGrafKftMobileModel.dll.config
-C:/Users/Thanah/Source/Repos/JaxMac/MaxVonGrafKftMobileModel/bin/Debug/MaxVonGrafKftMobileModel.dll
-C:/Users/Thanah/Source/Repos/JaxMac/MaxVonGrafKftMobileModel/bin/Debug/MaxVonGrafKftMobileModel.pdb
-C:/Users/Thanah/Source/Repos/JaxMac/MaxVonGrafKftMobileModel/bin/Debug/System.Drawing.Common.dll
-C:/Users/Thanah/Source/Repos/JaxMac/MaxVonGrafKftMobileModel/bin/Debug/System.Net.Http.dll
-C:/Users/Thanah/Source/Repos/JaxMac/MaxVonGrafKftMobileModel/bin/Debug/System.Net.Http.xml
-C:/Users/Thanah/Source/Repos/JaxMac/MaxVonGrafKftMobileModel/obj/Debug/MaxVonGrafKftMobileModel.csproj.CoreCompileInputs.cache
-C:/Users/Thanah/Source/Repos/JaxMac/MaxVonGrafKftMobileModel/obj/Debug/XamlC.stamp
-C:/Users/Thanah/Source/Repos/JaxMac/MaxVonGrafKftMobileModel/obj/Debug/MaxVonGrafKftMobileModel.csproj.CopyComplete
-C:/Users/Thanah/Source/Repos/JaxMac/MaxVonGrafKftMobileModel/obj/Debug/MaxVonGrafKftMobileModel.dll
-C:/Users/Thanah/Source/Repos/JaxMac/MaxVonGrafKftMobileModel/obj/Debug/MaxVonGrafKftMobileModel.pdb
-C:/Users/Thanah/Source/Repos/JaxMac/MaxVonGrafKftMobileModel/obj/Debug/MaxVonGrafKftMobileModel.csprojAssemblyReference.cache
-=======
->>>>>>> Stashed changes
-/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobileModel/bin/Debug/MaxVonGrafKftMobileModel.dll.config
-/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobileModel/bin/Debug/MaxVonGrafKftMobileModel.dll
-/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobileModel/bin/Debug/MaxVonGrafKftMobileModel.pdb
-/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobileModel/obj/Debug/MaxVonGrafKftMobileModel.csproj.CoreCompileInputs.cache
-/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobileModel/obj/Debug/XamlC.stamp
-/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobileModel/obj/Debug/MaxVonGrafKftMobileModel.dll
-/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobileModel/obj/Debug/MaxVonGrafKftMobileModel.pdb
-/Users/navotar/Projects/JaxMobileApplicationDevelopment/JaxMac/MaxVonGrafKftMobileModel/obj/Debug/MaxVonGrafKftMobileModel.csprojAssemblyReference.cache
+/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobileModel/bin/Debug/MaxVonGrafKftMobileModel.dll.config
+/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobileModel/bin/Debug/MaxVonGrafKftMobileModel.dll
+/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobileModel/bin/Debug/MaxVonGrafKftMobileModel.pdb
+/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobileModel/obj/Debug/MaxVonGrafKftMobileModel.csprojAssemblyReference.cache
+/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobileModel/obj/Debug/MaxVonGrafKftMobileModel.csproj.CoreCompileInputs.cache
+/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobileModel/obj/Debug/XamlC.stamp
+/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobileModel/obj/Debug/MaxVonGrafKftMobileModel.dll
+/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobileModel/obj/Debug/MaxVonGrafKftMobileModel.pdb

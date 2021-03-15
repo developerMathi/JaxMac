@@ -88,6 +88,20 @@ namespace MaxVonGrafKftMobileController
             return response;
         }
 
+        public int changePassword(int customerId, string oldPassword, string newPassword, string token)
+        {
+            int response;
+            try
+            {
+                response = customerService.changePassword(customerId, oldPassword, newPassword, token);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return response;
+        }
+
         public GetCustomerPortalDetailsMobileResponse getCustomerDetailsWithProfilePic(GetCustomerPortalDetailsMobileRequest portalDetailsMobileRequest, string token)
         {
             GetCustomerPortalDetailsMobileResponse response = new GetCustomerPortalDetailsMobileResponse();

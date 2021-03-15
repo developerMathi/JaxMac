@@ -1,6 +1,7 @@
 ﻿using MaxVonGrafKftMobile.Popups;
 using MaxVonGrafKftMobileController;
 using MaxVonGrafKftMobileModel.AccessModels;
+using MaxVonGrafKftMobileModel.Constants;
 using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,11 @@ namespace MaxVonGrafKftMobile.Views
         ConfirmEmailAddressResponse emailAddressResponse;
         string token;
         int customerId;
-        public ConfirmEmailRequest(int customerId)
+        private emailConfirmationType confirmationType;
+
+      
+
+        public ConfirmEmailRequest(int customerId, emailConfirmationType register) 
         {
             InitializeComponent();
             confirmEmailAddressRequest = new ConfirmEmailAddressRequest();
@@ -28,6 +33,7 @@ namespace MaxVonGrafKftMobile.Views
             yourEmaillabel.Text = Constants.cutomerAuthContext.CustomerEmail;
             token = App.Current.Properties["currentToken"].ToString();
             this.customerId = customerId;
+            this.confirmationType = register;
         }
 
         protected override void OnAppearing()
@@ -93,7 +99,7 @@ namespace MaxVonGrafKftMobile.Views
                         {
                             if (emailAddressResponse.message.ErrorCode == "200")
                             {
-                                await Navigation.PushAsync(new enterConfirmationCodePage(customerId));
+                                await Navigation.PushAsync(new enterConfirmationCodePage(customerId, confirmationType));
                             }
                             else
                             {

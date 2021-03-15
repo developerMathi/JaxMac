@@ -1,6 +1,7 @@
 ﻿using MaxVonGrafKftMobile.Popups;
 using MaxVonGrafKftMobileController;
 using MaxVonGrafKftMobileModel.AccessModels;
+using MaxVonGrafKftMobileModel.Constants;
 using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,8 @@ namespace MaxVonGrafKftMobile.Views
         CheckConfirmEmailAddressResponse response;
         string token;
         int customerId;
+        private emailConfirmationType confirmationType;
+
         public enterConfirmationCodePage(int customerId)
         {
 
@@ -29,6 +32,21 @@ namespace MaxVonGrafKftMobile.Views
             token = App.Current.Properties["currentToken"].ToString();
             emailAddressLabel.Text = Constants.cutomerAuthContext.CustomerEmail;
             this.customerId = customerId;
+            this.confirmationType = emailConfirmationType.LogIn;
+        }
+
+        public enterConfirmationCodePage(int customerId, emailConfirmationType type)
+        {
+            InitializeComponent();
+            request = new ConfirmEmailAddressRequest();
+            response = null;
+            token = App.Current.Properties["currentToken"].ToString();
+            emailAddressLabel.Text = Constants.cutomerAuthContext.CustomerEmail;
+            this.customerId = customerId;
+            this.confirmationType = emailConfirmationType.LogIn;
+
+            this.confirmationType = type;
+
         }
 
         protected override void OnAppearing()
@@ -54,7 +72,7 @@ namespace MaxVonGrafKftMobile.Views
                 else
                 {
                     string code = ContactNoEntry.Text.Replace(" ", "").Trim();
-                    if (code.Length != 10)
+                    if (code.Length != 8)
                     {
                         Vibration.Vibrate();
                         codeFrame.BorderColor = Color.Red;
@@ -103,7 +121,7 @@ namespace MaxVonGrafKftMobile.Views
                                         await PopupNavigation.Instance.PopAllAsync();
                                     }
                                 }
-                                if(response != null)
+                                if (response != null)
                                 {
                                     if (response.refId == 1)
                                     {
@@ -115,9 +133,9 @@ namespace MaxVonGrafKftMobile.Views
                                         {
                                             App.Current.Properties.Add("CustomerId", customerId);
                                         }
-                                        await Navigation.PushAsync( new EmailonfirmSuccess());
+                                        await Navigation.PushAsync(new EmailonfirmSuccess(confirmationType));
                                     }
-                                    else if(response.refId==2)
+                                    else if (response.refId == 2)
                                     {
                                         await PopupNavigation.Instance.PushAsync(new Error_popup("Sorry, your confirmation code was expired. Please resend code. "));
                                     }
@@ -132,7 +150,7 @@ namespace MaxVonGrafKftMobile.Views
                                     await PopupNavigation.Instance.PushAsync(new Error_popup("Something went wrong, Please try again."));
                                 }
                             }
-                         }
+                        }
                     }
                 }
 
@@ -190,7 +208,7 @@ namespace MaxVonGrafKftMobile.Views
 
         private void resendLable_Tapped(object sender, EventArgs e)
         {
-            Navigation.PopAsync();
+            Navigation.PushAsync(new ConfirmEmailRequest(customerId, emailConfirmationType.Register));
         }
     }
 }

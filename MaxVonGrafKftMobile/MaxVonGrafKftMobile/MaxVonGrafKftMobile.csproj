@@ -172,6 +172,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Remove="App.xaml" />
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="Assets\iconChat.png" />
     <EmbeddedResource Include="Assets\iconDelete.png" />
   </ItemGroup>
@@ -377,6 +380,12 @@
   <ItemGroup>
     <Reference Include="System.Drawing.Common">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\Xamarin.iOS\v1.0\Facades\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="MaxVonGrafKftMobileModel">
+      <HintPath>..\..\MaxVonGrafKftMobileModel\bin\Debug\MaxVonGrafKftMobileModel.dll</HintPath>
+    </Reference>
+    <Reference Include="MaxVonGrafKftMobileServices">
+      <HintPath>..\..\MaxVonGrafKftMobileServices\bin\Debug\MaxVonGrafKftMobileServices.dll</HintPath>
     </Reference>
   </ItemGroup>
 
