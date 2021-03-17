@@ -1022,7 +1022,8 @@
                                                 Grid.Row="1"
                                                 Grid.Column="0"
                                                 Aspect="AspectFit"
-                                                Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconLState.png}">
+                                                Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconLState.png}"
+                                                        VerticalOptions="Start">
                                                         <Image.HeightRequest>
                                                             <OnPlatform x:TypeArguments="x:Double">
                                                                 <On Platform="iOS">
@@ -1040,13 +1041,15 @@
                                                             </OnPlatform>
                                                         </Image.HeightRequest>
                                                     </Image>
+
+                                                    <!--Text="{Binding reservationData.Reservationview.StartLocationName}"-->
                                                     <Label
                                                 Grid.Row="1"
                                                 Grid.Column="1"
                                                 Margin="0"
                                                 FontAttributes="Bold"
                                                 FontFamily="Roboto-Bold"
-                                                Text="{Binding reservationData.Reservationview.StartLocationName}"
+                                                Text="Pivet Atlanta 2244 Metropolitan Pkwy SW, Atlanta, GA 30315"
                                                 TextColor="{StaticResource MaxVonBlack}"
                                                 VerticalOptions="Center">
                                                         <Label.FontSize>
@@ -1206,7 +1209,8 @@
                                                 Grid.Row="1"
                                                 Grid.Column="0"
                                                 Aspect="AspectFit"
-                                                Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconLState.png}">
+                                                Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconLState.png}"
+                                                        VerticalOptions="Start">
                                                         <Image.HeightRequest>
                                                             <OnPlatform x:TypeArguments="x:Double">
                                                                 <On Platform="iOS">
@@ -1228,8 +1232,9 @@
                                                 Grid.Row="1"
                                                 Grid.Column="1"
                                                 Margin="0"
+                                                        FontAttributes="Bold"
                                                 FontFamily="Roboto-Bold"
-                                                Text="{Binding reservationData.Reservationview.EndLocationName}"
+                                                Text="Pivet Atlanta 2244 Metropolitan Pkwy SW, Atlanta, GA 30315"
                                                 TextColor="{StaticResource MaxVonBlack}"
                                                 VerticalOptions="Center">
                                                         <Label.FontSize>
@@ -1277,14 +1282,14 @@
                                                             <On Platform="iOS">
                                                                 <OnIdiom
                                                                     x:TypeArguments="Thickness"
-                                                                    Phone="15,1,15,20"
-                                                                    Tablet="30,1,30,20" />
+                                                                    Phone="15,15,15,5"
+                                                                    Tablet="30,15,30,5" />
                                                             </On>
                                                             <On Platform="Android,Windows">
                                                                 <OnIdiom
                                                                     x:TypeArguments="Thickness"
-                                                                    Phone="15,1,15,20"
-                                                                    Tablet="30,1,30,20" />
+                                                                    Phone="15,15,15,5"
+                                                                    Tablet="30,15,30,5" />
                                                             </On>
                                                         </OnPlatform>
                                                     </Button.Margin>
@@ -1293,14 +1298,14 @@
                                                             <On Platform="iOS">
                                                                 <OnIdiom
                                                                     x:TypeArguments="x:Double"
-                                                                    Phone="45"
-                                                                    Tablet="50" />
+                                                                    Phone="40"
+                                                                    Tablet="45" />
                                                             </On>
                                                             <On Platform="Android,Windows">
                                                                 <OnIdiom
                                                                     x:TypeArguments="x:Double"
-                                                                    Phone="45"
-                                                                    Tablet="50" />
+                                                                    Phone="40"
+                                                                    Tablet="45" />
                                                             </On>
                                                         </OnPlatform>
                                                     </Button.HeightRequest>
@@ -1378,7 +1383,7 @@
                 <StackLayout
             x:Name="lastAgreementStack"
             Grid.Row="2"
-            Margin="10,50,10,20"
+            Margin="10,50,10,0"
             VerticalOptions="CenterAndExpand">
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped" />
@@ -1448,13 +1453,12 @@
                     <Frame
                 Grid.Row="2"
                 Margin="10,10"
-                Padding="0"
+                Padding="0,20"
                 BorderColor="LightGray"
                 CornerRadius="10"
                 HasShadow="False"
-                HeightRequest="440"
                         BackgroundColor="Transparent">
-                        <Grid Margin="5,10" Padding="0">
+                        <Grid Margin="5,0" Padding="0">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="45" />
                                 <RowDefinition Height="Auto" />
@@ -1563,14 +1567,13 @@
                         VerticalOptions="EndAndExpand"
                         Color="{StaticResource MaxVonGray}" />
 
-                            <Grid
-                        Grid.Row="1"
+                 
+                                <StackLayout
+                                    Grid.Row="1"
                         Grid.Column="0"
                         Grid.ColumnSpan="2"
                         Margin="15,0"
-                        HorizontalOptions="Fill">
-                                <StackLayout
-                            Margin="0"
+                        HorizontalOptions="Fill"
                             Padding="0"
                             Orientation="Horizontal"
                             VerticalOptions="CenterAndExpand">
@@ -1606,7 +1609,7 @@
                                     <CollectionView
                                 x:Name="eventList"
                                 HeightRequest="40"
-                                HorizontalOptions="End"
+                                HorizontalOptions="EndAndExpand"
                                 ItemsLayout="VerticalList"
                                 ItemsSource="{Binding}">
                                         <CollectionView.ItemTemplate>
@@ -2033,7 +2036,6 @@
 
 
                                 </StackLayout>
-                            </Grid>
 
                             <Grid
                         Grid.Row="2"
@@ -2072,7 +2074,7 @@
                                 <Label
                             x:Name="vehicleNameLabel"
                             Grid.Column="1"
-                            Margin="0,0,0,5"
+                            Margin="0,5,0,5"
                             FontAttributes="Bold"
                             FontFamily="Roboto-Bold"
                             FontSize="Medium"
@@ -2190,6 +2192,7 @@
                                     <RowDefinition Height="*" />
                                     <RowDefinition Height="Auto" />
                                     <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
                                 <StackLayout
                             Grid.Column="0"
@@ -2224,7 +2227,7 @@
                             Grid.Row="1"
                             Grid.Column="0"
                             Margin="15,0"
-                            RowSpacing="5">
+                            RowSpacing="10">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="30" />
                                         <ColumnDefinition Width="*" />
@@ -2238,7 +2241,8 @@
                                 Grid.Column="0"
                                 Aspect="AspectFit"
                                 HeightRequest="20"
-                                Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconResDt.png}" />
+                                Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconResDt.png}"
+                                        VerticalOptions="Start"/>
                                     <Label
                                 x:Name="pickUpDateLabel"
                                 Grid.Column="1"
@@ -2253,6 +2257,7 @@
                                 Grid.Column="0"
                                 Aspect="AspectFit"
                                 HeightRequest="20"
+                                        VerticalOptions="Start"
                                 Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconLState.png}" />
                                     <Label
                                 x:Name="pickUpLocationLabel"
@@ -2268,7 +2273,7 @@
                             Grid.Row="1"
                             Grid.Column="1"
                             Margin="15,0"
-                            RowSpacing="5">
+                            RowSpacing="10">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="30" />
                                         <ColumnDefinition Width="*" />
@@ -2282,6 +2287,7 @@
                                 Grid.Column="0"
                                 Aspect="AspectFit"
                                 HeightRequest="20"
+                                        VerticalOptions="Start"
                                 Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconResDt.png}" />
                                     <Label
                                 x:Name="dropOffDateLabel"
@@ -2297,7 +2303,8 @@
                                 Grid.Column="0"
                                 Aspect="AspectFit"
                                 HeightRequest="20"
-                                Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconLState.png}" />
+                                Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconLState.png}"
+                                        VerticalOptions="Start"/>
                                     <Label
                                 x:Name="dropOffLocationLabel"
                                 Grid.Row="1"
@@ -2320,7 +2327,7 @@
 
                                 <Button
                                     x:Name="extendBtn"
-                                    Grid.Row="3"
+                                    Grid.Row="4"
                                     Grid.ColumnSpan="2"
                                     BackgroundColor="{StaticResource MaxVonYellow}"
                                     BorderWidth="0"
@@ -2334,14 +2341,14 @@
                                             <On Platform="iOS">
                                                 <OnIdiom
                                                     x:TypeArguments="Thickness"
-                                                    Phone="15,1,15,20"
-                                                    Tablet="30,1,30,20" />
+                                                    Phone="15,20,15,5"
+                                                    Tablet="30,20,30,5" />
                                             </On>
                                             <On Platform="Android,Windows">
                                                 <OnIdiom
                                                     x:TypeArguments="Thickness"
-                                                    Phone="15,1,15,20"
-                                                    Tablet="30,1,30,20" />
+                                                    Phone="15,20,15,5"
+                                                    Tablet="30,20,30,5" />
                                             </On>
                                         </OnPlatform>
                                     </Button.Margin>
@@ -2350,14 +2357,14 @@
                                             <On Platform="iOS">
                                                 <OnIdiom
                                                     x:TypeArguments="x:Double"
-                                                    Phone="45"
-                                                    Tablet="50" />
+                                                    Phone="40"
+                                                    Tablet="45" />
                                             </On>
                                             <On Platform="Android,Windows">
                                                 <OnIdiom
                                                     x:TypeArguments="x:Double"
-                                                    Phone="45"
-                                                    Tablet="50" />
+                                                    Phone="40"
+                                                    Tablet="45" />
                                             </On>
                                         </OnPlatform>
                                     </Button.HeightRequest>

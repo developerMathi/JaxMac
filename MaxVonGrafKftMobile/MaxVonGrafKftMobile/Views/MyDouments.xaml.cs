@@ -19,9 +19,10 @@ namespace MaxVonGrafKftMobile.Views
     {
         GetMobileCustomerByIDRequest request;
         GetAllDocumentByCustomerIdResponse response;
-        List<Document> imageDocs;
+        List<Document> RegDocs;
+        List<Document> InsDocs;
         List<Document> otherDocs;
-        List<Document> sortedList;
+        //List<Document> sortedList;
         string token;
 
         public MyDouments()
@@ -31,7 +32,8 @@ namespace MaxVonGrafKftMobile.Views
             response = null;
             token = App.Current.Properties["currentToken"].ToString();
             request.CustomerId = (int)App.Current.Properties["CustomerId"];
-            imageDocs = new List<Document>();
+            RegDocs = new List<Document>();
+            InsDocs = new List<Document>();
             otherDocs = new List<Document>();
         }
 
@@ -82,44 +84,79 @@ namespace MaxVonGrafKftMobile.Views
                     {
                         if (response.message.ErrorCode == "200")
                         {
-                            sortedList = response.DocList.OrderByDescending(x => x.DocumentId).ToList();
+                            //sortedList = response.DocList.OrderByDescending(x => x.DocumentId).ToList();
 
-                            fixtoRecentListView(sortedList);
-                            imageDocs = new List<Document>();
+                            //fixtoRecentListView(sortedList);
+
+
+                            RegDocs = new List<Document>();
+                            InsDocs = new List<Document>();
                             otherDocs = new List<Document>();
 
-                            float imagSize = 0;
+                            float regSize = 0;
+                            float insSize = 0;
                             float docSize = 0;
                             foreach (Document d in response.DocList)
                             {
-                                if (d.ContentType.Contains("image"))
+                                if(d.Side != null)
                                 {
-                                    imageDocs.Add(d);
-                                    imagSize += d.FileSize;
+                                    if (d.Side.ToLower().Contains("license"))
+                                    {
+                                        RegDocs.Add(d);
+                                        regSize += d.FileSize;
+                                    }
+                                    else if (d.Side.ToLower().Contains("insurance"))
+                                    {
+                                        InsDocs.Add(d);
+                                        insSize += d.FileSize;
+                                    }
+                                    else
+                                    {
+                                        otherDocs.Add(d);
+                                        docSize += d.FileSize;
+                                    }
                                 }
                                 else
                                 {
                                     otherDocs.Add(d);
                                     docSize += d.FileSize;
                                 }
+
                             }
 
-                            if (imageDocs != null)
+                            if (RegDocs != null)
                             {
-                                float imgSizeKB = imagSize / 1024;
-                                float imgSizeMB = imgSizeKB / 1024;
+                                float RegSizeKB = regSize / 1024;
+                                float RegSizeMB = RegSizeKB / 1024;
 
-                                if (imgSizeMB > 1)
+                                if (RegSizeMB > 1)
                                 {
-                                    imageSize.Text = imgSizeMB.ToString("0.00");
+                                    imageSize.Text = RegSizeMB.ToString("0.00");
                                     imageSizeUnit.Text = " MB";
                                 }
                                 else
                                 {
-                                    imageSize.Text = imgSizeKB.ToString("0.00");
+                                    imageSize.Text = RegSizeKB.ToString("0.00");
                                     imageSizeUnit.Text = " KB";
                                 }
-                                imFileCount.Text = imageDocs.Count.ToString();
+                                imFileCount.Text = RegDocs.Count.ToString();
+                            }
+                            if (InsDocs != null)
+                            {
+                                float InsSizeKB = insSize / 1024;
+                                float InsSizeMB = InsSizeKB / 1024;
+
+                                if (InsSizeMB > 1)
+                                {
+                                    fileSize.Text = InsSizeMB.ToString("0.00");
+                                    fileSizeUnit.Text = " MB";
+                                }
+                                else
+                                {
+                                    fileSize.Text = InsSizeKB.ToString("0.00");
+                                    fileSizeUnit.Text = " KB";
+                                }
+                                othFilesCount.Text = InsDocs.Count.ToString();
                             }
                             if (otherDocs != null)
                             {
@@ -128,15 +165,15 @@ namespace MaxVonGrafKftMobile.Views
 
                                 if (docSizeMB > 1)
                                 {
-                                    fileSize.Text = docSizeMB.ToString("0.00");
-                                    fileSizeUnit.Text = " MB";
+                                    otherFileSize.Text = docSizeMB.ToString("0.00");
+                                    otherFileSizeUnit.Text = " MB";
                                 }
                                 else
                                 {
-                                    fileSize.Text = docSizeKB.ToString();
-                                    fileSizeUnit.Text = " KB";
+                                    otherFileSize.Text = docSizeKB.ToString("0.00");
+                                    otherFileSizeUnit.Text = " KB";
                                 }
-                                othFilesCount.Text = otherDocs.Count.ToString();
+                                othDocFilesCount.Text = otherDocs.Count.ToString();
                             }
                         }
                         else
@@ -237,12 +274,12 @@ namespace MaxVonGrafKftMobile.Views
 
         private void GalleryPan_Tapped(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new GalleryPage(imageDocs,"gallery"));
+            Navigation.PushAsync(new GalleryPage(RegDocs,"Registration Documents"));
         }
 
         private void docPan_Tapped(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new GalleryPage(otherDocs,"documet"));
+            Navigation.PushAsync(new GalleryPage(InsDocs,"Insurance Documents"));
         }
 
         [Obsolete]
@@ -257,6 +294,11 @@ namespace MaxVonGrafKftMobile.Views
             {
                 PopupNavigation.Instance.PushAsync(new Error_popup(ex.Message));
             }
+        }
+
+        void otherdocPan_Tapped(System.Object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new GalleryPage(otherDocs, "Other Documents"));
         }
     }
 }

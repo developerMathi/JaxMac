@@ -167,10 +167,25 @@ namespace MaxVonGrafKftMobile.Views
                 {
                     foreach (CreditCards cc in listCard)
                     {
-                        string cardnu = cc.CreditCardNoForDisplay.Substring(cc.CreditCardNoForDisplay.Length-4);
+                        int lastCardId = 0;
+                        if (App.Current.Properties.ContainsKey("LastCreditCardId"))
+                        {
+                            lastCardId = (int)App.Current.Properties["LastCreditCardId"];
+                        }
+
+                        string cardnu = cc.CreditCardNoForDisplay.Substring(cc.CreditCardNoForDisplay.Length - 4);
                         string editedNumber = "**** **** **** " + cardnu;
-                        CardDetails details = new CardDetails() { cardId = (int)cc.CreditCardId, cardNumber = editedNumber, ExpiryDt = cc.Month.ToString("00") + "/" + cc.Year.ToString("00"), cardType = cc.CreditCardType };
-                        cardDetails.Add(details);
+
+                        if (cc.CreditCardId == lastCardId)
+                        {
+                            CardDetails details = new CardDetails() { cardId = (int)cc.CreditCardId, cardNumber = editedNumber, ExpiryDt = cc.Month.ToString("00") + "/" + cc.Year.ToString("00"), cardType = cc.CreditCardType, _isCardSelect = "iconCircleSelected.png" };
+                            cardDetails.Add(details);
+                        }
+                        else
+                        {
+                            CardDetails details = new CardDetails() { cardId = (int)cc.CreditCardId, cardNumber = editedNumber, ExpiryDt = cc.Month.ToString("00") + "/" + cc.Year.ToString("00"), cardType = cc.CreditCardType };
+                            cardDetails.Add(details);
+                        }
                     }
                 }
 

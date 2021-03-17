@@ -161,19 +161,13 @@ namespace MaxVonGrafKftMobile.Views
                     await Navigation.PopAsync();
                 }
 
-                pickUpDate.Date = estTime;
-                if (estTime > estTime.Date.AddHours(12))
-                {
-                    pickUpDate.MaximumDate = estTime.AddDays(2);
-                }
-                else if (estTime < estTime.Date.AddHours(12))
-                {
+                
+                
                     pickUpDate.MaximumDate = estTime.AddDays(1);
-                }
                 pickUpDate.MinimumDate = estTime;
 
 
-                pickUpDate.Date = estTime.AddDays(1);
+                pickUpDate.Date = estTime;
                 //pickUpTime.Time = new TimeSpan(DateTime.Now.TimeOfDay.Add(new TimeSpan(12, 0, 0)).Hours, DateTime.Now.TimeOfDay.Add(new TimeSpan(12, 0, 0)).Minutes, DateTime.Now.TimeOfDay.Add(new TimeSpan(12, 0, 0)).Seconds);
                 //dropOffDate.Date = DateTime.Now.AddDays(1);
                 //dropOffDate.MinimumDate = DateTime.Now;

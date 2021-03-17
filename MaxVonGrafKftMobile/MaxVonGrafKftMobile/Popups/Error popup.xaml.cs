@@ -110,7 +110,7 @@ namespace MaxVonGrafKftMobile.Popups
                                 {
                                     if (response.ReservationNumber != null)
                                     {
-                                        await PopupNavigation.Instance.PushAsync(new SuccessPopUp("Your reservation cancelled successfully, Your payment will be refund shortly. ", 1));
+                                        await PopupNavigation.Instance.PushAsync(new SuccessPopUp("Your reservation has been successfully cancelled. The balance of your payment will be refunded shortly.", 1));
                                     }
                                     else
                                     {
@@ -121,7 +121,7 @@ namespace MaxVonGrafKftMobile.Popups
                                 {
                                     if (response.ReservationNumber != null)
                                     {
-                                        await PopupNavigation.Instance.PushAsync(new SuccessPopUp("Your reservation cancelled successfully, Your payment will be refund shortly. ", 1));
+                                        await PopupNavigation.Instance.PushAsync(new SuccessPopUp("Your reservation has been successfully cancelled. The balance of your payment will be refunded shortly. ", 1));
                                     }
                                     else
                                     {

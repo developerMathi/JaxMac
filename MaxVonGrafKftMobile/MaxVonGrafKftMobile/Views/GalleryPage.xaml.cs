@@ -25,7 +25,8 @@ namespace MaxVonGrafKftMobile.Views
             downloader.OnFileDownloaded += OnFileDownloaded;
             this.imageDocs = imageDocs;
             this.v = v;
-            if(v== "gallery")
+            titleLabel.Text = v;
+            if (v== "gallery")
             {
                 titleLabel.Text = "Photos";
             }

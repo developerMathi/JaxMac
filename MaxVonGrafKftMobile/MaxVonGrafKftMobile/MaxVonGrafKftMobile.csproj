@@ -169,11 +169,19 @@
     <None Remove="Assets\side1.png" />
     <None Remove="Assets\side2.png" />
     <None Remove="Assets\time.png" />
+    <None Remove="Assets\helpPhone.png" />
+    <None Remove="Assets\IconInsuDocumnet.png" />
+    <None Remove="Assets\IconOtherDocumnet.png" />
+    <None Remove="Assets\IconRegistrationDocument.png" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Assets\iconChat.png" />
     <EmbeddedResource Include="Assets\iconDelete.png" />
+    <EmbeddedResource Include="Assets\helpPhone.png" />
+    <EmbeddedResource Include="Assets\IconInsuDocumnet.png" />
+    <EmbeddedResource Include="Assets\IconOtherDocumnet.png" />
+    <EmbeddedResource Include="Assets\IconRegistrationDocument.png" />
   </ItemGroup>
 
   <ItemGroup>

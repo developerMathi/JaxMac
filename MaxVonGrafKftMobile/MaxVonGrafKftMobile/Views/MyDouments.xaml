@@ -54,8 +54,9 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50"></RowDefinition>
                         <RowDefinition Height="220"></RowDefinition>
-                        <RowDefinition Height="50"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="220"></RowDefinition>
+                        <!--<RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>-->
                     </Grid.RowDefinitions>
 
                     <Label
@@ -106,13 +107,13 @@
                             </Grid.RowDefinitions>
                             <Image HeightRequest="80"
                                Aspect="AspectFit"
-                              Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.IconRedGallery.png}"
+                              Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.IconRegistrationDocument.png}"
                                    HorizontalOptions="Center"></Image>
                             <Label Grid.Row="1"
                                    HorizontalOptions="Center"
                                    VerticalOptions="End"
                                     FontFamily="Roboto-Medium"
-                                   TextColor="Black">Photos</Label>
+                                   TextColor="Black">Registration</Label>
                             <Label Grid.Row="2"
                                    HorizontalOptions="Center"
                                     TextColor="Black">
@@ -177,13 +178,13 @@
                             </Grid.RowDefinitions>
                             <Image HeightRequest="80"
                                Aspect="AspectFit"
-                              Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.IconRedDocument.png}"
+                              Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.IconInsuDocumnet.png}"
                                    HorizontalOptions="Center"></Image>
                             <Label Grid.Row="1"
                                    HorizontalOptions="Center"
                                    VerticalOptions="End"
                                    TextColor="Black"
-                                    FontFamily="Roboto-Medium">Documents</Label>
+                                    FontFamily="Roboto-Medium">Insurance</Label>
                             <Label Grid.Row="2"
                                    HorizontalOptions="Center"
                                     TextColor="Black">
@@ -226,11 +227,86 @@
 
                     </pancakeview:PancakeView>
 
+
+                    <pancakeview:PancakeView CornerRadius="15"
+                                             Margin="5,0,5,20"
+                                             Grid.Row="2"
+                                             Grid.ColumnSpan="2"
+                                             Padding="10"
+                                             OffsetAngle="45"
+                                             BackgroundColor="#ffeeed"
+                                             HorizontalOptions="FillAndExpand">
+                        <pancakeview:PancakeView.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                  x:Name="otherdocPan"
+                                                  Tapped="otherdocPan_Tapped"></TapGestureRecognizer>
+                        </pancakeview:PancakeView.GestureRecognizers>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="80"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Image HeightRequest="80"
+                               Aspect="AspectFit"
+                              Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.IconOtherDocumnet.png}"
+                                   HorizontalOptions="Center"></Image>
+                            <Label Grid.Row="1"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="End"
+                                   TextColor="Black"
+                                    FontFamily="Roboto-Medium">Other Documents</Label>
+                            <Label Grid.Row="2"
+                                   HorizontalOptions="Center"
+                                    TextColor="Black">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span FontFamily="Roboto-Medium"
+                                                  FontSize="Micro"
+                                                  Text="0"
+                                                  x:Name="othDocFilesCount"></Span>
+                                            <Span Text=" Files"
+                                                   FontFamily="Roboto-Medium"
+                                                  FontSize="Micro"></Span>
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label Grid.Row="3"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Start"
+                                    TextColor="Black">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span FontFamily="Roboto-Medium"
+                                                  FontSize="Micro"
+                                                  x:Name="otherFileSize"
+                                                  Text="0"></Span>
+                                            <Span Text=" MB"
+                                                   FontFamily="Roboto-Medium"
+                                                  FontSize="Micro"
+                                                  x:Name="otherFileSizeUnit"></Span>
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+
+                        </Grid>
+
+                    </pancakeview:PancakeView>
+
+
+                    <!--#region not visible for jax(recent files)-->
                     <Label Text="Recent files"
                            Grid.ColumnSpan="2"
                            Grid.Row="2"
                             FontFamily="Roboto-Medium"
-                           TextColor="{StaticResource MaxVonBlack}">
+                           TextColor="{StaticResource MaxVonBlack}"
+                           IsVisible="false">
                         <Label.Margin>
                             <OnPlatform x:TypeArguments="Thickness">
                                 <On Platform="iOS">
@@ -274,7 +350,8 @@
                               RowHeight="125"
                               VerticalScrollBarVisibility="Never"
                               ItemTapped="recentFileList_ItemTapped"
-                              BackgroundColor="Transparent">
+                              BackgroundColor="Transparent"
+                              IsVisible="false">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <renders:ExtendedViewCell SelectedBackgroundColor="{StaticResource MaxVonWhite}">
@@ -335,6 +412,8 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
+                    <!--#endregion-->
+                    
                 </Grid>
                 
             </StackLayout>

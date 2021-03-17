@@ -729,7 +729,7 @@
                                             <RowDefinition Height="50" />
                                             <RowDefinition Height="50" />
                                             <RowDefinition Height="50" />
-                                            <RowDefinition Height="50" />
+                                            <RowDefinition Height="Auto" />
                                             <RowDefinition Height="50" />
                                             <RowDefinition Height="50" />
                                             <RowDefinition Height="Auto" />
@@ -1050,7 +1050,7 @@
                                     Grid.Row="4"
                                     Grid.Column="0"
                                     FontFamily="Roboto-Bold"
-                                    Text="Additional Fees"
+                                    Text="Insurance, Maintenance and Protection fees"
                                     TextColor="{StaticResource MaxVonBlack}"
                                     VerticalOptions="Center">
                                     <Label.Margin>
@@ -1058,14 +1058,14 @@
                                             <On Platform="iOS">
                                                 <OnIdiom
                                                     x:TypeArguments="Thickness"
-                                                    Phone="10,0,0,0"
-                                                    Tablet="20,0,0,0" />
+                                                    Phone="10,0,0,10"
+                                                    Tablet="20,0,0,10" />
                                             </On>
                                             <On Platform="Android,Windows">
                                                 <OnIdiom
                                                     x:TypeArguments="Thickness"
-                                                    Phone="10,0,0,0"
-                                                    Tablet="20,0,0,0" />
+                                                    Phone="10,0,0,10"
+                                                    Tablet="20,0,0,10" />
                                             </On>
                                         </OnPlatform>
                                     </Label.Margin>
@@ -1099,14 +1099,14 @@
                                             <On Platform="iOS">
                                                 <OnIdiom
                                                     x:TypeArguments="Thickness"
-                                                    Phone="0,0,10,0"
-                                                    Tablet="0,0,20,0" />
+                                                    Phone="0,0,10,10"
+                                                    Tablet="0,0,20,10" />
                                             </On>
                                             <On Platform="Android,Windows">
                                                 <OnIdiom
                                                     x:TypeArguments="Thickness"
-                                                    Phone="0,0,10,0"
-                                                    Tablet="0,0,20,0" />
+                                                    Phone="0,0,10,10"
+                                                    Tablet="0,0,20,10" />
                                             </On>
                                         </OnPlatform>
                                     </Label.Margin>

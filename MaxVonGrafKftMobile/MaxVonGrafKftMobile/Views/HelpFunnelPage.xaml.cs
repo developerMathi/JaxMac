@@ -1,10 +1,11 @@
-﻿using Rg.Plugins.Popup.Services;
+﻿using MaxVonGrafKftMobile.Popups;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 using Xamarin.Forms.Xaml;
@@ -191,6 +192,26 @@ namespace MaxVonGrafKftMobile.Views
                 unselectedTab();
                 imgHeadlight.Source = iconUp;
                 grdHeadlight.IsVisible = true;
+            }
+        }
+
+        void helpNumber_Tapped(System.Object sender, System.EventArgs e)
+        {
+            try
+            {
+                PhoneDialer.Open("(404) 341-2264");
+            }
+            catch (ArgumentNullException anEx)
+            {
+                PopupNavigation.Instance.PushAsync(new Error_popup(anEx.Message));
+            }
+            catch (FeatureNotSupportedException ex)
+            {
+                PopupNavigation.Instance.PushAsync(new Error_popup(ex.Message));
+            }
+            catch (Exception ex)
+            {
+                PopupNavigation.Instance.PushAsync(new Error_popup(ex.Message));
             }
         }
     }

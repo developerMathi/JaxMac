@@ -238,7 +238,7 @@ namespace MaxVonGrafKftMobile.Views
                                 }
                                 if (reservationByIDMobileResponse.reservationData.Reservationview.Status == (short)ReservationStatuses.Open)
                                 {
-                                    reservationByIDMobileResponse.reservationData.Reservationview.PageTitle = "Active";
+                                    reservationByIDMobileResponse.reservationData.Reservationview.PageTitle = "Pending Pickup";
                                 }
 
                                 if (reservationByIDMobileResponse.vehicleTypeModel == null)
@@ -331,9 +331,9 @@ namespace MaxVonGrafKftMobile.Views
                                         bagsCount.Text = agreementIdMobileResponse.agreementVehicle.Baggages.ToString();
                                         TransType.Text = agreementIdMobileResponse.agreementVehicle.Transmission;
                                         totalAmountLabel.Text = "Days: " + agreement.AgreementDetail.TotalDays.ToString();
-                                        pickUpLocationLabel.Text = agreement.AgreementDetail.CheckoutLocationName;
+                                        pickUpLocationLabel.Text = "Pivet Atlanta 2244 Metropolitan Pkwy SW, Atlanta, GA 30315";
                                         pickUpDateLabel.Text = agreement.AgreementDetail.CheckoutDate.ToString("dddd, dd MMMM yyyy hh:mm tt");
-                                        dropOffLocationLabel.Text = agreement.AgreementDetail.CheckinLocationName;
+                                        dropOffLocationLabel.Text = "Pivet Atlanta 2244 Metropolitan Pkwy SW, Atlanta, GA 30315";
                                         dropOffDateLabel.Text = agreement.AgreementDetail.CheckinDate.ToString("dddd, dd MMMM yyyy hh:mm tt");
                                         VehicleImage.Source = ImageSource.FromUri(new Uri(agreementIdMobileResponse.agreementVehicle.ImageUrl));
 
