@@ -178,7 +178,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Assets\iconChat.png" />
     <EmbeddedResource Include="Assets\iconDelete.png" />
-    <EmbeddedResource Include="Assets\helpPhone.png" />
+    <EmbeddedResource Include="Assets\helpPhone.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Assets\IconInsuDocumnet.png" />
     <EmbeddedResource Include="Assets\IconOtherDocumnet.png" />
     <EmbeddedResource Include="Assets\IconRegistrationDocument.png" />
