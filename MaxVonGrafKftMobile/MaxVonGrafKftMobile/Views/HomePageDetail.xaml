@@ -1424,7 +1424,7 @@
                             TextColor="{StaticResource Black}" 
                         HorizontalOptions="Start"
                         VerticalOptions="Center"
-                        Text="Over Due Balance"/>
+                        Text="Overdue Balance"/>
                             <Label Margin="5"
                             Grid.Column="1"
                             TextColor="{StaticResource MaxVonRed}" 

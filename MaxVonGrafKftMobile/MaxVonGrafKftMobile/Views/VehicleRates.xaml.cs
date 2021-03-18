@@ -509,18 +509,23 @@ namespace MaxVonGrafKftMobile.Views
             string discription = selectedMischrge.Description;
             if(selectedMischrge.Name== "Insurance")
             {
-                discription = "Premium rideshare insurance is included in your rental. All damage, accidents, and thefts are covered under this policy. Renter is responsible for paying any deductibles";
+                discription = "Liability and physical damage coverage for rideshare is included ($1,000 deductible; see rental agreement for full coverage and exclusions) ";
             }
             if (selectedMischrge.Name == "Jax Maintenance Plan")
             {
-                discription = "All maintenance and wear parts such as oil changes, brakes, and tires are covered under this plan";
+                discription = "All mechanical failures including engine and transmission issues are covered with this rental (see rental agreement for full coverage and exclusions).";
             }
             if (selectedMischrge.Name == "Jax Protection Plan")
             {
-                discription = "All mechanical failures are covered under this plan. Renter is only responsible if mechanical failure is due to renter negligence";
+                discription = "All wear parts including tires, brakes, windshield wipers and more are 100% covered with this rental (see rental agreement for full coverage and exclusions).";
             }
             PopupNavigation.Instance.PushAsync(new DetailPopUp(selectedMischrge.Name,discription));
 
+        }
+
+        void descriptionBtndailyRate_Tapped(System.Object sender, System.EventArgs e)
+        {
+            PopupNavigation.Instance.PushAsync(new DetailPopUp("Daily Rate", "The base rate of the vehicle depends on the vehicle type and amenities included "));
         }
     }
 }
