@@ -40,6 +40,11 @@ namespace MaxVonGrafKftMobile.Views
                 {
                     await PopupNavigation.Instance.PopAllAsync();
                 }
+                else
+                {
+                    await PopupNavigation.Instance.PopAsync();
+
+                }
             }
 
         }
