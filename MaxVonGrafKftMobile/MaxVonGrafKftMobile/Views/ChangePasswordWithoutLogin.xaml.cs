@@ -126,7 +126,7 @@ namespace MaxVonGrafKftMobile.Views
 
         void passDeatilBtn_Tapped(System.Object sender, System.EventArgs e)
         {
-            PopupNavigation.Instance.PushAsync(new DetailPopUp("Temporary  password", "You should have received a temporary password via email. Copy it here. If you did not receive it, click ‘Resend Email’."));
+            PopupNavigation.Instance.PushAsync(new DetailPopUp("Temporary  password", "You should have received a temporary password via email. Copy it here. If you did not receive it, click ‘Resend Email’.",1));
         }
 
 

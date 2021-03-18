@@ -163,6 +163,55 @@
                     </Label.FontSize>
                 </Label>
 
+                 <Button
+                     Margin="10"
+                     IsVisible="false"
+                    x:Name="reseendPassEmail"
+                    BackgroundColor="{StaticResource MaxVonRed}"
+                    BorderWidth="0"
+                    Clicked="reseendPassEmail_Clicked"
+                    CornerRadius="10"
+                    FontFamily="Roboto-Medium"
+                    HorizontalOptions="EndAndExpand"
+                    StyleClass="bouncy"
+                    Text="Resend Email"
+                     Padding="10"
+                    TextColor="{StaticResource MaxVonWhite}"
+                    VerticalOptions="CenterAndExpand">
+                    <Button.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="35"
+                                    Tablet="40" />
+                            </On>
+                            <On Platform="Android,Windows">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="35"
+                                    Tablet="40" />
+                            </On>
+                        </OnPlatform>
+                    </Button.HeightRequest>
+                    <Button.FontSize>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="14"
+                                    Tablet="18" />
+                            </On>
+                            <On Platform="Android,Windows">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="16"
+                                    Tablet="20" />
+                            </On>
+                        </OnPlatform>
+                    </Button.FontSize>
+                </Button>
+
                 
             </StackLayout>
         </ScrollView>

@@ -14,7 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-
+using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -83,6 +83,14 @@ namespace MaxVonGrafKftMobile.Views
             request = new ExtendAgreementRequest();
             response = null;
             overDueBalanceViewModel=new OverDueBalanceViewModel();
+
+            ICommand refreshCommand = new Command(() =>
+            {
+                refreshView.IsRefreshing = true;
+                this.OnAppearing();
+                refreshView.IsRefreshing = false;
+            });
+            refreshView.Command = refreshCommand;
 
             // BooknowBtn.BackgroundColor = (Color)App.Current.Properties["MaxVonYellow"];
         }
@@ -770,6 +778,13 @@ namespace MaxVonGrafKftMobile.Views
                 PopupNavigation.Instance.PushAsync(new Popups.ExtendPopup(agreementIdMobileResponse.custAgreement.AgreementDetail, locationIdForPayment));
             }
 
+        }
+
+        void upcomingReservation_Refreshing(System.Object sender, System.EventArgs e)
+        {
+            upcomingReservation.IsRefreshing = true;
+            this.OnAppearing();
+            upcomingReservation.IsRefreshing = false;
         }
     }
 }
