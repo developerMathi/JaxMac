@@ -62,17 +62,17 @@ namespace MaxVonGrafKftMobile.Popups
             }
             if (v == 5)
             {
-                Navigation.PushAsync(new ChangePasswordWithoutLogin(email));
+                Navigation.PushModalAsync(new ChangePasswordWithoutLogin(email));
             }
             if (v == 6)
             {
-                Navigation.PushAsync(new LoginPage());
+                Navigation.PushModalAsync(new LoginPage());
             }
         }
 
         void LoginBtn_Clicked(System.Object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new LoginPage());
+            Navigation.PushModalAsync(new LoginPage());
         }
     }
 }

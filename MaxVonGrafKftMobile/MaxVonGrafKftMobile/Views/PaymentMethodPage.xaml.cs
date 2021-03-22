@@ -163,7 +163,7 @@ namespace MaxVonGrafKftMobile.Views
 
         private void BooknowBtn_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new AddPaymentMethodPage());
+            Navigation.PushModalAsync(new AddPaymentMethodPage());
         }
 
         private void lstCardetail_ItemTapped(object sender, ItemTappedEventArgs e)

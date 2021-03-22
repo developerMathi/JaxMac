@@ -5,6 +5,7 @@ using MaxVonGrafKftMobileModel.AccessModels;
 using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -193,13 +194,39 @@ namespace MaxVonGrafKftMobile.Views
         protected override bool OnBackButtonPressed()
         {
             if (PopupNavigation.Instance.PopupStack.Count > 0) { return true; }
-            else if (Navigation.NavigationStack.Count > 2)
+            else if (Navigation.NavigationStack.Count > 1)
             {
+                int c = Navigation.NavigationStack.Count;
+                for (var counter = 1; counter < c; counter++)
+                {
+                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+                }
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    var result = await this.DisplayAlert("Alert!", "Are you sure you want to close this application?", "Yes", "No");
+                    if (result)
+                    {
+                        Process.GetCurrentProcess().CloseMainWindow();
+                        Process.GetCurrentProcess().Close();
+                    }
+                });
                 return true;
             }
             // Always return true because this method is not asynchronous.
             // We must handle the action ourselves: see above.
-            return false;
+            else
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    var result = await this.DisplayAlert("Alert!", "Are you sure you want to close this application?", "Yes", "No");
+                    if (result)
+                    {
+                        Process.GetCurrentProcess().CloseMainWindow();
+                        Process.GetCurrentProcess().Close();
+                    }
+                });
+                return true;
+            }
         }
 
         private async void HomeBtn_Clicked(object sender, EventArgs e)
@@ -208,7 +235,7 @@ namespace MaxVonGrafKftMobile.Views
             {
                 if ((int)App.Current.Properties["CustomerId"] == 0)
                 {
-                    await Navigation.PushAsync(new LoginPage());
+                    await Navigation.PushModalAsync(new LoginPage());
 
                 }
                 else
@@ -252,14 +279,14 @@ namespace MaxVonGrafKftMobile.Views
 
         private void btnSignup_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new RegisterPage());
+            Navigation.PushModalAsync(new RegisterPage());
         }
 
 
 
         private void forgetPasswordBtn_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new ForgetPasswordPage());
+            Navigation.PushModalAsync(new ForgetPasswordPage());
         }
 
         //private void HomeBtn_Clicked(object sender, EventArgs e)

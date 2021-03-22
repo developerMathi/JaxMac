@@ -260,11 +260,12 @@ namespace MaxVonGrafKftMobile.Views
                                 List<GetReservationByIDMobileResponse> upreserItemSource = new List<GetReservationByIDMobileResponse>();
                                 upreserItemSource.Add(reservationByIDMobileResponse);
                                 upcomingReservation.ItemsSource = upreserItemSource;
-                                upcomingReservation.HeightRequest = 400;
+                                upcomingReservation.HeightRequest = upcomingReservation.RowHeight;
                                 if (reservationByIDMobileResponse.reservationData.Reservationview.Status == (short)ReservationStatuses.Canceled)
                                 {
                                     BooknowBtn.IsVisible = true;
                                     isbookingBtnVisible = true;
+                                    extendBtn.IsVisible = false;
                                 }
                                 else
                                 {

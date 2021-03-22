@@ -150,14 +150,14 @@ namespace MaxVonGrafKftMobile.Views
 
         }
 
-        protected override bool OnBackButtonPressed()
-        {
-            if (PopupNavigation.Instance.PopupStack.Count > 0) { return true; }
+        //protected override bool OnBackButtonPressed()
+        //{
+        //    if (PopupNavigation.Instance.PopupStack.Count > 0) { return true; }
 
-            // Always return true because this method is not asynchronous.
-            // We must handle the action ourselves: see above.
-            return false;
-        }
+        //    // Always return true because this method is not asynchronous.
+        //    // We must handle the action ourselves: see above.
+        //    return false;
+        //}
 
         private void BacKBtn_Clicked(object sender, EventArgs e)
         {
@@ -270,12 +270,12 @@ namespace MaxVonGrafKftMobile.Views
                     //List<CustomerImages> customerIm = new List<CustomerImages>();
                     //customerIm.Add(images);
                     //customer.CustomerImages = customerIm;
-                    Navigation.PushAsync(new OtherInformationPage(customer, images));
+                    Navigation.PushModalAsync(new OtherInformationPage(customer, images));
                 }
                 else
                 {
                     images = null;
-                    Navigation.PushAsync(new OtherInformationPage(customer, images));
+                    Navigation.PushModalAsync(new OtherInformationPage(customer, images));
                 }
             }
 
@@ -345,7 +345,7 @@ namespace MaxVonGrafKftMobile.Views
 
         private void btnBack_Tapped(object sender, EventArgs e)
         {
-            Navigation.PopAsync();
+            Navigation.PopModalAsync();
         }
         protected override void OnDisappearing()
         {

@@ -601,7 +601,7 @@ namespace MaxVonGrafKftMobile.Views
 
         private void addPaymentMethodBtn_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new AddPaymentMethodPage());
+            Navigation.PushModalAsync(new AddPaymentMethodPage());
         }
     }
 }

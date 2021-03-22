@@ -326,8 +326,8 @@
     <BundleResource Include="Resources\IconeRedFolder.png" />
     <BundleResource Include="Resources\IconeRedFolder%402x.png" />
     <BundleResource Include="Resources\IconeRedFolder%403x.png" />
-    <BundleResource Include="Resources\IconRedChat%402x.png" />
-    <BundleResource Include="Resources\IconRedChat%403x.png" />
+    <BundleResource Include="Resources\IconRedchat%402x.png" />
+    <BundleResource Include="Resources\IconRedchat%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\rental.png" />

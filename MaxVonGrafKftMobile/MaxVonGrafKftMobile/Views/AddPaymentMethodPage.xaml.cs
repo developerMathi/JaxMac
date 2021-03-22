@@ -181,7 +181,7 @@ namespace MaxVonGrafKftMobile.Views
                                             {
                                                 App.Current.Properties.Add("LastCreditCardId", cardResponse.creditCardID);
                                             }
-                                            await Navigation.PopAsync();
+                                            await Navigation.PopModalAsync();
                                             //await PopupNavigation.Instance.PushAsync(new SuccessPopUp("Your CrediCard added Successfully.", 3));
 
                                         }
@@ -272,6 +272,11 @@ namespace MaxVonGrafKftMobile.Views
         private void cvvTap_Tapped(object sender, EventArgs e)
         {
             PopupNavigation.Instance.PushAsync(new DetailPopUp("CVV", "The CVV Number ('Card Verification Value') on your credit card or debit card is a 3 digit number on VISA®, MasterCard® and Discover® branded credit and debit cards. On your American Express® branded credit or debit card it is a 4 digit numeric code."));
+        }
+
+        private void btnBack_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PopModalAsync();
         }
     }
 }

@@ -150,12 +150,12 @@ namespace MaxVonGrafKftMobile.Views
                                 }
                                 else
                                 {
-                                    await Navigation.PushAsync(new AddPersonalInformationPage(customer));
+                                    await Navigation.PushModalAsync(new AddPersonalInformationPage(customer));
                                 }
                             }
                             else
                             {
-                                await Navigation.PushAsync(new AddPersonalInformationPage(customer));
+                                await Navigation.PushModalAsync(new AddPersonalInformationPage(customer));
                             }
                         }
                         else
@@ -180,19 +180,19 @@ namespace MaxVonGrafKftMobile.Views
 
             }
         }
-        protected override bool OnBackButtonPressed()
-        {
-            if (PopupNavigation.Instance.PopupStack.Count > 0) { return true; }
+        //protected override bool OnBackButtonPressed()
+        //{
+        //    if (PopupNavigation.Instance.PopupStack.Count > 0) { return true; }
 
-            // Always return true because this method is not asynchronous.
-            // We must handle the action ourselves: see above.
-            return false;
-        }
+        //    // Always return true because this method is not asynchronous.
+        //    // We must handle the action ourselves: see above.
+        //    return false;
+        //}
 
 
         private void titleBackBtn_Clicked(object sender, EventArgs e)
         {
-            Navigation.PopAsync();
+            Navigation.PopModalAsync();
         }
 
         //private void passwordvisible_Clicked(object sender, EventArgs e)

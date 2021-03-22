@@ -539,7 +539,8 @@
                                         FontSize="Medium"
                                         Placeholder="First Name"
                                         PlaceholderColor="{StaticResource MaxVonBlack}"
-                                        TextColor="{StaticResource MaxVonBlack}" >
+                                        TextColor="{StaticResource MaxVonBlack}"
+                                        Keyboard="Chat">
                                         <renders:CustomEntry.BackgroundColor>
                                     <OnPlatform x:TypeArguments="Color">
                                         <On Platform="iOS">
@@ -630,10 +631,10 @@
                                         Margin="10,0,0,0"
                                         FontFamily="Roboto-Medium"
                                         FontSize="Medium"
-                                        Keyboard="Email"
                                         Placeholder="Last Name"
                                         PlaceholderColor="{StaticResource MaxVonBlack}"
-                                        TextColor="{StaticResource MaxVonBlack}" >
+                                        TextColor="{StaticResource MaxVonBlack}"
+                                        Keyboard="Chat">
                                         <renders:CustomEntry.BackgroundColor>
                                     <OnPlatform x:TypeArguments="Color">
                                         <On Platform="iOS">
@@ -725,7 +726,7 @@
                                         Placeholder="Contact Number"
                                         PlaceholderColor="{StaticResource MaxVonBlack}"
                                         TextColor="{StaticResource MaxVonBlack}" 
-                                        Keyboard="Numeric">
+                                        Keyboard="Telephone">
                                         <Entry.Behaviors>
                                             <renders:MaskedBehavior Mask="(XXX) XXX-XXXX" />
                                         </Entry.Behaviors>
@@ -944,7 +945,8 @@
                                         FontSize="Medium"
                                         Placeholder="Address Line 1"
                                         PlaceholderColor="{StaticResource MaxVonBlack}"
-                                        TextColor="{StaticResource MaxVonBlack}" >
+                                        TextColor="{StaticResource MaxVonBlack}"
+                                        Keyboard="Chat">
                                         <renders:CustomEntry.BackgroundColor>
                                     <OnPlatform x:TypeArguments="Color">
                                         <On Platform="iOS">
@@ -1075,7 +1077,8 @@
                                         FontSize="Medium"
                                         Placeholder="Address Line 2"
                                         PlaceholderColor="{StaticResource MaxVonBlack}"
-                                        TextColor="{StaticResource MaxVonBlack}" >
+                                        TextColor="{StaticResource MaxVonBlack}"
+                                        Keyboard="Chat">
                                         <renders:CustomEntry.BackgroundColor>
                                     <OnPlatform x:TypeArguments="Color">
                                         <On Platform="iOS">
@@ -1204,7 +1207,8 @@
                                         FontSize="Medium"
                                         Placeholder="City"
                                         PlaceholderColor="{StaticResource MaxVonBlack}"
-                                        TextColor="{StaticResource MaxVonBlack}" >
+                                        TextColor="{StaticResource MaxVonBlack}"
+                                        Keyboard="Chat">
                                         <renders:CustomEntry.BackgroundColor>
                                     <OnPlatform x:TypeArguments="Color">
                                         <On Platform="iOS">
@@ -1462,7 +1466,8 @@
                                         FontSize="Medium"
                                         Placeholder="Zip/Postal Code"
                                         PlaceholderColor="{StaticResource MaxVonBlack}"
-                                        TextColor="{StaticResource MaxVonBlack}" >
+                                        TextColor="{StaticResource MaxVonBlack}" 
+                                        Keyboard="Chat">
                                         <renders:CustomEntry.BackgroundColor>
                                     <OnPlatform x:TypeArguments="Color">
                                         <On Platform="iOS">

@@ -430,7 +430,7 @@ namespace MaxVonGrafKftMobile.Views
             reservationView.ClientId = Constants.ClientId;
             if (isVehicleAvailableOnThoseDays)
             {
-                await Navigation.PushAsync(new VehicleRates(reservationView, selectedVehicle));
+                await Navigation.PushModalAsync(new VehicleRates(reservationView, selectedVehicle));
             }
             else
             {
@@ -497,14 +497,7 @@ namespace MaxVonGrafKftMobile.Views
 
         //}
 
-        protected override bool OnBackButtonPressed()
-        {
-            if (PopupNavigation.Instance.PopupStack.Count > 0) { return true; }
-            // Always return true because this method is not asynchronous.
-            // We must handle the action ourselves: see above.
-            return false;
-        }
-
+     
 
 
         private void PickUpDate_Unfocused_1(object sender, FocusEventArgs e)
@@ -514,7 +507,7 @@ namespace MaxVonGrafKftMobile.Views
 
         private void backBtn_Clicked(object sender, EventArgs e)
         {
-            Navigation.PopAsync();
+            Navigation.PopModalAsync();
         }
 
         private void pickUpLocation_Unfocused(object sender, FocusEventArgs e)

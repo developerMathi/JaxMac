@@ -304,7 +304,7 @@ namespace MaxVonGrafKftMobile.Views
 
         private void BacKBtn_Clicked(object sender, EventArgs e)
         {
-            Navigation.PopAsync();
+            Navigation.PopModalAsync();
         }
 
         private void NxtBtn_Clicked(object sender, EventArgs e)
@@ -372,7 +372,7 @@ namespace MaxVonGrafKftMobile.Views
                 }
                 reservationView.TaxList2 = locationTaxModels;
             }
-            Navigation.PushAsync(new SummaryOfChargesPage(reservationView, selectedVehicle));
+            Navigation.PushModalAsync(new SummaryOfChargesPage(reservationView, selectedVehicle));
         }
 
         private void CheckBox_CheckChanged(object sender, EventArgs e)

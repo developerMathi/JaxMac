@@ -2,6 +2,7 @@
 using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -78,13 +79,31 @@ namespace MaxVonGrafKftMobile.Views
                     Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
                 }
 
-                return false;
-
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    var result = await this.DisplayAlert("Alert!", "Are you sure you want to close this application?", "Yes", "No");
+                    if (result)
+                    {
+                        Process.GetCurrentProcess().CloseMainWindow();
+                        Process.GetCurrentProcess().Close();
+                    }
+                });
+                return true;
+                //bool isWantToExit = await DisplayAlert("Alert", "are you sure you want to close this application?", "Yes", "Cancel");
             }
 
             else
             {
 
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    var result = await this.DisplayAlert("Alert!", "Are you sure you want to close this application?", "Yes", "No");
+                    if (result)
+                    {
+                        Process.GetCurrentProcess().CloseMainWindow();
+                        Process.GetCurrentProcess().Close();
+                    }
+                });
                 return true;
             }
 

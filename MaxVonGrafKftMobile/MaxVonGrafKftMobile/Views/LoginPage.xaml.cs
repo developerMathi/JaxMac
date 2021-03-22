@@ -52,7 +52,7 @@ namespace MaxVonGrafKftMobile.Views
             var forgetPassword_tab = new TapGestureRecognizer();
             forgetPassword_tab.Tapped += (s, e) =>
             {
-                Navigation.PushAsync(new ForgetPasswordPage());
+                Navigation.PushModalAsync(new ForgetPasswordPage());
             };
             forgetPasswordLabel.GestureRecognizers.Add(forgetPassword_tab);
         }
@@ -178,26 +178,26 @@ namespace MaxVonGrafKftMobile.Views
 
                                 Type type = typeof(WelcomPage);
 
-                                if (Navigation.NavigationStack[Navigation.NavigationStack.Count - 2].GetType() == type)
-                                {
-                                    await Navigation.PushAsync(new HomePage());
-                                }
-                                else if (Navigation.NavigationStack[Navigation.NavigationStack.Count - 2].GetType() == typeof(OtherInformationPage))
-                                {
-                                    if (Navigation.NavigationStack[Navigation.NavigationStack.Count - 3].GetType() == type)
-                                    {
-                                        await Navigation.PushAsync(new HomePage());
-                                    }
-                                    else
-                                    {
-                                        Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
-                                        await Navigation.PushAsync(new HomePage());
-                                    }
+                                //if (Navigation.NavigationStack[Navigation.NavigationStack.Count - 2].GetType() == type)
+                                //{
+                                //    await Navigation.PushAsync(new HomePage());
+                                //}
+                                //else if (Navigation.NavigationStack[Navigation.NavigationStack.Count - 2].GetType() == typeof(OtherInformationPage))
+                                //{
+                                //    if (Navigation.NavigationStack[Navigation.NavigationStack.Count - 3].GetType() == type)
+                                //    {
+                                //        await Navigation.PushAsync(new HomePage());
+                                //    }
+                                //    else
+                                //    {
+                                //        Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+                                //        await Navigation.PushAsync(new HomePage());
+                                //    }
 
-                                }
+                                //}
 
-                                else
-                                {
+                                //else
+                                //{
                                     //if (Navigation.NavigationStack.Count < 3)
                                     //{
                                     //    await Navigation.PushAsync(new HomePage());
@@ -206,12 +206,12 @@ namespace MaxVonGrafKftMobile.Views
                                     //{
                                     //    await Navigation.PopAsync();
                                     //}
-                                    await Navigation.PushAsync(new HomePage());
-                                }
+                                    await Navigation.PushModalAsync(new HomePage());
+                                //}
                             }
                             else
                             {
-                                await Navigation.PushAsync(new ConfirmEmailRequest(cutomerAuthContext.CustomerId,MaxVonGrafKftMobileModel.Constants.emailConfirmationType.LogIn));
+                                await Navigation.PushModalAsync(new ConfirmEmailRequest(cutomerAuthContext.CustomerId,MaxVonGrafKftMobileModel.Constants.emailConfirmationType.LogIn));
                             }
 
 
@@ -257,37 +257,37 @@ namespace MaxVonGrafKftMobile.Views
 
         private void SignUpBtn_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new RegisterPage());
+            Navigation.PushModalAsync(new RegisterPage());
         }
 
-        protected override bool OnBackButtonPressed()
-        {
-            if (PopupNavigation.Instance.PopupStack.Count > 0) { return true; }
-            if (Navigation.NavigationStack.Count > 1)
-            {
-                if (Navigation.NavigationStack[Navigation.NavigationStack.Count - 2].GetType() == typeof(WelcomPage))
-                {
-                    return false;
-                }
-                else if (Navigation.NavigationStack[Navigation.NavigationStack.Count - 2].GetType() == typeof(SummaryOfChargesPage))
-                {
-                    return false;
-                }
-                else
-                {
-                    int c = Navigation.NavigationStack.Count;
-                    for (var counter = 1; counter < c - 1; counter++)
-                    {
-                        Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
-                    }
-                    return false;
-                }
-            }
-            else
-            {
-                return false;
-            }
-        }
+        //protected override bool OnBackButtonPressed()
+        //{
+        //    if (PopupNavigation.Instance.PopupStack.Count > 0) { return true; }
+        //    if (Navigation.NavigationStack.Count > 1)
+        //    {
+        //        if (Navigation.NavigationStack[Navigation.NavigationStack.Count - 2].GetType() == typeof(WelcomPage))
+        //        {
+        //            return false;
+        //        }
+        //        else if (Navigation.NavigationStack[Navigation.NavigationStack.Count - 2].GetType() == typeof(SummaryOfChargesPage))
+        //        {
+        //            return false;
+        //        }
+        //        else
+        //        {
+        //            int c = Navigation.NavigationStack.Count;
+        //            for (var counter = 1; counter < c - 1; counter++)
+        //            {
+        //                Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+        //            }
+        //            return false;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
 
 
 

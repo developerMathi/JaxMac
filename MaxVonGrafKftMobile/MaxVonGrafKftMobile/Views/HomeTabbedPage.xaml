@@ -30,7 +30,7 @@
     <views:ChatListPage
         x:Name="AcountPage"
         Title="Chat"
-        IconImageSource="IconRedChat.png"/>
+        IconImageSource="IconRedchat.png"/>
 
   
 </TabbedPage>

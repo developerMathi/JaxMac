@@ -132,7 +132,7 @@ namespace MaxVonGrafKftMobile.Views
 
         private void btnBack_Tapped(object sender, EventArgs e)
         {
-            Navigation.PopAsync();
+            Navigation.PopModalAsync();
         }
     }
 }

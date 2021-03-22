@@ -274,12 +274,12 @@ namespace MaxVonGrafKftMobile.Views
 
         private void GalleryPan_Tapped(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new GalleryPage(RegDocs,"Registration Documents"));
+            Navigation.PushModalAsync(new GalleryPage(RegDocs,"Registration Documents"));
         }
 
         private void docPan_Tapped(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new GalleryPage(InsDocs,"Insurance Documents"));
+            Navigation.PushModalAsync(new GalleryPage(InsDocs,"Insurance Documents"));
         }
 
         [Obsolete]
@@ -298,7 +298,7 @@ namespace MaxVonGrafKftMobile.Views
 
         void otherdocPan_Tapped(System.Object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new GalleryPage(otherDocs, "Other Documents"));
+            Navigation.PushModalAsync(new GalleryPage(otherDocs, "Other Documents"));
         }
     }
 }

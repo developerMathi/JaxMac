@@ -163,7 +163,7 @@ namespace MaxVonGrafKftMobile.Views
 
         private void btnContinue_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new BookNow(reservationView, selectedVehicle,locationIdList));
+            Navigation.PushModalAsync(new BookNow(reservationView, selectedVehicle,locationIdList));
         }
 
         public async Task ShareUri(string uri)
@@ -189,6 +189,11 @@ namespace MaxVonGrafKftMobile.Views
 
 
            
+        }
+
+        private void btnBack_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PopModalAsync();
         }
     }
 }

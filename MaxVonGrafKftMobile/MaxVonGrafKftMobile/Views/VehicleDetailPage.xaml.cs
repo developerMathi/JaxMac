@@ -726,7 +726,7 @@ namespace MaxVonGrafKftMobile.Views
             reservationView.VehicleId = selectedVehicle.vehicleId;
             reservationView.VehicleId2 = selectedVehicle.vehicleId;
             //Navigation.PushAsync(new BookNow(reservationView, selectedVehicle, selectedVehicle.locationIdList));
-            Navigation.PushAsync(new VechicleInformationPage(reservationView, selectedVehicle, selectedVehicle.locationIdList));
+            Navigation.PushModalAsync(new VechicleInformationPage(reservationView, selectedVehicle, selectedVehicle.locationIdList));
         }
 
         private void vehicleDetailList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -744,7 +744,7 @@ namespace MaxVonGrafKftMobile.Views
             reservationView.TotalDays = rates.TotalDays;
             reservationView.VehicleId = selectedVehicle.vehicleId;
             reservationView.VehicleId2 = selectedVehicle.vehicleId;
-            Navigation.PushAsync(new VechicleInformationPage(reservationView, selectedVehicle, selectedVehicle.locationIdList));
+            Navigation.PushModalAsync( new VechicleInformationPage(reservationView, selectedVehicle, selectedVehicle.locationIdList));
             //Navigation.PushAsync(new BookNow(reservationView, selectedVehicle, selectedVehicle.locationIdList));
         }
 

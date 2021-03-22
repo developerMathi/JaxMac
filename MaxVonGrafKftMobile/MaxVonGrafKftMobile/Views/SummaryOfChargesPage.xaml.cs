@@ -761,18 +761,6 @@ namespace MaxVonGrafKftMobile.Views
         }
 
 
-        protected override bool OnBackButtonPressed()
-        {
-            if (PopupNavigation.Instance.PopupStack.Count > 0) { return true; }
-
-
-
-            // Always return true because this method is not asynchronous.
-            // We must handle the action ourselves: see above.
-            return false;
-        }
-
-
 
         /// <summary>
         /// additoinal driver btn click method
@@ -847,7 +835,12 @@ namespace MaxVonGrafKftMobile.Views
 
         private void addPaymentMethodBtn_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new AddPaymentMethodPage());
+            Navigation.PushModalAsync(new AddPaymentMethodPage());
+        }
+
+        private void btnBack_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PopModalAsync();
         }
     }
 }
