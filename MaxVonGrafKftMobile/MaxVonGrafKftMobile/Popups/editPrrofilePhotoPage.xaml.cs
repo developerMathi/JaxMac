@@ -189,7 +189,7 @@ namespace MaxVonGrafKftMobile.Popups
             PopupNavigation.Instance.PopAllAsync();
         }
 
-        private void SaveBtn_Clicked(object sender, EventArgs e)
+        private async void SaveBtn_Clicked(object sender, EventArgs e)
         {
             CustomerImages customerImages = new CustomerImages();
             
@@ -205,10 +205,39 @@ namespace MaxVonGrafKftMobile.Popups
                 imageMobileRequest.custImag.Title = "My Image";
                 imageMobileRequest.custImag.FileName = "My Image";
                 imageMobileRequest.custImag.Description = "My ImageMy ImageMy Image";
-                imageMobileResponse = registerController.addCustomerImage(imageMobileRequest,_token);
+
+                bool busy = false;
+                if (!busy)
+                {
+                    try
+                    {
+                        busy = true;
+                        await PopupNavigation.Instance.PushAsync(new LoadingPopup("Loading details..."));
+
+                        await Task.Run(() =>
+                        {
+
+                            try
+                            {
+
+                                imageMobileResponse = registerController.addCustomerImage(imageMobileRequest, _token);
+                            }
+                            catch (Exception ex)
+                            {
+                                PopupNavigation.Instance.PushAsync(new ErrorWithClosePagePopup(ex.Message));
+                            }
+
+                        });
+                    }
+                    finally
+                    {
+                        await PopupNavigation.Instance.PopAsync();
+                        busy = false;
+                    }
+                }
             }
-            Navigation.PushAsync(new MyProfile());
-            
+            await Navigation.PopModalAsync();
+
         }
 
         private void btnClose_Tapped(object sender, EventArgs e)

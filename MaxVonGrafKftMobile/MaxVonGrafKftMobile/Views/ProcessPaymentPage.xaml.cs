@@ -207,7 +207,7 @@ namespace MaxVonGrafKftMobile.Views
 
         private void btnBack_Clicked(object sender, EventArgs e)
         {
-            Navigation.PopAsync();
+            Navigation.PopModalAsync();
         }
 
         private void lstCardetail_ItemTapped(object sender, ItemTappedEventArgs e)

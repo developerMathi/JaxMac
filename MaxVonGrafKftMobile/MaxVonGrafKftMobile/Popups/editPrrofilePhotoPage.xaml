@@ -70,7 +70,7 @@
                 <Grid
                     Grid.Row="0"
                     Margin="10,10,10,0"
-                    HeightRequest="50">
+                    HeightRequest="100">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="40" />
                         <ColumnDefinition Width="*" />
@@ -89,7 +89,9 @@
                         Grid.Column="2"
                         Margin="0,0,10,0"
                         HorizontalOptions="EndAndExpand"
+                        VerticalOptions="StartAndExpand"
                         Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconRedClose.png}">
+                        
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer
                                 x:Name="btnClose"

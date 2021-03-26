@@ -189,8 +189,8 @@
                             <On Platform="Android,Windows">
                                 <OnIdiom
                                     x:TypeArguments="x:Double"
-                                    Phone="35"
-                                    Tablet="40" />
+                                    Phone="40"
+                                    Tablet="45" />
                             </On>
                         </OnPlatform>
                     </Button.HeightRequest>
@@ -205,8 +205,8 @@
                             <On Platform="Android,Windows">
                                 <OnIdiom
                                     x:TypeArguments="x:Double"
-                                    Phone="16"
-                                    Tablet="20" />
+                                    Phone="14"
+                                    Tablet="18" />
                             </On>
                         </OnPlatform>
                     </Button.FontSize>
