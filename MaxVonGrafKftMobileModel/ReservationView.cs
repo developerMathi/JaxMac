@@ -208,6 +208,7 @@ namespace MaxVonGrafKftMobileModel
 
         public ReservationBilling ReservationBilling { get; set; }
         public List<ReservationBilling> ReservationBillingList { get; set; }
+        public bool ExtendVisible { get; set; }
 
     }
 
@@ -228,5 +229,7 @@ namespace MaxVonGrafKftMobileModel
 
         public int? BaseMonthlyKM { get; set; }
         public int? SubMonthlyKM { get; set; }
+
+        
     }
 }

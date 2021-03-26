@@ -128,7 +128,7 @@ namespace MaxVonGrafKftMobile.Views
 
         private void titleBackBtn_Clicked(object sender, EventArgs e)
         {
-            Navigation.PopAsync();
+            Navigation.PopModalAsync();
         }
 
         [Obsolete]

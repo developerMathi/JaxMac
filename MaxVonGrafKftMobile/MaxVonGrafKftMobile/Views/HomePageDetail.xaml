@@ -230,7 +230,7 @@
                 Margin="0,50,0,0"
                 BackgroundColor="Transparent"
                 HorizontalScrollBarVisibility="Never"
-                ItemSelected="UpcomingReservation_ItemSelected"
+                            ItemTapped="upcomingReservation_ItemTapped"
                 SeparatorVisibility="None"
                 VerticalOptions="Center"
                 VerticalScrollBarVisibility="Never">
@@ -1272,6 +1272,7 @@
 
 
                                                         <Button
+                                                            IsVisible="{Binding reservationData.Reservationview.ExtendVisible}"
                                                     x:Name="extendBtn"
                                                     Grid.Row="3"
                                                      Grid.ColumnSpan="2"

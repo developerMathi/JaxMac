@@ -125,328 +125,344 @@ namespace MaxVonGrafKftMobile.Views
             grdRentals.IsVisible = true;
             lastAgreementStack.IsVisible = false;
             Constants.IsHome = true;
+            bool canRun = true;
+            
             if (PopupNavigation.Instance.PopupStack.Count > 0)
             {
+                if(PopupNavigation.Instance.PopupStack[PopupNavigation.Instance.PopupStack.Count - 1] is editPrrofilePhotoPage || PopupNavigation.Instance.PopupStack[PopupNavigation.Instance.PopupStack.Count - 1] is AddCustomerPhotoPopup)
+                {
+                    canRun = false;
+                }
                 if (PopupNavigation.Instance.PopupStack[PopupNavigation.Instance.PopupStack.Count - 1].GetType() == typeof(ErrorWithClosePagePopup))
                 {
                     await PopupNavigation.Instance.PopAllAsync();
                 }
             }
 
-            Common.mMasterPage.Master = new HomePageMaster();
-            Common.mMasterPage.IsPresented = false;
-
-            bool busy = false;
-            if (!busy)
+            if (canRun)
             {
-                try
+
+                Common.mMasterPage.Master = new HomePageMaster();
+                Common.mMasterPage.IsPresented = false;
+
+                bool busy = false;
+                if (!busy)
                 {
-                    busy = true;
-                    await PopupNavigation.Instance.PushAsync(new LoadingPopup("Loading.."));
-
-                    await Task.Run(async () =>
+                    try
                     {
-                        try
-                        {
-                            //registrationDBModel = getRegistrationDBModel(customerId, _token);
-                            registrationDBModelResponse = getMobileRegistrationDBModel(registrationDBModelRequest, _token);
+                        busy = true;
+                        await PopupNavigation.Instance.PushAsync(new LoadingPopup("Loading home.."));
 
-
-                            if (!isAgreeRefreshed)
-                            {
-                                customerAgreementModels = getReservations(customerId, _token);
-                            }
-                            isAgreeRefreshed = true;
-                        }
-
-                        //registrationDBModel.Reservations[0].ReservationId
-                        catch (Exception ex)
-                        {
-                            App.Current.Properties["CustomerId"] = 0;
-                            await PopupNavigation.Instance.PushAsync(new ErrorWithClosePagePopup(ex.Message));
-
-                        }
-
-
-                    });
-                }
-                finally
-                {
-
-                    busy = false;
-                    if (PopupNavigation.Instance.PopupStack.Count == 1)
-                    {
-                        await PopupNavigation.Instance.PopAllAsync();
-                    }
-                    else if (PopupNavigation.Instance.PopupStack.Count > 1)
-                    {
-                        if (PopupNavigation.Instance.PopupStack[PopupNavigation.Instance.PopupStack.Count - 1].GetType() != typeof(ErrorWithClosePagePopup))
-                        {
-                            await PopupNavigation.Instance.PopAllAsync();
-                        }
-                    }
-
-                }
-
-                if (registrationDBModelResponse != null)
-                {
-                    if (registrationDBModelResponse.message.ErrorCode == "200")
-                    {
-                        registrationDBModel = registrationDBModelResponse.regDB;
-                    }
-                    else
-                    {
-                        await PopupNavigation.Instance.PushAsync(new ErrorWithClosePagePopup(registrationDBModelResponse.message.ErrorMessage));
-                    }
-                }
-            }
-            if (registrationDBModel != null)
-            {
-                if (registrationDBModel.Reservations.Count > 0)
-                {
-                    if (registrationDBModel.Reservations[0].Status == "Open" || registrationDBModel.Reservations[0].Status == "New" || registrationDBModel.Reservations[0].Status == "Quote" || registrationDBModel.Reservations[0].Status == "Canceled")
-                    {
-                        isreservation = true;
-                        isAgreement = false;
-                        reservationByIDMobileRequest.ReservationID = registrationDBModel.Reservations[0].ReservationId;
-
-                        busy = false;
-                        if (!busy)
+                        await Task.Run(async () =>
                         {
                             try
                             {
-                                busy = true;
-                                grdRentals.IsVisible = false;
-                                lastAgreementStack.IsVisible = false;
-                                LoadingStack.IsVisible = true;
-                                await Task.Run(() =>
+                                //registrationDBModel = getRegistrationDBModel(customerId, _token);
+                                registrationDBModelResponse = getMobileRegistrationDBModel(registrationDBModelRequest, _token);
+
+
+                                if (!isAgreeRefreshed)
                                 {
-                                    try
-                                    {
-                                        reservationByIDMobileResponse = getReservationByID(reservationByIDMobileRequest, _token);
-                                    }
-                                    catch (Exception ex)
-                                    {
-                                        PopupNavigation.Instance.PushAsync(new ErrorWithClosePagePopup(ex.Message));
-                                    }
-                                });
+                                    customerAgreementModels = getReservations(customerId, _token);
+                                }
+                                isAgreeRefreshed = true;
                             }
-                            finally
+
+                            //registrationDBModel.Reservations[0].ReservationId
+                            catch (Exception ex)
                             {
-                                busy = false;
-                                grdRentals.IsVisible = true;
-                                LoadingStack.IsVisible = false;
-                                lastAgreementStack.IsVisible = false;
-                                reservationByIDMobileResponse.reservationData.Reservationview.StartDateStr = ((DateTime)reservationByIDMobileResponse.reservationData.Reservationview.StartDate).ToString("dddd, dd MMMM yyyy hh:mm tt");
-                                reservationByIDMobileResponse.reservationData.Reservationview.EndDateStr = ((DateTime)reservationByIDMobileResponse.reservationData.Reservationview.EndDate).ToString("dddd, dd MMMM yyyy hh:mm tt");
-                                reservationByIDMobileResponse.reservationData.Reservationview.PageTitle = Enum.GetName(typeof(ReservationStatuses), reservationByIDMobileResponse.reservationData.Reservationview.Status);
-                                if (reservationByIDMobileResponse.reservationData.Reservationview.Status == (short)ReservationStatuses.Quote)
+                                App.Current.Properties["CustomerId"] = 0;
+                                await PopupNavigation.Instance.PushAsync(new ErrorWithClosePagePopup(ex.Message));
+
+                            }
+
+
+                        });
+                    }
+                    finally
+                    {
+
+                        busy = false;
+                        if (PopupNavigation.Instance.PopupStack.Count == 1)
+                        {
+                            await PopupNavigation.Instance.PopAllAsync();
+                        }
+                        else if (PopupNavigation.Instance.PopupStack.Count > 1)
+                        {
+                            if (PopupNavigation.Instance.PopupStack[PopupNavigation.Instance.PopupStack.Count - 1].GetType() != typeof(ErrorWithClosePagePopup))
+                            {
+                                await PopupNavigation.Instance.PopAllAsync();
+                            }
+                        }
+
+                    }
+
+                    if (registrationDBModelResponse != null)
+                    {
+                        if (registrationDBModelResponse.message.ErrorCode == "200")
+                        {
+                            registrationDBModel = registrationDBModelResponse.regDB;
+                        }
+                        else
+                        {
+                            await PopupNavigation.Instance.PushAsync(new ErrorWithClosePagePopup(registrationDBModelResponse.message.ErrorMessage));
+                        }
+                    }
+                }
+                if (registrationDBModel != null)
+                {
+                    if (registrationDBModel.Reservations.Count > 0)
+                    {
+                        if (registrationDBModel.Reservations[0].Status == "Open" || registrationDBModel.Reservations[0].Status == "New" || registrationDBModel.Reservations[0].Status == "Quote" || registrationDBModel.Reservations[0].Status == "Canceled")
+                        {
+                            isreservation = true;
+                            isAgreement = false;
+                            reservationByIDMobileRequest.ReservationID = registrationDBModel.Reservations[0].ReservationId;
+
+                            busy = false;
+                            if (!busy)
+                            {
+                                try
                                 {
-                                    reservationByIDMobileResponse.reservationData.Reservationview.PageTitle = "Pending";
+                                    busy = true;
+                                    grdRentals.IsVisible = false;
+                                    lastAgreementStack.IsVisible = false;
+                                    LoadingStack.IsVisible = true;
+                                    await Task.Run(() =>
+                                    {
+                                        try
+                                        {
+                                            reservationByIDMobileResponse = getReservationByID(reservationByIDMobileRequest, _token);
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            PopupNavigation.Instance.PushAsync(new ErrorWithClosePagePopup(ex.Message));
+                                        }
+                                    });
                                 }
-                                if (reservationByIDMobileResponse.reservationData.Reservationview.Status == (short)ReservationStatuses.Open)
+                                finally
                                 {
-                                    reservationByIDMobileResponse.reservationData.Reservationview.PageTitle = "Pending Pickup";
+                                    busy = false;
+                                    grdRentals.IsVisible = true;
+                                    LoadingStack.IsVisible = false;
+                                    lastAgreementStack.IsVisible = false;
+                                    reservationByIDMobileResponse.reservationData.Reservationview.StartDateStr = ((DateTime)reservationByIDMobileResponse.reservationData.Reservationview.StartDate).ToString("dddd, dd MMMM yyyy hh:mm tt");
+                                    reservationByIDMobileResponse.reservationData.Reservationview.EndDateStr = ((DateTime)reservationByIDMobileResponse.reservationData.Reservationview.EndDate).ToString("dddd, dd MMMM yyyy hh:mm tt");
+                                    reservationByIDMobileResponse.reservationData.Reservationview.PageTitle = Enum.GetName(typeof(ReservationStatuses), reservationByIDMobileResponse.reservationData.Reservationview.Status);
+                                    if (reservationByIDMobileResponse.reservationData.Reservationview.Status == (short)ReservationStatuses.Quote)
+                                    {
+                                        reservationByIDMobileResponse.reservationData.Reservationview.PageTitle = "Pending";
+                                        reservationByIDMobileResponse.reservationData.Reservationview.ExtendVisible = true ;
+                                    }
+                                    if (reservationByIDMobileResponse.reservationData.Reservationview.Status == (short)ReservationStatuses.Open)
+                                    {
+                                        reservationByIDMobileResponse.reservationData.Reservationview.PageTitle = "Pending Pickup";
+                                        reservationByIDMobileResponse.reservationData.Reservationview.ExtendVisible = true;
+                                    }
+                                    if (reservationByIDMobileResponse.reservationData.Reservationview.Status == (short)ReservationStatuses.Canceled)
+                                    {
+                                        reservationByIDMobileResponse.reservationData.Reservationview.ExtendVisible = false;
+                                    }
+
+                                    if (reservationByIDMobileResponse.vehicleTypeModel == null)
+                                    {
+                                        reservationByIDMobileResponse = FixAsResponsibleToReservationByVehicle(reservationByIDMobileResponse);
+                                    }
+
+
+
+                                    reservationByIDMobileResponse.isTimerVisible = false;
+                                    List<GetReservationByIDMobileResponse> upreserItemSource = new List<GetReservationByIDMobileResponse>();
+                                    upreserItemSource.Add(reservationByIDMobileResponse);
+                                    upcomingReservation.ItemsSource = upreserItemSource;
+                                    upcomingReservation.HeightRequest = upcomingReservation.RowHeight;
+                                    if (reservationByIDMobileResponse.reservationData.Reservationview.Status == (short)ReservationStatuses.Canceled)
+                                    {
+                                        BooknowBtn.IsVisible = true;
+                                        isbookingBtnVisible = true;
+                                    }
+                                    else
+                                    {
+                                        BooknowBtn.IsVisible = false;
+                                        isbookingBtnVisible = false;
+                                    }
                                 }
 
-                                if (reservationByIDMobileResponse.vehicleTypeModel == null)
+                            }
+                            //if(registrationDBModel.Reservations[0].Status == "Canceled")
+                            //{
+                            //    BooknowBtn.IsVisible = true;
+                            //}
+                        }
+                        else if (registrationDBModel.Reservations[0].Status == "CheckOut")
+                        {
+                            isreservation = false;
+                            isAgreement = true;
+                            if (registrationDBModel.Agreements.Count > 0)
+                            {
+                                if (registrationDBModel.Agreements[0].Status == "Open")
                                 {
-                                    reservationByIDMobileResponse = FixAsResponsibleToReservationByVehicle(reservationByIDMobileResponse);
-                                }
+                                    isAgreement = true;
+                                    agreementTimerList = new ObservableCollection<Event>() { new Event { Date = registrationDBModel.Agreements[0].CheckinDate } };
+
+
+                                    Setup();
+                                    agreementIdMobileRequest.agreementId = registrationDBModel.Agreements[0].AgreementId;
+                                    agreementId = registrationDBModel.Agreements[0].AgreementId;
+                                    int vehicleID = registrationDBModel.Agreements[0].VehicleId;
+                                    vehicleId = vehicleID;
+                                    request.agreementId = agreementId;
+
+                                    busy = false;
+                                    if (!busy)
+                                    {
+                                        try
+                                        {
+                                            busy = true;
+                                            grdRentals.IsVisible = false;
+                                            lastAgreementStack.IsVisible = false;
+                                            LoadingStack.IsVisible = true;
+                                            await Task.Run(() =>
+                                            {
+                                                try
+                                                {
+                                                    agreementIdMobileResponse = getAgreement(agreementIdMobileRequest, _token, vehicleID);
+                                                }
+                                                catch (Exception ex)
+                                                {
+                                                    PopupNavigation.Instance.PushAsync(new ErrorWithClosePagePopup(ex.Message));
+                                                }
+                                            });
+                                        }
+                                        finally
+                                        {
+                                            busy = false;
+                                            grdRentals.IsVisible = false;
+                                            LoadingStack.IsVisible = false;
+                                            lastAgreementStack.IsVisible = true;
+                                            AgreementNumberLabel.Text = agreementIdMobileResponse.custAgreement.AgreementDetail.AgreementNumber;
+                                            AgreementReviewDetailSet agreement = agreementIdMobileResponse.custAgreement;
+                                            string agrStatus = Enum.GetName(typeof(AgreementStatusConst), agreementIdMobileResponse.custAgreement.AgreementDetail.Status);
+                                            statusLabel.Text = Enum.GetName(typeof(AgreementStatusConst), agreementIdMobileResponse.custAgreement.AgreementDetail.Status);
+                                            if (agrStatus == "Open")
+                                            {
+                                                statusLabel.Text = "Active";
+                                            }
+                                            vehicleNameLabel.Text = agreement.AgreementDetail.Year + " " + agreement.AgreementDetail.VehicleMakeName + " " + agreement.AgreementDetail.ModelName;
+                                            VehicleTypeLabel.Text = agreement.AgreementDetail.VehicleType;
+                                            seatsCount.Text = agreementIdMobileResponse.agreementVehicle.Seats;
+                                            bagsCount.Text = agreementIdMobileResponse.agreementVehicle.Baggages.ToString();
+                                            TransType.Text = agreementIdMobileResponse.agreementVehicle.Transmission;
+                                            totalAmountLabel.Text = "Days: " + agreement.AgreementDetail.TotalDays.ToString();
+                                            pickUpLocationLabel.Text = "Pivet Atlanta 2244 Metropolitan Pkwy SW, Atlanta, GA 30315";
+                                            pickUpDateLabel.Text = agreement.AgreementDetail.CheckoutDate.ToString("dddd, dd MMMM yyyy hh:mm tt");
+                                            dropOffLocationLabel.Text = "Pivet Atlanta 2244 Metropolitan Pkwy SW, Atlanta, GA 30315";
+                                            dropOffDateLabel.Text = agreement.AgreementDetail.CheckinDate.ToString("dddd, dd MMMM yyyy hh:mm tt");
+                                            VehicleImage.Source = ImageSource.FromUri(new Uri(agreementIdMobileResponse.agreementVehicle.ImageUrl));
 
 
 
-                                reservationByIDMobileResponse.isTimerVisible = false;
-                                List<GetReservationByIDMobileResponse> upreserItemSource = new List<GetReservationByIDMobileResponse>();
-                                upreserItemSource.Add(reservationByIDMobileResponse);
-                                upcomingReservation.ItemsSource = upreserItemSource;
-                                upcomingReservation.HeightRequest = upcomingReservation.RowHeight;
-                                if (reservationByIDMobileResponse.reservationData.Reservationview.Status == (short)ReservationStatuses.Canceled)
-                                {
-                                    BooknowBtn.IsVisible = true;
-                                    isbookingBtnVisible = true;
-                                    extendBtn.IsVisible = false;
+
+                                            if (estTime > agreement.AgreementDetail.CheckinDate)
+                                            {
+                                                setUpOverDueBalance();
+                                            }
+
+                                        }
+
+                                    }
                                 }
                                 else
                                 {
-                                    BooknowBtn.IsVisible = false;
-                                    isbookingBtnVisible = false;
-                                }
-                            }
-
-                        }
-                        //if(registrationDBModel.Reservations[0].Status == "Canceled")
-                        //{
-                        //    BooknowBtn.IsVisible = true;
-                        //}
-                    }
-                    else if (registrationDBModel.Reservations[0].Status == "CheckOut")
-                    {
-                        isreservation = false;
-                        isAgreement = true;
-                        if (registrationDBModel.Agreements.Count > 0)
-                        {
-                            if (registrationDBModel.Agreements[0].Status == "Open")
-                            {
-                                isAgreement = true;
-                                agreementTimerList = new ObservableCollection<Event>() { new Event { Date = registrationDBModel.Agreements[0].CheckinDate } };
-
-
-                                Setup();
-                                agreementIdMobileRequest.agreementId = registrationDBModel.Agreements[0].AgreementId;
-                                agreementId = registrationDBModel.Agreements[0].AgreementId;
-                                int vehicleID = registrationDBModel.Agreements[0].VehicleId;
-                                vehicleId = vehicleID;
-                                request.agreementId = agreementId;
-
-                                busy = false;
-                                if (!busy)
-                                {
-                                    try
-                                    {
-                                        busy = true;
-                                        grdRentals.IsVisible = false;
-                                        lastAgreementStack.IsVisible = false;
-                                        LoadingStack.IsVisible = true;
-                                        await Task.Run(() =>
-                                        {
-                                            try
-                                            {
-                                                agreementIdMobileResponse = getAgreement(agreementIdMobileRequest, _token, vehicleID);
-                                            }
-                                            catch (Exception ex)
-                                            {
-                                                PopupNavigation.Instance.PushAsync(new ErrorWithClosePagePopup(ex.Message));
-                                            }
-                                        });
-                                    }
-                                    finally
-                                    {
-                                        busy = false;
-                                        grdRentals.IsVisible = false;
-                                        LoadingStack.IsVisible = false;
-                                        lastAgreementStack.IsVisible = true;
-                                        AgreementNumberLabel.Text = agreementIdMobileResponse.custAgreement.AgreementDetail.AgreementNumber;
-                                        AgreementReviewDetailSet agreement = agreementIdMobileResponse.custAgreement;
-                                        string agrStatus = Enum.GetName(typeof(AgreementStatusConst), agreementIdMobileResponse.custAgreement.AgreementDetail.Status);
-                                        statusLabel.Text = Enum.GetName(typeof(AgreementStatusConst), agreementIdMobileResponse.custAgreement.AgreementDetail.Status);
-                                        if (agrStatus == "Open")
-                                        {
-                                            statusLabel.Text = "Active";
-                                        }
-                                        vehicleNameLabel.Text = agreement.AgreementDetail.Year + " " + agreement.AgreementDetail.VehicleMakeName + " " + agreement.AgreementDetail.ModelName ;
-                                        VehicleTypeLabel.Text = agreement.AgreementDetail.VehicleType;
-                                        seatsCount.Text = agreementIdMobileResponse.agreementVehicle.Seats;
-                                        bagsCount.Text = agreementIdMobileResponse.agreementVehicle.Baggages.ToString();
-                                        TransType.Text = agreementIdMobileResponse.agreementVehicle.Transmission;
-                                        totalAmountLabel.Text = "Days: " + agreement.AgreementDetail.TotalDays.ToString();
-                                        pickUpLocationLabel.Text = "Pivet Atlanta 2244 Metropolitan Pkwy SW, Atlanta, GA 30315";
-                                        pickUpDateLabel.Text = agreement.AgreementDetail.CheckoutDate.ToString("dddd, dd MMMM yyyy hh:mm tt");
-                                        dropOffLocationLabel.Text = "Pivet Atlanta 2244 Metropolitan Pkwy SW, Atlanta, GA 30315";
-                                        dropOffDateLabel.Text = agreement.AgreementDetail.CheckinDate.ToString("dddd, dd MMMM yyyy hh:mm tt");
-                                        VehicleImage.Source = ImageSource.FromUri(new Uri(agreementIdMobileResponse.agreementVehicle.ImageUrl));
-
-
-
-
-                                        if (estTime > agreement.AgreementDetail.CheckinDate)
-                                        {
-                                            setUpOverDueBalance();
-                                        }
-
-                                    }
-
-                                }
-                            }
-                            else
-                            {
-                                isAgreement = false;
-                                isreservation = false;
-                                upcomingReservation.IsVisible = false;
-                                emptyReservation.IsVisible = true;
-                                BooknowBtn.IsVisible = true;
-                            }
-                        }
-                    }
-
-                }
-                else
-                {
-                    upcomingReservation.IsVisible = false;
-                    emptyReservation.IsVisible = true;
-                    BooknowBtn.IsVisible = true;
-                    // upReserveFrame.HeightRequest = 290;
-                }
-
-
-                if (customerAgreementModels != null)
-                {
-                    if (customerAgreementModels.Count > 0)
-                    {
-                        lastAgreementId = registrationDBModel.Agreements[0].AgreementId;
-                        lastAgreementStatus = registrationDBModel.Agreements[0].Status;
-                        if (customerAgreementModels[customerAgreementModels.Count - 1].Status == "Open")
-                        {
-                            customerAgreementModels.RemoveAt(customerAgreementModels.Count - 1);
-                        }
-
-                        List<CustomerAgreementModel> agreementItemSource = new List<CustomerAgreementModel>();
-
-                        foreach (CustomerAgreementModel camfl in customerAgreementModels)
-                        {
-                            if (camfl.Status != null)
-                            {
-                                if (camfl.Status == "Close")
-                                {
-                                    camfl.custAgreement.AgreementTotal.totalAmountStr = ((decimal)camfl.custAgreement.AgreementTotal.TotalAmount).ToString("0.00");
-                                    agreementItemSource.Add(camfl);
+                                    isAgreement = false;
+                                    isreservation = false;
+                                    upcomingReservation.IsVisible = false;
+                                    emptyReservation.IsVisible = true;
+                                    BooknowBtn.IsVisible = true;
                                 }
                             }
                         }
-                        agreementItemSource.Reverse();
 
-                        myRentals.ItemsSource = agreementItemSource;
-                        myRentals.HeightRequest = agreementItemSource.Count * 400;
-                        emptyMyrentals.IsVisible = false;
-                        myRentals.IsVisible = true;
                     }
                     else
                     {
-                        emptyMyrentals.IsVisible = true;
+                        upcomingReservation.IsVisible = false;
+                        emptyReservation.IsVisible = true;
+                        BooknowBtn.IsVisible = true;
+                        // upReserveFrame.HeightRequest = 290;
+                    }
+
+
+                    if (customerAgreementModels != null)
+                    {
+                        if (customerAgreementModels.Count > 0)
+                        {
+                            lastAgreementId = registrationDBModel.Agreements[0].AgreementId;
+                            lastAgreementStatus = registrationDBModel.Agreements[0].Status;
+                            if (customerAgreementModels[customerAgreementModels.Count - 1].Status == "Open")
+                            {
+                                customerAgreementModels.RemoveAt(customerAgreementModels.Count - 1);
+                            }
+
+                            List<CustomerAgreementModel> agreementItemSource = new List<CustomerAgreementModel>();
+
+                            foreach (CustomerAgreementModel camfl in customerAgreementModels)
+                            {
+                                if (camfl.Status != null)
+                                {
+                                    if (camfl.Status == "Close")
+                                    {
+                                        camfl.custAgreement.AgreementTotal.totalAmountStr = ((decimal)camfl.custAgreement.AgreementTotal.TotalAmount).ToString("0.00");
+                                        agreementItemSource.Add(camfl);
+                                    }
+                                }
+                            }
+                            agreementItemSource.Reverse();
+
+                            myRentals.ItemsSource = agreementItemSource;
+                            myRentals.HeightRequest = agreementItemSource.Count * 400;
+                            emptyMyrentals.IsVisible = false;
+                            myRentals.IsVisible = true;
+                        }
+                        else
+                        {
+                            emptyMyrentals.IsVisible = true;
+                            myRentals.IsVisible = false;
+                        }
+                    }
+
+                    else
+                    {
                         myRentals.IsVisible = false;
+                        // emptyMyrentals.IsVisible = true;
+                        // myRentFrame.HeightRequest = 290;
                     }
-                }
-
-                else
-                {
-                    myRentals.IsVisible = false;
-                    // emptyMyrentals.IsVisible = true;
-                    // myRentFrame.HeightRequest = 290;
-                }
 
 
-                var AllReservationTap = new TapGestureRecognizer();
-                AllReservationTap.Tapped += async (s, e) =>
-                {
-                    Constants.IsHome = false;
-                    if (Navigation.NavigationStack[Navigation.NavigationStack.Count - 1].GetType() != typeof(UpcomingReservations))
+                    var AllReservationTap = new TapGestureRecognizer();
+                    AllReservationTap.Tapped += async (s, e) =>
                     {
-                        await Navigation.PushAsync(new UpcomingReservations());
-                    }
-                };
-                //allReservationLabel.GestureRecognizers.Add(AllReservationTap);
+                        Constants.IsHome = false;
+                        if (Navigation.NavigationStack[Navigation.NavigationStack.Count - 1].GetType() != typeof(UpcomingReservations))
+                        {
+                            await Navigation.PushAsync(new UpcomingReservations());
+                        }
+                    };
+                    //allReservationLabel.GestureRecognizers.Add(AllReservationTap);
 
-                var AllmyrentalsTap = new TapGestureRecognizer();
-                AllmyrentalsTap.Tapped += async (s, e) =>
-                {
-                    Constants.IsHome = false;
-                    if (Navigation.NavigationStack[Navigation.NavigationStack.Count - 1].GetType() != typeof(MyRentals))
+                    var AllmyrentalsTap = new TapGestureRecognizer();
+                    AllmyrentalsTap.Tapped += async (s, e) =>
                     {
-                        await Navigation.PushAsync(new MyRentals());
-                    }
-                };
-                //allAgreementLabel.GestureRecognizers.Add(AllmyrentalsTap);
+                        Constants.IsHome = false;
+                        if (Navigation.NavigationStack[Navigation.NavigationStack.Count - 1].GetType() != typeof(MyRentals))
+                        {
+                            await Navigation.PushAsync(new MyRentals());
+                        }
+                    };
+                    //allAgreementLabel.GestureRecognizers.Add(AllmyrentalsTap);
+                }
             }
+
 
 
 
@@ -786,6 +802,17 @@ namespace MaxVonGrafKftMobile.Views
             upcomingReservation.IsRefreshing = true;
             this.OnAppearing();
             upcomingReservation.IsRefreshing = false;
+        }
+
+        private void upcomingReservation_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            GetReservationByIDMobileResponse reservationModel = upcomingReservation.SelectedItem as GetReservationByIDMobileResponse;
+            ((ListView)sender).SelectedItem = null;
+            if (Navigation.NavigationStack[Navigation.NavigationStack.Count - 1].GetType() != typeof(ViewReservation))
+            {
+                Constants.IsHome = false;
+                Navigation.PushModalAsync(new ViewReservation(reservationModel.reservationData.Reservationview.ReserveId));
+            }
         }
     }
 }

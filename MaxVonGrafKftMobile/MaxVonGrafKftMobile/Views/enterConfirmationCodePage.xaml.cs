@@ -179,7 +179,23 @@ namespace MaxVonGrafKftMobile.Views
 
         private void titleBackBtn_Clicked(object sender, EventArgs e)
         {
-            Navigation.PopModalAsync();
+            if (Navigation.ModalStack.Count > 2)
+            {
+                if (Navigation.ModalStack[Navigation.ModalStack.Count - 2] is OtherInformationPage)
+                {
+                    //Do nothing
+                }
+                else
+                {
+                    Navigation.PopModalAsync();
+                }
+                
+            }
+            else
+            {
+                Navigation.PopModalAsync();
+            }
+           
         }
 
         private async void codeFrameshakeAnimation()
@@ -209,6 +225,27 @@ namespace MaxVonGrafKftMobile.Views
         private void resendLable_Tapped(object sender, EventArgs e)
         {
             Navigation.PushModalAsync(new ConfirmEmailRequest(customerId, emailConfirmationType.Register));
+        }
+        protected override bool OnBackButtonPressed()
+        {
+            base.OnBackButtonPressed();
+            if (Navigation.ModalStack.Count > 2)
+            {
+                if (Navigation.ModalStack[Navigation.ModalStack.Count - 2] is OtherInformationPage)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            else
+            {
+                return false;
+            }
+
         }
     }
 }

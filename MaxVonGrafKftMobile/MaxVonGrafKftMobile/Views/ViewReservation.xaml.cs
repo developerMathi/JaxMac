@@ -318,7 +318,7 @@ namespace MaxVonGrafKftMobile.Views
                                 //    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
 
                                 //}
-                                await Navigation.PushAsync(new HomePage());
+                                await Navigation.PopModalAsync();
                             }
 
                             //if (Navigation.NavigationStack [Navigation.NavigationStack.Count - 1].GetType() == typeof(SummaryOfChargesPage))
@@ -327,7 +327,7 @@ namespace MaxVonGrafKftMobile.Views
                             //}
                             else
                             {
-                                await Navigation.PushAsync(new HomePage());
+                                await Navigation.PopModalAsync();
                             }
                         }
 
@@ -340,10 +340,7 @@ namespace MaxVonGrafKftMobile.Views
 
         private void HomeBtn_Clicked(object sender, EventArgs e)
         {
-            if (Navigation.NavigationStack[Navigation.NavigationStack.Count - 1].GetType() != typeof(HomePage))
-            {
-                Navigation.PushAsync(new HomePage());
-            }
+            Navigation.PopModalAsync();
         }
         //protected override bool OnBackButtonPressed()
         //{
@@ -358,10 +355,7 @@ namespace MaxVonGrafKftMobile.Views
         //    return false;
         //}
 
-        protected override bool OnBackButtonPressed()
-        {
-            return true;
-        }
+        
 
         private void editBtn_Clicked(object sender, EventArgs e)
         {
@@ -383,6 +377,10 @@ namespace MaxVonGrafKftMobile.Views
             MessagingCenter.Unsubscribe<Error_popup>(this, "reservationCancelled");
             MessagingCenter.Unsubscribe<FilterPopup>(this, "reservationUpdated");
         }
-       
+
+        private void btnBack_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PopModalAsync();
+        }
     }
 }
