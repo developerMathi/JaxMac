@@ -45,7 +45,7 @@ namespace MaxVonGrafKftMobile.Popups
 
         void reseendPassEmail_Clicked(System.Object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new ForgetPasswordPage());
+            Navigation.PushModalAsync(new ForgetPasswordPage());
         }
     }
 }

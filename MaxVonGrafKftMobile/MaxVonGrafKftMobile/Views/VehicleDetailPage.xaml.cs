@@ -842,6 +842,13 @@ namespace MaxVonGrafKftMobile.Views
         {
             refreshVehicleList();
         }
+
+        private void btnBack_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PopModalAsync();
+        }
+
+        
     }
 
     public class filterFormat{

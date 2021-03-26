@@ -7,7 +7,9 @@
              mc:Ignorable="d"
              x:Class="MaxVonGrafKftMobile.Views.enterConfirmationCodePage"
              NavigationPage.HasNavigationBar="False"
-             BackgroundColor="{StaticResource MaxVonWhite}">
+             BackgroundColor="{StaticResource MaxVonWhite}"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             ios:Page.UseSafeArea="true">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Margin="20,10,20,0">

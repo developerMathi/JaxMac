@@ -177,7 +177,7 @@ namespace MaxVonGrafKftMobile.Views
                 else if (PopupNavigation.Instance.PopupStack[PopupNavigation.Instance.PopupStack.Count - 1].GetType() == typeof(ReservationSavedPopup))
                 {
                     await PopupNavigation.Instance.PopAllAsync();
-                    await Navigation.PushAsync(new HomePageDetail());
+                    await Navigation.PushModalAsync(new HomePageDetail());
                 }
                 else
                 {

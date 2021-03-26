@@ -10,7 +10,9 @@
     Title="Upcoming Reservation"
     BackgroundColor="{StaticResource MaxVonWhite}"
     NavigationPage.HasBackButton="True"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             ios:Page.UseSafeArea="true">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>

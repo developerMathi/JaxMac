@@ -216,14 +216,13 @@
                         </Button>
                     </Grid>
 
-                    
-                    <StackLayout
+                        <StackLayout
             x:Name="grdRentals"
             Grid.Row="2"
             Margin="10,0"
             VerticalOptions="Fill">
-                        <ScrollView>
-                            <ListView
+
+                        <ListView
                         Refreshing="upcomingReservation_Refreshing"
                         IsRefreshing="False"
                         RefreshControlColor="{StaticResource MaxVonYellow}"
@@ -1340,8 +1339,7 @@
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
                             </ListView>
-                        </ScrollView>
-                        <Label
+                            <Label
                 x:Name="emptyReservation"
                 Grid.Row="2"
                 Grid.ColumnSpan="2"
@@ -1353,24 +1351,26 @@
                 Text="No Active Reservations."
                 TextColor="{StaticResource MaxVonGray}"
                 VerticalOptions="Center">
-                            <Label.FontSize>
-                                <OnPlatform x:TypeArguments="x:Double">
-                                    <On Platform="iOS">
-                                        <OnIdiom
+                                <Label.FontSize>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="iOS">
+                                            <OnIdiom
                                 x:TypeArguments="x:Double"
                                 Phone="16"
                                 Tablet="20" />
-                                    </On>
-                                    <On Platform="Android,Windows">
-                                        <OnIdiom
+                                        </On>
+                                        <On Platform="Android,Windows">
+                                            <OnIdiom
                                 x:TypeArguments="x:Double"
                                 Phone="18"
                                 Tablet="22" />
-                                    </On>
-                                </OnPlatform>
-                            </Label.FontSize>
-                        </Label>
-                    </StackLayout>
+                                        </On>
+                                    </OnPlatform>
+                                </Label.FontSize>
+                            </Label>
+                        </StackLayout>
+
+
                     <StackLayout
             x:Name="LoadingStack"
             Grid.Row="2"
@@ -1454,7 +1454,7 @@
                                 </Label>
                             </Grid>
                         </StackLayout>
-                       
+
 
                         <Frame
                 Grid.Row="2"

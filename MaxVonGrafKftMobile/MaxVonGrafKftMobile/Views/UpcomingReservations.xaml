@@ -8,7 +8,9 @@
              mc:Ignorable="d"
              x:Class="MaxVonGrafKftMobile.Views.UpcomingReservations"
              NavigationPage.HasBackButton="False"            
-             BackgroundColor="{StaticResource MaxVonWhite}">
+             BackgroundColor="{StaticResource MaxVonWhite}"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             ios:Page.UseSafeArea="true">
     <ContentPage.Content>
         <StackLayout Margin="15,5,15,0" VerticalOptions="CenterAndExpand">
             <Label Text="Upcoming reservations"

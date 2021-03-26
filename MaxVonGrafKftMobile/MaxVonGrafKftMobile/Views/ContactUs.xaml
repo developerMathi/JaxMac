@@ -6,7 +6,9 @@
              xmlns:renders="clr-namespace:MaxVonGrafKftMobile.Renders"
              mc:Ignorable="d"
              x:Class="MaxVonGrafKftMobile.Views.ContactUs"
-             BackgroundColor="{StaticResource MaxVonWhite}">
+             BackgroundColor="{StaticResource MaxVonWhite}"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             ios:Page.UseSafeArea="true">
     <ContentPage.Content>
         <StackLayout VerticalOptions="CenterAndExpand">
             <Label Text="Contact Us"

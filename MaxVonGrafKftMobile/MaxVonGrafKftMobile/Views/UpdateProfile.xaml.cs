@@ -43,6 +43,8 @@ namespace MaxVonGrafKftMobile.Views
         {
             InitializeComponent();
             DateOfBithEntry.MaximumDate = DateTime.Now.AddYears(-18);
+            licIssueDate.MaximumDate = DateTime.Now;
+            licenceexpiDate.MinimumDate = DateTime.Now;
             this.customerReview = customerReview;
             _token = App.Current.Properties["currentToken"].ToString();
             customerId = (int)Application.Current.Properties["CustomerId"];
@@ -178,8 +180,10 @@ namespace MaxVonGrafKftMobile.Views
                 LastNameEntry.Text = customerReview.LastName;
                 AddressEntry.Text = customerReview.Address1 + " " + customerReview.Address2;
                 CityEntry.Text = customerReview.City;
-                //licenceNumber.Text = customerReview.LicenseNumber;
+                licenceNumber.Text = customerReview.LicenseNumber;
                 DateOfBithEntry.Date = (DateTime)customerReview.DateOfbirth;
+                licIssueDate.Date = (DateTime)customerReview.LicenseIssueDate;
+                licenceexpiDate.Date = (DateTime)customerReview.LicenseExpiryDate;
                 //if (customerReview.LicenseIssueDate != null)
                 //{
                 //    licenceIssueDate.Date = (DateTime)customerReview.LicenseIssueDate;
@@ -212,14 +216,14 @@ namespace MaxVonGrafKftMobile.Views
                     stateResponse = getStates(stateRequest, _token);
                     if (stateResponse.stateList.Count > 0) { foreach (State s in stateResponse.stateList) { stateList.Add(s.StateName); stateListForLicence.Add(s.StateCode); }; }
                     statePicker.ItemsSource = stateList;
-                    //licenceStatePicker.ItemsSource = stateListForLicence;
+                    LicStatePicker.ItemsSource = stateListForLicence;
                 }
 
                 statePicker.SelectedItem = customerReview.StateName;
-                //if (stateListForLicence.Contains(customerReview.LicenseIssueState))
-                //{
-                //    licenceStatePicker.SelectedItem = customerReview.LicenseIssueState;
-                //}
+                if (stateListForLicence.Contains(customerReview.LicenseIssueState))
+                {
+                    LicStatePicker.SelectedItem = customerReview.LicenseIssueState;
+                }
                 PostalCodeEntry.Text = customerReview.ZipCode;
                 ContactNoEntry.Text = customerReview.hPhone;
 
@@ -287,10 +291,10 @@ namespace MaxVonGrafKftMobile.Views
                 await PopupNavigation.Instance.PushAsync(new Error_popup("Please enter a valid contact number"));
             }
 
-            //else if (string.IsNullOrEmpty(licenceNumber.Text))
-            //{
-            //    await PopupNavigation.Instance.PushAsync(new Error_popup("Please enter your drivers license number"));
-            //}
+            else if (string.IsNullOrEmpty(licenceNumber.Text))
+            {
+                await PopupNavigation.Instance.PushAsync(new Error_popup("Please enter your drivers license number"));
+            }
             //else if (!licExpireDateSelected)
             //{
             //    await PopupNavigation.Instance.PushAsync(new Error_popup("Please enter your drivers license expiration date"));
@@ -312,8 +316,9 @@ namespace MaxVonGrafKftMobile.Views
                 customerReview.ZipCode = PostalCodeEntry.Text;
                 customerReview.hPhone = ContactNoEntry.Text.Replace(" ","").Replace("(","").Replace(")", "").Replace("-", "");
                 customerReview.ClientId = Constants.ClientId;
-                //customerReview.LicenseNumber = licenceNumber.Text;
-                //customerReview.LicenseExpiryDate = licenceExpiryDate.Date;
+                customerReview.LicenseNumber = licenceNumber.Text;
+                customerReview.LicenseExpiryDate = licenceexpiDate.Date;
+                customerReview.LicenseIssueDate = licIssueDate.Date;
                 customerReview.DateOfbirth = DateOfBithEntry.Date;
 
                 if (licfrontIamgeStat.Base64 != null || licBackIamgeStat.Base64 != null)
@@ -351,10 +356,10 @@ namespace MaxVonGrafKftMobile.Views
                 //    customerReview.LicenseIssueDate = licenceIssueDate.Date;
                 //}
 
-                //if (licenceStatePicker.SelectedIndex != -1)
-                //{
-                //    customerReview.LicenseIssueState = licenceStatePicker.SelectedItem.ToString();
-                //}
+                if (LicStatePicker.SelectedIndex != -1)
+                {
+                    customerReview.LicenseIssueState = LicStatePicker.SelectedItem.ToString();
+                }
                 //else
                 //{
                 //    customerReview.LicenseIssueState = null;

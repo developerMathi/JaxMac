@@ -28,7 +28,7 @@ namespace MaxVonGrafKftMobile.Popups
         private async void DashboardBtn_Clicked(object sender, EventArgs e)
         {
 
-            await Navigation.PushAsync(new HomePage());
+            await Navigation.PushModalAsync(new HomePage());
         }
 
         private async void ReservationBtn_Clicked(object sender, EventArgs e)

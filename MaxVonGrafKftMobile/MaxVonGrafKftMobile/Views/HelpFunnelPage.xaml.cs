@@ -214,5 +214,10 @@ namespace MaxVonGrafKftMobile.Views
                 PopupNavigation.Instance.PushAsync(new Error_popup(ex.Message));
             }
         }
+
+        void btnBack_Clicked(System.Object sender, System.EventArgs e)
+        {
+            Navigation.PopModalAsync();
+        }
     }
 }

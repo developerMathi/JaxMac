@@ -93,5 +93,10 @@ namespace MaxVonGrafKftMobile.Views
                 }
             }
         }
+
+        void btnBack_Clicked(System.Object sender, System.EventArgs e)
+        {
+            Navigation.PopModalAsync();
+        }
     }
 }

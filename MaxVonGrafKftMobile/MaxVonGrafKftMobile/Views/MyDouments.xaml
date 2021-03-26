@@ -8,12 +8,14 @@
              mc:Ignorable="d"
              x:Class="MaxVonGrafKftMobile.Views.MyDouments"
              BackgroundColor="{StaticResource MaxVonWhite}"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             ios:Page.UseSafeArea="true">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout  Margin="20,10,20,0" HorizontalOptions="Fill" VerticalOptions="StartAndExpand">
                 <StackLayout
-                    HeightRequest="50"
+                    HeightRequest="50" 
                     HorizontalOptions="FillAndExpand"
                     VerticalOptions="Start">
                     <ImageButton
@@ -113,7 +115,8 @@
                                    HorizontalOptions="Center"
                                    VerticalOptions="End"
                                     FontFamily="Roboto-Medium"
-                                   TextColor="Black">Registration</Label>
+                                   TextColor="Black"
+                                   Text="Registration"></Label>
                             <Label Grid.Row="2"
                                    HorizontalOptions="Center"
                                     TextColor="Black">
@@ -184,7 +187,8 @@
                                    HorizontalOptions="Center"
                                    VerticalOptions="End"
                                    TextColor="Black"
-                                    FontFamily="Roboto-Medium">Insurance</Label>
+                                    FontFamily="Roboto-Medium"
+                                   Text="Insurance"></Label>
                             <Label Grid.Row="2"
                                    HorizontalOptions="Center"
                                     TextColor="Black">
@@ -256,7 +260,8 @@
                                    HorizontalOptions="Center"
                                    VerticalOptions="End"
                                    TextColor="Black"
-                                    FontFamily="Roboto-Medium">Other Documents</Label>
+                                    FontFamily="Roboto-Medium"
+                                   Text="Other Documents"></Label>
                             <Label Grid.Row="2"
                                    HorizontalOptions="Center"
                                     TextColor="Black">

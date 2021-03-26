@@ -133,7 +133,7 @@ namespace MaxVonGrafKftMobile.Views
                                         {
                                             App.Current.Properties.Add("CustomerId", customerId);
                                         }
-                                        await Navigation.PushAsync(new EmailonfirmSuccess(confirmationType));
+                                        await Navigation.PushModalAsync(new EmailonfirmSuccess(confirmationType));
                                     }
                                     else if (response.refId == 2)
                                     {
@@ -179,7 +179,7 @@ namespace MaxVonGrafKftMobile.Views
 
         private void titleBackBtn_Clicked(object sender, EventArgs e)
         {
-            Navigation.PopAsync();
+            Navigation.PopModalAsync();
         }
 
         private async void codeFrameshakeAnimation()
@@ -208,7 +208,7 @@ namespace MaxVonGrafKftMobile.Views
 
         private void resendLable_Tapped(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new ConfirmEmailRequest(customerId, emailConfirmationType.Register));
+            Navigation.PushModalAsync(new ConfirmEmailRequest(customerId, emailConfirmationType.Register));
         }
     }
 }

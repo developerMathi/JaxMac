@@ -99,7 +99,7 @@ namespace MaxVonGrafKftMobile.Views
                         {
                             if (emailAddressResponse.message.ErrorCode == "200")
                             {
-                                await Navigation.PushAsync(new enterConfirmationCodePage(customerId, confirmationType));
+                                await Navigation.PushModalAsync(new enterConfirmationCodePage(customerId, confirmationType));
                             }
                             else
                             {

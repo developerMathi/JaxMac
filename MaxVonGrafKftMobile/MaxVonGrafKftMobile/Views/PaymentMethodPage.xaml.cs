@@ -197,7 +197,7 @@ namespace MaxVonGrafKftMobile.Views
 
         private void btnMenu_Clicked(object sender, EventArgs e)
         {
-            Navigation.PopAsync();
+            Navigation.PopModalAsync();
             //Common.mMasterPage.Master = new HomePageMaster();
             //Common.mMasterPage.IsPresented = true;
         }

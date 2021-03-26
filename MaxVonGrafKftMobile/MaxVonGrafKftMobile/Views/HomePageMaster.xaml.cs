@@ -161,44 +161,44 @@ namespace MaxVonGrafKftMobile.Views
                 return;
             else if (item.Id == 0)
             {
-                Navigation.PushAsync(new HomePage());
+                Navigation.PushModalAsync(new HomePage());
             }
             else if (item.Id == 1)
             {
                 ReservationView reservation = new ReservationView();
-                Navigation.PushAsync(new VehicleDetailPage(reservation));
+                Navigation.PushModalAsync(new VehicleDetailPage(reservation));
 
             }
             else if (item.Id == 2)
             {
-                Navigation.PushAsync(new MyRentals());
+                Navigation.PushModalAsync(new MyRentals());
             }
             else if (item.Id == 4)
             {
-                Navigation.PushAsync(new HelpFunnelPage());
+                Navigation.PushModalAsync(new HelpFunnelPage());
             }
             else if (item.Id == 3)
             {
-                Navigation.PushAsync(new PaymentMethodPage());
+                Navigation.PushModalAsync(new PaymentMethodPage());
             }
             else if (item.Id == 5)
             {
-                Navigation.PushAsync(new MyProfile());
+                Navigation.PushModalAsync(new MyProfile());
             }
             else if (item.Id == 7)
             {
-                Navigation.PushAsync(new MyDouments());
+                Navigation.PushModalAsync(new NavigationPage(new  MyDouments()));
             }
             else if (item.Id == 8)
             {
-                Navigation.PushAsync(new ChatListPage());
+                Navigation.PushModalAsync(new ChatListPage());
             }
             else if (item.Id == 6)
             {
                 App.Current.Properties["CustomerId"] = 0;
                 App.Current.Properties["InquiryID"] = 0;
                 Constants.cutomerAuthContext = null;
-                Navigation.PushAsync(new WelcomPage());
+                Navigation.PushModalAsync(new WelcomPage());
             }
         }
     }

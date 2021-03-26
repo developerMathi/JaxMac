@@ -208,18 +208,23 @@ namespace MaxVonGrafKftMobile.Views
 
         private void ContactUsBtn_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new ContactUs());
+            Navigation.PushModalAsync(new ContactUs());
         }
 
         private void LogoutBtn_Clicked(object sender, EventArgs e)
         {
             App.Current.Properties["CustomerId"] = 0;
-            Navigation.PushAsync(new WelcomPage());
+            Navigation.PushModalAsync(new WelcomPage());
         }
 
         void changePwdBtn_Clicked(System.Object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new changePasswordPage());
+            Navigation.PushModalAsync(new changePasswordPage());
+        }
+
+        void btnBack_Clicked(System.Object sender, System.EventArgs e)
+        {
+            Navigation.PopModalAsync();
         }
     }
 }

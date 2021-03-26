@@ -121,8 +121,6 @@ namespace MaxVonGrafKftMobile.Views
             }
             else
             {
-
-
                 bool busy = false;
                 if (!busy)
                 {

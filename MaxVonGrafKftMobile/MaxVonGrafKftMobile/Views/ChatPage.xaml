@@ -5,7 +5,9 @@
              xmlns:partials="clr-namespace:MaxVonGrafKftMobile.Views.Partials" 
              xmlns:controls="clr-namespace:MaxVonGrafKftMobile.Renders" xmlns:local1="clr-namespace:MaxVonGrafKftMobile.MarkupExtensions"
              x:Class="MaxVonGrafKftMobile.Views.ChatPage"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             ios:Page.UseSafeArea="true">
     <ContentPage.Resources>
         <ResourceDictionary>
             <local:ChatTemplateSelector x:Key="MessageTemplateSelector"/>

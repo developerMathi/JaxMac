@@ -9,7 +9,9 @@
              mc:Ignorable="d"
              x:Class="MaxVonGrafKftMobile.Views.GalleryPage"
               BackgroundColor="{StaticResource MaxVonWhite}"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             ios:Page.UseSafeArea="true">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout  Margin="20,10,20,0" HorizontalOptions="Fill" VerticalOptions="StartAndExpand">

@@ -543,7 +543,7 @@ namespace MaxVonGrafKftMobile.Views
         private void BooknowBtn_Clicked(object sender, EventArgs e)
         {
             Constants.IsHome = false;
-            Navigation.PushAsync(new VehicleDetailPage());
+            Navigation.PushModalAsync(new VehicleDetailPage());
         }
 
         private void UpcomingReservation_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -553,7 +553,7 @@ namespace MaxVonGrafKftMobile.Views
             if (Navigation.NavigationStack[Navigation.NavigationStack.Count - 1].GetType() != typeof(ViewReservation))
             {
                 Constants.IsHome = false;
-                Navigation.PushAsync(new ViewReservation(reservationModel.reservationData.Reservationview.ReserveId));
+                Navigation.PushModalAsync(new ViewReservation(reservationModel.reservationData.Reservationview.ReserveId));
             }
         }
 
@@ -616,7 +616,7 @@ namespace MaxVonGrafKftMobile.Views
         private void myRentals_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             CustomerAgreementModel agreementModel = myRentals.SelectedItem as CustomerAgreementModel;
-            Navigation.PushAsync(new AgreementScreen(agreementModel.AgreementId, agreementModel.VehicleId));
+            Navigation.PushModalAsync(new AgreementScreen(agreementModel.AgreementId, agreementModel.VehicleId));
         }
         private GetAgreementByAgreementIdMobileResponse getAgreement(GetAgreementByAgreementIdMobileRequest agreementByAgreementIdMobileRequest, string token, int vehicleId)
         {
@@ -643,7 +643,7 @@ namespace MaxVonGrafKftMobile.Views
         {
             if (agreementId > 0 && vehicleId > 0)
             {
-                Navigation.PushAsync(new AgreementScreen(agreementId, vehicleId));
+                Navigation.PushModalAsync(new AgreementScreen(agreementId, vehicleId));
             }
         }
 

@@ -9,7 +9,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:renders="clr-namespace:MaxVonGrafKftMobile.Renders"
     BackgroundColor="{StaticResource MaxVonWhite}"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             ios:Page.UseSafeArea="true">
     <!--<ContentPage.ToolbarItems>
         <ToolbarItem
             x:Name="loginIcon"

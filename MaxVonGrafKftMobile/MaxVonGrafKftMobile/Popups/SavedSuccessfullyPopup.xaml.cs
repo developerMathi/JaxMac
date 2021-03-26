@@ -31,35 +31,36 @@ namespace MaxVonGrafKftMobile.Popups
 
         private async void Okbtn_Clicked(object sender, EventArgs e)
         {
-            if (Navigation.NavigationStack.Count > 1)
-            {
-                for (var counter = 1; counter < 3; counter++)
-                {
-                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
-                }
-                if (Navigation.NavigationStack[Navigation.NavigationStack.Count - 2].GetType() == typeof(LoginPage))
-                {
-                    await Navigation.PushAsync(new enterConfirmationCodePage(customerID, emailConfirmationType.Register));
-                }
-                else if (Navigation.NavigationStack[Navigation.NavigationStack.Count - 2].GetType() == typeof(WelcomPage))
-                {
-                    await Navigation.PushAsync(new enterConfirmationCodePage(customerID, emailConfirmationType.Register));
-                }
-                else if (Navigation.NavigationStack[Navigation.NavigationStack.Count - 2].GetType() == typeof(SummaryOfChargesPage))
-                {
-                    await Navigation.PushAsync(new enterConfirmationCodePage(customerID, emailConfirmationType.Register));
-                }
-                else
-                {
-                    await Navigation.PopAsync();
-                }
-            }
-            else
-            {
-                await Navigation.PushAsync(new enterConfirmationCodePage(customerID, emailConfirmationType.Register));
-            }
-           
-           
+            //if (Navigation.NavigationStack.Count > 1)
+            //{
+            //    for (var counter = 1; counter < 3; counter++)
+            //    {
+            //        Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            //    }
+            //    if (Navigation.NavigationStack[Navigation.NavigationStack.Count - 2].GetType() == typeof(LoginPage))
+            //    {
+            //        await Navigation.PushModalAsync(new enterConfirmationCodePage(customerID, emailConfirmationType.Register));
+            //    }
+            //    else if (Navigation.NavigationStack[Navigation.NavigationStack.Count - 2].GetType() == typeof(WelcomPage))
+            //    {
+            //        await Navigation.PushModalAsync(new enterConfirmationCodePage(customerID, emailConfirmationType.Register));
+            //    }
+            //    else if (Navigation.NavigationStack[Navigation.NavigationStack.Count - 2].GetType() == typeof(SummaryOfChargesPage))
+            //    {
+            //        await Navigation.PushModalAsync(new enterConfirmationCodePage(customerID, emailConfirmationType.Register));
+            //    }
+            //    else
+            //    {
+            //        await Navigation.PushModalAsync(new enterConfirmationCodePage(customerID, emailConfirmationType.Register));
+            //    }
+            //}
+            //else
+            //{
+            //    await Navigation.PushModalAsync(new enterConfirmationCodePage(customerID, emailConfirmationType.Register));
+            //}
+            await Navigation.PushModalAsync(new enterConfirmationCodePage(customerID, emailConfirmationType.Register));
+
+
             //await PopupNavigation.Instance.PopAllAsync();
         }
     }

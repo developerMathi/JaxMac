@@ -59,11 +59,11 @@ namespace MaxVonGrafKftMobile.Popups
         {
             if (v)
             {
-                Navigation.PushAsync(new HomePage());
+                Navigation.PushModalAsync(new HomePage());
             }
             else if (v1 == 1)
             {
-                Navigation.PushAsync(new VehicleDetailPage());
+                Navigation.PushModalAsync(new VehicleDetailPage());
             }
             else if (v1 == 2)
             {

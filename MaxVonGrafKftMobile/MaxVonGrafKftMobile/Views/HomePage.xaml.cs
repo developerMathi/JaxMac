@@ -111,5 +111,14 @@ namespace MaxVonGrafKftMobile.Views
             // We must handle the action ourselves: see above.
 
         }
+        //protected override async void OnAppearing()
+        //{
+        //    base.OnAppearing();
+        //    int numModals = Application.Current.MainPage.Navigation.ModalStack.Count;
+        //    for (int currModal = 0; currModal < numModals; currModal++)
+        //    {
+        //        await Application.Current.MainPage.Navigation.PopModalAsync();
+        //    }
+        //}
     }
 }

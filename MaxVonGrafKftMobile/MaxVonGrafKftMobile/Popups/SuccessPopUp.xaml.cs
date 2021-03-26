@@ -50,11 +50,11 @@ namespace MaxVonGrafKftMobile.Popups
             }
             if (v == 1)
             {
-                Navigation.PushAsync(new HomePage());
+                Navigation.PushModalAsync(new HomePage());
             }
             if (v == 2)
             {
-                Navigation.PushAsync(new MyProfile());
+                Navigation.PushModalAsync(new MyProfile());
             }
             if (v == 3)
             {

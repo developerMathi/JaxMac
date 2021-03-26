@@ -437,7 +437,7 @@ namespace MaxVonGrafKftMobile.Popups
 
                     if (amountWantToPay > 0)
                     {
-                        await Navigation.PushAsync(new ProcessPaymentPage(amountWantToPay, reservationView));
+                        await Navigation.PushModalAsync(new ProcessPaymentPage(amountWantToPay, reservationView));
                     }
                     else
                     {
@@ -529,7 +529,7 @@ namespace MaxVonGrafKftMobile.Popups
                             {
                                 if (response.agreementReview.BalanceDue > 0)
                                 {
-                                    await Navigation.PushAsync(new ProcessPaymentPage((decimal)response.agreementReview.BalanceDue, response.agreementReview.AgreementID, locationIdForPayment, response.agreementReview));
+                                    await Navigation.PushModalAsync(new ProcessPaymentPage((decimal)response.agreementReview.BalanceDue, response.agreementReview.AgreementID, locationIdForPayment, response.agreementReview));
                                 }
                                 else
                                 {

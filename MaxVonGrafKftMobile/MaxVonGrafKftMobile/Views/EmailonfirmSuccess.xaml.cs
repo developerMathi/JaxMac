@@ -30,15 +30,16 @@ namespace MaxVonGrafKftMobile.Views
         {
             if (confirmationType == emailConfirmationType.LogIn)
             {
-                Navigation.PushAsync(new HomePage());
+                //Navigation.PushAsync(new NavigationPage( new HomePage()));
+                Navigation.PushModalAsync(new HomePage());
             }
             else if (confirmationType == emailConfirmationType.Register)
             {
-                Navigation.PushAsync(new LoginPage());
+                Navigation.PushModalAsync(new  LoginPage());
             }
             else
             {
-                Navigation.PushAsync(new HomePage());
+                Navigation.PushModalAsync(new  HomePage());
             }
             
         }

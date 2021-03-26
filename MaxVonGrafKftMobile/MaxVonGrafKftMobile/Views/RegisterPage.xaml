@@ -10,12 +10,14 @@
     BackgroundColor="{StaticResource MaxVonWhite}"
     BackgroundImageSource="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconBgLogin.png}"
     NavigationPage.HasNavigationBar="False"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             ios:Page.UseSafeArea="true">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Spacing="10">
                 <StackLayout
-                    Margin="20,10,20,0"
+                    Margin="20,40,20,0"
                     HeightRequest="50"
                     HorizontalOptions="FillAndExpand">
                     <ImageButton

@@ -5,7 +5,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:MaxVonGrafKftMobile.MarkupExtensions"
              mc:Ignorable="d"
              x:Class="MaxVonGrafKftMobile.Views.ProcessPaymentPage"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             ios:Page.UseSafeArea="true">
     <ContentPage.Content>
         <Grid Margin="5,30,5,10">
             <Grid.RowDefinitions>

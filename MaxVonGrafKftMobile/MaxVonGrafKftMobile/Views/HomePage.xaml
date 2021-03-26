@@ -6,7 +6,9 @@
              mc:Ignorable="d"
              x:Class="MaxVonGrafKftMobile.Views.HomePage"
              xmlns:pages="clr-namespace:MaxVonGrafKftMobile.Views"
-                  NavigationPage.HasNavigationBar="False">
+                  NavigationPage.HasNavigationBar="False"
+                  xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             ios:Page.UseSafeArea="true">
     <MasterDetailPage.Master>
         <pages:HomeMenuPage x:Name="MasterPage" />
     </MasterDetailPage.Master>

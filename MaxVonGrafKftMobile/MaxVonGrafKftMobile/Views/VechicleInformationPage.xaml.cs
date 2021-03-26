@@ -144,16 +144,11 @@ namespace MaxVonGrafKftMobile.Views
 
         }
 
-        private void ToolbarItem_Clicked(object sender, EventArgs e)
+        private async void ToolbarItem_Clicked(object sender, EventArgs e)
         {
-            if (selectedVehicle.SharableLink != null)
-            {
-                _ = ShareUri(selectedVehicle.SharableLink);
-            }
-            else
-            {
-                _ = ShareUri("");
-            }
+
+            string link = "https://cars.ridewithjax.com/?vehicleTypeId="+selectedVehicle.VehicleTypeId+"&id="+selectedVehicle.vehicleId;
+            await ShareUri(link); 
         }
 
         private void btnPriceDetail_Tapped(object sender, EventArgs e)
@@ -169,23 +164,19 @@ namespace MaxVonGrafKftMobile.Views
         public async Task ShareUri(string uri)
         {
 
-            var screenshot = await Screenshot.CaptureAsync();
-            var stream = await screenshot.OpenReadAsync();
-            string name = "vehDetails" + ".png";
+            //var screenshot = await Screenshot.CaptureAsync();
+            //var stream = await screenshot.OpenReadAsync();
+            //string name = "vehDetails" + ".png";
 
-            string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), name);
+            //string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), name);
 
-            using (var fileStream = new FileStream(fileName, FileMode.Create, FileAccess.Write))
-            {
-                stream.CopyTo(fileStream);
-            }
+            //using (var fileStream = new FileStream(fileName, FileMode.Create, FileAccess.Write))
+            //{
+            //    stream.CopyTo(fileStream);
+            //}
 
 
-            await Share.RequestAsync(new ShareFileRequest
-            {
-                Title = Title,
-                File = new ShareFile(fileName)
-            });
+            await Share.RequestAsync(uri);
 
 
            
