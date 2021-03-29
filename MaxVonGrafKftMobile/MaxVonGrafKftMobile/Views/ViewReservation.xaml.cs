@@ -277,7 +277,7 @@ namespace MaxVonGrafKftMobile.Views
                 cancelReservationMobileRequest.CurrentTime = DateTime.Now;
                 cancelReservationMobileRequest.isTwoHour = true;
 
-                PopupNavigation.Instance.PushAsync(new Error_popup("Upon the cancellation confirmation you will be charged a 20% fee. Are you sure want to cancel the reservation?", cancelReservationMobileRequest, token));
+                PopupNavigation.Instance.PushAsync(new Error_popup("Upon the cancellation confirmation you will be charged a 20% fee. ", cancelReservationMobileRequest, token));
             }
         }
 

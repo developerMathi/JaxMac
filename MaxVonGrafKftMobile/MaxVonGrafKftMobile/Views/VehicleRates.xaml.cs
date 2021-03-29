@@ -525,7 +525,7 @@ namespace MaxVonGrafKftMobile.Views
 
         void descriptionBtndailyRate_Tapped(System.Object sender, System.EventArgs e)
         {
-            PopupNavigation.Instance.PushAsync(new DetailPopUp("Daily Rate", "The base rate of the vehicle depends on the vehicle type and amenities included "));
+            PopupNavigation.Instance.PushAsync(new DetailPopUp("Day Rate", "The base rate of the vehicle depends on the vehicle type and amenities included "));
         }
     }
 }

@@ -953,7 +953,7 @@
                             FontFamily="Roboto-Regular"
                             TextColor="{StaticResource MaxVonBlack}"
                             VerticalOptions="CenterAndExpand">
-                                Total Rental Days
+                                Total Rentals
                                 <Label.FontSize>
                                     <OnPlatform x:TypeArguments="x:Double">
                                         <On Platform="iOS">
