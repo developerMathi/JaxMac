@@ -32,7 +32,7 @@ namespace MaxVonGrafKftMobile.Views
         //    this.selectedVehicle = selectedVehicle;
         //    if (selectedVehicle.VehicleImageUrl != null)
         //    {
-        //        vehileTypeImage.Source = ImageSource.FromUri(new Uri(selectedVehicle.VehicleImageUrl));
+        //        vehileTypeImage.Source = ImageSource.FromUri(new Uri(VehicleDiscription.VehicleImageUrl));
         //    }
         //    vehicleSampleLabel.Text = selectedVehicle.vehicleName;
         //    vehicleTypeLabel.Text = selectedVehicle.VehicleType;
@@ -53,7 +53,7 @@ namespace MaxVonGrafKftMobile.Views
         //    //if (selectedVehicle.HtmlContent != null)
         //    //{
         //    //    desWebView = new WebView();
-             
+
         //    //    var htmlSource = new HtmlWebViewSource();
         //    //    htmlSource.Html = @"<html><body>
         //    //                          <h1>Xamarin.Forms</h1>
@@ -86,6 +86,10 @@ namespace MaxVonGrafKftMobile.Views
             if (selectedVehicle.HtmlContent != null)
             {
                 VehicleDiscription.Text = selectedVehicle.HtmlContent.Replace("<p>", "").Replace("</p>", "").Replace("&nbsp;&nbsp;", "");
+            }
+            else
+            {
+                VehicleDiscription.Text = "No description";
             }
             totalAmtLabel.Text = "$ " + selectedVehicle.DailyRateWithInsurance.ToString();
             this.locationIdList = locationIdList;

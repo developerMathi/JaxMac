@@ -77,3 +77,8 @@
 /MaxVonGrafKftMobileModel/obj/Debug/MaxVonGrafKftMobileModel.dll
 /MaxVonGrafKftMobileModel/obj/Debug/MaxVonGrafKftMobileModel.csprojAssemblyReference.cache
 /MaxVonGrafKftMobileModel/obj/Debug/MaxVonGrafKftMobileModel.csproj.CoreCompileInputs.cache
+/MaxVonGrafKftMobile/MaxVonGrafKftMobile.iOS/bin/iPhone/Release
+/MobileControllers/bin/Release
+/MobileControllers/obj/Release/MobileControllers.csproj.CoreCompileInputs.cache
+/MobileControllers/obj/Release/MobileControllers.dll
+*.pdb

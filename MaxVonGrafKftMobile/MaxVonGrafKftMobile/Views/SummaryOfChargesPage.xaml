@@ -779,7 +779,7 @@
                                         <RowDefinition Height="50" />
                                         <RowDefinition Height="Auto" />
                                         <RowDefinition Height="50" />
-                                        <RowDefinition Height="150"/>
+                                        <RowDefinition Height="80"/>
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="6*" />

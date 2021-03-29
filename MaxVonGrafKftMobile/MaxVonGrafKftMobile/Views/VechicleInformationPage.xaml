@@ -96,8 +96,7 @@
                 </StackLayout>
 
 
-                <ScrollView Grid.Row="1" Margin="0,15,0,0" VerticalOptions="CenterAndExpand">
-                    <StackLayout>
+                <StackLayout Grid.Row="1" Margin="0,15,0,0" VerticalOptions="CenterAndExpand">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
@@ -200,26 +199,25 @@
                     Grid.Row="1"
                     Margin="15,0"
                     FontFamily="Roboto-Regular"
-                    Text="No discriptions."
                     TextColor="{StaticResource MaxVonBlack}"
                     VerticalOptions="Start">
-                                <Label.FontSize>
-                                    <OnPlatform x:TypeArguments="x:Double">
-                                        <On Platform="iOS">
-                                            <OnIdiom
-                                    x:TypeArguments="x:Double"
-                                    Phone="17"
-                                    Tablet="20" />
-                                        </On>
-                                        <On Platform="Android,Windows">
-                                            <OnIdiom
-                                    x:TypeArguments="x:Double"
-                                    Phone="18"
-                                    Tablet="22" />
-                                        </On>
-                                    </OnPlatform>
-                                </Label.FontSize>
-                            </Label>
+                            <Label.FontSize>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="iOS">
+                                        <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="12"
+                                        Tablet="15" />
+                                    </On>
+                                    <On Platform="Android,Windows">
+                                        <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="12"
+                                        Tablet="15" />
+                                    </On>
+                                </OnPlatform>
+                            </Label.FontSize>
+                        </Label>
 
                             <Grid
                     Grid.Row="2"
@@ -958,13 +956,13 @@
                             </Label.FontSize>
                         </Label>
                     </StackLayout>-->
-                                <BoxView
+                                <!--<BoxView
                         Grid.Row="1"
                         Grid.Column="0"
                         Grid.ColumnSpan="2"
                         HeightRequest="1"
                         VerticalOptions="End"
-                        Color="{StaticResource MaxVonGray}" />
+                        Color="{StaticResource MaxVonGray}" />-->
 
                                 <Grid
                         Grid.Row="1"
@@ -1841,13 +1839,12 @@
                                 </Grid>
                             </Grid>
                         </Grid>
-                    </StackLayout>
-                </ScrollView>
+                </StackLayout>
 
                 <Button
             x:Name="btnContinue"
             Grid.Row="2"
-            Margin="15,0,15,20"
+            Margin="15,15,15,20"
             BackgroundColor="{StaticResource MaxVonRed}"
             Clicked="btnContinue_Clicked"
             CornerRadius="10"

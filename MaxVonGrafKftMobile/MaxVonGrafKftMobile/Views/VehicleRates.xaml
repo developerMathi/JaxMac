@@ -841,7 +841,7 @@
                                              Spacing="0">
                                         <Label
                                         FontFamily="Roboto-Bold"
-                                        Text="Daily Rate"
+                                        Text="Day Rate"
                                         TextColor="{StaticResource MaxVonBlack}"
                                         VerticalOptions="Center">
                                             <Label.FontSize>

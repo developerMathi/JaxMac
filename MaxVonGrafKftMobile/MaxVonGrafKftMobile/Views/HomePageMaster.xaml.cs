@@ -133,8 +133,8 @@ namespace MaxVonGrafKftMobile.Views
                     new HomePageMasterMenuItem { Id = 5,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("MaxVonGrafKftMobile.Assets.iconWhiteUser.png"), Title = "Profile & Settings" },
                     new HomePageMasterMenuItem { Id = 7,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("MaxVonGrafKftMobile.Assets.iconsDocument.png"), Title = "My Documents" },
                     new HomePageMasterMenuItem { Id = 3,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("MaxVonGrafKftMobile.Assets.iconWhitePayment.png"), Title = "Payment Method" },
-                    new HomePageMasterMenuItem { Id = 4,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("MaxVonGrafKftMobile.Assets.iconWhiteHelp.png"), Title = "Help" },
                     new HomePageMasterMenuItem { Id = 8,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("MaxVonGrafKftMobile.Assets.iconChat.png"), Title = "Chat" },
+                    new HomePageMasterMenuItem { Id = 4,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("MaxVonGrafKftMobile.Assets.iconWhiteHelp.png"), Title = "Help" },
                     new HomePageMasterMenuItem { Id = 6,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("MaxVonGrafKftMobile.Assets.iconWhiteLogout.png"), Title = "Log Out" },
                   
                    // new HomePageMasterMenuItem { Id = 2, Title = "Upcoming reservation " },
@@ -187,7 +187,7 @@ namespace MaxVonGrafKftMobile.Views
             }
             else if (item.Id == 7)
             {
-                Navigation.PushModalAsync(new NavigationPage(new  MyDouments()));
+                Navigation.PushModalAsync(new NavigationPage(new MyDouments()));
             }
             else if (item.Id == 8)
             {
