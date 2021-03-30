@@ -95,7 +95,7 @@ namespace MaxVonGrafKftMobile.Popups
                     {
                         PhotoSize = PhotoSize.Small,
                         SaveToAlbum = true,
-                        ModalPresentationStyle = MediaPickerModalPresentationStyle.OverFullScreen,
+                        //ModalPresentationStyle = MediaPickerModalPresentationStyle.OverFullScreen,
                         AllowCropping = true
                     });
 
