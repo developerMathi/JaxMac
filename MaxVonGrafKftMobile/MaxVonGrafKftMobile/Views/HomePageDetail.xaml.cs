@@ -28,6 +28,7 @@ namespace MaxVonGrafKftMobile.Views
         GetReservationAgreementMobileResponse registrationDBModelResponse;
         GetReservationByIDMobileRequest reservationByIDMobileRequest;
         GetReservationByIDMobileResponse reservationByIDMobileResponse;
+        GetReservationByIDMobileResponse reservationByIDMobileResponseForExtend;
         GetAgreementByAgreementIdMobileResponse agreementIdMobileResponse;
         GetAgreementByAgreementIdMobileRequest agreementIdMobileRequest;
         getAgreementByCustomerIdMobileRequest getAgreementByCustomerIdMobileRequest;
@@ -246,8 +247,8 @@ namespace MaxVonGrafKftMobile.Views
                                     grdRentals.IsVisible = true;
                                     LoadingStack.IsVisible = false;
                                     lastAgreementStack.IsVisible = false;
-                                    reservationByIDMobileResponse.reservationData.Reservationview.StartDateStr = ((DateTime)reservationByIDMobileResponse.reservationData.Reservationview.StartDate).ToString("dddd, dd MMMM yyyy hh:mm tt");
-                                    reservationByIDMobileResponse.reservationData.Reservationview.EndDateStr = ((DateTime)reservationByIDMobileResponse.reservationData.Reservationview.EndDate).ToString("dddd, dd MMMM yyyy hh:mm tt");
+                                    //reservationByIDMobileResponse.reservationData.Reservationview.StartDateStrForView = ((DateTime)reservationByIDMobileResponse.reservationData.Reservationview.StartDate).ToString("dddd, dd MMMM yyyy hh:mm tt");
+                                    //reservationByIDMobileResponse.reservationData.Reservationview.EndDateStrForView = ((DateTime)reservationByIDMobileResponse.reservationData.Reservationview.EndDate).ToString("dddd, dd MMMM yyyy hh:mm tt");
                                     reservationByIDMobileResponse.reservationData.Reservationview.PageTitle = Enum.GetName(typeof(ReservationStatuses), reservationByIDMobileResponse.reservationData.Reservationview.Status);
                                     if (reservationByIDMobileResponse.reservationData.Reservationview.Status == (short)ReservationStatuses.Quote)
                                     {

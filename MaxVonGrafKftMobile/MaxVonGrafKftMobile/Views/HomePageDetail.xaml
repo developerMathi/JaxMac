@@ -33,7 +33,7 @@
                      RefreshColor="{StaticResource MaxVonYellow}">
             <ScrollView>
 
-                <Grid Margin="0,30,0,0" VerticalOptions="FillAndExpand">
+                <Grid Margin="0,20,0,0" VerticalOptions="FillAndExpand">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50" />
                         <RowDefinition Height="60" />
@@ -227,7 +227,7 @@
                         IsRefreshing="False"
                         RefreshControlColor="{StaticResource MaxVonYellow}"
                 x:Name="upcomingReservation"
-                Margin="0,50,0,0"
+                Margin="0,10,0,0"
                 BackgroundColor="Transparent"
                 HorizontalScrollBarVisibility="Never"
                             ItemTapped="upcomingReservation_ItemTapped"
@@ -239,7 +239,7 @@
                                         <On Platform="iOS">
                                             <OnIdiom
                                 x:TypeArguments="x:Int32"
-                                Phone="400"
+                                Phone="460"
                                 Tablet="450" />
                                         </On>
                                         <On Platform="Android,Windows">
@@ -1388,6 +1388,7 @@
                     </StackLayout>
 
                     <StackLayout
+                        IsVisible="false"
             x:Name="lastAgreementStack"
             Grid.Row="2"
             Margin="10,10,10,0"
