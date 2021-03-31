@@ -32,9 +32,6 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <RefreshView IsRefreshing="False"
-                         Refreshing="RefreshView_Refreshing"
-                         RefreshColor="{StaticResource MaxVonRed}">
                 <ScrollView>
                     <StackLayout>
                         <Grid Margin="0,0,0,30" RowSpacing="10">
@@ -1662,7 +1659,6 @@
                         </Grid>
                     </StackLayout>
                 </ScrollView>
-            </RefreshView>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -182,8 +182,29 @@ namespace MaxVonGrafKftMobile.Views
                 CityEntry.Text = customerReview.City;
                 licenceNumber.Text = customerReview.LicenseNumber;
                 DateOfBithEntry.Date = (DateTime)customerReview.DateOfbirth;
-                licIssueDate.Date = (DateTime)customerReview.LicenseIssueDate;
-                licenceexpiDate.Date = (DateTime)customerReview.LicenseExpiryDate;
+                if (((DateTime)customerReview.LicenseIssueDate).Date == DateTime.Now.Date)
+                {
+                    licIssueDate.Placeholder = DateTime.Now.ToString("dd/MM/yyyy");
+                    licIssueDate.Date = (DateTime)customerReview.LicenseIssueDate;
+                }
+                else
+                {
+                    licIssueDate.Date = (DateTime)customerReview.LicenseIssueDate;
+
+                }
+
+                if (((DateTime)customerReview.LicenseExpiryDate).Date == DateTime.Now.Date)
+                {
+                    licenceexpiDate.Placeholder = DateTime.Now.ToString("dd/MM/yyyy");
+                    licenceexpiDate.Date = (DateTime)customerReview.LicenseExpiryDate;
+                }
+                else
+                {
+                    licenceexpiDate.Date = (DateTime)customerReview.LicenseExpiryDate;
+
+                }
+
+
                 //if (customerReview.LicenseIssueDate != null)
                 //{
                 //    licenceIssueDate.Date = (DateTime)customerReview.LicenseIssueDate;

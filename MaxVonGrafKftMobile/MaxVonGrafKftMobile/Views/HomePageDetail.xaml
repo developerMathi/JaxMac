@@ -44,8 +44,7 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="80" />
                             <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="50" />
-                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="80" />
                         </Grid.ColumnDefinitions>
                         <Grid.HeightRequest>
                             <OnPlatform x:TypeArguments="x:Double">
@@ -92,13 +91,6 @@
                 Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconRedSearch.png}"
                 VerticalOptions="CenterAndExpand" />
 
-                        <ImageButton
-                Grid.Column="3"
-                BackgroundColor="Transparent"
-                HeightRequest="30"
-                IsVisible="false"
-                Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconRedFilter.png}"
-                VerticalOptions="CenterAndExpand" />
                     </Grid>
 
                     <Grid
@@ -3246,6 +3238,7 @@
                                                             </Image.HeightRequest>
                                                         </Image>
                                                         <Label
+                                                            FontAttributes="Bold"
                                                 Grid.Row="1"
                                                 Grid.Column="1"
                                                 Margin="0"
@@ -3253,22 +3246,22 @@
                                                 Text="{Binding CheckoutLocation}"
                                                 TextColor="{StaticResource MaxVonBlack}"
                                                 VerticalOptions="Center">
-                                                            <Label.FontSize>
-                                                                <OnPlatform x:TypeArguments="x:Double">
-                                                                    <On Platform="iOS">
-                                                                        <OnIdiom
-                                                                x:TypeArguments="x:Double"
-                                                                Phone="8"
-                                                                Tablet="16" />
-                                                                    </On>
-                                                                    <On Platform="Android,Windows">
-                                                                        <OnIdiom
-                                                                x:TypeArguments="x:Double"
-                                                                Phone="8"
-                                                                Tablet="16" />
-                                                                    </On>
-                                                                </OnPlatform>
-                                                            </Label.FontSize>
+                                                           <Label.FontSize>
+                                                                    <OnPlatform x:TypeArguments="x:Double">
+                                                                        <On Platform="iOS">
+                                                                            <OnIdiom
+                                                                    x:TypeArguments="x:Double"
+                                                                    Phone="10"
+                                                                    Tablet="16" />
+                                                                        </On>
+                                                                        <On Platform="Android,Windows">
+                                                                            <OnIdiom
+                                                                    x:TypeArguments="x:Double"
+                                                                    Phone="10"
+                                                                    Tablet="16" />
+                                                                        </On>
+                                                                    </OnPlatform>
+                                                                </Label.FontSize>
                                                         </Label>
                                                     </Grid>
                                                     <Grid
@@ -3429,6 +3422,7 @@
                                                             </Image.HeightRequest>
                                                         </Image>
                                                         <Label
+                                                            FontAttributes="Bold"
                                                 Grid.Row="1"
                                                 Grid.Column="1"
                                                 Margin="0"
@@ -3436,22 +3430,22 @@
                                                 Text="{Binding CheckinLocation}"
                                                 TextColor="{StaticResource MaxVonBlack}"
                                                 VerticalOptions="Center">
-                                                            <Label.FontSize>
-                                                                <OnPlatform x:TypeArguments="x:Double">
-                                                                    <On Platform="iOS">
-                                                                        <OnIdiom
-                                                                x:TypeArguments="x:Double"
-                                                                Phone="8"
-                                                                Tablet="16" />
-                                                                    </On>
-                                                                    <On Platform="Android,Windows">
-                                                                        <OnIdiom
-                                                                x:TypeArguments="x:Double"
-                                                                Phone="8"
-                                                                Tablet="16" />
-                                                                    </On>
-                                                                </OnPlatform>
-                                                            </Label.FontSize>
+                                                           <Label.FontSize>
+                                                                    <OnPlatform x:TypeArguments="x:Double">
+                                                                        <On Platform="iOS">
+                                                                            <OnIdiom
+                                                                    x:TypeArguments="x:Double"
+                                                                    Phone="10"
+                                                                    Tablet="16" />
+                                                                        </On>
+                                                                        <On Platform="Android,Windows">
+                                                                            <OnIdiom
+                                                                    x:TypeArguments="x:Double"
+                                                                    Phone="10"
+                                                                    Tablet="16" />
+                                                                        </On>
+                                                                    </OnPlatform>
+                                                                </Label.FontSize>
                                                         </Label>
                                                     </Grid>
 

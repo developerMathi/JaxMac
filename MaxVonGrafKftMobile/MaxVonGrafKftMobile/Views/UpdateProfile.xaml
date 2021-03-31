@@ -1314,7 +1314,6 @@
                                     Margin="10,0,0,0"
                                     FontFamily="Roboto-Medium"
                                     FontSize="Medium"
-                                    Placeholder="License expire date"
                                     TextColor="{StaticResource MaxVonBlack}" />
 
                                 <Image
@@ -1446,7 +1445,6 @@
                                     Margin="10,0,0,0"
                                     FontFamily="Roboto-Medium"
                                     FontSize="Medium"
-                                    Placeholder="License Issue date"
                                     TextColor="{StaticResource MaxVonBlack}"/>
 
                                 <Image
