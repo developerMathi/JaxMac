@@ -72,7 +72,7 @@ namespace MaxVonGrafKftMobile.Views
                 else
                 {
                     string code = ContactNoEntry.Text.Replace(" ", "").Trim();
-                    if (code.Length != 8)
+                    if (code.Length < 6)
                     {
                         Vibration.Vibrate();
                         codeFrame.BorderColor = Color.Red;

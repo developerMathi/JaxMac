@@ -158,7 +158,7 @@
                         </renders:CustomEntry.BackgroundColor>
 
                         <Entry.Behaviors>
-                            <renders:MaskedBehavior Mask="X X X X X X X X" />
+                            <renders:MaskedBehavior Mask="X X X X X X" />
                         </Entry.Behaviors>
                     </renders:CustomEntry>
                 </Frame>
