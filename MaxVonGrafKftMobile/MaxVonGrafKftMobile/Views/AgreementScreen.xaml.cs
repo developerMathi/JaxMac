@@ -455,5 +455,10 @@ namespace MaxVonGrafKftMobile.Views
             return base.OnBackButtonPressed();
             return true;
         }
+
+        void btnMenu_Clicked(System.Object sender, System.EventArgs e)
+        {
+            Navigation.PopModalAsync();
+        }
     }
 }

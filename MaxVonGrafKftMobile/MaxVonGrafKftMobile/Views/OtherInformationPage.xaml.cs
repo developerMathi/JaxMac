@@ -115,6 +115,15 @@ namespace MaxVonGrafKftMobile.Views
             {
                 await PopupNavigation.Instance.PushAsync(new Error_popup("Your license has expired"));
             }
+            else if (!licIssueDateSelected)
+            {
+                await PopupNavigation.Instance.PushAsync(new Error_popup("Please enter your drivers license issue date."));
+            }
+            else if (licenceIssueDate.Date >= DateTime.Now)
+            {
+                await PopupNavigation.Instance.PushAsync(new Error_popup("Please check your licence issue date."));
+            }
+
             else if (licfrontIamgeStat.Base64 == null || licBackIamgeStat.Base64 == null)
             {
                 await PopupNavigation.Instance.PushAsync(new Error_popup("Please add images of your driver licence. "));

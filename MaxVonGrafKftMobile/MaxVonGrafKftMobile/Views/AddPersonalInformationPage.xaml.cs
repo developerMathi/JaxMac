@@ -161,7 +161,7 @@ namespace MaxVonGrafKftMobile.Views
 
         private void BacKBtn_Clicked(object sender, EventArgs e)
         {
-            Navigation.PopAsync();
+            Navigation.PopModalAsync();
         }
 
         private void NxtBtn_Clicked(object sender, EventArgs e)

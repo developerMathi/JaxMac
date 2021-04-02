@@ -43,7 +43,7 @@ namespace MaxVonGrafKftMobile.Views
         {
             InitializeComponent();
             DateOfBithEntry.MaximumDate = DateTime.Now.AddYears(-18);
-            licIssueDate.MaximumDate = DateTime.Now;
+            //licIssueDate.MaximumDate = DateTime.Now;
             licenceexpiDate.MinimumDate = DateTime.Now;
             this.customerReview = customerReview;
             _token = App.Current.Properties["currentToken"].ToString();
@@ -182,7 +182,11 @@ namespace MaxVonGrafKftMobile.Views
                 CityEntry.Text = customerReview.City;
                 licenceNumber.Text = customerReview.LicenseNumber;
                 DateOfBithEntry.Date = (DateTime)customerReview.DateOfbirth;
-                if (((DateTime)customerReview.LicenseIssueDate).Date == DateTime.Now.Date)
+                if (customerReview.LicenseIssueDate == null)
+                {
+                    licIssueDate.Placeholder = "Licence Issue Date";
+                }
+                else if(((DateTime)customerReview.LicenseIssueDate).Date == DateTime.Now.Date)
                 {
                     licIssueDate.Placeholder = DateTime.Now.ToString("dd/MM/yyyy");
                     licIssueDate.Date = (DateTime)customerReview.LicenseIssueDate;
@@ -190,7 +194,6 @@ namespace MaxVonGrafKftMobile.Views
                 else
                 {
                     licIssueDate.Date = (DateTime)customerReview.LicenseIssueDate;
-
                 }
 
                 if (((DateTime)customerReview.LicenseExpiryDate).Date == DateTime.Now.Date)
