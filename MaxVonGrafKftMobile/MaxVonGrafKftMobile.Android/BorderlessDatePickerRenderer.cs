@@ -44,7 +44,7 @@ namespace MaxVonGrafKftMobile.Droid
                     var selectedDate = arg.Text.ToString();
                     if (selectedDate == element.Placeholder)
                     {
-                        Control.Text = DateTime.Now.ToString("dd/MM/yyyy");
+                        Control.Text = DateTime.Now.ToString("MM/dd/yyyy");
                     }
 
                 };
