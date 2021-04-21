@@ -1,31 +1,18 @@
 ﻿<Properties GitUserInfo="UsingMD" StartupConfiguration="{98E0FD32-D2DF-4277-B541-B3A71C049EB4}|Default">
   <MonoDevelop.Ide.ItemProperties.MaxVonGrafKftMobile.Android PreferredExecutionTarget="Android.SelectDevice" />
-  <MonoDevelop.Ide.ItemProperties.MaxVonGrafKftMobile.iOS TriggeredFromHotReload="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.5D59D1D8-E296-44B0-8203-C471CCFBDC78" />
+  <MonoDevelop.Ide.ItemProperties.MaxVonGrafKftMobile.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" />
   <MonoDevelop.Ide.Workbench>
-    <Files>
-      <File FileName="MaxVonGrafKftMobile/MaxVonGrafKftMobile/Views/HomePageDetail.xaml" Line="33" Column="65" />
-      <File FileName="MaxVonGrafKftMobile/MaxVonGrafKftMobile/Views/HomePageDetail.xaml.cs" Line="91" Column="49" />
-      <File FileName="MaxVonGrafKftMobile/MaxVonGrafKftMobile/Popups/DetailPopUp.xaml" Line="172" Column="21" />
-      <File FileName="MaxVonGrafKftMobile/MaxVonGrafKftMobile.iOS/Main.cs" Line="17" Column="1" />
-    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="MaxVonGrafKftMobile" expanded="True">
             <Node name="MaxVonGrafKftMobile" expanded="True">
-              <Node name="Popups" expanded="True">
-                <Node name="DetailPopUp.xaml" expanded="True" />
-              </Node>
-              <Node name="Views" expanded="True">
-                <Node name="ChangePasswordWithoutLogin.xaml" expanded="True" />
-                <Node name="ForgetPasswordPage.xaml" expanded="True" />
-                <Node name="HomePageDetail.xaml" expanded="True">
-                  <Node name="HomePageDetail.xaml.cs" selected="True" />
-                </Node>
-                <Node name="LoginPage.xaml" expanded="True" />
+              <Node name="Views" expanded="True" selected="True">
+                <Node name="UpdateProfile.xaml" expanded="True" />
               </Node>
             </Node>
-            <Node name="MaxVonGrafKftMobile.iOS" expanded="True" />
+            <Node name="MaxVonGrafKftMobileController" expanded="True" />
+            <Node name="MaxVonGrafKftMobileModel" expanded="True" />
             <Node name="MaxVonGrafKftMobileServices" expanded="True">
               <Node name="ApiService" expanded="True" />
             </Node>
@@ -35,7 +22,7 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Ad-Hoc|iPhone" />
   <Debugger.DebugSourceFolders />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
