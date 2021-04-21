@@ -17,6 +17,7 @@ namespace MaxVonGrafKftMobile.Popups
     public partial class SavedSuccessfullyPopup : PopupPage
     {
         private int customerID;
+        private int fromVal;
 
         public SavedSuccessfullyPopup()
         {
@@ -27,6 +28,12 @@ namespace MaxVonGrafKftMobile.Popups
         {
             InitializeComponent();
             this.customerID = customerID;
+            this.fromVal = 0;
+        }
+
+        public SavedSuccessfullyPopup(int customerID, int fromVal) : this(customerID)
+        {
+            this.fromVal = fromVal;
         }
 
         private async void Okbtn_Clicked(object sender, EventArgs e)
@@ -58,7 +65,15 @@ namespace MaxVonGrafKftMobile.Popups
             //{
             //    await Navigation.PushModalAsync(new enterConfirmationCodePage(customerID, emailConfirmationType.Register));
             //}
-            await Navigation.PushModalAsync(new enterConfirmationCodePage(customerID, emailConfirmationType.Register));
+            if (fromVal == 1)
+            {
+                await Navigation.PushModalAsync(new enterConfirmationCodePage(customerID, emailConfirmationType.Register,fromVal));
+            }
+            else
+            {
+                await Navigation.PushModalAsync(new enterConfirmationCodePage(customerID, emailConfirmationType.Register));
+            }
+            
 
 
             //await PopupNavigation.Instance.PopAllAsync();
