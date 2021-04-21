@@ -1243,7 +1243,6 @@
                                                                 </Image>
                                                                 <Label
                                                                         FontFamily="Roboto-Medium"
-                                                                        FontSize="Small"
                                                                         Text="{Binding Seats}"
                                                                         TextColor="{StaticResource MaxVonBlack}"
                                                                         VerticalOptions="CenterAndExpand">
@@ -2034,13 +2033,94 @@
                             </ListView>
                             <StackLayout VerticalOptions="Center">
                                 <Label
+                                    HorizontalTextAlignment="Center"
                                     x:Name="noVehicleLabel"
                                     Margin="0,20,0,20"
                                     HorizontalOptions="Center"
                                     IsVisible="False"
-                                    Text="Sorry, No vehicles found"
                                     TextColor="{StaticResource MaxVonBlack}"
-                                    VerticalOptions="Center" />
+                                    VerticalOptions="Center">
+
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span
+                                                        FontAttributes="Bold"
+                                                        FontFamily="Roboto-Bold"
+                                                        Text="Uh oh! All of our cars are rented. Click  "
+                                                        TextColor="{StaticResource MaxVonBlack}">
+                                                <Span.FontSize>
+                                                    <OnPlatform x:TypeArguments="x:Double">
+                                                        <On Platform="iOS">
+                                                            <OnIdiom
+                                                                        x:TypeArguments="x:Double"
+                                                                        Phone="16"
+                                                                        Tablet="40" />
+                                                        </On>
+                                                        <On Platform="Android,Windows">
+                                                            <OnIdiom
+                                                                        x:TypeArguments="x:Double"
+                                                                        Phone="17"
+                                                                        Tablet="21" />
+                                                        </On>
+                                                    </OnPlatform>
+                                                </Span.FontSize>
+                                            </Span>
+                                            <Span
+                                                
+                                                        FontAttributes="Bold"
+                                                TextDecorations="Underline"
+                                                        FontFamily="Roboto-Bold"
+                                                        Text="HERE "
+                                                        TextColor="{StaticResource MaxVonBlack}">
+                                                <Span.FontSize>
+                                                    <OnPlatform x:TypeArguments="x:Double">
+                                                        <On Platform="iOS">
+                                                       <OnIdiom
+                                                                        x:TypeArguments="x:Double"
+                                                                        Phone="16"
+                                                                        Tablet="40" />
+                                                        </On>
+                                                        <On Platform="Android,Windows">
+                                                            <OnIdiom
+                                                                        x:TypeArguments="x:Double"
+                                                                        Phone="17"
+                                                                        Tablet="21" />
+                                                        </On>
+                                                    </OnPlatform>
+                                                </Span.FontSize>
+                                                <Span.GestureRecognizers>
+                                                    <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                                          x:Name="novehicleTap"
+                                                                          Tapped="novehicleTap_Tapped"></TapGestureRecognizer>
+                                                </Span.GestureRecognizers>
+                                            </Span>
+
+                                              <Span
+                                                        FontAttributes="Bold"
+                                                        FontFamily="Roboto-Bold"
+                                                        Text="to be contacted when we have a car ready for you!"
+                                                        TextColor="{StaticResource MaxVonBlack}">
+                                                <Span.FontSize>
+                                                    <OnPlatform x:TypeArguments="x:Double">
+                                                        <On Platform="iOS">
+                                                           <OnIdiom
+                                                                        x:TypeArguments="x:Double"
+                                                                        Phone="16"
+                                                                        Tablet="40" />
+                                                        </On>
+                                                        <On Platform="Android,Windows">
+                                                            <OnIdiom
+                                                                        x:TypeArguments="x:Double"
+                                                                        Phone="17"
+                                                                        Tablet="21" />
+                                                        </On>
+                                                    </OnPlatform>
+                                                </Span.FontSize>
+                                            </Span>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+
+                                </Label>
                             </StackLayout>
 
 

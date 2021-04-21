@@ -20,7 +20,22 @@ namespace MaxVonGrafKftMobile.Views
         CustomerReview customer;
         CustomerSerach customerSerach;
         List<CustomerSeachResult> customerSeachResults;
+        private int fromVal;
+
         public RegisterPage()
+        {
+            InitializeComponent();
+
+            customer = new CustomerReview();
+            customerSerach = new CustomerSerach();
+            customerSeachResults = null;
+            this.fromVal = 0;
+            //var assembly = typeof(LoginPage);
+            //regiseterNxtBtn.ImageSource = ImageSource.FromResource("MaxVonGrafKftMobile.Assets.nextIcon.png", assembly);
+            //registerPageImage.Source= ImageSource.FromResource("MaxVonGrafKftMobile.Assets.registerPageImage.png", assembly); 
+        }
+
+        public RegisterPage(int fromVal)
         {
             InitializeComponent();
 
@@ -30,6 +45,7 @@ namespace MaxVonGrafKftMobile.Views
             //var assembly = typeof(LoginPage);
             //regiseterNxtBtn.ImageSource = ImageSource.FromResource("MaxVonGrafKftMobile.Assets.nextIcon.png", assembly);
             //registerPageImage.Source= ImageSource.FromResource("MaxVonGrafKftMobile.Assets.registerPageImage.png", assembly); 
+            this.fromVal = fromVal;
         }
 
         protected override async void OnAppearing()
@@ -150,12 +166,26 @@ namespace MaxVonGrafKftMobile.Views
                                 }
                                 else
                                 {
-                                    await Navigation.PushModalAsync(new AddPersonalInformationPage(customer));
+                                    if (fromVal == 1)
+                                    {
+                                        await Navigation.PushModalAsync(new AddPersonalInformationPage(customer,fromVal));
+                                    }
+                                    else
+                                    {
+                                        await Navigation.PushModalAsync(new AddPersonalInformationPage(customer));
+                                    }
                                 }
                             }
                             else
                             {
-                                await Navigation.PushModalAsync(new AddPersonalInformationPage(customer));
+                                if (fromVal == 1)
+                                {
+                                    await Navigation.PushModalAsync(new AddPersonalInformationPage(customer, fromVal));
+                                }
+                                else
+                                {
+                                    await Navigation.PushModalAsync(new AddPersonalInformationPage(customer));
+                                }
                             }
                         }
                         else

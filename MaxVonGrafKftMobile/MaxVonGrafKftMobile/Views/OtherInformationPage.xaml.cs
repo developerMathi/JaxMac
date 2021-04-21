@@ -31,6 +31,7 @@ namespace MaxVonGrafKftMobile.Views
         AddLicenceImageResponse licenceImageResponse;
         ConfirmEmailAddressRequest confirmEmailAddressRequest;
         ConfirmEmailAddressResponse emailAddressResponse;
+        private int fromVal;
 
         public OtherInformationPage(CustomerReview customer, CustomerImages images)
         {
@@ -57,9 +58,14 @@ namespace MaxVonGrafKftMobile.Views
             customer.CustomerType = "Retail";
             confirmEmailAddressRequest = new ConfirmEmailAddressRequest();
             emailAddressResponse = null;
+            this.fromVal = 0;
 
         }
 
+        public OtherInformationPage(CustomerReview customer, CustomerImages images, int fromVal) : this(customer, images)
+        {
+            this.fromVal = fromVal;
+        }
 
         protected override async void OnAppearing()
         {
@@ -223,7 +229,16 @@ namespace MaxVonGrafKftMobile.Views
                 {
                     Constants.IsRegisteredandNotLogin = true;
                     Constants.cutomerAuthContext = new CutomerAuthContext() { CustomerEmail = customer.Email, CustomerId = customerID };
-                    await PopupNavigation.Instance.PushAsync(new SavedSuccessfullyPopup(customerID));
+
+                    if (fromVal == 1)
+                    {
+                        await PopupNavigation.Instance.PushAsync(new SavedSuccessfullyPopup(customerID,fromVal));
+                    }
+                    else
+                    {
+                        await PopupNavigation.Instance.PushAsync(new SavedSuccessfullyPopup(customerID));
+                    }
+                    
                 }
                 else
                 {

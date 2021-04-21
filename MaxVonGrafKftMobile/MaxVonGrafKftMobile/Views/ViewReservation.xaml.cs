@@ -141,9 +141,9 @@ namespace MaxVonGrafKftMobile.Views
                     }
                     
                     
-                    CheckOutLocation.Text = reservationByIDMobileResponse.reservationData.Reservationview.StartLocationName;
+                    CheckOutLocation.Text = "Pivet Atlanta 2244 Metropolitan Pkwy SW, Atlanta, GA 30315";
                     CheckOutDate.Text = reservationByIDMobileResponse.reservationData.Reservationview.StartDateStr;
-                    CheckInLocation.Text = reservationByIDMobileResponse.reservationData.Reservationview.EndLocationName;
+                    CheckInLocation.Text = "Pivet Atlanta 2244 Metropolitan Pkwy SW, Atlanta, GA 30315";
                     CheckInDate.Text = reservationByIDMobileResponse.reservationData.Reservationview.EndDateStr;
                     VehicleType.Text = reservationByIDMobileResponse.reservationData.Reservationview.VehicleType;
                     NoOfDays.Text = reservationByIDMobileResponse.reservationData.Reservationview.TotalDays.ToString("00");
@@ -277,7 +277,7 @@ namespace MaxVonGrafKftMobile.Views
                 cancelReservationMobileRequest.CurrentTime = DateTime.Now;
                 cancelReservationMobileRequest.isTwoHour = true;
 
-                PopupNavigation.Instance.PushAsync(new Error_popup("Upon the cancellation confirmation you will be charged a 20% fee. ", cancelReservationMobileRequest, token));
+                PopupNavigation.Instance.PushAsync(new Error_popup("Upon the cancellation confirmation you will be charged a 20% fee. Would you still like to proceed?", cancelReservationMobileRequest, token));
             }
         }
 

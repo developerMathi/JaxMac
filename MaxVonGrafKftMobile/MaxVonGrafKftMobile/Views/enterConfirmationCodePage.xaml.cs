@@ -22,6 +22,7 @@ namespace MaxVonGrafKftMobile.Views
         string token;
         int customerId;
         private emailConfirmationType confirmationType;
+        private int fromVal;
 
         public enterConfirmationCodePage(int customerId)
         {
@@ -33,6 +34,7 @@ namespace MaxVonGrafKftMobile.Views
             emailAddressLabel.Text = Constants.cutomerAuthContext.CustomerEmail;
             this.customerId = customerId;
             this.confirmationType = emailConfirmationType.LogIn;
+            this.fromVal = 0;
         }
 
         public enterConfirmationCodePage(int customerId, emailConfirmationType type)
@@ -46,7 +48,13 @@ namespace MaxVonGrafKftMobile.Views
             this.confirmationType = emailConfirmationType.LogIn;
 
             this.confirmationType = type;
+            this.fromVal = 0;
 
+        }
+
+        public enterConfirmationCodePage(int customerId, emailConfirmationType type, int fromVal) : this(customerId, type)
+        {
+            this.fromVal = fromVal;
         }
 
         protected override void OnAppearing()
@@ -133,7 +141,15 @@ namespace MaxVonGrafKftMobile.Views
                                         {
                                             App.Current.Properties.Add("CustomerId", customerId);
                                         }
-                                        await Navigation.PushModalAsync(new EmailonfirmSuccess(confirmationType));
+                                        if (fromVal == 1)
+                                        {
+                                            await Navigation.PushModalAsync(new EmailonfirmSuccess(confirmationType,fromVal));
+                                        }
+                                        else
+                                        {
+                                            await Navigation.PushModalAsync(new EmailonfirmSuccess(confirmationType));
+                                        }
+                                        
                                     }
                                     else if (response.refId == 2)
                                     {

@@ -22,8 +22,7 @@ namespace MaxVonGrafKftMobile.Views
         string token;
         int customerId;
         private emailConfirmationType confirmationType;
-
-      
+        private int fromVal;
 
         public ConfirmEmailRequest(int customerId, emailConfirmationType register) 
         {
@@ -34,6 +33,12 @@ namespace MaxVonGrafKftMobile.Views
             token = App.Current.Properties["currentToken"].ToString();
             this.customerId = customerId;
             this.confirmationType = register;
+            this.fromVal = 0;
+        }
+
+        public ConfirmEmailRequest(int customerId, emailConfirmationType register, int fromVal) : this(customerId, register)
+        {
+            this.fromVal = fromVal;
         }
 
         protected override void OnAppearing()
@@ -99,7 +104,15 @@ namespace MaxVonGrafKftMobile.Views
                         {
                             if (emailAddressResponse.message.ErrorCode == "200")
                             {
-                                await Navigation.PushModalAsync(new enterConfirmationCodePage(customerId, confirmationType));
+                                if (fromVal == 1)
+                                {
+                                    await Navigation.PushModalAsync(new enterConfirmationCodePage(customerId, confirmationType,fromVal));
+                                }
+                                else
+                                {
+                                    await Navigation.PushModalAsync(new enterConfirmationCodePage(customerId, confirmationType));
+                                }
+                                
                             }
                             else
                             {

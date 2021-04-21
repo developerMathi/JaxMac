@@ -1,4 +1,5 @@
-﻿using MaxVonGrafKftMobileModel;
+﻿using MaxVonGrafKftMobile.Popups;
+using MaxVonGrafKftMobileModel;
 using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
@@ -162,7 +163,16 @@ namespace MaxVonGrafKftMobile.Views
 
         private void btnContinue_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushModalAsync(new BookNow(reservationView, selectedVehicle,locationIdList));
+            if ((int)App.Current.Properties["CustomerId"] == 0)
+            {
+                int fromVal = 1;
+                PopupNavigation.Instance.PushAsync(new AskForLogin("Please log-in or sign up to continue your booking",fromVal));
+            }
+            else
+            {
+                Navigation.PushModalAsync(new BookNow(reservationView, selectedVehicle, locationIdList));
+            }
+            
         }
 
         public async Task ShareUri(string uri)
@@ -190,5 +200,31 @@ namespace MaxVonGrafKftMobile.Views
         {
             Navigation.PopModalAsync();
         }
+
+        void DailyRateDescriptionBtn_Tapped(System.Object sender, System.EventArgs e)
+        {
+            PopupNavigation.Instance.PushAsync(new DetailPopUp("Day Rate", "The base rate of the vehicle depends on the vehicle type and amenities included "));
+        }
+
+        void jpRateDescriptionBtn_Tapped(System.Object sender, System.EventArgs e)
+        {
+            string discription = "All wear parts including tires, brakes, windshield wipers and more are 100% covered with this rental (see rental agreement for full coverage and exclusions).";
+            PopupNavigation.Instance.PushAsync(new DetailPopUp("Jax Protection Plan", discription));
+        }
+
+        void jmRateDescriptionBtn_Tapped(System.Object sender, System.EventArgs e)
+        {
+            string discription =  "All mechanical failures including engine and transmission issues are covered with this rental (see rental agreement for full coverage and exclusions).";
+
+            PopupNavigation.Instance.PushAsync(new DetailPopUp("Jax Maintenance Plan", discription));
+        }
+
+        void insDescriptionBtn_Tapped(System.Object sender, System.EventArgs e)
+        {
+            string discription;
+            discription = "Liability and physical damage coverage for rideshare is included ($1,000 deductible; see rental agreement for full coverage and exclusions) ";
+            PopupNavigation.Instance.PushAsync(new DetailPopUp("Insurance", discription));
+        }
+
     }
 }

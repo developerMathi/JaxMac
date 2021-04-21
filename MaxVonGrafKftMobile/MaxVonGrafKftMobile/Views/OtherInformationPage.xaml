@@ -427,7 +427,7 @@
                                                 FontFamily="Roboto-Medium"
                                                 FontSize="Medium"
                                                 Keyboard="Email"
-                                                Placeholder="License Number"
+                                                Placeholder="Driver's License Number"
                                                 PlaceholderColor="{StaticResource MaxVonBlack}"
                                                 TextColor="{StaticResource MaxVonBlack}" >
                                                 <renders:CustomEntry.BackgroundColor>
@@ -682,7 +682,7 @@
                                             DateSelected="licenceIssueDate_DateSelected"
                                             FontFamily="Roboto-Medium"
                                             FontSize="Medium"
-                                            Placeholder="License issue date"
+                                            Placeholder="Driver's License issue date"
                                             TextColor="{StaticResource MaxVonBlack}"
                                             BackgroundColor="Transparent"/>
 
@@ -803,7 +803,7 @@
                                             DateSelected="licenceExpiryDate_DateSelected"
                                             FontFamily="Roboto-Medium"
                                             FontSize="Medium"
-                                            Placeholder="License expiry date"
+                                            Placeholder="Driver's License expiry date"
                                             TextColor="{StaticResource MaxVonBlack}"
                                             BackgroundColor="Transparent"/>
 
@@ -921,7 +921,7 @@
 
                                         <renders:BorderlessPicker
                                             x:Name="licenceStatePicker"
-                                            Title="License issue state"
+                                            Title="Driver's License issue state"
                                             Grid.Column="1"
                                             Margin="10,0,0,0"
                                             FontFamily="Roboto-Medium"

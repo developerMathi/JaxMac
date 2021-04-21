@@ -118,6 +118,7 @@ namespace MaxVonGrafKftMobile.Views
 
         protected override async void OnAppearing()
         {
+            customerId = (int)App.Current.Properties["CustomerId"];
             base.OnAppearing();
             var assembly = typeof(BookNow);
 
@@ -302,6 +303,7 @@ namespace MaxVonGrafKftMobile.Views
                                 //noVehicleLabel.IsVisible = true;
                                 // buttonGrid.IsVisible = true;
                                 noVehicleLabel.IsVisible = true;
+                                filterbuttonGrid.IsVisible = false;
 
                             }
 
@@ -466,6 +468,7 @@ namespace MaxVonGrafKftMobile.Views
                         vehicleDetailList.ItemsSource = forlistViewItemSourceWithFiter;
                         vehicleDetailList.HeightRequest = forlistViewItemSourceWithFiter.Count * 295;
                         noVehicleLabel.IsVisible = false;
+                        filterbuttonGrid.IsVisible = true;
                         vehicleDetailList.IsVisible = true;
                         //VehicleFilter = null;
                         //VehicleFilter = new VehicleFilterSearch();
@@ -476,6 +479,7 @@ namespace MaxVonGrafKftMobile.Views
                         //noVehicleLabel.IsVisible = true;
                         // buttonGrid.IsVisible = true;
                         noVehicleLabel.IsVisible = true;
+                        filterbuttonGrid.IsVisible = false;
                         //VehicleFilter = null;
                         //VehicleFilter = new VehicleFilterSearch();
 
@@ -845,32 +849,60 @@ namespace MaxVonGrafKftMobile.Views
 
         private void btnBack_Clicked(object sender, EventArgs e)
         {
-            if (Navigation.ModalStack.Count == 1)
+            //if (Navigation.ModalStack.Count == 1)
+            //{
+            //    Navigation.PushModalAsync(new HomePage());
+            //}
+            //else if (Navigation.ModalStack.Count == 0 && Navigation.NavigationStack.Count==1)
+            //{
+            //    Navigation.PushModalAsync(new HomePage());
+
+            //}
+            //else if (Navigation.ModalStack.Count > 1)
+            //{
+            //    if (Navigation.ModalStack[Navigation.ModalStack.Count - 2] is LoginPage)
+            //    {
+            //        //do nothing
+            //        //Navigation.RemovePage(Navigation.ModalStack[Navigation.ModalStack.Count - 1]);
+            //        Navigation.PushModalAsync(new HomePage());
+            //    }                
+            //    else if (Navigation.ModalStack[Navigation.ModalStack.Count - 2] is HomePage)
+            //    {
+            //        // do nothing
+            //        Navigation.PopModalAsync();
+            //    }
+            //    else
+            //    {
+            //        Navigation.PopModalAsync();
+            //    }
+            //}
+            //else if (Navigation.ModalStack.Count > 2)
+            //{
+            //    Navigation.PopModalAsync();
+
+            //}
+            //else
+            //{
+            //    //do nothing
+            //}
+
+            if (customerId > 0)
             {
-                Navigation.PopModalAsync();
-            }
-            else if (Navigation.ModalStack.Count > 1)
-            {
-                if (Navigation.ModalStack[Navigation.ModalStack.Count - 2] is LoginPage)
-                {
-                    //do nothing
-                }
-                else if (Navigation.ModalStack[Navigation.ModalStack.Count - 1] is HomePage)
-                {
-                    // do nothing
-                }
-                else
-                {
-                    Navigation.PopModalAsync();
-                }
+                Navigation.PushModalAsync(new HomePage());
             }
             else
             {
-                //do nothing
+                Navigation.PopModalAsync();
             }
+            
         }
 
-        
+        [Obsolete]
+        void novehicleTap_Tapped(System.Object sender, System.EventArgs e)
+        {
+            Device.OpenUri(new Uri("https://forms.gle/tezxDibPZQGVYAb29"));
+        }
+
     }
 
     public class filterFormat{

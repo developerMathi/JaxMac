@@ -100,7 +100,7 @@ namespace MaxVonGrafKftMobile.Views
                             {
                                 if(d.Side != null)
                                 {
-                                    if (d.Side.ToLower().Contains("license"))
+                                    if (d.Side.ToLower().Contains("vehicle_registration"))
                                     {
                                         RegDocs.Add(d);
                                         regSize += d.FileSize;
@@ -269,30 +269,32 @@ namespace MaxVonGrafKftMobile.Views
 
         private void titleBackBtn_Clicked(object sender, EventArgs e)
         {
-            if(Navigation.ModalStack.Count == 1)
-            {
-                Navigation.PopModalAsync();
-            }
-            else if (Navigation.ModalStack.Count > 1)
-            {
-                if(Navigation.ModalStack[Navigation.ModalStack.Count-2] is LoginPage)
-                {
-                    //do nothing
-                }
-                else if (Navigation.ModalStack[Navigation.ModalStack.Count - 1] is  HomePage)
-                {
-                    // do nothing
-                }
-                else
-                {
-                    Navigation.PopModalAsync();
-                }
-            }
-            else
-            {
-                //do nothing
-            }
-           
+            //if(Navigation.ModalStack.Count == 1)
+            //{
+            //    Navigation.PopModalAsync();
+            //}
+            //else if (Navigation.ModalStack.Count > 1)
+            //{
+            //    if(Navigation.ModalStack[Navigation.ModalStack.Count-2] is LoginPage)
+            //    {
+            //        //do nothing
+            //    }
+            //    else if (Navigation.ModalStack[Navigation.ModalStack.Count - 1] is  HomePage)
+            //    {
+            //        // do nothing
+            //    }
+            //    else
+            //    {
+            //        Navigation.PopModalAsync();
+            //    }
+            //}
+            //else
+            //{
+            //    //do nothing
+            //}
+            Navigation.PushModalAsync(new HomePage());
+
+
         }
 
         private void GalleryPan_Tapped(object sender, EventArgs e)

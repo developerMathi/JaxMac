@@ -95,100 +95,102 @@ namespace MaxVonGrafKftMobile.Views
 
         private async void BooknowBtn_Clicked(object sender, EventArgs e)
         {
-            ApiToken apiToken = null;
-            bool busy = false;
-            if (!busy)
-            {
-                try
-                {
+            //ApiToken apiToken = null;
+            //bool busy = false;
+            //if (!busy)
+            //{
+            //    try
+            //    {
 
-                    busy = true;
-                    BooknowBtn.IsVisible = false;
-                    bookNowLoader.IsVisible = true;
-                    bookNowSpinner.IsRunning = true;
-                    
-                    await Task.Run(async () =>
-                    {
-                        GetClientSecretTokenRequest getClientSecretTokenRequest = new GetClientSecretTokenRequest();
-                        getClientSecretTokenRequest.ClientId = Constants.ClientId;
-                        ApiController apiController = new ApiController();
-                        GetClientSecretTokenResponse clientSecretTokenResponse = null;
-                        try
-                        {
-                            clientSecretTokenResponse=apiController.GetClientSecretToken(getClientSecretTokenRequest);
-                        }
-                        catch (Exception ex)
-                        {
-                            await PopupNavigation.Instance.PushAsync(new Error_popup(ex.Message));
-                        }
-                        if(clientSecretTokenResponse!= null)
-                        {
-                            GetAccessTokenRequest tokenRequest = new GetAccessTokenRequest();
-                            tokenRequest.client_id = clientSecretTokenResponse.apiConsumerId;
-                            tokenRequest.client_secret = clientSecretTokenResponse.apiConsumerSecret;
-                            tokenRequest.grant_type = "client_credentials";
+            //        busy = true;
+            //        BooknowBtn.IsVisible = false;
+            //        bookNowLoader.IsVisible = true;
+            //        bookNowSpinner.IsRunning = true;
 
-                            try
-                            {
-                                apiToken = apiController.GetAccessToken(tokenRequest);
-                            }
-                            catch (Exception ex)
-                            {
-                                await PopupNavigation.Instance.PushAsync(new Error_popup(ex.Message));
-                            }
-                            if (apiToken != null)
-                            {
-                                string _token = apiToken.access_token;
-                                CommonController commonController = new CommonController();
+            //        await Task.Run(async () =>
+            //        {
+            //            GetClientSecretTokenRequest getClientSecretTokenRequest = new GetClientSecretTokenRequest();
+            //            getClientSecretTokenRequest.ClientId = Constants.ClientId;
+            //            ApiController apiController = new ApiController();
+            //            GetClientSecretTokenResponse clientSecretTokenResponse = null;
+            //            try
+            //            {
+            //                clientSecretTokenResponse=apiController.GetClientSecretToken(getClientSecretTokenRequest);
+            //            }
+            //            catch (Exception ex)
+            //            {
+            //                await PopupNavigation.Instance.PushAsync(new Error_popup(ex.Message));
+            //            }
+            //            if(clientSecretTokenResponse!= null)
+            //            {
+            //                GetAccessTokenRequest tokenRequest = new GetAccessTokenRequest();
+            //                tokenRequest.client_id = clientSecretTokenResponse.apiConsumerId;
+            //                tokenRequest.client_secret = clientSecretTokenResponse.apiConsumerSecret;
+            //                tokenRequest.grant_type = "client_credentials";
 
-                                try
-                                {
-                                    getClientDetailsForMobile = commonController.GetClientDetailsForMobile(_token);
-                                }
-                                catch (Exception ex)
-                                {
-                                    await PopupNavigation.Instance.PushAsync(new Error_popup(ex.Message));
-                                }
+            //                try
+            //                {
+            //                    apiToken = apiController.GetAccessToken(tokenRequest);
+            //                }
+            //                catch (Exception ex)
+            //                {
+            //                    await PopupNavigation.Instance.PushAsync(new Error_popup(ex.Message));
+            //                }
+            //                if (apiToken != null)
+            //                {
+            //                    string _token = apiToken.access_token;
+            //                    CommonController commonController = new CommonController();
 
-
-                                if(getClientDetailsForMobile != null)
-                                {
-                                    if(getClientDetailsForMobile.admin!= null)
-                                    {
-                                        Constants.admin = getClientDetailsForMobile.admin;
-                                    }
-                                }
-
-                                if (App.Current.Properties.ContainsKey("currentToken"))
-                                {
-                                    App.Current.Properties["currentToken"] = _token;
-                                }
-                                else
-                                {
-                                    App.Current.Properties.Add("currentToken", _token);
-                                }
-                            }
-                                
-
-                        }
+            //                    try
+            //                    {
+            //                        getClientDetailsForMobile = commonController.GetClientDetailsForMobile(_token);
+            //                    }
+            //                    catch (Exception ex)
+            //                    {
+            //                        await PopupNavigation.Instance.PushAsync(new Error_popup(ex.Message));
+            //                    }
 
 
-                    });
-                }
-                
-                finally
-                {
-                    if (apiToken!= null) {
-                        ReservationView reservation = new ReservationView();
-                        await Navigation.PushAsync(new VehicleDetailPage(reservation));
-                    }
-                    
-                    busy = false;
-                    BooknowBtn.IsVisible = true;
-                    bookNowLoader.IsVisible = false;
-                    bookNowSpinner.IsRunning = false;
-                }
-            }
+            //                    if(getClientDetailsForMobile != null)
+            //                    {
+            //                        if(getClientDetailsForMobile.admin!= null)
+            //                        {
+            //                            Constants.admin = getClientDetailsForMobile.admin;
+            //                        }
+            //                    }
+
+            //                    if (App.Current.Properties.ContainsKey("currentToken"))
+            //                    {
+            //                        App.Current.Properties["currentToken"] = _token;
+            //                    }
+            //                    else
+            //                    {
+            //                        App.Current.Properties.Add("currentToken", _token);
+            //                    }
+            //                }
+
+
+            //            }
+
+
+            //        });
+            //    }
+
+            //    finally
+            //    {
+            //        if (apiToken!= null) {
+            //            ReservationView reservation = new ReservationView();
+            //            await Navigation.PushAsync(new VehicleDetailPage(reservation));
+            //        }
+
+            //        busy = false;
+            //        BooknowBtn.IsVisible = true;
+            //        bookNowLoader.IsVisible = false;
+            //        bookNowSpinner.IsRunning = false;
+            //    }
+            //}
+            ReservationView reservation = new ReservationView();
+            await Navigation.PushModalAsync(new VehicleDetailPage(reservation));
         }
 
         protected override bool OnBackButtonPressed()

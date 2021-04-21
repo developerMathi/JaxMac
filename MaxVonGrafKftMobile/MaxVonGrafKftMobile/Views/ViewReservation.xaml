@@ -81,7 +81,7 @@
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
                             <Label
@@ -902,7 +902,8 @@
                             Grid.Column="1"
                             Margin="0,0,15,0"
                             FontFamily="Roboto-Medium"
-                            HorizontalTextAlignment="End">
+                            HorizontalTextAlignment="End"
+                                TextColor="{StaticResource MaxVonBlack}">
                                 <Label.FontSize>
                                     <OnPlatform x:TypeArguments="x:Double">
                                         <On Platform="iOS">
@@ -1648,7 +1649,7 @@
 
                         <Grid
                         Grid.Row="1"
-                        Margin="15,0,15,20"
+                        Margin="15,10,15,20"
                         RowSpacing="10">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />

@@ -139,9 +139,9 @@ namespace MaxVonGrafKftMobile.Views
                             agreementIDlabel.Text = agreement.AgreementDetail.AgreementNumber;
                             string statusString = Enum.GetName(typeof(AgreementStatusConst), agreement.AgreementDetail.Status);
                             statusLabel.Text = statusString;
-                            CheckInLocation.Text = agreement.AgreementDetail.CheckoutLocationName;
+                            CheckInLocation.Text = "Pivet Atlanta 2244 Metropolitan Pkwy SW, Atlanta, GA 30315ss";
                             CheckInDate.Text = agreement.AgreementDetail.CheckoutDate.ToString("MM/dd/yyyy hh:mm tt");
-                            CheckOutLocation.Text = agreement.AgreementDetail.CheckinLocationName;
+                            CheckOutLocation.Text = "Pivet Atlanta 2244 Metropolitan Pkwy SW, Atlanta, GA 30315";
                             CheckOutDate.Text = agreement.AgreementDetail.CheckinDate.ToString("MM/dd/yyyy hh:mm tt");
                             CreateDate.Text = ((DateTime)agreement.AgreementDetail.CreatedDate).ToString("dddd, MM/dd/yyyy");
                             vehicleEntry.Text = agreement.AgreementDetail.Year + " " + agreement.AgreementDetail.VehicleMakeName + " " + agreement.AgreementDetail.ModelName;

@@ -37,17 +37,24 @@ namespace MaxVonGrafKftMobile.Views.Partials
         }
         public void Handle_Completed(object sender, EventArgs e)
         {
-            inquiryChatModel.InquiryID = (int)Application.Current.Properties["InquiryID"]; ;
-            inquiryChatModel.UserId = customerId;
-            inquiryChatModel.SenderId = customerId;
-            inquiryChatModel.ReceiverId = Constants.ClientId;
-            inquiryChatModel.SendDate = DateTime.Now;
-            inquiryChatModel.Message = chatTextInput.Text;
-            CustomerController controller = new CustomerController();
-            int id = controller.addInquiryChatModel(inquiryChatModel,_token);
-            (this.Parent.Parent.BindingContext as ChatPageViewModel).OnSendCommand.Execute(null);
+            if (!string.IsNullOrEmpty(chatTextInput.Text))
+            {
+                if (!string.IsNullOrWhiteSpace(chatTextInput.Text))
+                {
+                    inquiryChatModel.InquiryID = (int)Application.Current.Properties["InquiryID"]; ;
+                    inquiryChatModel.UserId = customerId;
+                    inquiryChatModel.SenderId = customerId;
+                    inquiryChatModel.ReceiverId = Constants.ClientId;
+                    inquiryChatModel.SendDate = DateTime.Now;
+                    inquiryChatModel.Message = chatTextInput.Text;
+                    CustomerController controller = new CustomerController();
+                    int id = controller.addInquiryChatModel(inquiryChatModel, _token);
+                    (this.Parent.Parent.BindingContext as ChatPageViewModel).OnSendCommand.Execute(null);
 
-            chatTextInput.Text = string.Empty;
+                    chatTextInput.Text = string.Empty;
+                }
+            }
+            
         }
 
         public void UnFocusEntry()

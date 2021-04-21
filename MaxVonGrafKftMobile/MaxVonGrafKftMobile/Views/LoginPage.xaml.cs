@@ -30,6 +30,8 @@ namespace MaxVonGrafKftMobile.Views
         GetCustomerPortalDetailsMobileRequest portalDetailsMobileRequest;
         GetCustomerPortalDetailsMobileResponse PortalDetailsMobileResponse;
         string token;
+        private int fromVal;
+
         public LoginPage()
         {
             InitializeComponent();
@@ -55,6 +57,35 @@ namespace MaxVonGrafKftMobile.Views
                 Navigation.PushModalAsync(new ForgetPasswordPage());
             };
             forgetPasswordLabel.GestureRecognizers.Add(forgetPassword_tab);
+            fromVal = 0;
+        }
+
+        public LoginPage(int fromVal)
+        {
+            InitializeComponent();
+            //BindingContext = new SocialLoginPageViewModel();
+            store = AccountStore.Create();
+            var assembly = typeof(LoginPage);
+            portalDetailsMobileRequest = new GetCustomerPortalDetailsMobileRequest();
+            PortalDetailsMobileResponse = null;
+            // logoImage.Source = ImageSource.FromResource("MaxVonGrafKftMobile.Assets.logo_high_resolution_white-1.png", assembly);
+            //emailIcon.Source = ImageSource.FromResource("MaxVonGrafKftMobile.Assets.emailIcon.png", assembly);
+            // passwordIcon.Source = ImageSource.FromResource("MaxVonGrafKftMobile.Assets.passwordIcon.png", assembly);
+            //LoginButton.ImageSource= ImageSource.FromResource("MaxVonGrafKftMobile.Assets.LoginIcon.png", assembly);
+
+            if (PopupNavigation.Instance.PopupStack.Count > 0)
+            {
+                PopupNavigation.Instance.PopAllAsync();
+            }
+
+
+            var forgetPassword_tab = new TapGestureRecognizer();
+            forgetPassword_tab.Tapped += (s, e) =>
+            {
+                Navigation.PushModalAsync(new ForgetPasswordPage());
+            };
+            forgetPasswordLabel.GestureRecognizers.Add(forgetPassword_tab);
+            this.fromVal = fromVal;
         }
 
         protected override async void OnAppearing()
@@ -198,20 +229,37 @@ namespace MaxVonGrafKftMobile.Views
 
                                 //else
                                 //{
-                                    //if (Navigation.NavigationStack.Count < 3)
-                                    //{
-                                    //    await Navigation.PushAsync(new HomePage());
-                                    //}
-                                    //else
-                                    //{
-                                    //    await Navigation.PopAsync();
-                                    //}
+                                //if (Navigation.NavigationStack.Count < 3)
+                                //{
+                                //    await Navigation.PushAsync(new HomePage());
+                                //}
+                                //else
+                                //{
+                                //    await Navigation.PopAsync();
+                                //}
+                                if (fromVal == 1)
+                                {
+                                    await Navigation.PopModalAsync();
+                                }
+                                else
+                                {
                                     await Navigation.PushModalAsync(new HomePage());
+                                }
+                                    
                                 //}
                             }
                             else
                             {
-                                await Navigation.PushModalAsync(new ConfirmEmailRequest(cutomerAuthContext.CustomerId,MaxVonGrafKftMobileModel.Constants.emailConfirmationType.LogIn));
+                                if (fromVal == 1)
+                                {
+                                    await Navigation.PushModalAsync(new ConfirmEmailRequest(cutomerAuthContext.CustomerId, MaxVonGrafKftMobileModel.Constants.emailConfirmationType.LogIn,fromVal));
+                                }
+                                else
+                                {
+                                    await Navigation.PushModalAsync(new ConfirmEmailRequest(cutomerAuthContext.CustomerId, MaxVonGrafKftMobileModel.Constants.emailConfirmationType.LogIn));
+                                }
+                                
+                                //gobackAsync();
                             }
 
 
@@ -225,15 +273,20 @@ namespace MaxVonGrafKftMobile.Views
 
                     }
                 }
+            }
+        }
 
+        public async void gobackAsync()
+        {
 
+            int totalModals = Application.Current.MainPage.Navigation.ModalStack.Count;
 
+            //i set currModal = 1 here to back to page 2, If you wan to go back to 3, you can set currModal = 2, etc...
+            // remember to add flase in PopModalAsync to aviod the animation.
 
-
-
-
-
-
+            for (int currModal = 1; currModal < totalModals; currModal++)
+            {
+                await Application.Current.MainPage.Navigation.PopModalAsync(false);
             }
         }
 

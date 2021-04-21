@@ -26,9 +26,7 @@ namespace MaxVonGrafKftMobile.Views
 
         CustomerSerach customerSerach;
         List<CustomerSeachResult> customerSeachResults;
-
-
-
+        private int fromVal;
 
         public AddPersonalInformationPage(CustomerReview customer)
         {
@@ -40,7 +38,7 @@ namespace MaxVonGrafKftMobile.Views
             //PhotoBtn.ImageSource = ImageSource.FromResource("MaxVonGrafKftMobile.Assets.cameraIcon.png", assembly);
 
 
-
+            this.fromVal = 0;
 
             this.customer = customer;
             images = new CustomerImages();
@@ -100,8 +98,13 @@ namespace MaxVonGrafKftMobile.Views
                     statePicker.SelectedItem = "GEORGIA";
                 }
             }
+
         }
 
+        public AddPersonalInformationPage(CustomerReview customer, int fromVal) : this(customer)
+        {
+            this.fromVal = fromVal;
+        }
 
         protected override async void OnAppearing()
         {
@@ -270,11 +273,38 @@ namespace MaxVonGrafKftMobile.Views
                     //List<CustomerImages> customerIm = new List<CustomerImages>();
                     //customerIm.Add(images);
                     //customer.CustomerImages = customerIm;
-                    Navigation.PushModalAsync(new OtherInformationPage(customer, images));
+                    if (fromVal == 1)
+                    {
+                        Navigation.PushModalAsync(new OtherInformationPage(customer, images,fromVal));
+                    }
+                    else
+                    {
+                        Navigation.PushModalAsync(new OtherInformationPage(customer, images));
+                    }
+                    
                 }
                 else
                 {
                     images = null;
+                    if (fromVal == 1)
+                    {
+                        Navigation.PushModalAsync(new OtherInformationPage(customer, images, fromVal));
+                    }
+                    else
+                    {
+                        Navigation.PushModalAsync(new OtherInformationPage(customer, images));
+                    }
+                }
+            }
+
+            else
+            {
+                if (fromVal == 1)
+                {
+                    Navigation.PushModalAsync(new OtherInformationPage(customer, images, fromVal));
+                }
+                else
+                {
                     Navigation.PushModalAsync(new OtherInformationPage(customer, images));
                 }
             }

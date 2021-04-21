@@ -202,10 +202,11 @@ namespace MaxVonGrafKftMobile.Views
         private void BookNowNxtBtn_Clicked(object sender, EventArgs e)
         {
             DateTime pickupDateTime = pickUpDate.Date + pickUpTime.Time;
+            string currentTIME = estTime.ToString("hh:mm tt");
 
             if (pickupDateTime < estTime)
             {
-                PopupNavigation.Instance.PushAsync(new Error_popup("Please select valid pick-up time. "));
+                PopupNavigation.Instance.PushAsync(new Error_popup("The time that you have selected has past. Please select a time from "+currentTIME+" onwards."));
             }
             else if ( estTime.AddHours(36) < pickupDateTime)
             {

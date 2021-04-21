@@ -112,8 +112,8 @@ namespace MaxVonGrafKftMobile.Views
 
         protected override async void OnAppearing()
         {
-
             base.OnAppearing();
+
 
             DateTime timeUtc = DateTime.UtcNow;
             TimeZoneInfo estZone = TimeZoneInfo.FindSystemTimeZoneById("America/New_York");

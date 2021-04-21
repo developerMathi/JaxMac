@@ -327,7 +327,7 @@ namespace MaxVonGrafKftMobile.Views
                                             {
                                                 if (PaymentResponse.Data.extendAgreementResponse.agreementReview.AgreementID > 0)
                                                 {
-                                                    await PopupNavigation.Instance.PushAsync(new SuccessPopUp("Your payment Successfull and your rental extended successfully. ", 1));
+                                                    await PopupNavigation.Instance.PushAsync(new SuccessPopUp("Your rental extension was successful. ", 1));
                                                 }
                                                 else if (PaymentResponse.RefundStatus)
                                                 {
@@ -545,7 +545,7 @@ namespace MaxVonGrafKftMobile.Views
                                             {
                                                 if (PaymentResponse.Data.updateReserResponse.ReservID > 0)
                                                 {
-                                                    await PopupNavigation.Instance.PushAsync(new SuccessPopUp("Your payment Successfull and your booking extended successfully. ", 1));
+                                                    await PopupNavigation.Instance.PushAsync(new SuccessPopUp("Your rental extension was successful. ", 1));
                                                 }
                                                 else if (PaymentResponse.RefundStatus)
                                                 {

@@ -94,29 +94,31 @@ namespace MaxVonGrafKftMobile.Views
 
         private void btnMenu_Clicked(object sender, EventArgs e)
         {
-            if (Navigation.ModalStack.Count == 1)
-            {
-                Navigation.PopModalAsync();
-            }
-            else if (Navigation.ModalStack.Count > 1)
-            {
-                if (Navigation.ModalStack[Navigation.ModalStack.Count - 2] is LoginPage)
-                {
-                    //do nothing
-                }
-                else if (Navigation.ModalStack[Navigation.ModalStack.Count - 1] is HomePage)
-                {
-                    // do nothing
-                }
-                else
-                {
-                    Navigation.PopModalAsync();
-                }
-            }
-            else
-            {
-                //do nothing
-            }
+            //if (Navigation.ModalStack.Count == 1)
+            //{
+            //    Navigation.PopModalAsync();
+            //}
+            //else if (Navigation.ModalStack.Count > 1)
+            //{
+            //    if (Navigation.ModalStack[Navigation.ModalStack.Count - 2] is LoginPage)
+            //    {
+            //        //do nothing
+            //    }
+            //    else if (Navigation.ModalStack[Navigation.ModalStack.Count - 1] is HomePage)
+            //    {
+            //        // do nothing
+            //    }
+            //    else
+            //    {
+            //        Navigation.PopModalAsync();
+            //    }
+            //}
+            //else
+            //{
+            //    //do nothing
+            //}
+            Navigation.PushModalAsync(new HomePage());
+
         }
 
         private void chatList_ItemTapped(object sender, ItemTappedEventArgs e)
