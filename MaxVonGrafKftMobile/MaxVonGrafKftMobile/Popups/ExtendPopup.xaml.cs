@@ -529,7 +529,7 @@ namespace MaxVonGrafKftMobile.Popups
                             {
                                 if (response.agreementReview.BalanceDue > 0)
                                 {
-                                    await Navigation.PushModalAsync(new ProcessPaymentPage((decimal)response.agreementReview.BalanceDue, response.agreementReview.AgreementID, locationIdForPayment, response.agreementReview));
+                                    await Navigation.PushModalAsync(new ProcessPaymentPage((decimal)response.agreementReview.BalanceDue, response.agreementReview.AgreementID, locationIdForPayment, response.agreementReview,request));
                                 }
                                 else
                                 {
