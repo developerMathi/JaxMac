@@ -730,7 +730,7 @@ namespace MaxVonGrafKftMobile.Views
 
         private void applyAgreementPromotion(GetPromotionMobileResponse promotionMobileResponse)
         {
-            extendAgreemetRequest.addPromotion = new PromotionItem() { PromotionID = promotionMobileResponse.PromResult.PromotionID, PromotionDiscount = (decimal)promotionMobileResponse.PromResult.DiscountValue };
+            extendAgreemetRequest.addPromotion = new PromotionItem() { PromotionID = promotionMobileResponse.PromResult.PromotionID, PromotionDiscount = (decimal)promotionMobileResponse.PromResult.DiscountValue,PromotionCode=promotionMobileResponse.promotion.PromotionCode };
             extendAgreemetRequest.deletePromotion = null;
             promoTitileLabel.Text = promotionMobileResponse.promotion.PromotionCode;
             promoDetailLabel.Text = "$" + promotionMobileResponse.promotion.DiscountValue.ToString("0.00");
