@@ -3,8 +3,13 @@ namespace MaxVonGrafKftMobileModel
 {
     public class TaxDetailsForMiscCharge
     {
-        public TaxDetailsForMiscCharge()
-        {
-        }
+        public string Label { get; set; }
+
+    }
+
+    public class TaxDetailsForAsset
+    {
+        public string Label { get; set; }
+
     }
 }

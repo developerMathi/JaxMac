@@ -74,5 +74,7 @@ namespace MaxVonGrafKftMobileModel
         /// </summary>
         [DisplayFormat(DataFormatString = "{0:C}")]
         public decimal MinimumTotal { get; set; }
+
+        public string ApplicableTo { get; set; }
     }
 }

@@ -81,6 +81,8 @@ namespace MaxVonGrafKftMobileModel
     [Serializable]
     public class ReservationSummaryDetails
     {
+        public string PreSubTotal { get; set; }
+
         public string SubTotal { get; set; }
         public List<ReservationTaxDetails> TaxDetails { get; set; }
         public List<ReservationMiscDetails> MiscDetails { get; set; }
@@ -91,7 +93,11 @@ namespace MaxVonGrafKftMobileModel
         public string BaseTaxRate { get; set; }
         public string BaseRate { get; set; }
         public string FinalBaseRate { get; set; }
+        public string PromoDiscountOnBaseRate { get; set; }
+        public string PromoDiscountOnSubtotal { get; set; }
+
         public string PromoDiscount { get; set; }
+        public List<TaxDetailsForMiscCharge> TaxDetailsForMiscChargeList { get; set; }
         public List<PromotionItem> PromotionList { get; set; }
 
     }
