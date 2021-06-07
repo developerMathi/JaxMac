@@ -8,12 +8,12 @@ namespace MaxVonGrafKftMobile
     public class Constants
     {
         //public static int ClientId = 971;  //CSD live
-        public static int ClientId = 369;  // QA
+        //public static int ClientId = 369;  // QA
         //public static int ClientId = 224;  // QA
 
         //public static int ClientId = 148;  //  staging sf-123
         //public static int ClientId = 321;
-        //public static int ClientId = 1028;//Jax Live
+        public static int ClientId = 1028;//Jax Live
         //public static int ClientId = 1122;//native
 
         //public static int ClientId = 1013;
@@ -28,6 +28,7 @@ namespace MaxVonGrafKftMobile
         public static int LastMessageId = 0;  // QA
         // using for find home page or not to enable back key
         public static bool IsHome = false;
+        public static bool IsHomeDetail = false;
         public static bool IsRegisteredandNotLogin = false;
         public void setAdmin(Admin admi)
         {
@@ -57,7 +58,7 @@ namespace MaxVonGrafKftMobile
             {
                 return "Credit_Card";
             }
-            
+
         }
     }
 }

@@ -67,43 +67,51 @@ namespace MaxVonGrafKftMobile.Views
         }
         protected override bool OnBackButtonPressed()
         {
-            Type type = typeof(WelcomPage);
-            if (PopupNavigation.Instance.PopupStack.Count > 0) { return true; }
-            else if (Constants.IsHome == true)
+            if (Constants.IsHomeDetail)
             {
-                Constants.IsHome = false;
-
-                int c = Navigation.NavigationStack.Count;
-                for (var counter = 1; counter < c ; counter++)
+                Type type = typeof(WelcomPage);
+                if (PopupNavigation.Instance.PopupStack.Count > 0) { return true; }
+                else if (Constants.IsHome == true)
                 {
-                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+                    Constants.IsHome = false;
+
+                    int c = Navigation.NavigationStack.Count;
+                    for (var counter = 1; counter < c; counter++)
+                    {
+                        Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+                    }
+
+                    Device.BeginInvokeOnMainThread(async () =>
+                    {
+                        var result = await this.DisplayAlert("Alert!", "Are you sure you want to close this application?", "Yes", "No");
+                        if (result)
+                        {
+                            Process.GetCurrentProcess().CloseMainWindow();
+                            Process.GetCurrentProcess().Close();
+                        }
+                    });
+                    return true;
+                    //bool isWantToExit = await DisplayAlert("Alert", "are you sure you want to close this application?", "Yes", "Cancel");
                 }
 
-                Device.BeginInvokeOnMainThread(async () =>
+                else
                 {
-                    var result = await this.DisplayAlert("Alert!", "Are you sure you want to close this application?", "Yes", "No");
-                    if (result)
-                    {
-                        Process.GetCurrentProcess().CloseMainWindow();
-                        Process.GetCurrentProcess().Close();
-                    }
-                });
-                return true;
-                //bool isWantToExit = await DisplayAlert("Alert", "are you sure you want to close this application?", "Yes", "Cancel");
-            }
 
+                    Device.BeginInvokeOnMainThread(async () =>
+                    {
+                        var result = await this.DisplayAlert("Alert!", "Are you sure want to close this application?", "Yes", "No");
+                        if (result)
+                        {
+                            Process.GetCurrentProcess().CloseMainWindow();
+                            Process.GetCurrentProcess().Close();
+                        }
+                    });
+                    return true;
+                }
+            }
             else
             {
-
-                Device.BeginInvokeOnMainThread(async () =>
-                {
-                    var result = await this.DisplayAlert("Alert!", "Are you sure you want to close this application?", "Yes", "No");
-                    if (result)
-                    {
-                        Process.GetCurrentProcess().CloseMainWindow();
-                        Process.GetCurrentProcess().Close();
-                    }
-                });
+                Navigation.PushModalAsync(new HomePage());
                 return true;
             }
 
@@ -111,6 +119,7 @@ namespace MaxVonGrafKftMobile.Views
             // We must handle the action ourselves: see above.
 
         }
+
         //protected override async void OnAppearing()
         //{
         //    base.OnAppearing();
