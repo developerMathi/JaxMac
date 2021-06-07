@@ -414,6 +414,11 @@ namespace MaxVonGrafKftMobile.Views
                                     if (camfl.Status == "Close" || camfl.Status== "Pending_Payment")
                                     {
                                         camfl.custAgreement.AgreementTotal.totalAmountStr = ((decimal)camfl.custAgreement.AgreementTotal.TotalAmount).ToString("0.00");
+                                        if(camfl.Status == "Pending_Payment")
+                                        {
+                                            camfl.Status = "Pending Payment";
+                                        }
+
                                         agreementItemSource.Add(camfl);
                                     }
                                 }

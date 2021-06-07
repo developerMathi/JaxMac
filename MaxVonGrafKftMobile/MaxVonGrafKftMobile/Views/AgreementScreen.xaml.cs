@@ -442,7 +442,7 @@ namespace MaxVonGrafKftMobile.Views
 
         private void paymentBtn_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new ProcessPaymentPage((decimal)AgreementByAgreementIdMobileResponse.custAgreement.AgreementTotal.BalanceDue, agreementId, locationIdForPayment,null));
+            Navigation.PushAsync(new ProcessPaymentPage((decimal)AgreementByAgreementIdMobileResponse.custAgreement.AgreementTotal.BalanceDue, agreementId, locationIdForPayment,null,null));
         }
 
         private void RefreshView_Refreshing(object sender, EventArgs e)

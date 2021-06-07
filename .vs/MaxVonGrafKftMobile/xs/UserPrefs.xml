@@ -1,18 +1,23 @@
 ﻿<Properties GitUserInfo="UsingMD" StartupConfiguration="{98E0FD32-D2DF-4277-B541-B3A71C049EB4}|Default">
-  <MonoDevelop.Ide.ItemProperties.MaxVonGrafKftMobile.Android PreferredExecutionTarget="Android.SelectDevice" />
-  <MonoDevelop.Ide.ItemProperties.MaxVonGrafKftMobile.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" />
+  <MonoDevelop.Ide.ItemProperties.MaxVonGrafKftMobile.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.09790DE8-E8E6-42B6-BBEF-CF25B8809F67" />
   <MonoDevelop.Ide.Workbench>
+    <Files>
+      <File FileName="MaxVonGrafKftMobile/MaxVonGrafKftMobile/Popups/ExtendPopup.xaml.cs" Line="434" Column="49" />
+      <File FileName="MaxVonGrafKftMobile/MaxVonGrafKftMobile/Views/ProcessPaymentPage.xaml.cs" Line="751" Column="65" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="MaxVonGrafKftMobile" expanded="True">
             <Node name="MaxVonGrafKftMobile" expanded="True">
+              <Node name="Popups" expanded="True">
+                <Node name="ExtendPopup.xaml" expanded="True" />
+              </Node>
               <Node name="Views" expanded="True" selected="True">
-                <Node name="UpdateProfile.xaml" expanded="True" />
+                <Node name="ProcessPaymentPage.xaml" expanded="True" />
               </Node>
             </Node>
             <Node name="MaxVonGrafKftMobileController" expanded="True" />
-            <Node name="MaxVonGrafKftMobileModel" expanded="True" />
             <Node name="MaxVonGrafKftMobileServices" expanded="True">
               <Node name="ApiService" expanded="True" />
             </Node>
@@ -22,10 +27,12 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Ad-Hoc|iPhone" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <Debugger.DebugSourceFolders />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobileServices/ApiService/AgreementService.cs" relfile="MaxVonGrafKftMobileServices/ApiService/AgreementService.cs" line="168" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>
