@@ -114,7 +114,7 @@ namespace MaxVonGrafKftMobile.Views
         {
             base.OnAppearing();
 
-
+            Constants.IsHomeDetail = true;
             DateTime timeUtc = DateTime.UtcNow;
             TimeZoneInfo estZone = TimeZoneInfo.FindSystemTimeZoneById("America/New_York");
             estTime = TimeZoneInfo.ConvertTimeFromUtc(timeUtc, estZone);
@@ -814,6 +814,11 @@ namespace MaxVonGrafKftMobile.Views
                 Constants.IsHome = false;
                 Navigation.PushModalAsync(new ViewReservation(reservationModel.reservationData.Reservationview.ReserveId));
             }
+        }
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            Constants.IsHomeDetail = false;
         }
     }
 }

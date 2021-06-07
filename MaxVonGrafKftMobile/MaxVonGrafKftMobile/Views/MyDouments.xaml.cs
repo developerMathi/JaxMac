@@ -325,5 +325,11 @@ namespace MaxVonGrafKftMobile.Views
         {
             Navigation.PushModalAsync(new GalleryPage(otherDocs, "Other Documents"));
         }
+
+        protected override bool OnBackButtonPressed()
+        {
+            Navigation.PushModalAsync(new HomePage());
+            return base.OnBackButtonPressed();
+        }
     }
 }
