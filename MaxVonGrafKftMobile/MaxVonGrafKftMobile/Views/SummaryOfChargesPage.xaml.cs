@@ -301,7 +301,7 @@ namespace MaxVonGrafKftMobile.Views
 
                                 if(summaryMobileResponsecs.rate.ReservationSummary.PromoDiscount != null)
                                 {
-                                    DiscountEntry.Text = "[$" + summaryMobileResponsecs.rate.ReservationSummary.PromoDiscount.ToString() + "]";
+                                    DiscountEntry.Text = "[$" + (Convert.ToDecimal(summaryMobileResponsecs.rate.ReservationSummary.PromoDiscountOnBaseRate)+ Convert.ToDecimal(summaryMobileResponsecs.rate.ReservationSummary.PromoDiscountOnSubtotal)).ToString() + "]";
                                 }
                                 totalMisChargeEntry.Text = "$" + (Convert.ToDecimal(summaryMobileResponsecs.rate.ReservationSummary.TotacMiscNonTaxable) + Convert.ToDecimal(summaryMobileResponsecs.rate.ReservationSummary.TotacMiscTaxable)).ToString();
 
@@ -459,7 +459,7 @@ namespace MaxVonGrafKftMobile.Views
                 }
                 else if (cardDetails.Count == 0)
                 {
-                    await PopupNavigation.Instance.PushAsync(new Error_popup("You didn't add any credit card details. Please click ADD PAAYMENT METHOD button to add credit card details."));
+                    await PopupNavigation.Instance.PushAsync(new Error_popup("You didn't add any credit card details. Please click ADD PAYMENT METHOD button to add credit card details."));
                 }
                 else
                 {

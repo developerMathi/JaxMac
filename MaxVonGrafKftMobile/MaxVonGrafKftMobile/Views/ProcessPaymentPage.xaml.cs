@@ -33,8 +33,15 @@ namespace MaxVonGrafKftMobile.Views
         private AgreementReview agreementReview;
         SubmitPaymentAndExtendAgreementRequest submitPaymentAndExtendAgreementRequest;
         bool isExtendAgreement = false;
+        GetPromotionMobileRequest promotionMobileRequest;
+        GetPromotionMobileResponse promotionMobileResponse;
+        GetCalculateSummaryMobileRequest summaryMobileRequest;
+        GetCalculateSummaryMobileResponsecs summaryMobileResponsecs;
+        int appliedPromoId;
+        ExtendAgreementRequest extendAgreemetRequest;
+        private ExtendAgreementResponse extendAgreementResponse;
 
-        public ProcessPaymentPage(decimal balanceDue, int agreementId, int locationIdForPayment, AgreementReview agreementReview)
+        public ProcessPaymentPage(decimal balanceDue, int agreementId, int locationIdForPayment, AgreementReview agreementReview, ExtendAgreementRequest request)
         {
             InitializeComponent();
             this.balanceDue = balanceDue;
@@ -57,6 +64,11 @@ namespace MaxVonGrafKftMobile.Views
             {
                 isExtendAgreement = false;
             }
+            promotionMobileRequest = new GetPromotionMobileRequest();
+            promotionMobileResponse = null;
+            appliedPromoId = 0;
+            extendAgreemetRequest = request;
+            extendAgreementResponse = null;
 
         }
 
@@ -76,6 +88,11 @@ namespace MaxVonGrafKftMobile.Views
             submitPaymentAndUpDateReservationRequest = new SubmitPaymentAndUpDateReservationRequest();
             paynowBtn.Text = "Pay and extend now";
             isExtendAgreement = false;
+            promotionMobileRequest = new GetPromotionMobileRequest();
+            promotionMobileResponse = null;
+            summaryMobileRequest = new GetCalculateSummaryMobileRequest();
+            summaryMobileResponsecs = null;
+            appliedPromoId = 0;
         }
 
 
@@ -602,6 +619,275 @@ namespace MaxVonGrafKftMobile.Views
         private void addPaymentMethodBtn_Clicked(object sender, EventArgs e)
         {
             Navigation.PushModalAsync(new AddPaymentMethodPage());
+        }
+
+        async void PromoBtn_Clicked(System.Object sender, System.EventArgs e)
+        {
+            
+            if (!string.IsNullOrEmpty(promoCodeEntry.Text))
+            {
+                promotionMobileRequest.PromotionCode = promoCodeEntry.Text;
+                promotionMobileRequest.LocationId = !isExtendAgreement ? (int)reservationView.StartLocationId : 0;
+                promotionMobileRequest.VehicleTypeId = !isExtendAgreement ? (int)reservationView.VehicleTypeID : 0;
+
+                bool busy = false;
+                if (!busy)
+                {
+                    try
+                    {
+                        busy = true;
+                        await PopupNavigation.Instance.PushAsync(new LoadingPopup("Checking for promotion..."));
+                        ReservationController reservationController = new ReservationController();
+                        await Task.Run(() =>
+                        {
+                            try
+                            {
+                                promotionMobileResponse = reservationController.checkPromotion(promotionMobileRequest, token);
+                            }
+                            catch (Exception ex)
+                            {
+                                PopupNavigation.Instance.PushAsync(new ErrorWithClosePagePopup(ex.Message));
+                            }
+                        });
+                    }
+                    finally
+                    {
+                        busy = false;
+                        if (PopupNavigation.Instance.PopupStack.Count == 1)
+                        {
+                            await PopupNavigation.Instance.PopAllAsync();
+                        }
+                        if (PopupNavigation.Instance.PopupStack.Count > 1)
+                        {
+                            if (PopupNavigation.Instance.PopupStack[PopupNavigation.Instance.PopupStack.Count - 1].GetType() != typeof(ErrorWithClosePagePopup))
+                            {
+                                await PopupNavigation.Instance.PopAllAsync();
+                            }
+                        }
+
+
+                    }
+                    if (promotionMobileResponse.promotion == null)
+                    {
+                        await PopupNavigation.Instance.PushAsync(new Error_popup("Invalid promo code"));
+                    }
+                    else
+                    {
+                        if(promotionMobileResponse.promotion.StartDate<=DateTime.Now && DateTime.Now <= promotionMobileResponse.promotion.EndDate)
+                        {
+                            if (!isExtendAgreement)
+                            {
+                                if(reservationView.PromotionList== null)
+                                {
+                                    await PopupNavigation.Instance.PushAsync(new SuccessPopUp("Promo code has been applied successfully!"));
+                                    reservationView.PromotionList = new List<PromotionItem>();
+                                    applyReservationPromotion(promotionMobileResponse);
+                                }
+                                else
+                                {
+                                    var alreadyAppliedPromos = reservationView.PromotionList.FindAll(m => m.PromotionID == promotionMobileResponse.promotion.PromotionID);
+                                    if (alreadyAppliedPromos.Count > 0)
+                                    {
+                                        await PopupNavigation.Instance.PushAsync(new Error_popup("Invalid promo code"));
+                                    }
+                                    else
+                                    {
+                                        await PopupNavigation.Instance.PushAsync(new SuccessPopUp("Promo code has been applied successfully!"));
+                                        applyReservationPromotion(promotionMobileResponse);
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if(agreementReview.PromotionList != null)
+                                {
+                                    var alreadyAppliedAgreePromos = agreementReview.PromotionList.FindAll(m => m.PromotionID == promotionMobileResponse.promotion.PromotionID);
+                                    if (alreadyAppliedAgreePromos.Count > 0)
+                                    {
+                                        await PopupNavigation.Instance.PushAsync(new Error_popup("Invalid promo code"));
+                                    }
+                                    else
+                                    {
+                                        applyAgreementPromotion(promotionMobileResponse);
+                                    }
+                                }
+                                else
+                                {
+                                    applyAgreementPromotion(promotionMobileResponse);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            await PopupNavigation.Instance.PushAsync(new Error_popup("Invalid promo code"));
+                        }
+                        
+                    }
+                }
+            }
+
+        }
+
+        private void applyAgreementPromotion(GetPromotionMobileResponse promotionMobileResponse)
+        {
+            extendAgreemetRequest.addPromotion = new PromotionItem() { PromotionID = promotionMobileResponse.PromResult.PromotionID, PromotionDiscount = (decimal)promotionMobileResponse.PromResult.DiscountValue };
+            extendAgreemetRequest.deletePromotion = null;
+            promoTitileLabel.Text = promotionMobileResponse.promotion.PromotionCode;
+            promoDetailLabel.Text = "$" + promotionMobileResponse.promotion.DiscountValue.ToString("0.00");
+            appliedPromoId = promotionMobileResponse.PromResult.PromotionID;
+            hideAddPromotionGrid();
+            AgreementController controller = new AgreementController();
+            try
+            {
+
+                extendAgreementResponse = controller.extendAgreement(extendAgreemetRequest, token);
+                
+            }
+           
+            finally
+            {
+                if (extendAgreementResponse != null)
+                {
+                    if (extendAgreementResponse.message != null)
+                    {
+                        if (extendAgreementResponse.message.ErrorCode == "200")
+                        {
+                            
+                                balanceDue = (decimal)extendAgreementResponse.agreementReview.BalanceDue;
+                                agreementReview = extendAgreementResponse.agreementReview;
+                                amountLAbel.Text = "$ " + balanceDue.ToString("0.00");
+                            
+                        }
+                    }
+                }
+            }
+        }
+
+        private void applyReservationPromotion(GetPromotionMobileResponse promotionMobileResponse)
+        {
+            promoTitileLabel.Text = promotionMobileResponse.promotion.PromotionCode;
+            promoDetailLabel.Text = "$" + promotionMobileResponse.promotion.DiscountValue.ToString("0.00");
+            appliedPromoId = promotionMobileResponse.PromResult.PromotionID;
+            hideAddPromotionGrid();
+
+            reservationView.PromotionCode = promoCodeEntry.Text;
+            reservationView.PromotionList.Add(new PromotionItem() { PromotionID = promotionMobileResponse.PromResult.PromotionID, PromotionDiscount = (decimal)promotionMobileResponse.PromResult.DiscountValue });
+            summaryMobileRequest.reservation = reservationView;
+            try
+            {
+                try
+                {
+                    summaryMobileResponsecs = getSummaryDetails(summaryMobileRequest, token);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+            finally
+            {
+                //amountWantToPay
+                decimal amountWant = 0;
+                if (summaryMobileResponsecs.rate.ReservationSummary.EstimatedTotal == null) { amountWant = (decimal)summaryMobileResponsecs.rate.EstimatedTotal - reservationView.AdvancedPayment; }
+                else { amountWant = Convert.ToDecimal(summaryMobileResponsecs.rate.ReservationSummary.EstimatedTotal) - reservationView.AdvancedPayment; }
+                amountWantToPay = amountWant;
+
+                amountLAbel.Text = "$ " + amountWantToPay.ToString("0.00");
+            }
+        }
+
+        private GetCalculateSummaryMobileResponsecs getSummaryDetails(GetCalculateSummaryMobileRequest summaryMobileRequest, string token)
+        {
+            GetCalculateSummaryMobileResponsecs summaryResponse = null;
+            ReservationController controller = new ReservationController();
+            try
+            {
+                summaryResponse = controller.getSummaryDetails(summaryMobileRequest, token);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return summaryResponse;
+        }
+
+        async void promoDeleteBtn_Clicked(System.Object sender, System.EventArgs e)
+        {
+            if(appliedPromoId>0 && !isExtendAgreement)
+            {
+                reservationView.PromotionList = reservationView.PromotionList.FindAll(et => et.PromotionID != appliedPromoId);
+                summaryMobileRequest.reservation = reservationView;
+                try
+                {
+                    try
+                    {
+                        summaryMobileResponsecs = getSummaryDetails(summaryMobileRequest, token);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw ex;
+                    }
+                }
+                finally
+                {
+                    //amountWantToPay
+                    decimal amountWant = 0;
+                    if (summaryMobileResponsecs.rate.ReservationSummary.EstimatedTotal == null) { amountWant = (decimal)summaryMobileResponsecs.rate.EstimatedTotal - reservationView.AdvancedPayment; }
+                    else { amountWant = Convert.ToDecimal(summaryMobileResponsecs.rate.ReservationSummary.EstimatedTotal) - reservationView.AdvancedPayment; }
+                    amountWantToPay = amountWant;
+
+                    amountLAbel.Text = "$ " + amountWantToPay.ToString("0.00");
+                }
+            }
+            else if(appliedPromoId > 0 && isExtendAgreement)
+            {
+                extendAgreemetRequest.deletePromotion = new PromotionItem() { PromotionID = appliedPromoId};
+                extendAgreemetRequest.addPromotion = null;
+                AgreementController controller = new AgreementController();
+                try
+                {
+                    extendAgreementResponse = controller.extendAgreement(extendAgreemetRequest, token);
+
+                }
+
+                finally
+                {
+                    if (extendAgreementResponse != null)
+                    {
+                        if (extendAgreementResponse.message != null)
+                        {
+                            if (extendAgreementResponse.message.ErrorCode == "200")
+                            {
+
+                                balanceDue = (decimal)extendAgreementResponse.agreementReview.BalanceDue;
+                                agreementReview = extendAgreementResponse.agreementReview;
+                                amountLAbel.Text = "$ " + balanceDue.ToString("0.00");
+
+                            }
+                        }
+                    }
+                }
+            }
+
+            viewAddPromotionGrid();
+            
+        }
+        private void hideAddPromotionGrid()
+        {
+            iconDiscount.IsVisible = false;
+            promoCodeEntry.IsVisible = false;
+            PromoBtn.IsVisible = false;
+            addedPromotionFrame.IsVisible = true;
+        }
+
+        private void viewAddPromotionGrid()
+        {
+            iconDiscount.IsVisible = true;
+            promoCodeEntry.IsVisible = true;
+            PromoBtn.IsVisible = true;
+            addedPromotionFrame.IsVisible = false;
+            promoCodeEntry.Text = null;
         }
     }
 }

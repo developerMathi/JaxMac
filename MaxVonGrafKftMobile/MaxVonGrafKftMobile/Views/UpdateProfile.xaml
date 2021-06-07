@@ -1128,7 +1128,7 @@
 
                         <Label  FontFamily="Roboto-Medium"
                                 FontSize="Medium"
-                                Text="Licence number"
+                                Text="Driver's license number"
                                 TextColor="{StaticResource MaxVonBlack}"
                                 Grid.Row="18"
                                 VerticalOptions="End"
@@ -1211,7 +1211,6 @@
                                     Margin="10,0,0,0"
                                     FontFamily="Roboto-Medium"
                                     FontSize="Medium"
-                                    Placeholder="Postal Code"
                                     PlaceholderColor="{StaticResource MaxVonBlack}"
                                     TextColor="{StaticResource MaxVonBlack}" >
                                     <renders:CustomEntry.BackgroundColor>
@@ -1230,7 +1229,7 @@
 
                         <Label  FontFamily="Roboto-Medium"
                                 FontSize="Medium"
-                                Text="Driver's License expiry date"
+                                Text="Driver's license expiry date"
                                 TextColor="{StaticResource MaxVonBlack}"
                                 Grid.Row="22"
                                 VerticalOptions="End"
@@ -1361,7 +1360,7 @@
 
                         <Label  FontFamily="Roboto-Medium"
                                 FontSize="Medium"
-                                Text="Driver's License issue date"
+                                Text="Driver's license issue date"
                                 TextColor="{StaticResource MaxVonBlack}"
                                 Grid.Row="20"
                                 VerticalOptions="End"
@@ -1492,7 +1491,7 @@
 
                         <Label  FontFamily="Roboto-Medium"
                                 FontSize="Medium"
-                                Text="Licence issue state"
+                                Text="Driver's license issue state"
                                 TextColor="{StaticResource MaxVonBlack}"
                                 Grid.Row="24"
                                 VerticalOptions="End"

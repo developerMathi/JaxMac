@@ -2533,7 +2533,7 @@
                                             VerticalOptions="CenterAndExpand">
                                                         <Label
                                                 FontFamily="Roboto-Bold"
-                                                Text="Agreement no. :"
+                                                Text="Agr no. :"
                                                 TextColor="{StaticResource Black}">
                                                             <Label.FontSize>
                                                                 <OnPlatform x:TypeArguments="x:Double">
