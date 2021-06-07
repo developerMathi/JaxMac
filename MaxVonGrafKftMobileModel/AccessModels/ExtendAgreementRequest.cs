@@ -10,5 +10,8 @@ namespace MaxVonGrafKftMobileModel.AccessModels
     {
         public int agreementId { get; set; }
         public string extendDate { get; set; }
+
+        public PromotionItem addPromotion { get; set; }
+        public PromotionItem deletePromotion { get; set; }
     }
 }
