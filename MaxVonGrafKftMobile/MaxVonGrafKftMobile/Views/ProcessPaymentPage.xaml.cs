@@ -877,6 +877,7 @@ namespace MaxVonGrafKftMobile.Views
         {
             iconDiscount.IsVisible = false;
             promoCodeEntry.IsVisible = false;
+            promoCodeFrame.IsVisible = false;
             PromoBtn.IsVisible = false;
             addedPromotionFrame.IsVisible = true;
         }
@@ -888,6 +889,7 @@ namespace MaxVonGrafKftMobile.Views
             PromoBtn.IsVisible = true;
             addedPromotionFrame.IsVisible = false;
             promoCodeEntry.Text = null;
+            promoCodeFrame.IsVisible = true;
         }
     }
 }

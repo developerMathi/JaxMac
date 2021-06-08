@@ -226,8 +226,37 @@
                                  <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
 
+
+                            <Frame
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="2"
+                                Padding="10,0,0,0"
+                                BackgroundColor="Transparent"
+                                BorderColor="{StaticResource Black}"
+                                CornerRadius="5"
+                                HasShadow="False"
+                                x:Name="promoCodeFrame">
+                                <Frame.HeightRequest>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="iOS">
+                                            <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="45"
+                                                Tablet="55" />
+                                        </On>
+                                        <On Platform="Android,Windows">
+                                            <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="45"
+                                                Tablet="55" />
+                                        </On>
+                                    </OnPlatform>
+                                </Frame.HeightRequest>
+                            </Frame>
+
                             <ImageButton
-                                Margin="0,0,0,0"
+                                Margin="10,0,0,0"
                                 BackgroundColor="Transparent"
                                 Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconDiscount.png}"
                                 VerticalOptions="CenterAndExpand"

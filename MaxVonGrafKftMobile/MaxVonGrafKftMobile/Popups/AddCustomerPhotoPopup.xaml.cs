@@ -74,6 +74,12 @@ namespace MaxVonGrafKftMobile.Popups
             }
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            var results =  CrossPermissions.Current.RequestPermissionsAsync(new[] { Permission.Camera, Permission.Storage });
+        }
+
         private async void CameraBtn_Clicked(object sender, EventArgs e)
         {
             try
@@ -134,7 +140,7 @@ namespace MaxVonGrafKftMobile.Popups
             }
             catch (Exception ex)
             {
-                await PopupNavigation.Instance.PushAsync(new Error_popup(ex.Message));
+                //await PopupNavigation.Instance.PushAsync(new Error_popup(ex.Message));
             }
         }
 
@@ -190,7 +196,7 @@ namespace MaxVonGrafKftMobile.Popups
             }
             catch (Exception ex)
             {
-                await PopupNavigation.Instance.PushAsync(new Error_popup(ex.Message));
+                //await PopupNavigation.Instance.PushAsync(new Error_popup(ex.Message));
             }
         }
 
