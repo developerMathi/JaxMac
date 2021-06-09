@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace MaxVonGrafKftMobileModel
 {
+    
+    
     public class ReservationView : Reservation
     {
         public int? OwningLocationId { get; set; }
@@ -47,6 +49,8 @@ namespace MaxVonGrafKftMobileModel
         //public string ReservationType { get; set; }
         public int TempCustomerId { get; set; }
         public string ProductionName { get; set; }
+        public string StausName { get; set; }
+
 
         // datat string
         public string StartDateStr { get; set; }
@@ -67,6 +71,9 @@ namespace MaxVonGrafKftMobileModel
         [DisplayFormat(DataFormatString = "{0:C2}")]
         public decimal RateTotal { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:C2}")]
+        public decimal MiscChargeOldRate { get; set; }
+
         [DisplayFormat(DataFormatString = "{0:C}")]
         public decimal EstimatedTotal { get; set; }
 
@@ -82,6 +89,8 @@ namespace MaxVonGrafKftMobileModel
 
         [DisplayFormat(DataFormatString = "{0:C}")]
         public decimal TotalMischarge { get; set; }
+        [DisplayFormat(DataFormatString = "{0:C}")]
+        public decimal? PreSubTotal { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:C}")]
         public decimal SubTotal { get; set; }
@@ -98,6 +107,12 @@ namespace MaxVonGrafKftMobileModel
         [DisplayFormat(DataFormatString = "{0:C}")]
         public decimal PromotionDiscount { get; set; }
 
+
+        [DisplayFormat(DataFormatString = "{0:C}")]
+        public double AmountToPay { get; set; }
+        public string REmail { get; set; }
+        public DateTime DueDate { get; set; }
+        public string DueDateStr { get; set; }
         //***
         public string PromotionCode { get; set; }
         public bool IsNewCustomer { get; set; }
@@ -150,14 +165,20 @@ namespace MaxVonGrafKftMobileModel
         public int PromotionListId { get; set; }
 
         public List<PromotionItem> PromotionList { get; set; }
-
         [DisplayFormat(DataFormatString = "{0:C}")]
         public decimal TotalDiscount { get; set; }
+        [DisplayFormat(DataFormatString = "{0:C}")]
+        public decimal TotalDiscountOnBaseRate { get; set; }
+        [DisplayFormat(DataFormatString = "{0:C}")]
+        public decimal TotalDiscountOnSubTotal { get; set; }
 
         public bool isCompound { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:C}")]
-        public decimal SubDiscount { get; set; }
+        public decimal SubDiscountOnBaseRate { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:C}")]
+        public decimal SubDiscountOnSubtotal { get; set; }
 
         public int? BaseDailyKM { get; set; }
         public int? SubDailyKM { get; set; }
@@ -168,6 +189,7 @@ namespace MaxVonGrafKftMobileModel
         public int? BaseMonthlyKM { get; set; }
         public int? SubMonthlyKM { get; set; }
         public bool IsRateInfoEdited { get; set; }
+        public List<ReservationNote> AlertNote { get; set; }
         //-------------------------------------------------------
 
         public bool IsRedirectedReservation { get; set; }

@@ -470,6 +470,10 @@ namespace MaxVonGrafKftMobile.Views
                     //}
                     
                     reservationView.BasePrice = Convert.ToDecimal(summaryMobileResponsecs.rate.ReservationSummary.FinalBaseRate);
+                    reservationView.PreSubTotal = Convert.ToDecimal(summaryMobileResponsecs.rate.ReservationSummary.PreSubTotal);
+                    reservationView.TotalDiscountOnBaseRate = Convert.ToDecimal(summaryMobileResponsecs.rate.ReservationSummary.PromoDiscountOnBaseRate);
+                    reservationView.TotalDiscount = Convert.ToDecimal(summaryMobileResponsecs.rate.ReservationSummary.PromoDiscountOnBaseRate);
+                    reservationView.TotalDiscountOnSubTotal = Convert.ToDecimal(summaryMobileResponsecs.rate.ReservationSummary.PromoDiscountOnSubtotal);
                     reservationView.Status = (short)MaxVonGrafKftMobileModel.Constants.ReservationStatuses.Quote;
                     reservationView.StatusId = (short)MaxVonGrafKftMobileModel.Constants.ReservationStatuses.Quote;
                     ReservationMobileRequest.reversationData = reservationView;
@@ -511,6 +515,7 @@ namespace MaxVonGrafKftMobile.Views
                                     await PopupNavigation.Instance.PopAllAsync();
                                 }
                             }
+                            bookingEanable = false;
                             if (bookingEanable)
                             {
                                 SubmitPaymentDetails(ReservationMobileRequest);

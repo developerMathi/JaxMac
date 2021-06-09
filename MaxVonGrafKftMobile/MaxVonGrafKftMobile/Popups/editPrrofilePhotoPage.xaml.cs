@@ -226,6 +226,24 @@ namespace MaxVonGrafKftMobile.Popups
                             {
                                 PopupNavigation.Instance.PushAsync(new ErrorWithClosePagePopup(ex.Message));
                             }
+                            finally
+                            {
+                                if(imageMobileResponse != null)
+                                {
+                                    if(imageMobileResponse.message != null)
+                                    {
+                                        if (imageMobileResponse.message.ErrorCode == "200")
+                                        {
+                                            if (Constants.customerDetails.CustomerImages == null)
+                                            {
+                                                Constants.customerDetails.CustomerImages = new List<CustomerImages>();
+                                            }
+
+                                            Constants.customerDetails.CustomerImages.Add(new CustomerImages() { Base64 = _base64Image });
+                                        }
+                                    }
+                                }
+                            }
 
                         });
                     }

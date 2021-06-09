@@ -33,6 +33,7 @@ namespace MaxVonGrafKftMobileModel.AccessModels
         public bool isReservationDepositNull { get; set; } = true;
         public int? StateId { get; set; }
         public string CompanyName { get; set; }
+        public int? PaymentTerms { get; set; }
         public string SignatureImageUrl { get; set; }
         public List<string> SignatureImageUrls { get; set; }
         public string ZipCode { get; set; }
@@ -82,10 +83,13 @@ namespace MaxVonGrafKftMobileModel.AccessModels
         public string PromotionIssue { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:C}")]
-        public decimal TotalMischarge { get; set; }
+        public decimal TotalMiscCharge { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:C}")]
-        public decimal TotalMischargeWithOutTax { get; set; }
+        public decimal TotMisChargTaxable { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:C}")]
+        public decimal TotMisChargNonTaxable { get; set; }
         public string MaxLDWStr { get; set; }
         public string MaxTLDWStr { get; set; }
 
@@ -180,7 +184,7 @@ namespace MaxVonGrafKftMobileModel.AccessModels
         public int NoOfTerms { get; set; }
         public decimal? RentalFee { get; set; }
 
-        public decimal TotalMischargeTax { get; set; }
+        public decimal MiscChargeTax { get; set; }
         public bool IsAutoAuthorize { get; set; }
         public int IsReleaseAuthorize { get; set; }
         public CustomerReview AgreementCustomer { get; set; }
@@ -229,7 +233,9 @@ namespace MaxVonGrafKftMobileModel.AccessModels
         public int CreditCardYear { get; set; }
         public int CreditCardMonth { get; set; }
         // Gps
-
+        //public GetGpsCreatedGeoFenceListResponse FenceLists { get; set; }
+        //public List<GpsCreatedFenceList> GeoFencelist { get; set; }
+        //public List<GpsFenceList> GpsFenceLists { get; set; }
 
         //********* Insurance Details *********//
 
@@ -291,7 +297,10 @@ namespace MaxVonGrafKftMobileModel.AccessModels
         public decimal ExtraBaseCharge { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:C}")]
-        public decimal PromotionDiscount { get; set; }
+        public decimal PromotionDiscountOnBaseRate { get; set; }
+        [DisplayFormat(DataFormatString = "{0:C}")]
+        public decimal PromotionDiscountOnSubTotal { get; set; }
+
 
         [DisplayFormat(DataFormatString = "{0:C}")]
         public decimal WriteOffAmount { get; set; }
@@ -301,14 +310,20 @@ namespace MaxVonGrafKftMobileModel.AccessModels
         public int PromotionListId { get; set; }
 
         public List<PromotionItem> PromotionList { get; set; }
-
         [DisplayFormat(DataFormatString = "{0:C}")]
         public decimal TotalDiscount { get; set; }
+        [DisplayFormat(DataFormatString = "{0:C}")]
+        public decimal TotalDiscountOnBaseRate { get; set; }
+        [DisplayFormat(DataFormatString = "{0:C}")]
+        public decimal TotalDiscountOnSubTotal { get; set; }
 
         public bool isCompound { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:C}")]
-        public decimal SubDiscount { get; set; }
+        public decimal SubDiscountOnBaseRate { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:C}")]
+        public decimal SubDiscountOnSubtotal { get; set; }
 
         public int? BaseDailyKM { get; set; }
         public int? SubDailyKM { get; set; }
@@ -322,6 +337,7 @@ namespace MaxVonGrafKftMobileModel.AccessModels
         public bool IsRateInfoEdited { get; set; }
         //-------------------------------------------------------
 
+        public bool isUserAgree { get; set; }
         //Uss
         public bool isConAgreement { get; set; }
 
@@ -368,16 +384,51 @@ namespace MaxVonGrafKftMobileModel.AccessModels
 
         public NavotarDynamicAttribute navDynamicAttribute { get; set; }
 
-   
+        public List<TaxDetailsForMiscCharge> TaxDetailsForMiscChargeList { get; set; }
+        //public ReferralPayment ReferralPayment { get; set; }
         public decimal ReferralCommission { get; set; }
 
         public decimal InitialRateTotal { get; set; }
         public decimal FinalRateTotal { get; set; }
-        public decimal TotMisChargTaxable { get; set; }
-        public decimal TotMisChargNonTaxable { get; set; }
         // public decimal TotalTax { get; set; }
         public int SourceId { get; set; }
+        //public List<ScreenSetting> screenSeting { get; set; }
+        //public List<ScreenSetting> DeposscnSeting { get; set; }
+        public List<MiscChargeTaxModel> AllTaxsList { get; set; }
 
+        public DateTime ReservationCheckoutDate { get; set; }
+        public string ReservationCheckoutDateStr { get; set; }
+        public DateTime ReservationCheckInDate { get; set; }
+        public string ReservationCheckInDateStr { get; set; }
+        public List<CustomerAttributeViewModel> CustomerAttributes { get; set; }
+        public int TemplateId { get; set; }
+        public bool isSecurityDept { get; set; }
+
+
+        public int? checkoutState { get; set; }
+
+        public int? checkinstate { get; set; }
+
+        public int? ReturnState { get; set; }
+
+        //public AgreementLeaseExpense AgreementLeaseExpense { get; set; }
+
+        //public List<Inventory> AgreementInventoryList { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:C}")]
+        public decimal TotalAssetChargeTaxable { get; set; }
+        public decimal totalAssetTax { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:C}")]
+        public decimal TotalAssetChargeNonTaxable { get; set; }
+        public List<TaxDetailsForAsset> TaxDetailsForAssetsList { get; set; }
+        public List<string> ItemSelected { get; set; }
+
+        public string LiberkeeVoucherId { get; set; }
+
+        public string BarcodeImage { get; set; }
+
+        public string ApplicableTo { get; set; }
 
     }
 
@@ -442,3 +493,4 @@ namespace MaxVonGrafKftMobileModel.AccessModels
 
 
 }
+

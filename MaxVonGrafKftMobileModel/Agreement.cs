@@ -178,7 +178,7 @@ namespace MaxVonGrafKftMobileModel
 
         public decimal BaseCharge { get; set; }
 
-
+        public decimal InitialRateTotal { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:C}")]
         public decimal? KMCharge { get; set; }
@@ -190,7 +190,8 @@ namespace MaxVonGrafKftMobileModel
         [DisplayFormat(DataFormatString = "{0:C}")]
         public decimal PreAdjustment { get; set; }
 
-
+        [DisplayFormat(DataFormatString = "{0:C}")]
+        public decimal PreSubTotal { get; set; }
         [DisplayFormat(DataFormatString = "{0:C}")]
         public decimal SubTotal { get; set; }
 
@@ -292,6 +293,7 @@ namespace MaxVonGrafKftMobileModel
         public string RONo { get; set; }
 
         public string VoucherNo { get; set; }
+        public string Commission { get; set; }
 
         public bool IsPreAuthorized { get; set; }
 

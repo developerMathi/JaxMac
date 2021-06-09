@@ -300,7 +300,7 @@ namespace MaxVonGrafKftMobile.Views
                         billingInformation.PaymentInfo.AgreementId = agreementId;
                         billingInformation.PaymentInfo.PaymentType = "Advance Payment";
                         billingInformation.PaymentInfo.PaymentDate = DateTime.Now;
-                        billingInformation.PaymentInfo.PaymentDateStr = DateTime.Now.ToString("MM/dd/yyyy");
+                        billingInformation.PaymentInfo.PaymentDateStr = DateTime.Now.ToString("MM/dd/yyyy").Replace("-", "/");
                         billingInformation.PaymentInfo.PaymentMode = PaymentMode.Payment;
                         billingInformation.PaymentInfo.PaymentBy = Constants.customerDetails.FirstName;
                         ReservationController reservationController = new ReservationController();
@@ -425,7 +425,7 @@ namespace MaxVonGrafKftMobile.Views
                         billingInformation.PaymentInfo.AgreementId = agreementId;
                         billingInformation.PaymentInfo.PaymentType = "Advance Payment";
                         billingInformation.PaymentInfo.PaymentDate = DateTime.Now;
-                        billingInformation.PaymentInfo.PaymentDateStr = DateTime.Now.ToString("MM/dd/yyyy");
+                        billingInformation.PaymentInfo.PaymentDateStr = DateTime.Now.ToString("MM/dd/yyyy").Replace("-", "/");
                         billingInformation.PaymentInfo.PaymentMode = PaymentMode.Payment;
                         billingInformation.PaymentInfo.PaymentBy = Constants.customerDetails.FirstName;
                         ReservationController reservationController = new ReservationController();
@@ -486,6 +486,11 @@ namespace MaxVonGrafKftMobile.Views
                 {
                     if (selectedCard != null)
                     {
+
+                       
+
+
+
                         billingInformation.FirstName = Constants.customerDetails.FirstName;
                         billingInformation.LastName = Constants.customerDetails.LastName;
                         billingInformation.Email = Constants.customerDetails.Email;
@@ -772,6 +777,7 @@ namespace MaxVonGrafKftMobile.Views
 
             reservationView.PromotionCode = promoCodeEntry.Text;
             reservationView.PromotionList.Add(new PromotionItem() { PromotionID = promotionMobileResponse.PromResult.PromotionID, PromotionDiscount = (decimal)promotionMobileResponse.PromResult.DiscountValue });
+
             summaryMobileRequest.reservation = reservationView;
             try
             {
@@ -793,6 +799,13 @@ namespace MaxVonGrafKftMobile.Views
                 amountWantToPay = amountWant;
 
                 amountLAbel.Text = "$ " + amountWantToPay.ToString("0.00");
+
+
+                reservationView.BasePrice = Convert.ToDecimal(summaryMobileResponsecs.rate.ReservationSummary.FinalBaseRate);
+                reservationView.PreSubTotal = Convert.ToDecimal(summaryMobileResponsecs.rate.ReservationSummary.PreSubTotal);
+                reservationView.TotalDiscountOnBaseRate = Convert.ToDecimal(summaryMobileResponsecs.rate.ReservationSummary.PromoDiscountOnBaseRate);
+                reservationView.TotalDiscount = Convert.ToDecimal(summaryMobileResponsecs.rate.ReservationSummary.PromoDiscountOnBaseRate);
+                reservationView.TotalDiscountOnSubTotal = Convert.ToDecimal(summaryMobileResponsecs.rate.ReservationSummary.PromoDiscountOnSubtotal);
             }
         }
 
@@ -838,6 +851,12 @@ namespace MaxVonGrafKftMobile.Views
                     amountWantToPay = amountWant;
 
                     amountLAbel.Text = "$ " + amountWantToPay.ToString("0.00");
+
+                    reservationView.BasePrice = Convert.ToDecimal(summaryMobileResponsecs.rate.ReservationSummary.FinalBaseRate);
+                    reservationView.PreSubTotal = Convert.ToDecimal(summaryMobileResponsecs.rate.ReservationSummary.PreSubTotal);
+                    reservationView.TotalDiscountOnBaseRate = Convert.ToDecimal(summaryMobileResponsecs.rate.ReservationSummary.PromoDiscountOnBaseRate);
+                    reservationView.TotalDiscount = Convert.ToDecimal(summaryMobileResponsecs.rate.ReservationSummary.PromoDiscountOnBaseRate);
+                    reservationView.TotalDiscountOnSubTotal = Convert.ToDecimal(summaryMobileResponsecs.rate.ReservationSummary.PromoDiscountOnSubtotal);
                 }
             }
             else if(appliedPromoId > 0 && isExtendAgreement)
