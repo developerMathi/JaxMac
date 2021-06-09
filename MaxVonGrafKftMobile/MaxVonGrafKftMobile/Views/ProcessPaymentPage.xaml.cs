@@ -713,11 +713,13 @@ namespace MaxVonGrafKftMobile.Views
                                     }
                                     else
                                     {
+                                        await PopupNavigation.Instance.PushAsync(new SuccessPopUp("Promo code has been applied successfully!"));
                                         applyAgreementPromotion(promotionMobileResponse);
                                     }
                                 }
                                 else
                                 {
+                                    await PopupNavigation.Instance.PushAsync(new SuccessPopUp("Promo code has been applied successfully!"));
                                     applyAgreementPromotion(promotionMobileResponse);
                                 }
                             }
@@ -735,6 +737,7 @@ namespace MaxVonGrafKftMobile.Views
 
         private void applyAgreementPromotion(GetPromotionMobileResponse promotionMobileResponse)
         {
+
             extendAgreemetRequest.addPromotion = new PromotionItem() { PromotionID = promotionMobileResponse.PromResult.PromotionID, PromotionDiscount = (decimal)promotionMobileResponse.PromResult.DiscountValue,PromotionCode=promotionMobileResponse.promotion.PromotionCode };
             extendAgreemetRequest.deletePromotion = null;
             promoTitileLabel.Text = promotionMobileResponse.promotion.PromotionCode;

@@ -440,6 +440,7 @@ namespace MaxVonGrafKftMobile.Views
                         //}
 
                         reservationView.PromotionList.Add(new PromotionItem() { PromotionID = promotionMobileResponse.PromResult.PromotionID ,PromotionDiscount=(decimal)promotionMobileResponse.PromResult.DiscountValue,PromotionCode=promotionMobileResponse.promotion.PromotionCode});
+                        reservationView.PromotionID = promotionMobileResponse.PromResult.PromotionID;
                     }
                 }
             }

@@ -325,10 +325,6 @@ namespace MaxVonGrafKftMobile.Views
                                     totalAmountEntry.Text = "$" + summaryMobileResponsecs.rate.ReservationSummary.EstimatedTotal;
                                 }
 
-                                if (summaryMobileResponsecs.rate.ReservationSummary.PromotionList != null && reservationView.PromotionList!= null)
-                                {
-                                    reservationView.PromotionList = summaryMobileResponsecs.rate.ReservationSummary.PromotionList;
-                                }
 
                             }
                             else
