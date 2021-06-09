@@ -515,7 +515,6 @@ namespace MaxVonGrafKftMobile.Views
                                     await PopupNavigation.Instance.PopAllAsync();
                                 }
                             }
-                            bookingEanable = false;
                             if (bookingEanable)
                             {
                                 SubmitPaymentDetails(ReservationMobileRequest);
