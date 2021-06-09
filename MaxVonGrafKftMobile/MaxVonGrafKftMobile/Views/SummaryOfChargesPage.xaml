@@ -69,7 +69,7 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <ScrollView Grid.Row="0">
+                <ScrollView Grid.Row="0" VerticalOptions="StartAndExpand">
                     <StackLayout>
                         <Grid RowSpacing="20">
                             <Grid.RowDefinitions>
@@ -304,12 +304,12 @@
 
                             </Grid>
 
-                            <Grid Grid.Row="1">
+                            <Grid Grid.Row="1" VerticalOptions="StartAndExpand">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto" />
                                     <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
                                     <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
 
                                 </Grid.RowDefinitions>
                                 <Label
@@ -768,17 +768,17 @@
                                 ColumnSpacing="10"
                                 HorizontalOptions="Fill"
                                 RowSpacing="10" 
-                                    VerticalOptions="Fill">
+                                    VerticalOptions="StartAndExpand">
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="50" />
-                                        <RowDefinition Height="50" />
-                                        <RowDefinition Height="50" />
+                                        <RowDefinition Height="60" />
+                                        <RowDefinition Height="60" />
+                                        <RowDefinition Height="60" />
+                                        <RowDefinition Height="60" />
+                                        <RowDefinition Height="60" />
+                                        <RowDefinition Height="60" />
+                                        <RowDefinition Height="60" />
                                         <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="50" />
-                                        <RowDefinition Height="50" />
-                                        <RowDefinition Height="50" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="50" />
+                                        <RowDefinition Height="60" />
                                         <RowDefinition Height="80"/>
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
@@ -1793,6 +1793,7 @@
 
 
                             </Grid>
+                          
                         </Grid>
                     </StackLayout>
                 </ScrollView>
