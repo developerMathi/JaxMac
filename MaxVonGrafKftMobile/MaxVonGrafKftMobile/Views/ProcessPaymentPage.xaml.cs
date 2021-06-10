@@ -760,11 +760,21 @@ namespace MaxVonGrafKftMobile.Views
                     {
                         if (extendAgreementResponse.message.ErrorCode == "200")
                         {
-                            
-                                balanceDue = (decimal)extendAgreementResponse.agreementReview.BalanceDue;
-                                agreementReview = extendAgreementResponse.agreementReview;
-                                amountLAbel.Text = "$ " + balanceDue.ToString("0.00");
-                            
+                            balanceDue = (decimal)extendAgreementResponse.agreementReview.BalanceDue;
+                            if (balanceDue <= 0)
+                            {
+                                balanceDue = 0;
+                            }
+                            agreementReview = extendAgreementResponse.agreementReview;
+                            amountLAbel.Text = "$ " + balanceDue.ToString("0.00");
+                            foreach (PromotionItem p in extendAgreementResponse.agreementReview.PromotionList)
+                            {
+                                if (p.PromotionID == appliedPromoId)
+                                {
+                                    promoDetailLabel.Text = "$" + p.PromotionDiscount.ToString("0.00");
+                                }
+                            }
+
                         }
                     }
                 }
@@ -799,7 +809,16 @@ namespace MaxVonGrafKftMobile.Views
                 decimal amountWant = 0;
                 if (summaryMobileResponsecs.rate.ReservationSummary.EstimatedTotal == null) { amountWant = (decimal)summaryMobileResponsecs.rate.EstimatedTotal - reservationView.AdvancedPayment; }
                 else { amountWant = Convert.ToDecimal(summaryMobileResponsecs.rate.ReservationSummary.EstimatedTotal) - reservationView.AdvancedPayment; }
-                amountWantToPay = amountWant;
+
+                if (amountWant > 0)
+                {
+                    amountWantToPay = amountWant;
+                }
+                else
+                {
+                    amountWantToPay = 0;
+                }
+               
 
                 amountLAbel.Text = "$ " + amountWantToPay.ToString("0.00");
 
