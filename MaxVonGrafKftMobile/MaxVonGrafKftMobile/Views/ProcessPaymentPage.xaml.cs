@@ -804,6 +804,16 @@ namespace MaxVonGrafKftMobile.Views
                 amountLAbel.Text = "$ " + amountWantToPay.ToString("0.00");
 
 
+
+                foreach(PromotionItem p in summaryMobileResponsecs.rate.ReservationSummary.PromotionList)
+                {
+                    if (p.PromotionID == appliedPromoId)
+                    {
+                        promoDetailLabel.Text = "$" + p.PromotionDiscount.ToString("0.00");
+                    }
+                }
+
+
                 reservationView.BasePrice = Convert.ToDecimal(summaryMobileResponsecs.rate.ReservationSummary.FinalBaseRate);
                 reservationView.PreSubTotal = Convert.ToDecimal(summaryMobileResponsecs.rate.ReservationSummary.PreSubTotal);
                 reservationView.TotalDiscountOnBaseRate = Convert.ToDecimal(summaryMobileResponsecs.rate.ReservationSummary.PromoDiscountOnBaseRate);

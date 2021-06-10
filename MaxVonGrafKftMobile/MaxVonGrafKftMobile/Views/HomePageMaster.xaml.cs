@@ -161,36 +161,44 @@ namespace MaxVonGrafKftMobile.Views
                 return;
             else if (item.Id == 0)
             {
+                Common.mMasterPage.IsPresented = false;
                 Navigation.PushModalAsync(new HomePage());
             }
             else if (item.Id == 1)
             {
+                Common.mMasterPage.IsPresented = false;
                 ReservationView reservation = new ReservationView();
                 Navigation.PushModalAsync(new VehicleDetailPage(reservation));
 
             }
             else if (item.Id == 2)
             {
+                Common.mMasterPage.IsPresented = false;
                 Navigation.PushModalAsync(new MyRentals());
             }
             else if (item.Id == 4)
             {
+                Common.mMasterPage.IsPresented = false;
                 Navigation.PushModalAsync(new HelpFunnelPage());
             }
             else if (item.Id == 3)
             {
+                Common.mMasterPage.IsPresented = false;
                 Navigation.PushModalAsync(new PaymentMethodPage());
             }
             else if (item.Id == 5)
             {
+                Common.mMasterPage.IsPresented = false;
                 Navigation.PushModalAsync(new MyProfile());
             }
             else if (item.Id == 7)
             {
+                Common.mMasterPage.IsPresented = false;
                 Navigation.PushModalAsync(new NavigationPage(new MyDouments()));
             }
             else if (item.Id == 8)
             {
+                Common.mMasterPage.IsPresented = false;
                 Navigation.PushModalAsync(new ChatListPage());
             }
             else if (item.Id == 6)
