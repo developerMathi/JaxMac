@@ -139,10 +139,10 @@ namespace MaxVonGrafKftMobile.Views
                             agreementIDlabel.Text = agreement.AgreementDetail.AgreementNumber;
                             string statusString = Enum.GetName(typeof(AgreementStatusConst), agreement.AgreementDetail.Status);
                             statusLabel.Text = statusString;
-                            CheckInLocation.Text = "Pivet Atlanta 2244 Metropolitan Pkwy SW, Atlanta, GA 30315ss";
+                            CheckInLocation.Text = "Pivet Atlanta 2244 Metropolitan Pkwy SW, Atlanta, GA 30315";
                             CheckInDate.Text = agreement.AgreementDetail.CheckoutDate.ToString("MM/dd/yyyy hh:mm tt");
                             CheckOutLocation.Text = "Pivet Atlanta 2244 Metropolitan Pkwy SW, Atlanta, GA 30315";
-                            CheckOutDate.Text = agreement.AgreementDetail.CheckinDate.ToString("MM/dd/yyyy hh:mm tt");
+                            CheckOutDate.Text = agreement.AgreementDetail.ReturnDate == null ? agreement.AgreementDetail.CheckinDate.ToString("MM/dd/yyyy hh:mm tt") :( (DateTime)agreement.AgreementDetail.ReturnDate).ToString("MM/dd/yyyy hh:mm tt");
                             CreateDate.Text = ((DateTime)agreement.AgreementDetail.CreatedDate).ToString("dddd, MM/dd/yyyy");
                             vehicleEntry.Text = agreement.AgreementDetail.Year + " " + agreement.AgreementDetail.VehicleMakeName + " " + agreement.AgreementDetail.ModelName;
                             VehicleType.Text = agreement.AgreementDetail.VehicleType;
@@ -159,7 +159,7 @@ namespace MaxVonGrafKftMobile.Views
 
                             NoOfDays.Text = agreement.AgreementDetail.TotalDays.ToString();
                             TotalRentalFee.Text = "$" + ((decimal)agreement.AgreementTotal.BaseCharge).ToString("0.##");
-                            Discount.Text = "$" + ((decimal)agreement.AgreementDetail.TotalDiscount).ToString("0.##");
+                            Discount.Text = "$" + ((decimal)agreement.AgreementDetail.PromotionDiscountOnBaseRate+(decimal)agreement.AgreementDetail.PromotionDiscountOnSubTotal).ToString("0.##");
                             if (agreement.AgreementTotal.TotalMiscCharge == null)
                             {
                                 agreement.AgreementTotal.TotalMiscCharge = 0;

@@ -776,6 +776,14 @@ namespace MaxVonGrafKftMobile.Views
                                 }
                             }
 
+                            int ordNo = 1;
+                            foreach (PromotionItem p1 in agreementReview.PromotionList)
+                            {
+                                p1.PromotionListId = ordNo;
+                                ordNo += 1;
+
+                            }
+
                         }
                     }
                 }
