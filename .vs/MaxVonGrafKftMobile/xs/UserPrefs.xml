@@ -2,24 +2,27 @@
   <MonoDevelop.Ide.ItemProperties.MaxVonGrafKftMobile.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.09790DE8-E8E6-42B6-BBEF-CF25B8809F67" />
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="MaxVonGrafKftMobile/MaxVonGrafKftMobile/Views/ViewReservation.xaml.cs" Line="371" Column="1" />
-      <File FileName="MaxVonGrafKftMobile/MaxVonGrafKftMobile/Views/ProcessPaymentPage.xaml.cs" Line="769" Column="29" />
-      <File FileName="MaxVonGrafKftMobileController/ReservationController.cs" Line="238" Column="71" />
+      <File FileName="MaxVonGrafKftMobile/MaxVonGrafKftMobile/Popups/ExtendPopup.xaml.cs" Line="531" Column="1" />
+      <File FileName="MaxVonGrafKftMobile/MaxVonGrafKftMobile/Views/ProcessPaymentPage.xaml.cs" Line="830" Column="39" />
       <File FileName="MaxVonGrafKftMobileServices/ApiService/ReservationService.cs" Line="206" Column="1" />
-      <File FileName="MaxVonGrafKftMobile/MaxVonGrafKftMobile/Views/SummaryOfChargesPage.xaml.cs" Line="752" Column="62" />
+      <File FileName="MaxVonGrafKftMobileController/AgreementController.cs" Line="168" Column="51" />
+      <File FileName="MaxVonGrafKftMobileServices/ApiService/AgreementService.cs" Line="169" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="MaxVonGrafKftMobile" expanded="True">
             <Node name="MaxVonGrafKftMobile" expanded="True">
+              <Node name="Popups" expanded="True">
+                <Node name="ExtendPopup.xaml" expanded="True" />
+              </Node>
               <Node name="Views" expanded="True" selected="True">
                 <Node name="ProcessPaymentPage.xaml" expanded="True" />
                 <Node name="SummaryOfChargesPage.xaml" expanded="True" />
-                <Node name="ViewReservation.xaml" expanded="True" />
               </Node>
             </Node>
             <Node name="MaxVonGrafKftMobileController" expanded="True" />
+            <Node name="MaxVonGrafKftMobileModel" expanded="True" />
             <Node name="MaxVonGrafKftMobileServices" expanded="True">
               <Node name="ApiService" expanded="True" />
             </Node>
@@ -34,6 +37,10 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobileServices/ApiService/ReservationService.cs" relfile="MaxVonGrafKftMobileServices/ApiService/ReservationService.cs" line="206" column="1" />
+      <Breakpoint file="/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile/Popups/ExtendPopup.xaml.cs" relfile="MaxVonGrafKftMobile/MaxVonGrafKftMobile/Popups/ExtendPopup.xaml.cs" line="438" column="1" />
+      <Breakpoint file="/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile/Popups/ExtendPopup.xaml.cs" relfile="MaxVonGrafKftMobile/MaxVonGrafKftMobile/Popups/ExtendPopup.xaml.cs" line="531" column="1" />
+      <Breakpoint file="/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobile/MaxVonGrafKftMobile/Popups/ExtendPopup.xaml.cs" relfile="MaxVonGrafKftMobile/MaxVonGrafKftMobile/Popups/ExtendPopup.xaml.cs" line="530" column="1" />
+      <Breakpoint file="/Users/mathi_navotar/Projects/JaxMac/MaxVonGrafKftMobileServices/ApiService/AgreementService.cs" relfile="MaxVonGrafKftMobileServices/ApiService/AgreementService.cs" line="169" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />

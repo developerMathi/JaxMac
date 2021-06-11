@@ -767,6 +767,7 @@ namespace MaxVonGrafKftMobile.Views
                             }
                             agreementReview = extendAgreementResponse.agreementReview;
                             amountLAbel.Text = "$ " + balanceDue.ToString("0.00");
+                            
                             foreach (PromotionItem p in extendAgreementResponse.agreementReview.PromotionList)
                             {
                                 if (p.PromotionID == appliedPromoId)
@@ -823,9 +824,18 @@ namespace MaxVonGrafKftMobile.Views
                 amountLAbel.Text = "$ " + amountWantToPay.ToString("0.00");
 
 
-
-                foreach(PromotionItem p in summaryMobileResponsecs.rate.ReservationSummary.PromotionList)
+                int ordNo = 1;
+                foreach (PromotionItem p1 in reservationView.PromotionList)
                 {
+                    p1.PromotionListId = ordNo;
+                    ordNo += 1;
+                    
+                }
+
+
+                foreach (PromotionItem p in summaryMobileResponsecs.rate.ReservationSummary.PromotionList)
+                {
+                   
                     if (p.PromotionID == appliedPromoId)
                     {
                         promoDetailLabel.Text = "$" + p.PromotionDiscount.ToString("0.00");
